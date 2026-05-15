@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH CID 14 | HIV Clinical Case Management</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#fdf4f4;font-family:'Crimson Pro',serif;color:#2d1a1a;font-size:14px;line-height:1.5;}
+  .page{max-width:900px;margin:0 auto;padding:18px;}
+  .header{background:#791F1F;color:#fff;border-radius:10px 10px 0 0;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;}
+  .header-left .tag{font-family:'JetBrains Mono',monospace;font-size:10px;background:rgba(255,255,255,0.2);padding:2px 8px;border-radius:20px;letter-spacing:1px;}
+  .header-left h1{font-size:20px;font-weight:700;margin-top:4px;}
+  .header-left h1 span{font-size:12px;font-weight:400;opacity:0.8;margin-left:8px;}
+  .header-right{font-family:'JetBrains Mono',monospace;font-size:10px;text-align:right;opacity:0.8;}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);border:1.5px solid #e8c4c4;border-top:none;}
+  .stat{background:#f5dcdc;padding:10px 12px;text-align:center;border-right:1px solid #e8c4c4;}
+  .stat:last-child{border-right:none;}
+  .stat-val{font-family:'JetBrains Mono',monospace;font-size:17px;font-weight:700;color:#791F1F;}
+  .stat-lab{font-size:10px;color:#5a2a2a;margin-top:1px;}
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;}
+  .card{background:#fff;border:1.5px solid #e8c4c4;border-radius:8px;padding:12px;}
+  .card h3{font-size:12px;font-weight:700;color:#791F1F;text-transform:uppercase;letter-spacing:0.8px;border-bottom:1px solid #f5dcdc;padding-bottom:5px;margin-bottom:8px;}
+  .card li{font-size:12.5px;color:#3a1a1a;line-height:1.65;margin-bottom:2px;}
+  .card ul{padding-left:14px;}
+  .tbl-wrap{margin-top:10px;}
+  table{width:100%;border-collapse:collapse;font-size:11.5px;}
+  thead th{background:#791F1F;color:#fff;padding:7px 10px;text-align:left;font-weight:600;}
+  tbody tr:nth-child(odd){background:#fdf4f4;}
+  tbody tr:nth-child(even){background:#f5dcdc;}
+  tbody td{padding:5px 9px;border-bottom:1px solid #e8c4c4;vertical-align:top;}
+  td strong{color:#791F1F;}
+  .trap-h{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:#791F1F;letter-spacing:1px;margin:12px 0 6px;padding:4px 10px;background:#f5dcdc;border-left:4px solid #791F1F;border-radius:0 4px 4px 0;}
+  .trap-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .trap{background:#fff;border:1.5px solid #e8c4c4;border-radius:6px;padding:9px 11px 9px 28px;font-size:12px;position:relative;}
+  .trap::before{content:"⚠";position:absolute;left:9px;top:8px;font-size:13px;color:#791F1F;}
+  .pills{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;}
+  .pill{background:#791F1F;color:#fff;font-size:10px;padding:3px 10px;border-radius:20px;font-family:'JetBrains Mono',monospace;}
+  .pill.light{background:#f5dcdc;color:#791F1F;}
+  .footer{margin-top:10px;padding:8px 12px;background:#f5dcdc;border:1px solid #e8c4c4;border-radius:6px;font-size:11px;color:#5a2a2a;display:flex;justify-content:space-between;align-items:center;}
+  .btn{font-size:10px;padding:3px 10px;border-radius:20px;border:1.5px solid #791F1F;color:#791F1F;background:#fff;font-family:'JetBrains Mono',monospace;}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="header-left">
+      <div class="tag">CID · 14/34 · HIV</div>
+      <h1>Clinical Case Management <span>기회감염 진단·치료</span></h1>
+    </div>
+    <div class="header-right">DGH KBA · 창 B<br>Blueprint 40%</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-val">CD4&lt;200</div><div class="stat-lab">PCP 위험 역치</div></div>
+    <div class="stat"><div class="stat-val">CD4&lt;100</div><div class="stat-lab">Crypto·Toxo 위험</div></div>
+    <div class="stat"><div class="stat-val">2주</div><div class="stat-lab">IRIS 발생 시점 (ART 후)</div></div>
+    <div class="stat"><div class="stat-val">TMP-SMX</div><div class="stat-lab">1차 OI 예방 약제</div></div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <h3>기회감염 — 호흡기</h3>
+      <ul>
+        <li><strong>PCP</strong> (P. jirovecii): 아급성 호흡곤란, 마른기침, LDH↑, CXR 미만성 간유리음영; 1차: TMP-SMX 고용량 21일 ± Prednisolone(PaO₂&lt;70)</li>
+        <li><strong>Pulmonary TB</strong>: Stage 3; 아프리카 가장 흔한 OI; smear, GeneXpert</li>
+        <li><strong>CMV pneumonitis</strong>: CD4&lt;50, Ganciclovir</li>
+        <li><strong>Bacterial pneumonia</strong>: 재발 시 Stage 3; S.pneumoniae 흔함</li>
+        <li>PCP 예방: TMP-SMX DS 1정/일 (CD4&lt;200 or Stage 3/4)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>기회감염 — 신경계·전신</h3>
+      <ul>
+        <li><strong>Toxoplasma 뇌병증</strong>: CD4&lt;100; 다발 환상증강 병변; 1차: Pyrimethamine+Sulfadiazine+Leucovorin; 2차 예방: 동일약 저용량</li>
+        <li><strong>Cryptococcal meningitis</strong>: CD4&lt;100; India ink (+); Ag검사 탁월; 유도: AmB B+Flucytosine 2주 → 공고: Fluconazole 8주</li>
+        <li><strong>CMV retinitis</strong>: CD4&lt;50; 시야장애·부유물; IV Ganciclovir</li>
+        <li><strong>MAC</strong>: CD4&lt;50; 전신 발열·체중감소; Azithromycin+Ethambutol</li>
+        <li><strong>Kaposi sarcoma</strong>: HHV-8; 피부 보라빛 결절; ART로 일부 회복</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>OI</th><th>CD4 기준</th><th>1차 치료</th><th>ART 시작 시점</th></tr></thead>
+      <tbody>
+        <tr><td><strong>PCP</strong></td><td>&lt;200</td><td>TMP-SMX 고용량 21일</td><td>2주 이내 (중증 제외)</td></tr>
+        <tr><td><strong>Toxoplasmosis</strong></td><td>&lt;100</td><td>Pyri+Sulfa+Leucovorin 6주</td><td>2~3주 후 (IRIS 위험 낮음)</td></tr>
+        <tr><td><strong>Crypto meningitis</strong></td><td>&lt;100</td><td>AmB+5FC 유도 → Fluco 공고</td><td>4~6주 후 지연 (IRIS 사망 위험↑)</td></tr>
+        <tr><td><strong>TB (대부분)</strong></td><td>모든 CD4</td><td>RHZE 2달 + RH 4달</td><td>CD4&lt;50: 2주, &gt;50: 8주</td></tr>
+        <tr><td><strong>CMV retinitis</strong></td><td>&lt;50</td><td>IV Ganciclovir → Valganciclovir 유지</td><td>가능한 빨리</td></tr>
+        <tr><td><strong>MAC</strong></td><td>&lt;50</td><td>Azithromycin+Ethambutol ± Rifabutin</td><td>2주 이내</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="trap-h">⚠ EXAM TRAPS × 4</div>
+  <div class="trap-grid">
+    <div class="trap"><strong>Cryptococcal meningitis에서 ART를 즉시 시작하면 안 됨.</strong> 4~6주 지연이 원칙 — IRIS로 인한 뇌압 상승→사망 위험. 다른 OI와 반대 원칙이라 함정으로 자주 출제.</div>
+    <div class="trap"><strong>Toxo vs Lymphoma 감별</strong>: Toxo는 다발 병변·항체 양성·empirical치료 반응; CNS Lymphoma는 단일병변·EBV DNA (+)·Thallium SPECT 섭취↑. 자원 제한 환경에선 Toxo 우선 치료 시도.</div>
+    <div class="trap"><strong>PCP에 Prednisolone 추가</strong>: PaO₂&lt;70mmHg 또는 A-a gradient&gt;35 기준. 스테로이드가 중증 PCP에서 생존율 향상 — 모든 PCP에 주는 게 아님.</div>
+    <div class="trap"><strong>IRIS (면역재구성 염증반응)</strong>: ART 후 2주~수개월, 기존 OI가 악화되는 역설적 반응. Paradoxical IRIS (기존 감염 악화) vs Unmasking IRIS (잠복 감염 현현). 치료: NSAID, 중증 시 Prednisolone.</div>
+  </div>
+
+  <div class="pills">
+    <span class="pill">TMP-SMX = 만능 예방제</span>
+    <span class="pill">Crypto = ART 지연 유일</span>
+    <span class="pill light">IRIS: ART 후 2주 내</span>
+    <span class="pill light">Toxo: 경험적 치료 먼저</span>
+    <span class="pill">CD4&lt;50 = MAC·CMV 위험</span>
+    <span class="pill">KS: ART만으로도 회복 가능</span>
+  </div>
+
+  <div class="footer">
+    <span>📚 WHO Advanced HIV Disease Guidelines 2021 · Oxford TropMed 5e</span>
+    <div class="footer-nav">
+      <span class="btn">← 13 Epidemics</span>
+      <span class="btn">15 Treatment →</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

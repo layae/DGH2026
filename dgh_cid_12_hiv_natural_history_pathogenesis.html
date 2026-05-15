@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH CID 12 | HIV Natural History & Pathogenesis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#fdf4f4;font-family:'Crimson Pro',serif;color:#2d1a1a;font-size:14px;line-height:1.5;}
+  .page{max-width:900px;margin:0 auto;padding:18px;}
+
+  /* HEADER */
+  .header{background:#791F1F;color:#fff;border-radius:10px 10px 0 0;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;}
+  .header-left .tag{font-family:'JetBrains Mono',monospace;font-size:10px;background:rgba(255,255,255,0.2);padding:2px 8px;border-radius:20px;letter-spacing:1px;}
+  .header-left h1{font-size:20px;font-weight:700;margin-top:4px;}
+  .header-left h1 span{font-size:12px;font-weight:400;opacity:0.8;margin-left:8px;}
+  .header-right{font-family:'JetBrains Mono',monospace;font-size:10px;text-align:right;opacity:0.8;}
+
+  /* STATS BAR */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1.5px solid #e8c4c4;border-top:none;border-radius:0;}
+  .stat{background:#f5dcdc;padding:10px 12px;text-align:center;border-right:1px solid #e8c4c4;}
+  .stat:last-child{border-right:none;}
+  .stat-val{font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:700;color:#791F1F;}
+  .stat-lab{font-size:10px;color:#5a2a2a;margin-top:1px;}
+
+  /* MAIN GRID */
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;}
+  .card{background:#fff;border:1.5px solid #e8c4c4;border-radius:8px;padding:12px;}
+  .card h3{font-size:12px;font-weight:700;color:#791F1F;text-transform:uppercase;letter-spacing:0.8px;border-bottom:1px solid #f5dcdc;padding-bottom:5px;margin-bottom:8px;}
+  .card p,.card li{font-size:12.5px;color:#3a1a1a;line-height:1.6;}
+  .card ul{padding-left:14px;}
+  .card li{margin-bottom:2px;}
+
+  /* TABLE */
+  .tbl-wrap{margin-top:10px;}
+  table{width:100%;border-collapse:collapse;font-size:12px;}
+  thead th{background:#791F1F;color:#fff;padding:7px 10px;text-align:left;font-weight:600;}
+  tbody tr:nth-child(odd){background:#fdf4f4;}
+  tbody tr:nth-child(even){background:#f5dcdc;}
+  tbody td{padding:6px 10px;border-bottom:1px solid #e8c4c4;vertical-align:top;}
+  td strong{color:#791F1F;}
+
+  /* TRAPS */
+  .trap-h{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:#791F1F;letter-spacing:1px;margin:12px 0 6px;padding:4px 10px;background:#f5dcdc;border-left:4px solid #791F1F;border-radius:0 4px 4px 0;}
+  .trap-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .trap{background:#fff;border:1.5px solid #e8c4c4;border-radius:6px;padding:9px 11px;font-size:12px;position:relative;padding-left:28px;}
+  .trap::before{content:"⚠";position:absolute;left:9px;top:8px;font-size:13px;color:#791F1F;}
+
+  /* PILLS */
+  .pills{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;}
+  .pill{background:#791F1F;color:#fff;font-size:10px;padding:3px 10px;border-radius:20px;font-family:'JetBrains Mono',monospace;letter-spacing:0.5px;}
+  .pill.light{background:#f5dcdc;color:#791F1F;}
+
+  /* FOOTER */
+  .footer{margin-top:10px;padding:8px 12px;background:#f5dcdc;border:1px solid #e8c4c4;border-radius:6px;font-size:11px;color:#5a2a2a;display:flex;justify-content:space-between;align-items:center;}
+  .footer-nav{display:flex;gap:8px;}
+  .btn{font-size:10px;padding:3px 10px;border-radius:20px;border:1.5px solid #791F1F;color:#791F1F;background:#fff;cursor:pointer;font-family:'JetBrains Mono',monospace;}
+  kbd{background:#791F1F;color:#fff;padding:1px 5px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:10px;}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="header-left">
+      <div class="tag">CID · 12/34 · HIV</div>
+      <h1>Natural History & Pathogenesis <span>of HIV</span></h1>
+    </div>
+    <div class="header-right">DGH KBA · 창 B<br>Blueprint 40%</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-val">~10¹⁰</div><div class="stat-lab">바이러스 입자/일 생산</div></div>
+    <div class="stat"><div class="stat-val">200</div><div class="stat-lab">CD4 AIDS 정의 기준 (cells/μL)</div></div>
+    <div class="stat"><div class="stat-val">8–10yr</div><div class="stat-lab">무치료 시 AIDS 진행 중위기간</div></div>
+    <div class="stat"><div class="stat-val">HIV-1 M</div><div class="stat-lab">전 세계 유행 주요 아형</div></div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <h3>바이러스 생물학 핵심</h3>
+      <ul>
+        <li><strong>Retrovirus</strong>: RNA → DNA (역전사효소)</li>
+        <li>Envelope: gp120(CD4 결합) + gp41(막 융합)</li>
+        <li>CCR5 co-receptor: 초기 전파 우세 (M-tropic)</li>
+        <li>CXCR4 co-receptor: 질병 진행 후 등장 (T-tropic)</li>
+        <li>Integrase → proviral DNA ← 면역 기억 세포에 잠복</li>
+        <li>HIV-2: 서아프리카 국한, 진행 느림, NRTI 일부 내성</li>
+        <li>아형 분류: Group M(A~K), N, O, P</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>자연 경과 3단계</h3>
+      <ul>
+        <li><strong>① Acute HIV (2~4주)</strong>: Viral load 폭등, CD4 급락, mono-like syndrome; 진단 놓치기 쉬움</li>
+        <li><strong>② Chronic/Asymptomatic</strong>: 평균 8~10년, CD4 서서히 감소 (~50/yr), viral set point이 예후 결정</li>
+        <li><strong>③ AIDS</strong>: CD4 &lt;200 또는 AIDS-defining illness</li>
+        <li>Elite controllers (~0.5%): viral load 억제 — HLA-B57/B27 관련</li>
+        <li>Long-term non-progressors: CD4 유지, 드물게 자연 조절</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>WHO 임상 병기</th><th>CD4 목표</th><th>대표 임상 소견</th><th>DGH 핵심 포인트</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Stage 1</strong></td><td>정상~↓</td><td>무증상, PGL(전신 림프절비대)</td><td>PGL = painless, symmetric</td></tr>
+        <tr><td><strong>Stage 2</strong></td><td>보통 &gt;350</td><td>경미 체중감소(&lt;10%), 재발 구강궤양, 대상포진, 비루관염, 지루성 피부염</td><td>Seborrhoeic dermatitis: DGH 자주 출제</td></tr>
+        <tr><td><strong>Stage 3</strong></td><td>보통 200~350</td><td>체중감소(&gt;10%), 지속 발열/설사, 구강칸디다, 구강모세포백반증(OHL), 폐TB, 혈구감소증</td><td>OHL = HIV 특이적 (EB바이러스 관련)</td></tr>
+        <tr><td><strong>Stage 4 (AIDS)</strong></td><td>&lt;200</td><td>PCP, 뇌 Toxoplasmosis, CMV, 크립토코쿠스 뇌막염, Kaposi육종, 비전형 마이코박테리아, HIV소모증후군, 뇌병증</td><td>Extrapulmonary TB = Stage 4 (≠ pulmonary TB=Stage 3)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="trap-h">⚠ EXAM TRAPS × 4</div>
+  <div class="trap-grid">
+    <div class="trap"><strong>Pulmonary TB</strong>는 WHO Stage 3, <strong>Extrapulmonary TB</strong>는 Stage 4. 샘플 Q9 정답(B) 직결. "Advanced HIV" 문제에서 혼동 유발.</div>
+    <div class="trap"><strong>구강칸디다(OHL 아님)</strong>는 Stage 3. OHL은 측면 혀에 하얀 주름 형태이며 긁혀도 제거 안 됨 — Candida와 감별 필수.</div>
+    <div class="trap">Acute HIV에서 HIV Ab 검사 <strong>위음성</strong> 가능 (window period). p24 Ag 또는 RNA PCR이 조기 진단. 4th gen Ag/Ab combo 권장.</div>
+    <div class="trap">CCR5 antagonist(Maraviroc) 사용 전 <strong>tropism assay</strong> 필수. CXCR4-tropic 바이러스에는 무효 — 처방 전 반드시 확인.</div>
+  </div>
+
+  <div class="pills">
+    <span class="pill">SSA 성인 유병률 3~5%</span>
+    <span class="pill">MTCT 30% 무치료</span>
+    <span class="pill light">WHO Stage 3 = ART 시작 기준 (과거)</span>
+    <span class="pill light">현재: CD4 무관 진단 즉시</span>
+    <span class="pill">Set point viral load → 예후 결정</span>
+    <span class="pill">HIV-2 자연 내성: NNRTIs</span>
+  </div>
+
+  <div class="footer">
+    <span>📚 Oxford TropMed 5e Ch.5 · WHO Clinical Staging 2007</span>
+    <div class="footer-nav">
+      <span class="btn">← 11 TB Children</span>
+      <span class="btn">13 HIV Epidemics →</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

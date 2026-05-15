@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH CID 05 · Malaria Vaccination</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap');
+  :root { --hdr:#791F1F; --hdr2:#9B2C2C; --bg:#fdf4f4; --border:#e8c4c4; --accent:#f5dcdc; --accent2:#fce8e8; --text:#2d1515; --muted:#7a4040; --white:#ffffff; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Noto Sans KR',sans-serif; background:var(--bg); color:var(--text); font-size:11.5px; line-height:1.55; padding:18px; max-width:900px; margin:0 auto; }
+  .header { background:linear-gradient(135deg,var(--hdr) 0%,var(--hdr2) 60%,#7B2020 100%); color:var(--white); border-radius:10px 10px 0 0; padding:14px 20px 12px; display:flex; justify-content:space-between; align-items:flex-start; }
+  .header-left .tag { font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:2px; opacity:0.75; text-transform:uppercase; margin-bottom:4px; }
+  .header-left h1 { font-family:'Crimson Pro',serif; font-size:22px; font-weight:700; }
+  .header-left .subtitle { font-size:10.5px; opacity:0.8; margin-top:2px; }
+  .header-right { text-align:right; font-family:'JetBrains Mono',monospace; font-size:9px; opacity:0.7; line-height:1.6; }
+  .stats-bar { background:var(--hdr); display:grid; grid-template-columns:repeat(4,1fr); border-left:3px solid var(--hdr2); border-right:3px solid var(--hdr2); }
+  .stat { padding:8px 12px; color:var(--white); border-right:1px solid rgba(255,255,255,0.15); text-align:center; }
+  .stat:last-child { border-right:none; }
+  .stat-val { font-family:'Crimson Pro',serif; font-size:19px; font-weight:700; display:block; line-height:1.1; }
+  .stat-lbl { font-size:9px; opacity:0.78; letter-spacing:0.5px; }
+  .body-wrap { border:1.5px solid var(--border); border-top:none; border-radius:0 0 10px 10px; padding:14px 16px 12px; background:var(--white); }
+  .sec-title { font-family:'Crimson Pro',serif; font-size:13px; font-weight:700; color:var(--hdr); border-bottom:1.5px solid var(--border); padding-bottom:3px; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.8px; }
+  .g2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px; }
+  .g3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:10px; }
+  .card { background:var(--bg); border:1px solid var(--border); border-radius:7px; padding:9px 11px; }
+  .card-title { font-size:10px; font-weight:700; color:var(--hdr); text-transform:uppercase; letter-spacing:0.6px; margin-bottom:5px; padding-bottom:3px; border-bottom:1px solid var(--border); }
+  .card ul { padding-left:13px; }
+  .card li { margin-bottom:2px; font-size:11px; }
+  .card li strong { color:var(--hdr); }
+  table { width:100%; border-collapse:collapse; margin-bottom:10px; font-size:10.5px; }
+  th { background:var(--hdr); color:var(--white); padding:5px 8px; text-align:left; font-size:10px; font-weight:600; }
+  td { padding:4px 8px; border-bottom:1px solid var(--border); vertical-align:top; }
+  tr:nth-child(even) td { background:var(--accent2); }
+  .badge { display:inline-block; padding:1px 6px; border-radius:10px; font-size:9px; font-weight:700; font-family:'JetBrains Mono',monospace; }
+  .badge-red { background:#fee2e2; color:#991b1b; }
+  .badge-green { background:#d1fae5; color:#065f46; }
+  .badge-yellow { background:#fef3c7; color:#92400e; }
+  .trap-h { background:linear-gradient(90deg,var(--hdr) 0%,var(--hdr2) 100%); color:var(--white); padding:5px 12px; border-radius:5px 5px 0 0; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-top:10px; }
+  .trap-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; border:1.5px solid var(--border); border-top:none; border-radius:0 0 7px 7px; overflow:hidden; margin-bottom:10px; }
+  .trap { padding:8px 11px; border-right:1px solid var(--border); border-bottom:1px solid var(--border); background:var(--white); position:relative; }
+  .trap:nth-child(even) { border-right:none; }
+  .trap:nth-child(3),.trap:nth-child(4) { border-bottom:none; }
+  .trap-num { font-family:'Crimson Pro',serif; font-size:22px; font-weight:700; color:var(--accent); position:absolute; top:4px; right:8px; }
+  .trap-q { font-size:10px; font-weight:700; color:var(--hdr); margin-bottom:3px; padding-right:20px; }
+  .trap-a { font-size:10.5px; }
+  .trap-a strong { color:var(--hdr); }
+  .pills { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:10px; }
+  .pill { background:var(--accent); border:1px solid var(--border); color:var(--hdr); border-radius:20px; padding:3px 10px; font-size:10px; font-weight:600; }
+  .pill-dark { background:var(--hdr); color:var(--white); border-color:var(--hdr); }
+  .highlight { background:#fff3cd; padding:1px 4px; border-radius:3px; font-weight:700; }
+  .red { color:#991b1b; font-weight:700; }
+  .footer { background:var(--accent); border:1px solid var(--border); border-radius:6px; padding:7px 12px; display:flex; justify-content:space-between; align-items:center; margin-top:8px; flex-wrap:wrap; gap:5px; }
+  .footer-note { font-size:10px; color:var(--muted); }
+  .footer-btns { display:flex; gap:6px; }
+  .footer-btn { background:var(--hdr); color:var(--white); border:none; border-radius:4px; padding:4px 10px; font-size:9.5px; font-weight:700; cursor:pointer; font-family:'JetBrains Mono',monospace; }
+
+  /* Vaccine comparison cards */
+  .vax-compare { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px; }
+  .vax-card { border-radius:8px; overflow:hidden; border:2px solid var(--hdr); }
+  .vax-header { background:var(--hdr); color:var(--white); padding:7px 12px; }
+  .vax-header .vax-name { font-family:'Crimson Pro',serif; font-size:18px; font-weight:700; }
+  .vax-header .vax-sub { font-size:9.5px; opacity:0.85; }
+  .vax-body { padding:9px 12px; background:var(--white); }
+  .vax-body table { margin-bottom:0; }
+  .vax-body th { font-size:9px; padding:3px 6px; }
+  .vax-body td { font-size:10px; padding:3px 6px; }
+
+  /* Schedule diagram */
+  .schedule { display:flex; align-items:center; gap:0; margin-bottom:10px; }
+  .sch-item { flex:1; text-align:center; position:relative; }
+  .sch-dot { width:28px; height:28px; border-radius:50%; background:var(--hdr); color:var(--white); font-family:'Crimson Pro',serif; font-size:14px; font-weight:700; display:flex; align-items:center; justify-content:center; margin:0 auto 4px; }
+  .sch-label { font-size:9.5px; font-weight:700; color:var(--hdr); }
+  .sch-sub { font-size:9px; color:var(--muted); }
+  .sch-line { flex:none; width:30px; height:2px; background:var(--border); margin-top:14px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <div class="tag">DGH KBA · CID-05 · Clinical Infectious Diseases · Malaria</div>
+    <h1>Malaria Vaccination</h1>
+    <div class="subtitle">RTS,S/AS01 (Mosquirix) · R21/Matrix-M · WHO 권고 · 접종 일정 · 한계</div>
+  </div>
+  <div class="header-right">RCP Diploma in Global Health<br>Blueprint 40% — CID<br>Oxford HTM 5e · WHO 2023</div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat"><span class="stat-val">2021</span><span class="stat-lbl">RTS,S WHO 권고 (역사적)</span></div>
+  <div class="stat"><span class="stat-val">~39%</span><span class="stat-lbl">RTS,S 중증말라리아 예방 효과</span></div>
+  <div class="stat"><span class="stat-val">2023</span><span class="stat-lbl">R21/Matrix-M WHO 승인</span></div>
+  <div class="stat"><span class="stat-val">~75%</span><span class="stat-lbl">R21 임상시험 효능 (Phase 3)</span></div>
+</div>
+
+<div class="body-wrap">
+
+  <div class="sec-title">💉 두 백신 비교 — RTS,S vs R21</div>
+  <div class="vax-compare">
+    <div class="vax-card">
+      <div class="vax-header">
+        <div class="vax-name">RTS,S/AS01 (Mosquirix)</div>
+        <div class="vax-sub">GSK 개발 · PATH · 2021 WHO 권고</div>
+      </div>
+      <div class="vax-body">
+        <table>
+          <tr><th>항목</th><th>내용</th></tr>
+          <tr><td>표적</td><td>P. falciparum circumsporozoite protein (CSP)</td></tr>
+          <tr><td>접종 대상</td><td>5–17개월 소아</td></tr>
+          <tr><td>일정</td><td>3회 + booster (4차) 18개월</td></tr>
+          <tr><td>효과 (4회)</td><td>임상 말라리아 ~39%, 중증 ~32%</td></tr>
+          <tr><td>내구성</td><td>3~4년 후 효과 감소</td></tr>
+          <tr><td>승인</td><td>WHO 2021 · 아프리카 서브사하라</td></tr>
+          <tr><td>공급</td><td>GAVI 지원 · 수요 대비 공급 부족</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="vax-card">
+      <div class="vax-header">
+        <div class="vax-name">R21/Matrix-M</div>
+        <div class="vax-sub">Oxford-Serum Institute · Novavax adjuvant · 2023 WHO 권고</div>
+      </div>
+      <div class="vax-body">
+        <table>
+          <tr><th>항목</th><th>내용</th></tr>
+          <tr><td>표적</td><td>CSP (RTS,S보다 높은 CSP 비율)</td></tr>
+          <tr><td>접종 대상</td><td>5–36개월 소아</td></tr>
+          <tr><td>일정</td><td>3회 + booster (4차)</td></tr>
+          <tr><td>효과 (계절성)</td><td>임상 말라리아 ~75–80% (계절 지역)</td></tr>
+          <tr><td>내구성</td><td>추적 데이터 축적 중</td></tr>
+          <tr><td>승인</td><td>WHO 2023 · 저비용 대량 생산 가능</td></tr>
+          <tr><td>공급</td><td>Serum Institute 대량 생산 가능</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCHEDULE -->
+  <div class="sec-title">📅 RTS,S 접종 일정 (WHO 권고)</div>
+  <div class="schedule">
+    <div class="sch-item">
+      <div class="sch-dot">1</div>
+      <div class="sch-label">5개월</div>
+      <div class="sch-sub">1차 접종</div>
+    </div>
+    <div class="sch-line"></div>
+    <div class="sch-item">
+      <div class="sch-dot">2</div>
+      <div class="sch-label">+1개월</div>
+      <div class="sch-sub">2차 접종</div>
+    </div>
+    <div class="sch-line"></div>
+    <div class="sch-item">
+      <div class="sch-dot">3</div>
+      <div class="sch-label">+2개월</div>
+      <div class="sch-sub">3차 접종</div>
+    </div>
+    <div class="sch-line"></div>
+    <div class="sch-item">
+      <div class="sch-dot">4</div>
+      <div class="sch-label">18개월</div>
+      <div class="sch-sub">Booster (4차)</div>
+    </div>
+    <div class="sch-line"></div>
+    <div class="sch-item">
+      <div class="sch-dot" style="background:#b45309;">?</div>
+      <div class="sch-label">추가 부스터</div>
+      <div class="sch-sub">연구 중</div>
+    </div>
+  </div>
+
+  <!-- MECHANISM & CONTEXT -->
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">작용 기전 (CSP 표적)</div>
+      <ul>
+        <li><strong>sporozoite</strong> 단계 표적 — 간 침투 전 차단</li>
+        <li>Circumsporozoite Protein (CSP) → 항체 형성</li>
+        <li>간 내 schizogony 방해 → 혈액기 도달 전 제거</li>
+        <li>완전 멸균 면역 아님 → 일부 돌파 감염</li>
+        <li>T-cell 매개 간 단계 면역도 관여</li>
+        <li>기존 백신보다 효능 낮은 이유: 기생충 복잡성</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">백신 한계 & 과제</div>
+      <ul>
+        <li>효능 <span class="highlight">39–75%</span> — 소아마비(95%), 홍역(97%)보다 낮음</li>
+        <li>면역 지속 제한 → 반복 부스터 필요</li>
+        <li>P. falciparum만 표적 — Vivax 비적용</li>
+        <li>콜드체인 의존 → LMIC 배포 어려움</li>
+        <li><strong>LLIN + IPTp + 백신</strong> 조합 전략 필요</li>
+        <li>비용효과: DALY 당 $30~100 (아프리카 맥락)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PILOT vs ROLLOUT -->
+  <div class="sec-title">📊 시범접종 → 전국 도입</div>
+  <div class="g3">
+    <div class="card">
+      <div class="card-title">Pilot Programme (2019~2023)</div>
+      <ul>
+        <li>가나, 케냐, 말라위 3개국</li>
+        <li>230만+ 소아 접종</li>
+        <li>효과 재확인: 말라리아 입원 30% 감소</li>
+        <li>사망률 감소 실제 데이터 축적</li>
+        <li>WHO: 2021년 전 아프리카 권고 결정</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">전국 도입 (2023~)</div>
+      <ul>
+        <li>GAVI, CEPI, 아프리카 연합 지원</li>
+        <li>2030년까지 18개 아프리카국 목표</li>
+        <li>R21: 공급 확대 → RTS,S 공급 부족 보완</li>
+        <li>EPI 프로그램 통합 배포</li>
+        <li>SMC·LLIN과 병행 전략</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">향후 파이프라인</div>
+      <ul>
+        <li>혈액기 백신 연구 (merozoite 표적)</li>
+        <li>전파 차단 백신 (TBV) — Pfs25 등</li>
+        <li>mRNA 기반 말라리아 백신 (BioNTech)</li>
+        <li>다단계 복합 백신 개발 중</li>
+        <li>Vivax 전용 백신 — 초기 단계</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="trap-h">⚠️ 시험 함정 TRAP × 4</div>
+  <div class="trap-grid">
+    <div class="trap">
+      <div class="trap-num">01</div>
+      <div class="trap-q">RTS,S가 최초·유일한 말라리아 백신?</div>
+      <div class="trap-a"><strong>구식.</strong> <strong>R21/Matrix-M</strong>이 2023년 WHO 추가 권고. R21이 효능 더 높고 (75%+ vs 39%) 대량 생산 가능. DGH 시험에서 최신 권고 구별 필수.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-num">02</div>
+      <div class="trap-q">RTS,S → Vivax 말라리아에도 효과?</div>
+      <div class="trap-a"><strong>NO.</strong> RTS,S와 R21 모두 <strong>P. falciparum CSP만</strong> 표적. Vivax에는 효과 없음. Vivax 예방은 여전히 LLIN·Primaquine 의존.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-num">03</div>
+      <div class="trap-q">말라리아 백신 → LLIN·IPTp 대체 가능?</div>
+      <div class="trap-a"><strong>NO.</strong> WHO는 <strong>보완적 도구</strong>로 권고. 효능 제한 + 단기 지속 → 백신만으로는 말라리아 퇴치 불가. LLIN+IPTp+ACT+백신 = 통합 전략.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-num">04</div>
+      <div class="trap-q">RTS,S 3회 접종으로 완료?</div>
+      <div class="trap-a"><strong>NO.</strong> WHO 권고 <strong>4회 (3회 + 18개월 Booster).</strong> 3회만으로는 효과 지속 짧음. Booster 없으면 효능 현저히 감소. 접종 일정 암기 필수.</div>
+    </div>
+  </div>
+
+  <div class="sec-title">🌍 Global Health 관점</div>
+  <div class="pills">
+    <span class="pill pill-dark">RTS,S = 인류 최초 승인 기생충 백신</span>
+    <span class="pill">GAVI Alliance 재원 → 저소득국 무상</span>
+    <span class="pill">R21 대량 생산 → 공급 병목 해소</span>
+    <span class="pill">백신 = SDG 3.3 달성 핵심 도구</span>
+    <span class="pill">EPI 통합 → 배포 효율화</span>
+    <span class="pill">mRNA 차세대 백신 — 게임체인저?</span>
+    <span class="pill">기후변화 → 백신 범위 확대 필요</span>
+  </div>
+
+  <div class="footer">
+    <div class="footer-note">📚 Oxford HTM 5e Ch.3 · WHO Malaria Vaccine Position Papers 2021/2023 · GAVI · RCP DGH KBA Blueprint</div>
+    <div class="footer-btns">
+      <button class="footer-btn" onclick="window.print()">🖨 PRINT</button>
+      <button class="footer-btn" style="background:var(--hdr2)">→ CID-06: TB Epidemiology</button>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

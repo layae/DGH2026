@@ -1,0 +1,241 @@
+<meta charset="UTF-8">
+
+<h2 class="sr-only">DGH KBA - NCD: Poisonings 스터디 노트</h2>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.page{width:100%;font-family:var(--font-sans);font-size:12.5px;line-height:1.55;color:var(--color-text-primary);padding:1.1rem 1.2rem 1.4rem}
+.page-header{display:flex;align-items:flex-start;justify-content:space-between;border-bottom:2px solid #27500A;padding-bottom:8px;margin-bottom:10px}
+.topic-tag{font-size:10px;font-weight:500;background:#EAF3DE;color:#27500A;padding:3px 9px;border-radius:999px;margin-bottom:4px;display:inline-block}
+.title{font-size:20px;font-weight:500;color:var(--color-text-primary);line-height:1.2}
+.subtitle{font-size:11px;color:var(--color-text-secondary);margin-top:2px}
+.badge-group{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.badge{font-size:10px;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.b-green{background:#EAF3DE;color:#27500A}
+.b-red{background:#FCEBEB;color:#791F1F}
+.b-amber{background:#FAEEDA;color:#633806}
+
+/* stats */
+.stat-row{display:flex;gap:6px;margin-bottom:8px}
+.stat{flex:1;background:#EAF3DE;border-radius:var(--border-radius-md);padding:6px 8px;text-align:center}
+.stat-num{font-size:16px;font-weight:500;color:#27500A;display:block}
+.stat-lbl{font-size:10px;color:#3B6D11}
+
+/* layout */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 10px}
+.card-full{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 10px;margin-bottom:8px}
+.sec-label{font-size:10px;font-weight:500;letter-spacing:.04em;color:var(--color-text-secondary);margin-bottom:5px;display:flex;align-items:center;gap:5px}
+
+/* rows */
+.row{display:flex;gap:5px;align-items:baseline;margin-bottom:3px}
+.dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.d-green{background:#3B6D11}.d-red{background:#E24B4A}.d-amber{background:#BA7517}
+.d-blue{background:#378ADD}.d-teal{background:#1D9E75}.d-gray{background:#888780}
+.d-purple{background:#7F77DD}.d-coral{background:#D85A30}
+.kw{font-weight:500}
+
+/* toxidrome table */
+.tbl{width:100%;border-collapse:collapse;font-size:11px}
+.tbl th{background:#EAF3DE;color:#27500A;font-weight:500;padding:4px 6px;text-align:left;font-size:10px}
+.tbl td{padding:3.5px 6px;border-bottom:0.5px solid var(--color-border-tertiary);vertical-align:top;line-height:1.4}
+.tbl tr:last-child td{border-bottom:none}
+
+/* pills */
+.pill{display:inline-block;padding:1px 7px;border-radius:999px;font-size:10px;margin:1px 2px 1px 0}
+.p-green{background:#EAF3DE;color:#27500A}
+.p-red{background:#FCEBEB;color:#791F1F}
+.p-amber{background:#FAEEDA;color:#633806}
+.p-teal{background:#E1F5EE;color:#085041}
+.p-blue{background:#E6F1FB;color:#0C447C}
+.p-gray{background:#F1EFE8;color:#444441}
+.p-coral{background:#FAECE7;color:#712B13}
+.p-purple{background:#EEEDFE;color:#26215C}
+
+/* antidote highlight */
+.antidote{background:#E1F5EE;border:0.5px solid #72C9A8;border-radius:var(--border-radius-sm);padding:1px 6px;font-size:11px;font-weight:500;color:#085041}
+
+/* steps */
+.step-row{display:flex;gap:6px;margin-bottom:4px;align-items:flex-start}
+.step-num{width:18px;height:18px;border-radius:50%;background:#3B6D11;color:#EAF3DE;font-size:10px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+
+/* exam */
+.exam-card{background:#FCEBEB;border:0.5px solid #F09595;border-radius:var(--border-radius-md);padding:8px 10px;margin-bottom:8px}
+.exam-label{font-size:10px;font-weight:500;color:#791F1F;margin-bottom:4px;display:flex;align-items:center;gap:5px}
+.trap-card{background:#FAEEDA;border:0.5px solid #EF9F27;border-radius:var(--border-radius-md);padding:7px 10px;margin-bottom:4px}
+.trap-label{font-size:10px;font-weight:500;color:#633806;margin-bottom:2px}
+
+.footnote{font-size:10px;color:var(--color-text-tertiary);margin-top:8px;border-top:0.5px solid var(--color-border-tertiary);padding-top:5px}
+</style>
+
+<div class="page">
+
+  <!-- Header -->
+  <div class="page-header">
+    <div>
+      <div class="topic-tag">NCD · 10% of KBA</div>
+      <div class="title">Poisonings — 중독</div>
+      <div class="subtitle">농약·약물·식물·일산화탄소·알코올 중독 — Oxford Handbook Tropical Medicine 5e · WHO · Toxbase</div>
+    </div>
+    <div class="badge-group">
+      <span class="badge b-green">DGH KBA</span>
+      <span class="badge b-red">농약 중독 = LMIC 핵심</span>
+      <span class="badge b-amber">시험 출제빈도 ★★★</span>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stat-row">
+    <div class="stat"><span class="stat-num">~110K</span><span class="stat-lbl">농약 중독 연간 사망 (전 세계)</span></div>
+    <div class="stat"><span class="stat-num">3위</span><span class="stat-lbl">자살 수단 — LMIC에서 농약 중독</span></div>
+    <div class="stat"><span class="stat-num">91K</span><span class="stat-lbl">아편류 과다복용 연간 사망</span></div>
+    <div class="stat"><span class="stat-num">~2M</span><span class="stat-lbl">연간 독성물질 노출 보고 (미국 기준)</span></div>
+  </div>
+
+  <!-- Toxidrome Table — 핵심 -->
+  <div class="card-full">
+    <div class="sec-label">독성증후군 (Toxidrome) 감별 — 시험 핵심 구분</div>
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>Toxidrome</th>
+          <th>동공</th>
+          <th>심박/혈압</th>
+          <th>체온/땀</th>
+          <th>장음/기타</th>
+          <th>대표 원인</th>
+          <th>해독제</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="pill p-red">Cholinergic</span><br><small>SLUDGE/DUMBELS</small></td>
+          <td>축동 (miosis)</td>
+          <td>서맥 ↓BP</td>
+          <td>발한↑ 체온↓</td>
+          <td>장음↑ 분비↑ 기관지경련</td>
+          <td>유기인제, 카바메이트 농약, 신경작용제</td>
+          <td><span class="antidote">Atropine</span> + <span class="antidote">Pralidoxime</span></td>
+        </tr>
+        <tr>
+          <td><span class="pill p-amber">Anticholinergic</span><br><small>"Mad as hatter"</small></td>
+          <td>산동 (mydriasis)</td>
+          <td>빈맥 ↑BP</td>
+          <td>발한↓ 체온↑ 피부건조·홍조</td>
+          <td>장음↓ 요폐 섬망</td>
+          <td>항히스타민, TCA, Atropine 과용, 독말풀(Datura)</td>
+          <td><span class="antidote">Physostigmine</span> (선택적)</td>
+        </tr>
+        <tr>
+          <td><span class="pill p-purple">Opioid</span></td>
+          <td>핀포인트 축동</td>
+          <td>서맥 ↓BP</td>
+          <td>체온↓ 발한±</td>
+          <td>장음↓ 호흡억제 의식↓</td>
+          <td>Morphine, Heroin, Codeine, Tramadol</td>
+          <td><span class="antidote">Naloxone</span> 0.4mg IV/IM/IN 반복</td>
+        </tr>
+        <tr>
+          <td><span class="pill p-blue">Sympathomimetic</span></td>
+          <td>산동</td>
+          <td>빈맥 ↑BP</td>
+          <td>발한↑ 체온↑</td>
+          <td>장음↑ 초조 경련</td>
+          <td>Cocaine, Amphetamine, Ephedrine, Theophylline</td>
+          <td>지지치료, Benzodiazepine (경련)</td>
+        </tr>
+        <tr>
+          <td><span class="pill p-teal">Sedative-Hypnotic</span></td>
+          <td>정상~경미 축동</td>
+          <td>서맥 ↓BP</td>
+          <td>체온↓</td>
+          <td>반사↓ 의식↓ 호흡억제</td>
+          <td>Benzodiazepine, Barbiturate, Alcohol</td>
+          <td><span class="antidote">Flumazenil</span> (BZD만, 주의)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- LMIC Big 4 + General approach -->
+  <div class="grid2">
+    <div class="card">
+      <div class="sec-label">LMIC 핵심 중독 4가지</div>
+
+      <div class="row"><div class="dot d-red"></div><span><span class="kw">① 유기인제 (Organophosphate):</span> 가장 흔한 LMIC 중독 사망 원인 — 농약 자해, 직업성 노출. Cholinergic toxidrome. Atropine 대량 투여(증상 조절까지), Pralidoxime (24시간 내 효과).</span></div>
+
+      <div class="row"><div class="dot d-amber"></div><span><span class="kw">② Paraquat (제초제):</span> 소량으로도 치명적 — 폐섬유화 진행. 산소 투여 금기 (ROS 증폭). 위세척 + Fuller's earth/활성탄. 사망률 50-90%.</span></div>
+
+      <div class="row"><div class="dot d-green"></div><span><span class="kw">③ 식물독 (Plant poisoning):</span> Oleander(협죽도) → Digoxin유사 독성 (서맥·고K); Datura(독말풀) → Anticholinergic; Castor bean(피마자) → Ricin.</span></div>
+
+      <div class="row"><div class="dot d-blue"></div><span><span class="kw">④ CO 중독:</span> 실내 바이오매스·발전기 — LMIC 가정 내 주요 원인. Cherry-red skin (사후 소견, 임상에서 드묾). 치료: 100% O₂, HBO 고려.</span></div>
+    </div>
+
+    <div class="card">
+      <div class="sec-label">일반 접근법 — ABCDE + 4단계</div>
+      <div class="step-row"><div class="step-num">1</div><span><span class="kw">안정화:</span> ABCDE — 기도·호흡·순환 우선. Toxidrome 파악 → 해독제 결정</span></div>
+      <div class="step-row"><div class="step-num">2</div><span><span class="kw">Decontamination:</span><br>
+        · 피부: 옷 제거 + 물 세척 (의료진 PPE 착용 먼저)<br>
+        · 경구: <span class="kw">활성탄 1g/kg</span> (1시간 내, 기도 보호 확인 후)<br>
+        · 위세척: 1시간 내 대량 섭취 시 (의식 명료할 때만)</span></div>
+      <div class="step-row"><div class="step-num">3</div><span><span class="kw">해독제 투여:</span> 독소 확인 후 특이 해독제 → 표 참조</span></div>
+      <div class="step-row"><div class="step-num">4</div><span><span class="kw">Enhanced elimination:</span><br>
+        · Urinary alkalinisation (Salicylate, TCA)<br>
+        · 반복 활성탄 (Theophylline, Carbamazepine)<br>
+        · 혈액투석 (Methanol, Ethylene glycol, Lithium, Salicylate)</span></div>
+
+      <div style="margin-top:6px">
+        <div class="row"><div class="dot d-coral"></div><span><span class="kw">Methanol/Ethylene glycol:</span> 음이온 간격 대사성 산증 + 삼투압 간격↑. 해독제: <span class="antidote">Fomepizole</span> (없으면 Ethanol IV)</span></div>
+        <div class="row"><div class="dot d-gray"></div><span><span class="kw">Paracetamol 과다:</span> 초기 무증상 → 간부전 48-72h. <span class="antidote">N-Acetylcysteine</span> — Rumack-Matthew 기준으로 적응 결정</span></div>
+        <div class="row"><div class="dot d-purple"></div><span><span class="kw">Iron 중독 (소아):</span> 위장→잠복→쇼크→간부전. <span class="antidote">Desferrioxamine</span> (중증)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exam traps -->
+  <div class="exam-card">
+    <div class="exam-label">시험 핵심 포인트 & 자주 나오는 함정</div>
+    <div class="grid2" style="margin-bottom:0">
+      <div>
+        <div class="trap-card">
+          <div class="trap-label">함정 ①  Paraquat + 산소</div>
+          <span>Paraquat 중독 시 고농도 O₂ 투여 → 활성산소 증폭 → 폐섬유화 가속. 산소 투여는 금기 (SpO₂ 극도로 낮을 때만 최소량). "호흡부전 → O₂ 투여"는 이 경우 오답.</span>
+        </div>
+        <div class="trap-card">
+          <div class="trap-label">함정 ②  Paracetamol — 초기 증상 없음</div>
+          <span>과다복용 후 첫 24시간은 무증상 또는 경미한 오심. "증상 없으니 안전"은 틀림 — 반드시 혈중 농도 측정 + NAC 투여 결정.</span>
+        </div>
+      </div>
+      <div>
+        <div class="trap-card">
+          <div class="trap-label">함정 ③  활성탄 금기</div>
+          <span>의식 저하 환자에서 기도 확보 없이 활성탄 투여 → 흡인성 폐렴. 또한 Lithium·Iron·알코올·산/알칼리에는 활성탄 무효. "모든 경구 중독에 활성탄"은 오답.</span>
+        </div>
+        <div class="trap-card">
+          <div class="trap-label">함정 ④  Pralidoxime 시간 창</div>
+          <span>유기인제 중독에서 Pralidoxime은 AChE가 "aged(노화)" 되기 전 — 보통 24-48시간 내 투여해야 효과. 지연 투여는 무효. Atropine은 시간 제한 없음.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global health message -->
+  <div class="card-full" style="margin-bottom:0">
+    <div class="sec-label">Global health 관점 핵심 메시지</div>
+    <div style="display:flex;flex-wrap:wrap;gap:4px;line-height:1.9">
+      <span class="pill p-red">유기인제 농약 → LMIC 자살 수단 1위 — 가용성 제한이 가장 효과적인 예방</span>
+      <span class="pill p-amber">Paraquat 금지 운동 — WHO/국제 단체 압력으로 일부 국가 퇴출 중</span>
+      <span class="pill p-teal">Naloxone 접근성 — 아편류 위기 대응, 지역사회 배포 정책 확대</span>
+      <span class="pill p-green">CO 중독 — 실내 바이오매스·발전기 환기 개선이 핵심 예방</span>
+      <span class="pill p-blue">독성정보센터(Poison Control Center) — LMIC 인프라 부족, WHO 구축 권고</span>
+      <span class="pill p-gray">전통 식물 약재 독성 — 지역 맞춤 지식 필수 (Oleander, Datura 등)</span>
+    </div>
+  </div>
+
+  <div class="footnote">
+    참고: Oxford Handbook of Tropical Medicine 5e · WHO Model Formulary · Toxbase · Rumack-Matthew nomogram · DGH Blueprint NCD Level 3<br>
+    <button style="margin-top:5px;font-size:11px;padding:3px 10px" onclick="sendPrompt('DGH KBA Poisonings (유기인제·Paraquat·Paracetamol) 관련 모의문제 5개 풀고 싶어. Best-of-5 SBA 형식으로 만들어줘')">Poisonings 모의문제 풀기 ↗</button>
+    <button style="margin-top:5px;font-size:11px;padding:3px 10px;margin-left:6px" onclick="sendPrompt('DGH KBA: Non-communicable disease > Cardiovascular disease 스터디 노트 A4 한 장 분량으로 만들어줘')">다음: CVD 노트 ↗</button>
+    <button style="margin-top:5px;font-size:11px;padding:3px 10px;margin-left:6px" onclick="sendPrompt('DGH KBA: Non-communicable disease > Diabetes 스터디 노트 A4 한 장 분량으로 만들어줘')">다음: Diabetes 노트 ↗</button>
+  </div>
+
+</div>

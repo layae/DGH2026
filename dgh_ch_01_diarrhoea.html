@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH | Diarrhoea in Children</title>
+<style>
+  :root {
+    --primary: #993556; --primary-dark: #7a2844; --primary-light: #c4607e;
+    --bg: #fdf4f7; --card-bg: #ffffff; --border: #e8c4d4; --text: #2d1a22;
+    --text-muted: #7a5060; --tag-bg: #f5e0e8; --stat-bg: #fce9ef;
+    --trap-bg: #fff5f7; --trap-border: #f0b8cc;
+    --green: #2e7d32; --orange: #e65100; --blue: #1565c0; --red: #c62828;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Georgia','Times New Roman',serif; background: var(--bg); color: var(--text); font-size: 13px; line-height: 1.55; max-width: 900px; margin: 0 auto; padding: 16px; }
+  .header { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%); color: white; padding: 18px 22px 14px; border-radius: 10px 10px 0 0; display: flex; justify-content: space-between; align-items: flex-start; }
+  .header-left h1 { font-size: 21px; font-weight: 700; }
+  .header-left .subtitle { font-size: 11.5px; opacity: 0.85; margin-top: 3px; }
+  .domain-tag { display: inline-block; background: rgba(255,255,255,0.22); border: 1px solid rgba(255,255,255,0.4); border-radius: 20px; padding: 3px 10px; font-size: 10.5px; font-weight: 600; margin-bottom: 4px; }
+  .weight-tag { display: block; font-size: 11px; opacity: 0.8; }
+  .stats-bar { background: var(--stat-bg); border: 1px solid var(--border); border-top: none; display: grid; grid-template-columns: repeat(4,1fr); }
+  .stat-item { padding: 10px 12px; border-right: 1px solid var(--border); text-align: center; }
+  .stat-item:last-child { border-right: none; }
+  .stat-num { font-size: 17px; font-weight: 700; color: var(--primary); display: block; line-height: 1.2; }
+  .stat-label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.4px; }
+  .content { background: var(--card-bg); border: 1px solid var(--border); border-top: none; padding: 16px; }
+  .section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--primary); border-bottom: 2px solid var(--border); padding-bottom: 4px; margin-bottom: 10px; margin-top: 14px; }
+  .section-title:first-child { margin-top: 0; }
+  .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+  .g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+  .card { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 10px 12px; }
+  .card-title { font-size: 11px; font-weight: 700; color: var(--primary-dark); margin-bottom: 6px; }
+  .card ul { padding-left: 14px; } .card li { font-size: 12px; margin-bottom: 3px; } .card p { font-size: 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 11.5px; margin-bottom: 10px; }
+  th { background: var(--primary); color: white; padding: 6px 8px; text-align: left; font-size: 10.5px; font-weight: 600; }
+  td { padding: 5px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--stat-bg); } tr:last-child td { border-bottom: none; }
+  .badge { display: inline-block; border-radius: 3px; padding: 1px 5px; font-size: 10px; font-weight: 700; }
+  .b-green { background: #e8f5e9; color: var(--green); } .b-red { background: #ffebee; color: var(--red); }
+  .b-orange { background: #fff3e0; color: var(--orange); } .b-blue { background: #e3f2fd; color: var(--blue); }
+  .trap-header { background: #6d1b35; color: white; padding: 7px 14px; font-size: 11px; font-weight: 700; border-radius: 5px 5px 0 0; margin-top: 14px; }
+  .trap-grid { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--trap-border); border-top: none; border-radius: 0 0 5px 5px; overflow: hidden; }
+  .trap-card { background: var(--trap-bg); padding: 9px 12px; border-right: 1px solid var(--trap-border); border-bottom: 1px solid var(--trap-border); }
+  .trap-card:nth-child(even) { border-right: none; } .trap-card:nth-child(3),.trap-card:nth-child(4) { border-bottom: none; }
+  .trap-q { font-size: 10.5px; font-weight: 700; color: #6d1b35; margin-bottom: 4px; }
+  .trap-a { font-size: 11.5px; } .trap-a strong { color: var(--primary-dark); }
+  .pills { display: flex; flex-wrap: wrap; gap: 5px; margin: 10px 0; }
+  .pill { background: var(--tag-bg); color: var(--primary-dark); border: 1px solid var(--border); border-radius: 20px; padding: 3px 10px; font-size: 10.5px; font-weight: 600; }
+  .pill.green { background: #e8f5e9; color: #1b5e20; border-color: #a5d6a7; }
+  .pill.blue { background: #e3f2fd; color: #0d47a1; border-color: #90caf9; }
+  .pill.orange { background: #fff3e0; color: #bf360c; border-color: #ffcc80; }
+  .footer { background: var(--primary-dark); color: rgba(255,255,255,0.85); padding: 9px 16px; font-size: 10.5px; border-radius: 0 0 10px 10px; display: flex; justify-content: space-between; align-items: center; }
+  .footer a { color: #f9d4e2; text-decoration: none; font-weight: 600; font-size: 10px; border: 1px solid rgba(249,212,226,0.4); padding: 2px 8px; border-radius: 3px; margin-left: 5px; }
+  .hl-red { color: var(--red); font-weight: 700; } .hl-green { color: var(--green); font-weight: 700; }
+  .hl-orange { color: var(--orange); font-weight: 700; } .hl-blue { color: var(--blue); font-weight: 700; }
+  .note-box { background: #fff9e6; border-left: 3px solid #f9a825; padding: 7px 10px; font-size: 11.5px; margin: 8px 0; border-radius: 0 4px 4px 0; }
+  .info-box { background: #e8f5e9; border-left: 3px solid #43a047; padding: 7px 10px; font-size: 11.5px; margin: 8px 0; border-radius: 0 4px 4px 0; }
+  .alert-box { background: #ffebee; border-left: 3px solid #c62828; padding: 7px 10px; font-size: 11.5px; margin: 8px 0; border-radius: 0 4px 4px 0; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-left">
+    <h1>💧 Diarrhoea in Children</h1>
+    <div class="subtitle">소아 설사 · 탈수 분류 · ORS · 항생제 적응증 · LMIC</div>
+  </div>
+  <div class="header-right">
+    <span class="domain-tag">CHILD HEALTH</span>
+    <span class="weight-tag">KBA 20% · Child Health</span>
+  </div>
+</div>
+<div class="stats-bar">
+  <div class="stat-item"><span class="stat-num">~525,000</span><span class="stat-label">5세 미만 설사 사망 (연간)</span></div>
+  <div class="stat-item"><span class="stat-num">#2</span><span class="stat-label">소아 사망 원인 (폐렴 다음)</span></div>
+  <div class="stat-item"><span class="stat-num">ORS</span><span class="stat-label">탈수 치료 핵심 — 저삼투압</span></div>
+  <div class="stat-item"><span class="stat-num">Zinc</span><span class="stat-label">10–14일 보충 — WHO 필수</span></div>
+</div>
+<div class="content">
+
+  <div class="section-title">탈수 분류 — WHO/IMCI 기준 (시험 핵심)</div>
+  <table>
+    <tr><th>분류</th><th>임상 소견 (2개 이상)</th><th>체중 감소</th><th>처치</th></tr>
+    <tr>
+      <td><span class="badge b-green">탈수 없음</span></td>
+      <td>정상 활력, 눈 정상, 눈물 있음, 입 습함, 피부 탄력 정상</td>
+      <td>&lt;5%</td>
+      <td><strong>Plan A</strong>: 가정에서 ORS + 지속 수유 + 아연</td>
+    </tr>
+    <tr>
+      <td><span class="badge b-orange">일부 탈수</span><br>(Some dehydration)</td>
+      <td>불안/초조, 함몰된 눈, 갈증 심함, 피부 탄력↓ (2초 이내 회복)</td>
+      <td>5–10%</td>
+      <td><strong>Plan B</strong>: ORS 75mL/kg 4시간 내 경구 투여</td>
+    </tr>
+    <tr>
+      <td><span class="badge b-red">중증 탈수</span><br>(Severe dehydration)</td>
+      <td>기면/축 늘어짐, 심하게 함몰된 눈, 마실 수 없음, 피부 탄력 매우↓ (2초 초과)</td>
+      <td>&gt;10%</td>
+      <td><strong>Plan C</strong>: Ringer's lactate 100mL/kg IV<br>(30분 내 20mL/kg → 나머지)</td>
+    </tr>
+  </table>
+  <div class="note-box">💡 <strong>피부 turgor 검사:</strong> 복부 피부를 1초간 집었다 놓을 때 <strong>2초 초과</strong>하여 돌아오면 중증 탈수. "천천히 돌아옴" = 일부 탈수. 시험에서 초 단위 기준이 핵심.</div>
+
+  <div class="section-title">ORS — WHO 저삼투압 공식 (2004년 개정)</div>
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">📊 저삼투압 ORS 성분 (WHO 2004)</div>
+      <ul>
+        <li>Na⁺: <strong>75 mmol/L</strong> (구 90 → 개정)</li>
+        <li>Cl⁻: 65 mmol/L</li>
+        <li>K⁺: 20 mmol/L</li>
+        <li>Citrate: 10 mmol/L</li>
+        <li>Glucose: <strong>75 mmol/L</strong></li>
+        <li>삼투압: <strong>245 mOsm/L</strong> (구 311 → 낮춤)</li>
+        <li>→ 구토·구역 감소, 대변량 감소, 수액 요구량 감소</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🌍 LMIC 현장 ORS 대안</div>
+      <ul>
+        <li>Rice-based ORS: 쌀가루 기반 — 대변량 추가 감소</li>
+        <li>가정용 소금-설탕 용액: ORS 없을 때 임시 대안</li>
+        <li>모유수유: 설사 중에도 <strong>절대 중단 금지</strong></li>
+        <li>稀薄한 죽 (congee): 음식 지속 제공 원칙</li>
+        <li>코위관 ORS: 경구 불가 시 (IV 대안)</li>
+        <li>Zinc 10mg(6개월 미만) / 20mg(6개월 이상) × 10–14일</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-title">설사 유형별 항생제 — WHO 적응증</div>
+  <table>
+    <tr><th>유형</th><th>원인</th><th>항생제</th><th>비고</th></tr>
+    <tr>
+      <td><strong>콜레라</strong></td>
+      <td>V. cholerae O1/O139</td>
+      <td><span class="badge b-green">Doxycycline 단회</span> (성인/소아 &gt;8세)<br>Azithromycin (소아, 임산부)</td>
+      <td>수분 보충이 핵심 — 항생제는 기간 단축</td>
+    </tr>
+    <tr>
+      <td><strong>이질 (Shigella)</strong></td>
+      <td>Shigella spp.</td>
+      <td><span class="badge b-green">Ciprofloxacin 3일</span><br>Azithromycin (내성 시)</td>
+      <td>혈변 + 점액변 + 발열 → 항생제 필수</td>
+    </tr>
+    <tr>
+      <td><strong>아메바성 이질</strong></td>
+      <td>E. histolytica</td>
+      <td><span class="badge b-green">Metronidazole 5–10일</span><br>+ Diloxanide (장내 아메바 제거)</td>
+      <td>현미경: 적혈구 탐식 영양형</td>
+    </tr>
+    <tr>
+      <td><strong>장티푸스성 설사</strong></td>
+      <td>Salmonella typhi</td>
+      <td>Azithromycin or Ceftriaxone</td>
+      <td>혈변 드묾, 고열 지속, 장미진</td>
+    </tr>
+    <tr>
+      <td><strong>바이러스성</strong></td>
+      <td>Rotavirus, Norovirus</td>
+      <td><span class="badge b-red">항생제 불필요</span></td>
+      <td>ORS + Zinc + 지지요법</td>
+    </tr>
+    <tr>
+      <td><strong>여행자 설사</strong></td>
+      <td>ETEC 주원인</td>
+      <td>Azithromycin (1st line)<br>경증: 항생제 불필요</td>
+      <td>자한성 — 대부분 3–5일 내 회복</td>
+    </tr>
+  </table>
+  <div class="alert-box">🚨 <strong>항생제 금지:</strong> 출혈성 대장균(EHEC/O157:H7) 설사 → 항생제 투여 시 <strong>HUS(용혈요독증후군) 위험↑</strong>. 지사제(loperamide)도 소아 설사에서 금기.</div>
+
+  <div class="section-title">Zinc 보충 — 왜 중요한가</div>
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">💊 Zinc 근거 & 용량</div>
+      <ul>
+        <li>설사 기간 25% 단축, 중증도↓</li>
+        <li>향후 2–3개월 설사 재발 예방</li>
+        <li>&lt;6개월: <strong>10mg/일 × 10–14일</strong></li>
+        <li>≥6개월: <strong>20mg/일 × 10–14일</strong></li>
+        <li>WHO/UNICEF 2004 공동 권고</li>
+        <li>ORS와 함께 설사 관리 두 기둥</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🚫 지사제 금기 — 소아</div>
+      <ul>
+        <li>Loperamide: 소아 설사 <span class="hl-red">금기</span></li>
+        <li>장운동 억제 → 독소 축적 → 장마비</li>
+        <li>사망 보고 (5세 미만)</li>
+        <li>Codeine 함유 제제도 금기</li>
+        <li>항구토제: 일반적으로 권장 안 함</li>
+        <li>→ <strong>ORS + Zinc = 소아 설사 표준치료</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-title">로타바이러스 — LMIC 설사 예방 핵심</div>
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">🦠 역학 & 특징</div>
+      <ul>
+        <li>5세 미만 설사 입원의 ~40% 원인</li>
+        <li>전 세계 연간 ~20만 명 사망 (주로 LMIC)</li>
+        <li>겨울철 호발 (온대 지방) — LMIC: 연중</li>
+        <li>분변-구강 경로, 매우 강한 전파력</li>
+        <li>수양성 설사 + 구토 + 발열 3주징</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">💉 백신</div>
+      <ul>
+        <li><strong>Rotarix</strong> (2가): 2회 경구, 6·10주</li>
+        <li><strong>RotaTeq</strong> (5가): 3회 경구, 2·4·6개월</li>
+        <li>WHO EPI 포함 권고 (2009년~)</li>
+        <li>단, LMIC 효과 고소득국보다 낮음 (~50% vs ~85%)</li>
+        <li>장중첩증 미세 위험 — 생후 15주 이후 첫 투여 금기</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="trap-header">⚠️ 시험 함정 4개</div>
+  <div class="trap-grid">
+    <div class="trap-card">
+      <div class="trap-q">🪤 함정 1: 소아 설사 → Loperamide 처방</div>
+      <div class="trap-a">소아 설사에 Loperamide = <span class="hl-red">절대 금기</span>. 장마비·사망 위험. <strong>ORS + Zinc</strong>가 표준. 성인 여행자 설사에는 사용 가능 — 소아와 구분.</div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-q">🪤 함정 2: 중증 탈수 → Normal saline IV 우선</div>
+      <div class="trap-a">WHO Plan C = <strong>Ringer's lactate (Hartmann's)</strong> 100mL/kg. Normal saline보다 대사성 산증 교정 효과 우수. LMIC에서 RL 없으면 NS 사용 가능하나 1st choice는 RL.</div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-q">🪤 함정 3: 혈변 설사 → 모두 항생제 투여</div>
+      <div class="trap-a">EHEC(O157:H7) 혈변 설사 → 항생제 시 <strong>HUS 위험↑</strong>. 혈변 = 항생제 자동 처방 아님. 역학(집단발생, 덜 익힌 고기) + 검사 결과 고려. Shigella 혈변은 항생제 필요.</div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-q">🪤 함정 4: 설사 중 모유수유 중단</div>
+      <div class="trap-a">설사 중 모유수유 <strong>절대 중단 금지</strong>. 오히려 증가 권장. 모유: 항체 + 전해질 + 영양 제공. 분유 희석도 금기. 음식 제한도 금기 — "gut rest"는 구식 개념.</div>
+    </div>
+  </div>
+
+  <div class="section-title">Global Health 관점</div>
+  <div class="pills">
+    <span class="pill">ORS + Zinc = 설사 표준 치료 두 기둥</span>
+    <span class="pill green">저삼투압 ORS 245mOsm/L (2004 개정)</span>
+    <span class="pill blue">Zinc 20mg × 10–14일 (≥6개월)</span>
+    <span class="pill orange">Loperamide 소아 절대 금기</span>
+    <span class="pill">EHEC → 항생제 금기 (HUS)</span>
+    <span class="pill green">모유수유 설사 중 지속</span>
+    <span class="pill blue">Rotavirus 백신 — EPI 포함</span>
+    <span class="pill">WASH — 설사 예방 근본 전략</span>
+  </div>
+</div>
+<div class="footer">
+  <span>📚 Ref: WHO IMCI Guidelines · WHO/UNICEF ORS & Zinc Statement 2004 · WHO Diarrhoea Treatment Guidelines 2005</span>
+  <div><a href="#">← Female Genital Schistosomiasis</a><a href="#">Neonatal Priorities →</a></div>
+</div>
+</body>
+</html>

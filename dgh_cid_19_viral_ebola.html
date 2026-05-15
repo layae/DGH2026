@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH CID 19 | Ebola</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#fdf4f4;font-family:'Crimson Pro',serif;color:#2d1a1a;font-size:14px;line-height:1.5;}
+  .page{max-width:900px;margin:0 auto;padding:18px;}
+  .header{background:#791F1F;color:#fff;border-radius:10px 10px 0 0;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;}
+  .header-left .tag{font-family:'JetBrains Mono',monospace;font-size:10px;background:rgba(255,255,255,0.2);padding:2px 8px;border-radius:20px;letter-spacing:1px;}
+  .header-left h1{font-size:20px;font-weight:700;margin-top:4px;}
+  .header-left h1 span{font-size:12px;font-weight:400;opacity:0.8;margin-left:8px;}
+  .header-right{font-family:'JetBrains Mono',monospace;font-size:10px;text-align:right;opacity:0.8;}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);border:1.5px solid #e8c4c4;border-top:none;}
+  .stat{background:#f5dcdc;padding:10px 12px;text-align:center;border-right:1px solid #e8c4c4;}
+  .stat:last-child{border-right:none;}
+  .stat-val{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:700;color:#791F1F;}
+  .stat-lab{font-size:10px;color:#5a2a2a;margin-top:1px;}
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;}
+  .card{background:#fff;border:1.5px solid #e8c4c4;border-radius:8px;padding:12px;}
+  .card h3{font-size:12px;font-weight:700;color:#791F1F;text-transform:uppercase;letter-spacing:0.8px;border-bottom:1px solid #f5dcdc;padding-bottom:5px;margin-bottom:8px;}
+  .card li{font-size:12.5px;color:#3a1a1a;line-height:1.65;margin-bottom:2px;}
+  .card ul{padding-left:14px;}
+  .tbl-wrap{margin-top:10px;}
+  table{width:100%;border-collapse:collapse;font-size:11.5px;}
+  thead th{background:#791F1F;color:#fff;padding:7px 10px;text-align:left;font-weight:600;}
+  tbody tr:nth-child(odd){background:#fdf4f4;}
+  tbody tr:nth-child(even){background:#f5dcdc;}
+  tbody td{padding:5px 9px;border-bottom:1px solid #e8c4c4;vertical-align:top;}
+  td strong{color:#791F1F;}
+  .trap-h{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:#791F1F;letter-spacing:1px;margin:12px 0 6px;padding:4px 10px;background:#f5dcdc;border-left:4px solid #791F1F;border-radius:0 4px 4px 0;}
+  .trap-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .trap{background:#fff;border:1.5px solid #e8c4c4;border-radius:6px;padding:9px 11px 9px 28px;font-size:12px;position:relative;}
+  .trap::before{content:"⚠";position:absolute;left:9px;top:8px;font-size:13px;color:#791F1F;}
+  .pills{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;}
+  .pill{background:#791F1F;color:#fff;font-size:10px;padding:3px 10px;border-radius:20px;font-family:'JetBrains Mono',monospace;}
+  .pill.light{background:#f5dcdc;color:#791F1F;}
+  .footer{margin-top:10px;padding:8px 12px;background:#f5dcdc;border:1px solid #e8c4c4;border-radius:6px;font-size:11px;color:#5a2a2a;display:flex;justify-content:space-between;align-items:center;}
+  .btn{font-size:10px;padding:3px 10px;border-radius:20px;border:1.5px solid #791F1F;color:#791F1F;background:#fff;font-family:'JetBrains Mono',monospace;}
+  .highlight{background:#791F1F;color:#fff;padding:1px 6px;border-radius:3px;font-size:11px;font-family:'JetBrains Mono',monospace;}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="header-left">
+      <div class="tag">CID · 19/34 · Viral</div>
+      <h1>Ebola <span>바이러스성 출혈열 · IPC · 대응</span></h1>
+    </div>
+    <div class="header-right">DGH KBA · 창 B<br>Blueprint 40%</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-val">25~90%</div><div class="stat-lab">치명률 (outbreak별)</div></div>
+    <div class="stat"><div class="stat-val">2~21일</div><div class="stat-lab">잠복기 (평균 8~10일)</div></div>
+    <div class="stat"><div class="stat-val">증상 즉시</div><div class="stat-lab">PPE 착용 시점 ← 핵심</div></div>
+    <div class="stat"><div class="stat-val">rVSV-ZEBOV</div><div class="stat-lab">승인 백신 (Ervebo)</div></div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <h3>역학 & 전파</h3>
+      <ul>
+        <li><strong>병원체</strong>: Filovirus; Zaire ebolavirus 가장 치명적</li>
+        <li><strong>저장소</strong>: 과일박쥐 (Pteropodidae) 추정</li>
+        <li><strong>전파 경로</strong>:</li>
+        <li>직접 접촉: 감염자 혈액·체액·분비물 (구토물·설사·땀·정액)</li>
+        <li>오염 물품: 의류·시트·주사기</li>
+        <li>장례 접촉: 유증상 시신은 감염성 높음</li>
+        <li><strong>비전파</strong>: 공기 전파 없음; 무증상자 전파 없음</li>
+        <li><strong>중요</strong>: 증상 발현 전에는 전파력 없음</li>
+        <li>생존자 정액: 최대 12개월 바이러스 잔존 (성적 전파 가능)</li>
+        <li>발생 지역: 중·서아프리카 (DRC, 기니, 시에라리온 등)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>임상 경과 & 치료</h3>
+      <ul>
+        <li><strong>초기(1~3일)</strong>: 갑작스런 고열·심한 두통·근육통·피로</li>
+        <li>→ 비특이적 → 말라리아·장티푸스와 유사 ← 초기 감별 어려움</li>
+        <li><strong>진행기(4~7일)</strong>: 구토·설사·복통·발진(비출혈성)</li>
+        <li><strong>말기</strong>: 출혈(내·외부), 다장기부전 → 사망</li>
+        <li><strong>치료</strong>: 지지요법 중심</li>
+        <li>· 적극적 수액·전해질 교정</li>
+        <li>· 2018 DRC: mAb 치료 (Atoltivimab/Maftivimab/Odesivimab = REGN-EB3, Ansuvimab=mAb114) — 생존율 개선</li>
+        <li>· Remdesivir: 초기 사용했으나 mAb보다 열등</li>
+        <li><strong>백신</strong>: rVSV-ZEBOV (Ervebo) — ring vaccination 전략</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>IPC 단계</th><th>WHO 권고 조치</th><th>핵심 원칙</th></tr></thead>
+      <tbody>
+        <tr><td><strong>의심 즉시</strong> (비특이 증상)</td><td>표준주의 + 접촉주의 + 비말주의 즉시 적용; 격리</td><td><span class="highlight">출혈 기다리지 않음</span> ← 샘플 Q7 정답</td></tr>
+        <tr><td><strong>PPE 구성</strong></td><td>이중 장갑·고어텍스 가운·Face shield·N95 or PAPR·부츠 커버</td><td>착용·탈의 프로토콜 준수; 탈의 시 오염 위험↑</td></tr>
+        <tr><td><strong>안전 주사</strong></td><td>1회용 주사기·침; 날카로운 물건 별도 폐기</td><td>의료진 감염 경로 주요 원인</td></tr>
+        <tr><td><strong>안전 장례</strong></td><td>훈련된 팀이 PPE 착용하고 시신 처리; 전통 장례 금지</td><td>시신이 가장 감염성 높은 시점</td></tr>
+        <tr><td><strong>접촉자 추적</strong></td><td>21일 모니터링 (최대 잠복기)</td><td>Ring vaccination 대상 선정</td></tr>
+        <tr><td><strong>생존자 관리</strong></td><td>정액 음성 확인까지 콘돔; 눈 합병증(포도막염) 추적</td><td>Post-Ebola Syndrome 인식</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="trap-h">⚠ EXAM TRAPS × 4</div>
+  <div class="trap-grid">
+    <div class="trap"><strong>샘플 Q7 직결 — PPE 시점</strong>: "출혈이 나타날 때부터 보호 조치"(C) = 오답. <strong>비특이 증상(발열·근육통)부터 즉시</strong> PPE + 격리(B) = 정답. Ebola 초기엔 출혈 없음 — 출혈 기다리면 이미 수십 명 노출.</div>
+    <div class="trap"><strong>공기 전파 없음</strong>: 비말 전파도 매우 제한적. N95는 의료 시술 중(기관삽관 등) 적용. 일상 접촉은 접촉주의로 충분 — 하지만 시험에서 "공기 전파 차단"을 과도하게 강조하는 선지 주의.</div>
+    <div class="trap"><strong>무증상 전파 없음</strong>: 잠복기 중 전파력 없음 → 접촉자 추적 시 증상 발현 전 격리는 불필요 (단, 21일 모니터링은 필수). 코로나와 혼동 주의.</div>
+    <div class="trap"><strong>생존자 정액 전파</strong>: 임상 회복 후에도 정액에 바이러스 잔존 최대 12개월. 생존자 성적 전파로 인한 새 클러스터 발생 사례 多. "완치 = 전파 불가" 오개념.</div>
+  </div>
+
+  <div class="pills">
+    <span class="pill">PPE = 증상 즉시 (출혈 불필요)</span>
+    <span class="pill">공기 전파 없음</span>
+    <span class="pill light">Ring vaccination: rVSV-ZEBOV</span>
+    <span class="pill light">안전 장례 = 핵심 IPC</span>
+    <span class="pill">생존자 정액 12개월 잔존</span>
+    <span class="pill">mAb 치료 (REGN-EB3)</span>
+  </div>
+
+  <div class="footer">
+    <span>📚 WHO Ebola IPC Guidelines 2014/2021 · Oxford TropMed 5e · NEJM 2019 mAb Trial</span>
+    <div class="footer-nav">
+      <span class="btn">← 18 Dengue/Zika/Chik</span>
+      <span class="btn">20 Viral Hepatitis →</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH | Family Planning</title>
+<style>
+  :root {
+    --primary: #993556;
+    --primary-dark: #7a2844;
+    --primary-light: #c4607e;
+    --bg: #fdf4f7;
+    --card-bg: #ffffff;
+    --border: #e8c4d4;
+    --text: #2d1a22;
+    --text-muted: #7a5060;
+    --accent: #d4507a;
+    --accent2: #5c8a3c;
+    --accent3: #c47a20;
+    --tag-bg: #f5e0e8;
+    --stat-bg: #fce9ef;
+    --trap-bg: #fff5f7;
+    --trap-border: #f0b8cc;
+    --green: #2e7d32;
+    --orange: #e65100;
+    --blue: #1565c0;
+    --red: #c62828;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.55;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%);
+    color: white;
+    padding: 18px 22px 14px;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .header-left h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.3px; }
+  .header-left .subtitle { font-size: 11.5px; opacity: 0.85; margin-top: 3px; }
+  .header-right { text-align: right; }
+  .domain-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.22);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .weight-tag {
+    display: block;
+    font-size: 11px;
+    opacity: 0.8;
+  }
+
+  /* STATS BAR */
+  .stats-bar {
+    background: var(--stat-bg);
+    border: 1px solid var(--border);
+    border-top: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  .stat-item {
+    padding: 10px 12px;
+    border-right: 1px solid var(--border);
+    text-align: center;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary);
+    display: block;
+    line-height: 1.2;
+  }
+  .stat-label {
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+
+  /* MAIN CONTENT */
+  .content {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-top: none;
+    padding: 16px;
+  }
+
+  .section-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--primary);
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+    margin-top: 14px;
+  }
+  .section-title:first-child { margin-top: 0; }
+
+  /* TWO COLUMN GRID */
+  .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+  .g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+
+  .card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 12px;
+  }
+  .card-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .card-title .icon { font-size: 13px; }
+  .card ul { padding-left: 14px; }
+  .card li { font-size: 12px; margin-bottom: 3px; }
+  .card p { font-size: 12px; }
+
+  /* TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 11.5px; margin-bottom: 10px; }
+  th {
+    background: var(--primary);
+    color: white;
+    padding: 6px 8px;
+    text-align: left;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  td { padding: 5px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--stat-bg); }
+  tr:last-child td { border-bottom: none; }
+  .badge {
+    display: inline-block;
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-size: 10px;
+    font-weight: 700;
+  }
+  .b-green { background: #e8f5e9; color: var(--green); }
+  .b-orange { background: #fff3e0; color: var(--orange); }
+  .b-red { background: #ffebee; color: var(--red); }
+  .b-blue { background: #e3f2fd; color: var(--blue); }
+  .b-pink { background: var(--tag-bg); color: var(--primary-dark); }
+
+  /* TRAP SECTION */
+  .trap-header {
+    background: #6d1b35;
+    color: white;
+    padding: 7px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-radius: 5px 5px 0 0;
+    margin-top: 14px;
+  }
+  .trap-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--trap-border);
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    overflow: hidden;
+  }
+  .trap-card {
+    background: var(--trap-bg);
+    padding: 9px 12px;
+    border-right: 1px solid var(--trap-border);
+    border-bottom: 1px solid var(--trap-border);
+  }
+  .trap-card:nth-child(even) { border-right: none; }
+  .trap-card:nth-child(3), .trap-card:nth-child(4) { border-bottom: none; }
+  .trap-q {
+    font-size: 10.5px;
+    font-weight: 700;
+    color: #6d1b35;
+    margin-bottom: 4px;
+  }
+  .trap-a { font-size: 11.5px; color: var(--text); }
+  .trap-a strong { color: var(--primary-dark); }
+
+  /* PILLS */
+  .pills { display: flex; flex-wrap: wrap; gap: 5px; margin: 10px 0; }
+  .pill {
+    background: var(--tag-bg);
+    color: var(--primary-dark);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 10.5px;
+    font-weight: 600;
+  }
+  .pill.green { background: #e8f5e9; color: #1b5e20; border-color: #a5d6a7; }
+  .pill.blue { background: #e3f2fd; color: #0d47a1; border-color: #90caf9; }
+  .pill.orange { background: #fff3e0; color: #bf360c; border-color: #ffcc80; }
+
+  /* FOOTER */
+  .footer {
+    background: var(--primary-dark);
+    color: rgba(255,255,255,0.85);
+    padding: 9px 16px;
+    font-size: 10.5px;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer a {
+    color: #f9d4e2;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 10px;
+    border: 1px solid rgba(249,212,226,0.4);
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-left: 5px;
+  }
+
+  /* HIGHLIGHT */
+  .hl-pink { color: var(--primary); font-weight: 700; }
+  .hl-green { color: var(--green); font-weight: 700; }
+  .hl-orange { color: var(--orange); font-weight: 700; }
+  .hl-red { color: var(--red); font-weight: 700; }
+  .hl-blue { color: var(--blue); font-weight: 700; }
+
+  .note-box {
+    background: #fff9e6;
+    border-left: 3px solid #f9a825;
+    padding: 7px 10px;
+    font-size: 11.5px;
+    margin: 8px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .info-box {
+    background: #e8f5e9;
+    border-left: 3px solid #43a047;
+    padding: 7px 10px;
+    font-size: 11.5px;
+    margin: 8px 0;
+    border-radius: 0 4px 4px 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <h1>👩 Family Planning</h1>
+    <div class="subtitle">피임법 · 생식보건 · LMIC 맥락의 가족계획 정책</div>
+  </div>
+  <div class="header-right">
+    <span class="domain-tag">WOMEN'S & CHILD HEALTH</span>
+    <span class="weight-tag">KBA 20% 영역 · Women's Health</span>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <span class="stat-num">218M</span>
+    <span class="stat-label">미충족 피임 필요 여성 (전 세계)</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">76</span>
+    <span class="stat-label">WHO 필수의약품 피임 포함 종류</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">>99%</span>
+    <span class="stat-label">임플란트/IUD 효과 (완벽 사용시)</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">30%</span>
+    <span class="stat-label">모성사망 예방 가능 — 피임 통해</span>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- WHO MEC 4-tier system -->
+  <div class="section-title">WHO Medical Eligibility Criteria (MEC) — 4등급 체계</div>
+  <table>
+    <tr>
+      <th>등급</th>
+      <th>의미</th>
+      <th>임상 적용</th>
+      <th>대표 조건 예시</th>
+    </tr>
+    <tr>
+      <td><span class="badge b-green">MEC 1</span></td>
+      <td>제한 없음 — 사용 가능</td>
+      <td>무조건 사용 가능</td>
+      <td>건강한 성인</td>
+    </tr>
+    <tr>
+      <td><span class="badge b-blue">MEC 2</span></td>
+      <td>장점 > 이론적 위험</td>
+      <td>사용 가능 (모니터링)</td>
+      <td>수유 6주-6개월, 비복잡성 당뇨</td>
+    </tr>
+    <tr>
+      <td><span class="badge b-orange">MEC 3</span></td>
+      <td>이론적 위험 > 장점</td>
+      <td>사용 비권장 (전문가 판단 필요)</td>
+      <td>수유 &lt;6주 + COC, 편두통+전조증상 + COC</td>
+    </tr>
+    <tr>
+      <td><span class="badge b-red">MEC 4</span></td>
+      <td>허용 불가 위험</td>
+      <td>절대 금기</td>
+      <td>수유 &lt;6주 + COC, 활동성 DVT + COC, 흡연&gt;35세</td>
+    </tr>
+  </table>
+  <div class="note-box">💡 <strong>시험 핵심:</strong> MEC 3은 "사용하지 말아야 한다"가 아닌 <strong>"신중히 판단하라"</strong>. MEC 4만이 절대 금기.</div>
+
+  <!-- 주요 피임법 비교 -->
+  <div class="section-title">피임법 분류 및 LMIC 맥락 핵심</div>
+  <table>
+    <tr>
+      <th>방법</th>
+      <th>Pearl Index</th>
+      <th>LMIC 핵심 포인트</th>
+      <th>WHO MEC 주의사항</th>
+    </tr>
+    <tr>
+      <td><strong>Cu-IUD</strong></td>
+      <td>&lt;1%</td>
+      <td>10년, 저비용, 응급피임 가능<br>(120시간 이내 가장 효과적)</td>
+      <td>자궁 기형·활동성 PID = MEC 4</td>
+    </tr>
+    <tr>
+      <td><strong>LNG-IUS (Mirena)</strong></td>
+      <td>&lt;1%</td>
+      <td>월경과다 치료 효과 — LMIC에서 비용 장벽↑</td>
+      <td>유방암 = MEC 4</td>
+    </tr>
+    <tr>
+      <td><strong>임플란트 (etonogestrel)</strong></td>
+      <td>&lt;1%</td>
+      <td>3년, 삽입 후 수술 불필요 — 저자원 이상적<br><span class="hl-orange">항경련제·리팜피신 효과↓ (CYP450 유도)</span></td>
+      <td>수유 중 사용 가능 (MEC 2)</td>
+    </tr>
+    <tr>
+      <td><strong>DMPA (Depo-Provera)</strong></td>
+      <td>6% (일반)</td>
+      <td>3개월 주사 — 재고 관리 간단<br><span class="hl-red">골밀도↓, HIV 취약성↑ 논쟁</span></td>
+      <td>수유 &lt;6주 = MEC 3</td>
+    </tr>
+    <tr>
+      <td><strong>COC (복합경구)</strong></td>
+      <td>9% (일반)</td>
+      <td>저소득국 가용성↑ 但 리팜피신 병용 금기</td>
+      <td>편두통+전조 MEC 4 / 수유 &lt;6주 MEC 4</td>
+    </tr>
+    <tr>
+      <td><strong>POP (프로게스틴 단독)</strong></td>
+      <td>9% (일반)</td>
+      <td>수유 중 선호 — 모유 영향 없음<br>복용 시간 엄수 필요 (3시간 이내)</td>
+      <td>수유 중 MEC 1–2</td>
+    </tr>
+    <tr>
+      <td><strong>응급피임 (LNG)</strong></td>
+      <td>-</td>
+      <td>72시간 이내 (효과↓), 120시간까지 가능<br>Cu-IUD가 가장 효과적 응급피임</td>
+      <td>비만 여성 효과↓ (Cu-IUD 권장)</td>
+    </tr>
+  </table>
+
+  <!-- DMPA & HIV 논쟁 + 수유 금기 -->
+  <div class="g2">
+    <div class="card">
+      <div class="card-title"><span class="icon">🔬</span> DMPA & HIV 취약성 — 시험 주의</div>
+      <ul>
+        <li>일부 연구: DMPA → HIV 감염 위험 ↑ (cervical mucosa 변화)</li>
+        <li>WHO 2017 권고: <strong class="hl-orange">MEC 2</strong> — 사용 가능하나 상담 필요</li>
+        <li>HIV 고위험 여성에게 콘돔 병용 강력 권고</li>
+        <li>ECHO trial (2019): DMPA vs IUD vs 임플란트 — HIV 위험 차이 없음</li>
+        <li><strong>시험 답: MEC 2, 사용 금지 아님</strong></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="icon">🤱</span> 수유 중 피임 — COC 금기 이유</div>
+      <ul>
+        <li>수유 &lt;6주: COC → 에스트로겐이 모유량↓ + 신생아 노출 = <strong class="hl-red">MEC 4</strong></li>
+        <li>수유 6주–6개월: COC = MEC 3</li>
+        <li>수유 &gt;6개월: COC = MEC 2</li>
+        <li>POP: 수유 &lt;6주부터 <strong class="hl-green">MEC 2</strong> (프로게스틴만)</li>
+        <li>LAM (수유 무월경법): 배타적 수유 + &lt;6개월 + 무월경 → 98% 효과</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 항결핵제/항경련제 상호작용 -->
+  <div class="section-title">약물 상호작용 — LMIC 임상 핵심</div>
+  <div class="g2">
+    <div class="card">
+      <div class="card-title"><span class="icon">💊</span> CYP450 유도제 + 피임약 실패</div>
+      <ul>
+        <li><strong>Rifampicin</strong> (TB치료) — COC/POP/임플란트 효과 <span class="hl-red">대폭 저하</span></li>
+        <li><strong>항경련제</strong>: carbamazepine, phenytoin, phenobarbital</li>
+        <li><strong>ARV</strong>: efavirenz, nevirapine, ritonavir-boosted regimens</li>
+        <li>→ 권장: <strong class="hl-green">Cu-IUD 또는 DMPA</strong> (CYP450 영향 없음)</li>
+        <li>임플란트 + rifampicin = 피임 실패 고위험</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="icon">🌍</span> LMIC 가족계획 정책 맥락</div>
+      <ul>
+        <li>FP2030: 가족계획 글로벌 파트너십 (구 FP2020)</li>
+        <li>LARC (장기가역피임) 우선 전략 — IUD·임플란트</li>
+        <li>Task shifting: 간호사·조산사도 임플란트 삽입 가능</li>
+        <li>사회적 마케팅 (social marketing): 콘돔·OCP 민간 유통</li>
+        <li>미충족 필요(unmet need): 피임 원하나 사용 못 하는 여성 — 지표</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 응급피임 정리 -->
+  <div class="section-title">응급피임 (Emergency Contraception) — 요약</div>
+  <div class="g3">
+    <div class="card">
+      <div class="card-title">LNG (레보노르게스트렐)</div>
+      <p>1.5mg 단회 투여<br>성관계 후 <strong>72시간 이내</strong> 효과적<br>120시간까지 가능 (효과↓)<br>비만(BMI&gt;26) 시 효과 저하</p>
+    </div>
+    <div class="card">
+      <div class="card-title">UPA (울리프리스탈아세테이트)</div>
+      <p>30mg 단회<br><strong>120시간까지</strong> LNG보다 효과적<br>수유 중 1주일 중단 권고<br>처방 필요 — LMIC 접근성↓</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Cu-IUD ⭐ 가장 효과적</div>
+      <p>120시간 이내 삽입<br>효과 <strong>&gt;99%</strong><br>이후 10년 피임 지속 가능<br>모든 체중에서 효과 동일</p>
+    </div>
+  </div>
+
+  <!-- TRAPS -->
+  <div class="trap-header">⚠️ 시험 함정 4개 — 오답 패턴 주의</div>
+  <div class="trap-grid">
+    <div class="trap-card">
+      <div class="trap-q">🪤 함정 1: TB 치료 중 임플란트 피임</div>
+      <div class="trap-a">Rifampicin은 CYP3A4 강력 유도 → 임플란트 혈중 농도 대폭 감소 → 피임 실패.<br><strong>정답: Cu-IUD 또는 DMPA로 전환</strong>. 임플란트 + rifampicin = 피임 불가</div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-q">🪤 함정 2: 수유 4주 산모에게 COC 처방</div>
+      <div class="trap-a">수유 &lt;6주 + COC = <strong>MEC 4 (절대 금기)</strong>. 에스트로겐 → 모유 공급↓ + 신생아 노출.<br>정답: POP(프로게스틴 단독)는 MEC 2로 사용 가능</div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-q">🪤 함정 3: DMPA = HIV 고위험 여성 금기</div>
+      <div class="trap-a">WHO MEC는 DMPA를 <strong>MEC 2</strong>로 분류 — 사용 금지 아님.<br>ECHO trial: IUD·임플란트·DMPA 간 HIV 위험 차이 없음.<br>콘돔 병용 권고하되 사용 금지 아님</div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-q">🪤 함정 4: 응급피임 — LNG가 Cu-IUD보다 효과적</div>
+      <div class="trap-a">LNG 응급피임 효과 약 85%. Cu-IUD 응급피임 효과 <strong>&gt;99%</strong>.<br>Cu-IUD가 모든 응급피임법 중 가장 효과적.<br>비만 여성: LNG 효과↓ → Cu-IUD 우선</div>
+    </div>
+  </div>
+
+  <!-- Global Health Pills -->
+  <div class="section-title">Global Health 관점</div>
+  <div class="pills">
+    <span class="pill">SDG 3.7 성·생식 보건 접근권</span>
+    <span class="pill">FP2030 파트너십</span>
+    <span class="pill green">LARC 우선 전략</span>
+    <span class="pill blue">Unmet need — 미충족 필요 측정 지표</span>
+    <span class="pill orange">Task shifting — 비의사 피임 제공</span>
+    <span class="pill">사회적 마케팅 (social marketing)</span>
+    <span class="pill green">LAM (수유 무월경법) 일시적 피임</span>
+    <span class="pill">콘돔 — 이중 보호 (피임+STI)</span>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <span>📚 Ref: WHO MEC 5th ed. 2015 · Oxford Handbook Tropical Med 5th · FP2030</span>
+  <div>
+    <a href="#">← Cervical Cancer</a>
+    <a href="#">Maternal Mortality →</a>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH CID 03 · Malaria in Pregnancy</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap');
+  :root { --hdr:#791F1F; --hdr2:#9B2C2C; --bg:#fdf4f4; --border:#e8c4c4; --accent:#f5dcdc; --accent2:#fce8e8; --text:#2d1515; --muted:#7a4040; --white:#ffffff; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Noto Sans KR',sans-serif; background:var(--bg); color:var(--text); font-size:11.5px; line-height:1.55; padding:18px; max-width:900px; margin:0 auto; }
+  .header { background:linear-gradient(135deg,var(--hdr) 0%,var(--hdr2) 60%,#7B2020 100%); color:var(--white); border-radius:10px 10px 0 0; padding:14px 20px 12px; display:flex; justify-content:space-between; align-items:flex-start; }
+  .header-left .tag { font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:2px; opacity:0.75; text-transform:uppercase; margin-bottom:4px; }
+  .header-left h1 { font-family:'Crimson Pro',serif; font-size:22px; font-weight:700; }
+  .header-left .subtitle { font-size:10.5px; opacity:0.8; margin-top:2px; }
+  .header-right { text-align:right; font-family:'JetBrains Mono',monospace; font-size:9px; opacity:0.7; line-height:1.6; }
+  .stats-bar { background:var(--hdr); display:grid; grid-template-columns:repeat(4,1fr); border-left:3px solid var(--hdr2); border-right:3px solid var(--hdr2); }
+  .stat { padding:8px 12px; color:var(--white); border-right:1px solid rgba(255,255,255,0.15); text-align:center; }
+  .stat:last-child { border-right:none; }
+  .stat-val { font-family:'Crimson Pro',serif; font-size:20px; font-weight:700; display:block; line-height:1.1; }
+  .stat-lbl { font-size:9px; opacity:0.78; letter-spacing:0.5px; }
+  .body-wrap { border:1.5px solid var(--border); border-top:none; border-radius:0 0 10px 10px; padding:14px 16px 12px; background:var(--white); }
+  .sec-title { font-family:'Crimson Pro',serif; font-size:13px; font-weight:700; color:var(--hdr); border-bottom:1.5px solid var(--border); padding-bottom:3px; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.8px; }
+  .g2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px; }
+  .g3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:10px; }
+  .card { background:var(--bg); border:1px solid var(--border); border-radius:7px; padding:9px 11px; }
+  .card-title { font-size:10px; font-weight:700; color:var(--hdr); text-transform:uppercase; letter-spacing:0.6px; margin-bottom:5px; padding-bottom:3px; border-bottom:1px solid var(--border); }
+  .card ul { padding-left:13px; }
+  .card li { margin-bottom:2px; font-size:11px; }
+  .card li strong { color:var(--hdr); }
+  table { width:100%; border-collapse:collapse; margin-bottom:10px; font-size:10.5px; }
+  th { background:var(--hdr); color:var(--white); padding:5px 8px; text-align:left; font-size:10px; font-weight:600; }
+  td { padding:4px 8px; border-bottom:1px solid var(--border); vertical-align:top; }
+  tr:nth-child(even) td { background:var(--accent2); }
+  .badge { display:inline-block; padding:1px 6px; border-radius:10px; font-size:9px; font-weight:700; font-family:'JetBrains Mono',monospace; }
+  .badge-red { background:#fee2e2; color:#991b1b; }
+  .badge-green { background:#d1fae5; color:#065f46; }
+  .badge-yellow { background:#fef3c7; color:#92400e; }
+  .trap-h { background:linear-gradient(90deg,var(--hdr) 0%,var(--hdr2) 100%); color:var(--white); padding:5px 12px; border-radius:5px 5px 0 0; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-top:10px; }
+  .trap-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; border:1.5px solid var(--border); border-top:none; border-radius:0 0 7px 7px; overflow:hidden; margin-bottom:10px; }
+  .trap { padding:8px 11px; border-right:1px solid var(--border); border-bottom:1px solid var(--border); background:var(--white); position:relative; }
+  .trap:nth-child(even) { border-right:none; }
+  .trap:nth-child(3),.trap:nth-child(4) { border-bottom:none; }
+  .trap-num { font-family:'Crimson Pro',serif; font-size:22px; font-weight:700; color:var(--accent); position:absolute; top:4px; right:8px; line-height:1; }
+  .trap-q { font-size:10px; font-weight:700; color:var(--hdr); margin-bottom:3px; padding-right:20px; }
+  .trap-a { font-size:10.5px; }
+  .trap-a strong { color:var(--hdr); }
+  .pills { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:10px; }
+  .pill { background:var(--accent); border:1px solid var(--border); color:var(--hdr); border-radius:20px; padding:3px 10px; font-size:10px; font-weight:600; }
+  .pill-dark { background:var(--hdr); color:var(--white); border-color:var(--hdr); }
+  .highlight { background:#fff3cd; padding:1px 4px; border-radius:3px; font-weight:700; }
+  .red { color:#991b1b; font-weight:700; }
+  .footer { background:var(--accent); border:1px solid var(--border); border-radius:6px; padding:7px 12px; display:flex; justify-content:space-between; align-items:center; margin-top:8px; flex-wrap:wrap; gap:5px; }
+  .footer-note { font-size:10px; color:var(--muted); }
+  .footer-btns { display:flex; gap:6px; }
+  .footer-btn { background:var(--hdr); color:var(--white); border:none; border-radius:4px; padding:4px 10px; font-size:9.5px; font-weight:700; cursor:pointer; font-family:'JetBrains Mono',monospace; }
+
+  /* Timeline for trimester */
+  .trimester-bar { display:flex; margin-bottom:10px; border-radius:7px; overflow:hidden; border:1.5px solid var(--border); }
+  .tri { flex:1; padding:8px 10px; text-align:center; }
+  .tri-1 { background:#fee2e2; }
+  .tri-2 { background:#fef3c7; }
+  .tri-3 { background:#d1fae5; }
+  .tri-label { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:3px; }
+  .tri-drug { font-size:10.5px; font-weight:700; }
+  .tri-note { font-size:9.5px; margin-top:2px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <div class="tag">DGH KBA · CID-03 · Clinical Infectious Diseases · Malaria</div>
+    <h1>Malaria in Pregnancy</h1>
+    <div class="subtitle">PAM 병태생리 · Trimester별 치료 · 모성·태아 결과 | WHO 2023</div>
+  </div>
+  <div class="header-right">RCP Diploma in Global Health<br>Blueprint 40% — CID<br>Oxford HTM 5e · WHO 2023</div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat"><span class="stat-val">125M</span><span class="stat-lbl">매년 말라리아 위험 임신부</span></div>
+  <div class="stat"><span class="stat-val">200K</span><span class="stat-lbl">말라리아 관련 영아 사망/년</span></div>
+  <div class="stat"><span class="stat-val">LBW</span><span class="stat-lbl">주산기 사망 최대 원인</span></div>
+  <div class="stat"><span class="stat-val">초산부</span><span class="stat-lbl">미경산 여성이 고위험</span></div>
+</div>
+
+<div class="body-wrap">
+
+  <div class="sec-title">🔬 PAM (Pregnancy-Associated Malaria) 병태생리</div>
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">왜 임신부가 더 취약한가</div>
+      <ul>
+        <li><strong>면역 억제</strong> (태아 면역관용) → 감수성 증가</li>
+        <li><strong>VAR2CSA</strong>: P. falciparum 표면 단백 → 태반 chondroitin sulfate A (CSA) 결합</li>
+        <li>태반 격리 (placental sequestration) → 고기생충혈증 → 산모 빈혈 악화</li>
+        <li>경산부: VAR2CSA 항체 획득 → 비교적 보호</li>
+        <li><strong>초산·이산부</strong>가 가장 위험 (항체 미형성)</li>
+        <li>HIV+ 임신부 → 면역저하 더 심각</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">임신 합병증 스펙트럼</div>
+      <ul>
+        <li><strong>산모:</strong> 중증 빈혈, 저혈당, 폐부종, 뇌말라리아 (사망률 ↑↑)</li>
+        <li><strong>태아/신생아:</strong> 저체중아(LBW), 조산, 사산, 선천성 말라리아</li>
+        <li>LBW → 신생아 사망 ↑, 발육 지연 장기화</li>
+        <li>선천성 말라리아: 드물지만 진단 어려움 (열, 빈혈, 비장비대)</li>
+        <li><strong>Severe malaria 산모 사망률: 50%</strong> (비임신의 2배)</li>
+        <li>저혈당: 임신+Quinine 조합 시 특히 위험</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- TRIMESTER TREATMENT -->
+  <div class="sec-title">💊 분기별 치료 (가장 중요!)</div>
+  <div class="trimester-bar">
+    <div class="tri tri-1">
+      <div class="tri-label" style="color:#991b1b;">1분기 (0~12주)</div>
+      <div class="tri-drug">Quinine + Clindamycin</div>
+      <div class="tri-note">7일 코스<br>ACT는 이 시기 안전성 데이터 부족<br>(동물 배아독성 우려)</div>
+    </div>
+    <div class="tri tri-2">
+      <div class="tri-label" style="color:#92400e;">2분기 (13~26주)</div>
+      <div class="tri-drug">ACT ✓ 사용 가능</div>
+      <div class="tri-note">AL or ASAQ<br>IPTp-SP 병행<br>(ANC 방문마다)</div>
+    </div>
+    <div class="tri tri-3">
+      <div class="tri-label" style="color:#065f46;">3분기 (27~40주)</div>
+      <div class="tri-drug">ACT ✓ 사용 가능</div>
+      <div class="tri-note">AL or ASAQ<br>Severe → IV Artesunate<br>(전 분기 1st line)</div>
+    </div>
+  </div>
+
+  <!-- SEVERE TABLE -->
+  <div class="sec-title">🚨 Severe Malaria in Pregnancy</div>
+  <table>
+    <tr>
+      <th>항목</th>
+      <th>임신 외 일반</th>
+      <th>임신부 특이사항</th>
+    </tr>
+    <tr>
+      <td><strong>1st line 치료</strong></td>
+      <td>IV Artesunate</td>
+      <td>IV Artesunate — <span class="badge badge-green">전 분기 사용 가능</span></td>
+    </tr>
+    <tr>
+      <td><strong>Quinine 사용</strong></td>
+      <td>2nd line</td>
+      <td>2nd line이지만 <span class="badge badge-red">저혈당 위험 ↑↑</span> (인슐린 분비 자극)</td>
+    </tr>
+    <tr>
+      <td><strong>저혈당</strong></td>
+      <td>주의</td>
+      <td>빈번·심각 — Quinine + 임신 자체 → 시너지</td>
+    </tr>
+    <tr>
+      <td><strong>폐부종</strong></td>
+      <td>드물게</td>
+      <td>임신부에서 더 흔함 → 수액 주의</td>
+    </tr>
+    <tr>
+      <td><strong>조기 분만 유도</strong></td>
+      <td>해당없음</td>
+      <td>치료 전 분만 유도 <span class="badge badge-red">금기</span> → 치료 먼저</td>
+    </tr>
+  </table>
+
+  <!-- DRUG TABLE -->
+  <div class="sec-title">💊 약제 안전성 요약</div>
+  <div class="g3">
+    <div class="card">
+      <div class="card-title" style="color:#991b1b;">⛔ 금기 약제</div>
+      <ul>
+        <li><strong>Primaquine</strong> — 태아 G6PD 미확인, 용혈 위험</li>
+        <li><strong>Tetracycline / Doxycycline</strong> — 태아 골격/치아</li>
+        <li><strong>Halofantrine</strong> — 심독성</li>
+        <li>SP → 1분기 금기 (엽산 길항)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title" style="color:#92400e;">⚠️ 주의 약제</div>
+      <ul>
+        <li><strong>ACT</strong> — 1분기 안전성 자료 제한적</li>
+        <li><strong>Quinine</strong> — 저혈당, 모든 분기 사용 가능하나 부작용 ↑</li>
+        <li><strong>Mefloquine</strong> — 1분기 최소화</li>
+        <li>Artesunate IV → 1분기도 Severe 시 사용</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title" style="color:#065f46;">✅ 안전 약제</div>
+      <ul>
+        <li><strong>Chloroquine</strong> — 감수성 종에서 안전</li>
+        <li><strong>Clindamycin</strong> — 전 분기 안전</li>
+        <li><strong>ACT (2·3분기)</strong> — 안전성 충분</li>
+        <li>IV Artesunate — Severe 전 분기</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="trap-h">⚠️ 시험 함정 TRAP × 4</div>
+  <div class="trap-grid">
+    <div class="trap">
+      <div class="trap-num">01</div>
+      <div class="trap-q">임신부 Severe malaria → 즉시 분만 유도?</div>
+      <div class="trap-a"><strong>NO.</strong> 치료가 우선. 분만 유도는 치료 안정화 이후 고려. 조기 분만 자체가 태아 위험. <strong>IV Artesunate 즉시</strong> 시작이 정답.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-num">02</div>
+      <div class="trap-q">ACT는 임신 전 기간 금기?</div>
+      <div class="trap-a"><strong>NO.</strong> 1분기만 주의 (데이터 부족). <strong>2·3분기는 WHO 권고 사용 가능.</strong> Quinine+Clindamycin은 1분기 대안이지 전 분기 표준 아님.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-num">03</div>
+      <div class="trap-q">경산부는 말라리아에 면역이 있어 안전?</div>
+      <div class="trap-a"><strong>부분적으로만.</strong> 경산부는 VAR2CSA 항체로 태반 격리 ↓ → 비교적 보호. 하지만 Severe malaria 발생 시 여전히 고사망률. <strong>완전 면역 아님.</strong></div>
+    </div>
+    <div class="trap">
+      <div class="trap-num">04</div>
+      <div class="trap-q">Quinine → 임신부에서 안전한 1st line?</div>
+      <div class="trap-a"><strong>2nd line.</strong> Quinine은 임신부에서 <span class="red">저혈당 위험 크게 증가</span> (인슐린 분비 자극 × 임신). Severe는 IV Artesunate, Uncomplicated 1분기는 Quinine+Clindamycin.</div>
+    </div>
+  </div>
+
+  <div class="sec-title">🌍 Global Health 관점</div>
+  <div class="pills">
+    <span class="pill pill-dark">PAM → 아프리카 LBW 주요 원인</span>
+    <span class="pill">IPTp + LLIN = 예방 Package</span>
+    <span class="pill">ANC 참석률 ↑ → 핵심 개입점</span>
+    <span class="pill">HIV+임신부 = 이중 취약</span>
+    <span class="pill">VAR2CSA → 백신 표적 연구 중</span>
+    <span class="pill">초산부 집중 타겟팅</span>
+    <span class="pill">PMTCT와 통합 서비스 제공</span>
+  </div>
+
+  <div class="footer">
+    <div class="footer-note">📚 Oxford HTM 5e Ch.3 · WHO Malaria in Pregnancy Guidelines 2023 · RCP DGH KBA Blueprint</div>
+    <div class="footer-btns">
+      <button class="footer-btn" onclick="window.print()">🖨 PRINT</button>
+      <button class="footer-btn" style="background:var(--hdr2)">→ CID-04: Malaria Resistance</button>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

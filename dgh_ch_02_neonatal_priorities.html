@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH | Neonatal Priorities</title>
+<style>
+  :root {
+    --primary: #993556; --primary-dark: #7a2844; --primary-light: #c4607e;
+    --bg: #fdf4f7; --card-bg: #ffffff; --border: #e8c4d4; --text: #2d1a22;
+    --text-muted: #7a5060; --tag-bg: #f5e0e8; --stat-bg: #fce9ef;
+    --trap-bg: #fff5f7; --trap-border: #f0b8cc;
+    --green: #2e7d32; --orange: #e65100; --blue: #1565c0; --red: #c62828;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Georgia','Times New Roman',serif; background: var(--bg); color: var(--text); font-size: 13px; line-height: 1.55; max-width: 900px; margin: 0 auto; padding: 16px; }
+  .header { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%); color: white; padding: 18px 22px 14px; border-radius: 10px 10px 0 0; display: flex; justify-content: space-between; align-items: flex-start; }
+  .header-left h1 { font-size: 21px; font-weight: 700; }
+  .header-left .subtitle { font-size: 11.5px; opacity: 0.85; margin-top: 3px; }
+  .domain-tag { display: inline-block; background: rgba(255,255,255,0.22); border: 1px solid rgba(255,255,255,0.4); border-radius: 20px; padding: 3px 10px; font-size: 10.5px; font-weight: 600; margin-bottom: 4px; }
+  .weight-tag { display: block; font-size: 11px; opacity: 0.8; }
+  .stats-bar { background: var(--stat-bg); border: 1px solid var(--border); border-top: none; display: grid; grid-template-columns: repeat(4,1fr); }
+  .stat-item { padding: 10px 12px; border-right: 1px solid var(--border); text-align: center; }
+  .stat-item:last-child { border-right: none; }
+  .stat-num { font-size: 17px; font-weight: 700; color: var(--primary); display: block; line-height: 1.2; }
+  .stat-label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.4px; }
+  .content { background: var(--card-bg); border: 1px solid var(--border); border-top: none; padding: 16px; }
+  .section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--primary); border-bottom: 2px solid var(--border); padding-bottom: 4px; margin-bottom: 10px; margin-top: 14px; }
+  .section-title:first-child { margin-top: 0; }
+  .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+  .g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+  .card { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 10px 12px; }
+  .card-title { font-size: 11px; font-weight: 700; color: var(--primary-dark); margin-bottom: 6px; }
+  .card ul { padding-left: 14px; } .card li { font-size: 12px; margin-bottom: 3px; } .card p { font-size: 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 11.5px; margin-bottom: 10px; }
+  th { background: var(--primary); color: white; padding: 6px 8px; text-align: left; font-size: 10.5px; font-weight: 600; }
+  td { padding: 5px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--stat-bg); } tr:last-child td { border-bottom: none; }
+  .badge { display: inline-block; border-radius: 3px; padding: 1px 5px; font-size: 10px; font-weight: 700; }
+  .b-green { background: #e8f5e9; color: var(--green); } .b-red { background: #ffebee; color: var(--red); }
+  .b-orange { background: #fff3e0; color: var(--orange); } .b-blue { background: #e3f2fd; color: var(--blue); }
+  .trap-header { background: #6d1b35; color: white; padding: 7px 14px; font-size: 11px; font-weight: 700; border-radius: 5px 5px 0 0; margin-top: 14px; }
+  .trap-grid { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--trap-border); border-top: none; border-radius: 0 0 5px 5px; overflow: hidden; }
+  .trap-card { background: var(--trap-bg); padding: 9px 12px; border-right: 1px solid var(--trap-border); border-bottom: 1px solid var(--trap-border); }
+  .trap-card:nth-child(even) { border-right: none; } .trap-card:nth-child(3),.trap-card:nth-child(4) { border-bottom: none; }
+  .trap-q { font-size: 10.5px; font-weight: 700; color: #6d1b35; margin-bottom: 4px; }
+  .trap-a { font-size: 11.5px; } .trap-a strong { color: var(--primary-dark); }
+  .pills { display: flex; flex-wrap: wrap; gap: 5px; margin: 10px 0; }
+  .pill { background: var(--tag-bg); color: var(--primary-dark); border: 1px solid var(--border); border-radius: 20px; padding: 3px 10px; font-size: 10.5px; font-weight: 600; }
+  .pill.green { background: #e8f5e9; color: #1b5e20; border-color: #a5d6a7; }
+  .pill.blue { background: #e3f2fd; color: #0d47a1; border-color: #90caf9; }
+  .pill.orange { background: #fff3e0; color: #bf360c; border-color: #ffcc80; }
+  .footer { background: var(--primary-dark); color: rgba(255,255,255,0.85); padding: 9px 16px; font-size: 10.5px; border-radius: 0 0 10px 10px; display: flex; justify-content: space-between; align-items: center; }
+  .footer a { color: #f9d4e2; text-decoration: none; font-weight: 600; font-size: 10px; border: 1px solid rgba(249,212,226,0.4); padding: 2px 8px; border-radius: 3px; margin-left: 5px; }
+  .hl-red { color: var(--red); font-weight: 700; } .hl-green { color: var(--green); font-weight: 700; }
+  .hl-orange { color: var(--orange); font-weight: 700; } .hl-blue { color: var(--blue); font-weight: 700; }
+  .note-box { background: #fff9e6; border-left: 3px solid #f9a825; padding: 7px 10px; font-size: 11.5px; margin: 8px 0; border-radius: 0 4px 4px 0; }
+  .info-box { background: #e8f5e9; border-left: 3px solid #43a047; padding: 7px 10px; font-size: 11.5px; margin: 8px 0; border-radius: 0 4px 4px 0; }
+  .alert-box { background: #ffebee; border-left: 3px solid #c62828; padding: 7px 10px; font-size: 11.5px; margin: 8px 0; border-radius: 0 4px 4px 0; }
+  /* APGAR table highlight */
+  .apgar-row td:first-child { font-weight: 700; color: var(--primary-dark); }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-left">
+    <h1>👶 Neonatal Priorities</h1>
+    <div class="subtitle">신생아 소생술 · 패혈증 · 황달 · 저체온 · LBW · KMC</div>
+  </div>
+  <div class="header-right">
+    <span class="domain-tag">CHILD HEALTH</span>
+    <span class="weight-tag">KBA 20% · Child Health</span>
+  </div>
+</div>
+<div class="stats-bar">
+  <div class="stat-item"><span class="stat-num">~2.4M</span><span class="stat-label">신생아 사망 (연간, 전 세계)</span></div>
+  <div class="stat-item"><span class="stat-num">75%</span><span class="stat-label">신생아 사망 — 생후 1주 이내</span></div>
+  <div class="stat-item"><span class="stat-num">3대</span><span class="stat-label">원인: 조산·패혈증·분만 질식</span></div>
+  <div class="stat-item"><span class="stat-num">SDG 3.2</span><span class="stat-label">NMR ≤12/1,000 by 2030</span></div>
+</div>
+<div class="content">
+
+  <div class="section-title">신생아 소생술 (NRP) — LMIC 핵심 알고리즘</div>
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">⏱ 출생 직후 초기 처치 (Golden Minute)</div>
+      <ul>
+        <li><strong>즉시 건조 + 자극</strong> (5–10초 이내)</li>
+        <li>체온 유지: 따뜻한 환경, 모자, 피부접촉</li>
+        <li>기도 확보: 필요 시만 흡인 (루틴 흡인 금기)</li>
+        <li>호흡 평가: 울음 여부, 흉곽 움직임</li>
+        <li>60초(1분) 이내 소생 여부 결정</li>
+        <li>탯줄 결찰: <strong>1–3분 지연</strong> 권고 (소생 불필요 시)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🔴 소생술 필요 판단 → PPV</div>
+      <ul>
+        <li>호흡 없음 or 헐떡임 (gasping) → <strong>즉각 PPV 시작</strong></li>
+        <li>심박수 &lt;100/분 → PPV 시작</li>
+        <li>PPV: 21% O₂ (실내 공기)로 시작 — LMIC 산소 없어도 가능</li>
+        <li>심박수 &lt;60/분 → 흉부 압박 + PPV</li>
+        <li>약물: Epinephrine 0.1–0.3mL/kg IV (1:10,000)</li>
+        <li>LMIC 기본 소생술: Bag-mask ventilation 만으로도 80% 소생</li>
+      </ul>
+    </div>
+  </div>
+  <div class="note-box">💡 <strong>샘플문제 Q8 연결:</strong> 건강한 산모, 16시간 막파수, 출생 후 10초간 무호흡 → 울음 + 즉각 모유수유 → <strong>치료 불필요(E)</strong>. 10초 무호흡 + 건조 자극 후 자발 호흡 = 정상 범주.</div>
+
+  <div class="section-title">신생아 패혈증 — LMIC 사망 주요 원인</div>
+  <table>
+    <tr><th>구분</th><th>발생 시기</th><th>주요 원인균</th><th>1st line 항생제</th></tr>
+    <tr>
+      <td><strong>조기 발병</strong><br>(EOS)</td>
+      <td>생후 72시간 이내</td>
+      <td>GBS (B군 연쇄구균), E. coli<br>Listeria, Staph. aureus</td>
+      <td><span class="badge b-green">Ampicillin + Gentamicin</span></td>
+    </tr>
+    <tr>
+      <td><strong>후기 발병</strong><br>(LOS)</td>
+      <td>생후 72시간 이후</td>
+      <td>Staph. aureus, Klebsiella<br>CoNS (NICU), 그람음성균</td>
+      <td><span class="badge b-green">Ampicillin + Gentamicin</span><br>(LMIC 1st line 동일)</td>
+    </tr>
+  </table>
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">🔴 신생아 패혈증 위험 신호</div>
+      <ul>
+        <li>수유 거부 (feeding poorly)</li>
+        <li>체온 이상 (발열 or 저체온)</li>
+        <li>호흡 이상 (빠름, 그렁거림)</li>
+        <li>경련</li>
+        <li>황달 (생후 24시간 이내 = 병적)</li>
+        <li>배꼽 발적/분비물 (omphalitis)</li>
+        <li>→ <strong>LMIC: 임상 판단 후 즉각 항생제</strong></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🌍 PSBI — 신생아 위험 감염 LMIC 대안</div>
+      <ul>
+        <li><strong>PSBI</strong> (Possible Serious Bacterial Infection)</li>
+        <li>의뢰 불가 LMIC → Simplified antibiotic regimen</li>
+        <li>Gentamicin IM 1회/일 + Amoxicillin 경구 7일</li>
+        <li>WHO 2015 권고: 의뢰 불가 환경에서 입원 대체</li>
+        <li>Chlorhexidine 배꼽 소독: SSA·아시아 신생아 패혈증↓</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-title">신생아 황달 — 병적 vs 생리적</div>
+  <table>
+    <tr><th>구분</th><th>발생 시기</th><th>원인</th><th>처치</th></tr>
+    <tr>
+      <td><strong>생리적 황달</strong></td>
+      <td>생후 2–3일, 2주 내 소실</td>
+      <td>간 미성숙, RBC 분해 증가</td>
+      <td>광선치료(심할 때), 수유 증가</td>
+    </tr>
+    <tr>
+      <td><span class="badge b-red">병적 황달</span></td>
+      <td><strong>생후 24시간 이내</strong></td>
+      <td>용혈 (ABO/Rh 부적합, G6PD결핍)<br>패혈증, 선천성 감염</td>
+      <td><strong>즉각 광선치료</strong> + 원인 치료<br>심각: 교환수혈</td>
+    </tr>
+    <tr>
+      <td><strong>모유황달</strong></td>
+      <td>생후 1주+, 3–12주</td>
+      <td>모유 내 glucuronidase</td>
+      <td>모유수유 <strong>지속</strong> (중단 불필요)</td>
+    </tr>
+  </table>
+  <div class="alert-box">🚨 <strong>핵심:</strong> 생후 24시간 이내 황달 = 항상 병적. 원인 찾고 즉각 광선치료. G6PD 결핍은 LMIC(아프리카·아시아·지중해)에서 흔한 원인.</div>
+
+  <div class="section-title">저체중아 (LBW) & 캥거루 돌봄 (KMC)</div>
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">📊 LBW 분류 & 역학</div>
+      <ul>
+        <li><strong>LBW</strong>: &lt;2,500g — 전 세계 신생아 15%</li>
+        <li><strong>VLBW</strong>: &lt;1,500g</li>
+        <li><strong>ELBW</strong>: &lt;1,000g</li>
+        <li>원인: 조산(preterm) or 자궁내 성장 지연(IUGR)</li>
+        <li>LMIC: LBW 90%가 SSA·남아시아 집중</li>
+        <li>원인: 영양결핍, 말라리아, HIV, 다태, 10대 임신</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🦘 KMC (캥거루 모 돌봄) — WHO 권고</div>
+      <ul>
+        <li>피부 대 피부 접촉: 체온 조절, 감염↓, 모유수유↑</li>
+        <li>LBW &lt;2,000g: 안정 후 즉각 시작 (인큐베이터 대체)</li>
+        <li>사망률 40% 감소 (Cochrane review)</li>
+        <li>WHO 2022: <strong>출생 즉시</strong> KMC 시작 권고 (이전: 안정 후)</li>
+        <li>아버지·가족도 대체 가능</li>
+        <li>LMIC 인큐베이터 부재 환경 최선의 대안</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-title">저산소성 허혈성 뇌병증 (HIE) — 치료적 저체온</div>
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">🧊 치료적 저체온 (Therapeutic Hypothermia)</div>
+      <ul>
+        <li>중등도–중증 HIE: <strong>출생 6시간 이내</strong> 시작</li>
+        <li>목표 체온: <strong>33–34°C × 72시간</strong></li>
+        <li>사망·신경 장애 감소 (고소득국 권고)</li>
+        <li>LMIC: 장비 부재 — phase change material 대안 연구</li>
+        <li>≥36주 신생아에서만 적응</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🌡 신생아 저체온 예방 — Warm Chain</div>
+      <ul>
+        <li>따뜻한 분만실 (25°C+)</li>
+        <li>즉각 건조 + 피부 접촉</li>
+        <li>모자 착용</li>
+        <li>KMC (체온 유지 효과)</li>
+        <li>따뜻한 이송</li>
+        <li>LMIC: 분만 직후 저체온이 주요 사망 원인</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="trap-header">⚠️ 시험 함정 4개</div>
+  <div class="trap-grid">
+    <div class="trap-card">
+      <div class="trap-q">🪤 함정 1: 출생 직후 루틴 기도 흡인 시행</div>
+      <div class="trap-a">루틴 흡인은 <strong>더 이상 권고 안 함</strong>. 자극 필요 시에만. 무분별한 흡인 → 미주신경 반사 → 서맥·무호흡 유발. WHO NRP 2015 이후 폐기.</div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-q">🪤 함정 2: 황달 신생아 → 모유수유 중단</div>
+      <div class="trap-a">모유황달(breast milk jaundice)도 모유수유 <strong>중단 불필요</strong>. 수유 증가가 황달 감소에 도움. "모유 중단"은 구식 접근. 병적 황달은 광선치료가 답이지 수유 중단이 아님.</div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-q">🪤 함정 3: KMC = 안정된 후에야 시작</div>
+      <div class="trap-a">WHO 2022 개정: LBW 신생아에게 <strong>출생 즉시 KMC 시작</strong> 권고. 이전 "안정 후" 지침 폐기. 즉각 피부접촉이 체온·호흡 안정화에 도움.</div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-q">🪤 함정 4: 소생술 시작 = 100% 산소 투여</div>
+      <div class="trap-a">신생아 소생술 시작 = <strong>21% O₂ (실내 공기)</strong>. 100% 산소로 시작하면 산화 스트레스 → 손상↑. 심박수 반응 보며 O₂ 상향. LMIC 산소 없어도 소생 가능한 이유.</div>
+    </div>
+  </div>
+
+  <div class="section-title">Global Health 관점</div>
+  <div class="pills">
+    <span class="pill">신생아 사망 3대 원인: 조산·패혈증·분만질식</span>
+    <span class="pill green">KMC — LBW 사망률 40% 감소</span>
+    <span class="pill blue">Ampicillin + Gentamicin — 신생아 패혈증 1st line</span>
+    <span class="pill orange">생후 24h 이내 황달 = 항상 병적</span>
+    <span class="pill">PPV 21% O₂로 시작</span>
+    <span class="pill green">탯줄 지연결찰 1–3분 (소생 불필요 시)</span>
+    <span class="pill blue">PSBI — 의뢰 불가 LMIC 신생아 감염 프로토콜</span>
+    <span class="pill">Chlorhexidine 배꼽 소독 — LMIC 감염↓</span>
+  </div>
+</div>
+<div class="footer">
+  <span>📚 Ref: WHO Every Newborn Action Plan · WHO NRP Guidelines 2015 · WHO KMC Guidelines 2022</span>
+  <div><a href="#">← Diarrhoea</a><a href="#">Nutrition →</a></div>
+</div>
+</body>
+</html>

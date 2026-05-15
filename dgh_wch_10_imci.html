@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH | IMCI — Integrated Management of Childhood Illness</title>
+<style>
+  :root {
+    --primary: #993556;
+    --primary-dark: #7a2844;
+    --primary-light: #c4607e;
+    --bg: #f9eef3;
+    --card-bg: #ffffff;
+    --border: #e8c4d4;
+    --text: #2d1a22;
+    --text-muted: #7a5060;
+    --accent1: #e8c4d4;
+    --accent2: #f5dce8;
+    --trap-bg: #fff0f4;
+    --trap-border: #f4b8cc;
+    --stat-bg: #fdf5f8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); font-size: 13.5px; line-height: 1.55; }
+
+  /* HEADER */
+  .header { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%); color: white; padding: 18px 24px 14px; }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .tag { background: rgba(255,255,255,0.22); border: 1px solid rgba(255,255,255,0.4); border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; }
+  .header h1 { font-size: 22px; font-weight: 700; margin: 8px 0 3px; letter-spacing: -0.3px; }
+  .header p { font-size: 12.5px; opacity: 0.88; }
+
+  /* STATS BAR */
+  .stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; padding: 12px 16px; background: var(--stat-bg); border-bottom: 1px solid var(--border); }
+  .stat { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; text-align: center; }
+  .stat .num { font-size: 19px; font-weight: 700; color: var(--primary); line-height: 1; }
+  .stat .lbl { font-size: 10.5px; color: var(--text-muted); margin-top: 2px; }
+
+  /* MAIN GRID */
+  .main { padding: 12px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
+  .card h3 { font-size: 12px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; border-bottom: 1.5px solid var(--accent1); padding-bottom: 5px; }
+  .full-width { grid-column: 1 / -1; }
+
+  /* TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  th { background: var(--accent2); color: var(--primary-dark); font-weight: 700; padding: 5px 7px; text-align: left; font-size: 11.5px; }
+  td { padding: 5px 7px; border-bottom: 1px solid var(--accent1); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #fdf5f8; }
+
+  /* CLASSIFICATION COLORS */
+  .danger { color: #c0392b; font-weight: 700; }
+  .warning { color: #e67e22; font-weight: 700; }
+  .ok { color: #27ae60; font-weight: 700; }
+
+  /* STEP LIST */
+  .step-list { list-style: none; }
+  .step-list li { display: flex; gap: 8px; margin-bottom: 6px; font-size: 12.5px; }
+  .step-num { background: var(--primary); color: white; border-radius: 50%; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  /* BULLET LIST */
+  .bl { list-style: none; }
+  .bl li { padding: 3px 0 3px 14px; position: relative; font-size: 12.5px; border-bottom: 1px dotted var(--accent1); }
+  .bl li:last-child { border-bottom: none; }
+  .bl li::before { content: '▸'; position: absolute; left: 0; color: var(--primary-light); font-size: 10px; top: 5px; }
+
+  /* TRAP SECTION */
+  .trap-section { padding: 0 16px 10px; }
+  .trap-h { background: var(--primary); color: white; padding: 7px 14px; border-radius: 8px 8px 0 0; font-size: 12px; font-weight: 700; letter-spacing: 0.5px; }
+  .trap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; background: var(--trap-bg); border: 1px solid var(--trap-border); border-top: none; border-radius: 0 0 8px 8px; padding: 10px; }
+  .trap { background: white; border: 1px solid var(--trap-border); border-radius: 7px; padding: 9px 10px; }
+  .trap .t-head { font-size: 11px; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+  .trap p { font-size: 11.5px; color: var(--text); }
+
+  /* PILLS */
+  .pills { padding: 8px 16px 6px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .pill { background: var(--accent2); border: 1px solid var(--border); border-radius: 20px; padding: 3px 10px; font-size: 11px; color: var(--primary-dark); font-weight: 600; }
+
+  /* FOOTER */
+  .footer { background: var(--primary-dark); color: rgba(255,255,255,0.85); padding: 9px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 11px; border-radius: 0 0 10px 10px; }
+  .footer-refs { display: flex; gap: 8px; flex-wrap: wrap; }
+  .footer-btn { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 12px; padding: 3px 10px; font-size: 10.5px; color: white; cursor: pointer; }
+
+  b { color: var(--primary-dark); }
+  .highlight { background: #fce4ec; border-radius: 3px; padding: 0 3px; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-top">
+    <span class="tag">Women's & Child Health · Child Health</span>
+    <span class="tag">DGH KBA</span>
+  </div>
+  <h1>IMCI — Integrated Management of Childhood Illness</h1>
+  <p>WHO/UNICEF 1996 · 5세 미만 소아 사망 감소 핵심 전략 · LMIC 1차 의료 기반</p>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat"><div class="num">5</div><div class="lbl">주요 타겟 질환군</div></div>
+  <div class="stat"><div class="num">1996</div><div class="lbl">WHO/UNICEF 도입</div></div>
+  <div class="stat"><div class="num">100+</div><div class="lbl">시행 국가 수</div></div>
+  <div class="stat"><div class="num">3단계</div><div class="lbl">IMCI 구성요소</div></div>
+</div>
+
+<!-- MAIN GRID -->
+<div class="main">
+
+  <!-- 5대 질환과 분류 체계 -->
+  <div class="card full-width">
+    <h3>IMCI 5대 타겟 질환 & 3단계 분류 체계 (Classify → Treat → Follow-up)</h3>
+    <table>
+      <tr>
+        <th>질환군</th>
+        <th><span class="danger">위험 분류 (Danger Signs)</span></th>
+        <th><span class="warning">중등도 분류</span></th>
+        <th><span class="ok">경증 분류</span></th>
+        <th>1차 처치</th>
+      </tr>
+      <tr>
+        <td><b>폐렴</b></td>
+        <td class="danger">흉벽함몰 / SpO₂↓ / 의식변화</td>
+        <td class="warning">빠른 호흡 (2개월&lt;50/분; 12개월&lt;40/분)</td>
+        <td class="ok">기침·감기만 있음</td>
+        <td>입원 + Amoxicillin 40mg/kg/day</td>
+      </tr>
+      <tr>
+        <td><b>설사</b></td>
+        <td class="danger">중증 탈수 (함몰 눈·피부 turgor↓↓)</td>
+        <td class="warning">일부 탈수</td>
+        <td class="ok">탈수 없음</td>
+        <td>중증: IV; 중등: ORS Plan B; 경: Plan A</td>
+      </tr>
+      <tr>
+        <td><b>말라리아</b></td>
+        <td class="danger">발열+경련/의식변화 → 중증 말라리아</td>
+        <td class="warning">말라리아 위험지역 + 발열</td>
+        <td class="ok">발열 원인 불명</td>
+        <td>RDT/스미어 → ACT; 중증: IV Artesunate</td>
+      </tr>
+      <tr>
+        <td><b>영양불량</b></td>
+        <td class="danger">SAM (MUAC &lt;115mm / WHZ &lt;-3)</td>
+        <td class="warning">MAM (MUAC 115–125mm)</td>
+        <td class="ok">정상 성장</td>
+        <td>SAM: F-75→F-100→RUTF; MAM: 보충식품</td>
+      </tr>
+      <tr>
+        <td><b>귀 감염</b></td>
+        <td class="danger">유양돌기 부종/발적 → 유양돌기염</td>
+        <td class="warning">귀 분비물 &lt;14일</td>
+        <td class="ok">귀 통증만</td>
+        <td>Amoxicillin; 만성: 국소 quinolone 점이제</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 일반 위험 징후 -->
+  <div class="card">
+    <h3>General Danger Signs (즉시 의뢰 기준)</h3>
+    <ul class="bl">
+      <li>수유/음수 불가 (Unable to drink/breastfeed)</li>
+      <li>모든 것을 구토 (Vomiting everything)</li>
+      <li>경련 기왕력 (Convulsions — this illness)</li>
+      <li>의식저하 / lethargy (Abnormally sleepy)</li>
+      <li><b>→ 4가지 중 1개라도 있으면 즉시 의뢰</b></li>
+    </ul>
+    <div style="margin-top:8px; padding:7px; background:#fce4ec; border-radius:6px; font-size:12px;">
+      💡 의뢰 전 처치: 첫 용량 항생제 + 포도당 투여 + 보온 유지
+    </div>
+  </div>
+
+  <!-- IMCI 3대 구성요소 -->
+  <div class="card">
+    <h3>IMCI 3대 구성요소</h3>
+    <ul class="step-list">
+      <li><span class="step-num">1</span><div><b>보건의료시스템 강화</b><br>공급망·의약품·의뢰체계 정비</div></li>
+      <li><span class="step-num">2</span><div><b>의료인력 역량 강화</b><br>11일 표준 교육과정 (임상 사례 기반)</div></li>
+      <li><span class="step-num">3</span><div><b>지역사회·가정 관행 개선</b><br>IYCF·예방접종·조기 내원 촉진</div></li>
+    </ul>
+  </div>
+
+  <!-- 빠른 호흡 기준 -->
+  <div class="card">
+    <h3>연령별 빠른 호흡 기준 (필수 암기)</h3>
+    <table>
+      <tr><th>연령</th><th>빠른 호흡 기준</th></tr>
+      <tr><td>2–12개월</td><td class="danger">≥ 50회/분</td></tr>
+      <tr><td>12개월–5세</td><td class="warning">≥ 40회/분</td></tr>
+      <tr><td>2개월 미만</td><td class="danger">≥ 60회/분 (신생아 기준)</td></tr>
+    </table>
+    <div style="margin-top:7px; font-size:12px; color:var(--text-muted);">
+      ⚠️ 1분 전체를 카운트해야 정확 — 부분 측정 오류 多
+    </div>
+  </div>
+
+  <!-- 항생제 선택 -->
+  <div class="card">
+    <h3>IMCI 1차 항생제 (WHO 권고)</h3>
+    <table>
+      <tr><th>적응증</th><th>1차 선택</th><th>대안</th></tr>
+      <tr><td>폐렴 (비중증)</td><td>Amoxicillin PO</td><td>Co-trimoxazole</td></tr>
+      <tr><td>중증 폐렴</td><td>Ampicillin + Gentamicin IV</td><td>Ceftriaxone</td></tr>
+      <tr><td>이질</td><td>Ciprofloxacin</td><td>지역 저항성 참고</td></tr>
+      <tr><td>이중 급성 중이염</td><td>Amoxicillin 7–10일</td><td>–</td></tr>
+    </table>
+  </div>
+
+  <!-- iCCM -->
+  <div class="card">
+    <h3>iCCM — 지역사회 기반 IMCI</h3>
+    <ul class="bl">
+      <li><b>Community Health Worker</b>가 3대 질환 처치 가능: 폐렴·설사·말라리아</li>
+      <li>Pre-referral Amoxicillin DT (산포제) 보급</li>
+      <li>ORS + Zinc 지급 (설사 1차 처치)</li>
+      <li>RDT → ACT 처방 권한 부여</li>
+      <li>의뢰 장벽이 높은 僻地 LMIC에서 사망률 감소 입증</li>
+    </ul>
+  </div>
+
+  <!-- MUAC -->
+  <div class="card">
+    <h3>MUAC 기준 & 영양 분류</h3>
+    <table>
+      <tr><th>MUAC</th><th>분류</th><th>조치</th></tr>
+      <tr><td class="danger">&lt; 115mm</td><td class="danger">SAM</td><td>RUTF ± 입원</td></tr>
+      <tr><td class="warning">115–124mm</td><td class="warning">MAM</td><td>보충식품 프로그램</td></tr>
+      <tr><td class="ok">≥ 125mm</td><td class="ok">정상</td><td>IYCF 상담</td></tr>
+    </table>
+    <div style="margin-top:6px; font-size:12px; color:var(--text-muted);">
+      WHZ &lt;-3 = SAM / WHZ -2 to -3 = MAM (MUAC와 병용)
+    </div>
+  </div>
+
+</div>
+
+<!-- TRAP SECTION -->
+<div class="trap-section">
+  <div class="trap-h">⚠️ 시험 함정 TRAPS — 자주 틀리는 포인트 4가지</div>
+  <div class="trap-grid">
+    <div class="trap">
+      <div class="t-head">🪤 Trap 1: 호흡수 컷오프 혼동</div>
+      <p>12개월~5세는 <span class="highlight">40/분</span>, 2~12개월은 <span class="highlight">50/분</span>. 반대로 외우면 폐렴 과소진단. 시험에서 연령을 먼저 확인하라.</p>
+    </div>
+    <div class="trap">
+      <div class="t-head">🪤 Trap 2: 흉벽 함몰 = 중증</div>
+      <p>Lower chest wall indrawing은 <b>중증 폐렴</b> 기준. 단순 "빠른 호흡만"이면 비중증 폐렴. 함몰이 있으면 입원 의뢰가 정답.</p>
+    </div>
+    <div class="trap">
+      <div class="t-head">🪤 Trap 3: 발열 = 말라리아 자동 등식 ✗</div>
+      <p>말라리아 비유행 지역에서는 발열에 ACT를 바로 주면 오답. <b>RDT/스미어 확인</b> 후 치료가 원칙. 유행 지역에서만 경험적 치료.</p>
+    </div>
+    <div class="trap">
+      <div class="t-head">🪤 Trap 4: ORS만 주면 충분 ✗</div>
+      <p>WHO 2004년부터 설사에 <b>Zinc 10–20mg × 10–14일</b> 병용 권고. ORS만 언급된 선택지는 불완전. Zinc 추가가 정답.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PILLS -->
+<div class="pills">
+  <span class="pill">🌍 LMIC 1차의료</span>
+  <span class="pill">👶 5세 미만 사망 감소</span>
+  <span class="pill">iCCM 지역사회</span>
+  <span class="pill">WHO/UNICEF 공동 전략</span>
+  <span class="pill">5대 질환 통합접근</span>
+  <span class="pill">SDG 3.2 아동사망</span>
+  <span class="pill">RUTF · ORS · ACT</span>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-refs">
+    <span>📚 Oxford Handbook Tropical Medicine 5e Ch.7</span>
+    <span>|</span>
+    <span>WHO IMCI chart booklet 2014</span>
+    <span>|</span>
+    <span>WHO Pocket Book of Hospital Care for Children</span>
+  </div>
+  <div style="display:flex; gap:6px;">
+    <span class="footer-btn">← Nutrition</span>
+    <span class="footer-btn">Paediatric Priorities →</span>
+  </div>
+</div>
+
+</body>
+</html>

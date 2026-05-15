@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH CID 32 | Rheumatic Fever & RHD</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Noto Sans KR',sans-serif;background:#fdf4f4;color:#2d1a1a;font-size:12.5px;line-height:1.55}
+  .page{max-width:900px;margin:0 auto;padding:18px}
+  .header{background:#791F1F;color:#fff;border-radius:8px 8px 0 0;padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+  .header-left .tag{font-size:10px;letter-spacing:2px;opacity:.7;text-transform:uppercase;font-family:'JetBrains Mono',monospace}
+  .header-left h1{font-size:20px;font-weight:700;margin-top:2px}
+  .header-right{text-align:right;font-size:10px;opacity:.75;font-family:'JetBrains Mono',monospace;line-height:1.8}
+  .stats-bar{background:#6b1a1a;padding:10px 20px;display:grid;grid-template-columns:repeat(4,1fr)}
+  .stat{text-align:center;color:#fff;padding:4px 8px;border-right:1px solid rgba(255,255,255,0.15)}
+  .stat:last-child{border-right:none}
+  .stat-num{font-size:17px;font-weight:700;color:#f5dcdc;font-family:'JetBrains Mono',monospace}
+  .stat-label{font-size:9.5px;opacity:.8;margin-top:1px;letter-spacing:.5px}
+  .body-wrap{background:#fff;border:1px solid #e8c4c4;border-top:none;border-radius:0 0 8px 8px;padding:16px 20px}
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+  .box{background:#fdf4f4;border:1px solid #e8c4c4;border-radius:6px;padding:12px}
+  .box-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#791F1F;margin-bottom:8px;border-bottom:1px solid #e8c4c4;padding-bottom:4px}
+  .box ul{list-style:none;padding:0}
+  .box ul li{padding:2px 0 2px 10px;position:relative;font-size:12px}
+  .box ul li::before{content:'›';position:absolute;left:0;color:#791F1F;font-weight:700}
+  strong{color:#791F1F;font-weight:700}
+  .section-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#791F1F;margin-bottom:7px}
+  table{width:100%;border-collapse:collapse;font-size:11.5px;margin-bottom:14px}
+  th{background:#791F1F;color:#fff;padding:6px 10px;text-align:left;font-weight:600;font-size:10.5px}
+  td{padding:5px 10px;border-bottom:1px solid #e8c4c4;vertical-align:top}
+  tr:nth-child(even) td{background:#fdf4f4}
+  tr:last-child td{border-bottom:none}
+  .steps{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+  .step{background:#f5dcdc;border:1px solid #e8c4c4;border-radius:6px;padding:8px 10px;flex:1;min-width:120px}
+  .step-num{font-size:9px;font-weight:700;color:#791F1F;text-transform:uppercase;letter-spacing:1px}
+  .step-content{font-size:11.5px;margin-top:3px;font-weight:600}
+  .trap-h{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fff;background:#791F1F;padding:5px 12px;border-radius:4px;display:inline-block;margin-bottom:8px}
+  .trap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:14px}
+  .trap{background:#fff;border:1.5px solid #791F1F;border-radius:6px;padding:10px}
+  .trap-icon{font-size:15px;margin-bottom:4px}
+  .trap-q{font-size:10.5px;font-weight:700;color:#791F1F;margin-bottom:3px}
+  .trap-a{font-size:11px;color:#2d1a1a;line-height:1.5}
+  .pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+  .pill{background:#f5dcdc;border:1px solid #e8c4c4;border-radius:20px;padding:3px 11px;font-size:10.5px;color:#791F1F;font-weight:600}
+  .pill-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#791F1F;margin-bottom:5px}
+  .footer{margin-top:10px;padding-top:8px;border-top:1px solid #e8c4c4;display:flex;justify-content:space-between;align-items:center}
+  .footer-note{font-size:10px;color:#888;font-family:'JetBrains Mono',monospace}
+  .nav-btn{background:#791F1F;color:#fff;border:none;border-radius:4px;padding:4px 12px;font-size:10.5px;font-weight:600;cursor:default;letter-spacing:.5px}
+  .highlight-box{background:#f5dcdc;border-left:3px solid #791F1F;padding:8px 12px;border-radius:0 6px 6px 0;margin-bottom:12px;font-size:11.5px}
+
+  /* Jones criteria layout */
+  .jones-wrap{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+  .jones-box{border-radius:6px;padding:11px}
+  .jones-major{background:#f5dcdc;border:2px solid #791F1F}
+  .jones-minor{background:#fdf4f4;border:1px solid #e8c4c4}
+  .jones-title{font-size:10px;font-weight:700;color:#791F1F;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+  .jones-item{font-size:12px;padding:2px 0 2px 10px;position:relative}
+  .jones-item::before{content:'›';position:absolute;left:0;color:#791F1F;font-weight:700}
+  .jones-rule{background:#791F1F;color:#fff;border-radius:6px;padding:9px 12px;font-size:11.5px;margin-bottom:14px;text-align:center}
+
+  /* Prophylaxis table highlight */
+  .rhd-risk{background:#f5dcdc !important;font-weight:700}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <div class="header-left">
+    <div class="tag">DGH KBA · Clinical Infectious Diseases · CID-32</div>
+    <h1>Rheumatic Fever &amp; RHD</h1>
+  </div>
+  <div class="header-right">
+    창 C · Bacterial Infections (마지막!)<br>
+    Blueprint 40% · Oxford Trop Med 5e<br>
+    WHO RHD Control Programme
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">40M</div>
+    <div class="stat-label">전 세계 RHD 유병 추정</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">300,000</div>
+    <div class="stat-label">RHD 연간 사망</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">5–30%</div>
+    <div class="stat-label">ARF→RHD 진행률 (치료 없이)</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">21세까지</div>
+    <div class="stat-label">이차 예방 최소 기간 (RHD 있을 시)</div>
+  </div>
+</div>
+
+<div class="body-wrap">
+
+  <!-- PATHOGENESIS -->
+  <div class="g2">
+    <div class="box">
+      <div class="box-title">병태생리 — 분자 모방 (Molecular Mimicry)</div>
+      <ul>
+        <li><strong>GAS (Group A Streptococcus):</strong> M단백 항원 → 심장 항원과 교차반응</li>
+        <li>인두염 발병 후 <strong>2–4주</strong> → ARF 발생</li>
+        <li>피부 GAS 감염(농가진)은 ARF 유발 안 함 (인두 특이적)</li>
+        <li>반복 ARF 삽화 → 판막 손상 누적 → <strong>RHD (만성 류마티스 심질환)</strong></li>
+        <li>판막 침범: 승모판(70%)&gt;대동맥판&gt;삼첨판 순, 폐동맥판 드묾</li>
+        <li>승모판 협착(MS) = 반복 ARF의 전형적 결과</li>
+      </ul>
+    </div>
+    <div class="box">
+      <div class="box-title">역학 · LMIC 부담</div>
+      <ul>
+        <li>주로 <strong>5–15세</strong> 소아청소년 첫 삽화</li>
+        <li>과밀주거·빈곤·열악한 위생 → GAS 인두염 만연</li>
+        <li>사하라 이남 아프리카·남아시아·오세아니아 원주민 최고 유행</li>
+        <li>LMIC 성인 심부전·뇌졸중·심방세동의 주요 원인</li>
+        <li>임산부 RHD → 산모 심부전·사망 위험 (산모 사망 원인 중 중요)</li>
+        <li>심초음파 진단 보급 확대 → 잠재 RHD 발굴 증가</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- JONES CRITERIA -->
+  <div class="section-title">2015 Jones Criteria (개정판) — ARF 진단</div>
+  <div class="jones-wrap">
+    <div class="jones-box jones-major">
+      <div class="jones-title">주요 기준 (Major — 5가지)</div>
+      <div class="jones-item"><strong>Carditis</strong> (임상적·청진·심초음파) — 가장 중요</div>
+      <div class="jones-item"><strong>Polyarthritis</strong> (이동성·급성·대관절)</div>
+      <div class="jones-item"><strong>Chorea</strong> (Sydenham's — 불수의 운동)</div>
+      <div class="jones-item"><strong>Erythema marginatum</strong> (체간·사지 근위부)</div>
+      <div class="jones-item"><strong>Subcutaneous nodules</strong> (뼈 돌출부, 무통)</div>
+    </div>
+    <div class="jones-box jones-minor">
+      <div class="jones-title">부기준 (Minor)</div>
+      <div class="jones-item">발열 (≥38.5°C)</div>
+      <div class="jones-item">ESR ≥60mm/h or CRP ≥3mg/dL</div>
+      <div class="jones-item">PR 간격 연장 (ECG)</div>
+      <div class="jones-item">관절통 (arthralgia — 관절염 이미 주기준이면 제외)</div>
+      <br>
+      <div class="jones-title" style="margin-top:4px">GAS 선행감염 증거 (필수)</div>
+      <div class="jones-item">咽頭 배양 양성 or 신속항원검사(+)</div>
+      <div class="jones-item">ASO 역가 상승 or 기타 항체 상승</div>
+    </div>
+  </div>
+  <div class="jones-rule">
+    <strong>진단 규칙:</strong> GAS 선행감염 증거 + [주요 2개] OR [주요 1개 + 부기준 2개] → ARF 진단<br>
+    <span style="font-size:10.5px;opacity:.9">※ 2015 개정: 심초음파 carditis 포함, 고위험 집단(LMIC) 기준 완화</span>
+  </div>
+
+  <!-- TREATMENT & PROPHYLAXIS -->
+  <div class="section-title">치료 및 이차 예방</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">① 급성기 치료</div>
+      <div class="step-content">Benzylpenicillin IM 단회<br>OR Amoxicillin 10일<br><span style="font-size:10.5px;font-weight:400">GAS 박멸 (재감염 방지)</span></div>
+    </div>
+    <div class="step">
+      <div class="step-num">② 항염 치료</div>
+      <div class="step-content">관절염 → Aspirin (naproxen)<br>심장염 → Prednisolone<br><span style="font-size:10.5px;font-weight:400">증상 억제, 판막 손상 예방 효과 논란</span></div>
+    </div>
+    <div class="step">
+      <div class="step-num">③ 심부전 관리</div>
+      <div class="step-content">ACEi + 이뇨제<br>심방세동 → 항응고<br>중증 판막병변 → 수술</div>
+    </div>
+    <div class="step">
+      <div class="step-num">④ Chorea</div>
+      <div class="step-content">Haloperidol or Carbamazepine<br>자기한정(수개월)<br><span style="font-size:10.5px;font-weight:400">임신 시 Chorea gravidarum</span></div>
+    </div>
+  </div>
+
+  <!-- SECONDARY PROPHYLAXIS TABLE -->
+  <div class="section-title">이차 예방 — Benzathine Penicillin G (BPG) 기간</div>
+  <table>
+    <tr><th>임상 상황</th><th>BPG 투여</th><th>최소 기간</th></tr>
+    <tr><td>ARF, 심장염 없음</td><td>1.2MU IM 4주마다</td><td>5년 or 21세까지 (긴 쪽 선택)</td></tr>
+    <tr class="rhd-risk"><td>ARF + 경도 RHD</td><td>1.2MU IM 4주마다</td><td>10년 or 21세까지 (긴 쪽)</td></tr>
+    <tr class="rhd-risk"><td>ARF + 중증 RHD or 수술 후</td><td>1.2MU IM 4주마다</td><td><strong>40세까지 or 평생</strong></td></tr>
+    <tr><td>Penicillin allergy</td><td>Erythromycin 250mg PO bid</td><td>위와 동일</td></tr>
+  </table>
+
+  <div class="highlight-box">
+    <strong>심초음파 스크리닝 (Echocardiographic screening):</strong> 고위험 LMIC 학령기 아동에서 청진 정상이어도 심초음파상 잠재 RHD(subclinical RHD) 발견 가능 → 이차 예방 조기 시작. WHO는 자원 있는 고유행 지역에서 스크리닝 권고. RHD World Alliance 주도 글로벌 등록사업 진행 중.
+  </div>
+
+  <!-- TRAP CARDS -->
+  <div class="trap-h">⚠ 시험 함정 4</div>
+  <div class="trap-grid">
+    <div class="trap">
+      <div class="trap-icon">🦠</div>
+      <div class="trap-q">GAS 피부감염(농가진)도 ARF 유발하는가?</div>
+      <div class="trap-a"><strong>No.</strong> ARF는 GAS <strong>인두감염</strong>에만 특이적. 농가진(피부 GAS)은 급성 신장염(APSGN)은 유발하지만 ARF는 유발하지 않음. 진단 시 인두염 선행 여부 확인 핵심.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-icon">💊</div>
+      <div class="trap-q">ARF 항생제 치료가 심장 손상을 역전시키는가?</div>
+      <div class="trap-a"><strong>No.</strong> 항생제(Penicillin)는 GAS 박멸 목적 — 이미 시작된 면역 매개 심장 손상은 역전 불가. 이차 예방 BPG = 재삽화를 막아 추가 손상 방지. 조기 예방이 유일한 해법.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-icon">🫀</div>
+      <div class="trap-q">RHD에서 가장 흔한 판막 병변은?</div>
+      <div class="trap-a"><strong>승모판 역류(MR) → 협착(MS) 순.</strong> 초기 ARF는 MR, 반복 삽화 후 MS로 진행. MS는 심방세동·혈전·뇌졸중 위험. RHD 임산부 → MS 악화 → 산모 심부전 위험 높음.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-icon">🌍</div>
+      <div class="trap-q">이차 예방 기간 — 심장염 없으면 짧게?</div>
+      <div class="trap-a">심장염 없는 ARF = 5년 or 21세. <strong>그러나 LMIC 고유행 환경에서는 재노출 위험이 높아 더 길게 유지 권고.</strong> 현장 판단 필요. 중증 RHD = 평생 BPG가 원칙.</div>
+    </div>
+  </div>
+
+  <!-- PILLS -->
+  <div class="pill-title">🌐 Global Health 관점</div>
+  <div class="pills">
+    <span class="pill">RHD = LMIC 예방가능 심질환 부담 1위</span>
+    <span class="pill">BPG 이차 예방 = 가장 비용효과적 중재</span>
+    <span class="pill">심초음파 스크리닝 → 잠재 RHD 조기 발굴</span>
+    <span class="pill">임산부 RHD → MS 악화 → 산모 사망 위험</span>
+    <span class="pill">과밀주거·빈곤 → GAS 전파 → 사회결정요인</span>
+    <span class="pill">GAS 백신 개발 중 (M단백 기반) — 근본 해결책</span>
+  </div>
+
+  <div class="footer">
+    <div class="footer-note">CID-32 · Rheumatic Fever &amp; RHD · Oxford Trop Med 5e · WHO RHD 2020 · 창 C 완료 ✓</div>
+    <div style="display:flex;gap:6px">
+      <span class="nav-btn">← CID-31 Rickettsial</span>
+      <span class="nav-btn" style="background:#4a5568">창 C 완료 ✓ → 창 D</span>
+    </div>
+  </div>
+
+</div>
+</div>
+</body>
+</html>

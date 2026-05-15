@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH | Population & Reproductive Health</title>
+<style>
+  :root {
+    --primary: #993556; --primary-dark: #7a2844; --primary-light: #c4607e;
+    --bg: #fdf4f7; --card-bg: #ffffff; --border: #e8c4d4; --text: #2d1a22;
+    --text-muted: #7a5060; --tag-bg: #f5e0e8; --stat-bg: #fce9ef;
+    --trap-bg: #fff5f7; --trap-border: #f0b8cc;
+    --green: #2e7d32; --orange: #e65100; --blue: #1565c0; --red: #c62828;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Georgia','Times New Roman',serif; background: var(--bg); color: var(--text); font-size: 13px; line-height: 1.55; max-width: 900px; margin: 0 auto; padding: 16px; }
+  .header { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%); color: white; padding: 18px 22px 14px; border-radius: 10px 10px 0 0; display: flex; justify-content: space-between; align-items: flex-start; }
+  .header-left h1 { font-size: 21px; font-weight: 700; }
+  .header-left .subtitle { font-size: 11.5px; opacity: 0.85; margin-top: 3px; }
+  .domain-tag { display: inline-block; background: rgba(255,255,255,0.22); border: 1px solid rgba(255,255,255,0.4); border-radius: 20px; padding: 3px 10px; font-size: 10.5px; font-weight: 600; margin-bottom: 4px; }
+  .weight-tag { display: block; font-size: 11px; opacity: 0.8; }
+  .stats-bar { background: var(--stat-bg); border: 1px solid var(--border); border-top: none; display: grid; grid-template-columns: repeat(4,1fr); }
+  .stat-item { padding: 10px 12px; border-right: 1px solid var(--border); text-align: center; }
+  .stat-item:last-child { border-right: none; }
+  .stat-num { font-size: 17px; font-weight: 700; color: var(--primary); display: block; line-height: 1.2; }
+  .stat-label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.4px; }
+  .content { background: var(--card-bg); border: 1px solid var(--border); border-top: none; padding: 16px; }
+  .section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--primary); border-bottom: 2px solid var(--border); padding-bottom: 4px; margin-bottom: 10px; margin-top: 14px; }
+  .section-title:first-child { margin-top: 0; }
+  .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+  .g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+  .card { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 10px 12px; }
+  .card-title { font-size: 11px; font-weight: 700; color: var(--primary-dark); margin-bottom: 6px; }
+  .card ul { padding-left: 14px; } .card li { font-size: 12px; margin-bottom: 3px; } .card p { font-size: 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 11.5px; margin-bottom: 10px; }
+  th { background: var(--primary); color: white; padding: 6px 8px; text-align: left; font-size: 10.5px; font-weight: 600; }
+  td { padding: 5px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--stat-bg); } tr:last-child td { border-bottom: none; }
+  .badge { display: inline-block; border-radius: 3px; padding: 1px 5px; font-size: 10px; font-weight: 700; }
+  .b-green { background: #e8f5e9; color: var(--green); } .b-red { background: #ffebee; color: var(--red); }
+  .b-orange { background: #fff3e0; color: var(--orange); } .b-blue { background: #e3f2fd; color: var(--blue); }
+  .trap-header { background: #6d1b35; color: white; padding: 7px 14px; font-size: 11px; font-weight: 700; border-radius: 5px 5px 0 0; margin-top: 14px; }
+  .trap-grid { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--trap-border); border-top: none; border-radius: 0 0 5px 5px; overflow: hidden; }
+  .trap-card { background: var(--trap-bg); padding: 9px 12px; border-right: 1px solid var(--trap-border); border-bottom: 1px solid var(--trap-border); }
+  .trap-card:nth-child(even) { border-right: none; } .trap-card:nth-child(3),.trap-card:nth-child(4) { border-bottom: none; }
+  .trap-q { font-size: 10.5px; font-weight: 700; color: #6d1b35; margin-bottom: 4px; }
+  .trap-a { font-size: 11.5px; } .trap-a strong { color: var(--primary-dark); }
+  .pills { display: flex; flex-wrap: wrap; gap: 5px; margin: 10px 0; }
+  .pill { background: var(--tag-bg); color: var(--primary-dark); border: 1px solid var(--border); border-radius: 20px; padding: 3px 10px; font-size: 10.5px; font-weight: 600; }
+  .pill.green { background: #e8f5e9; color: #1b5e20; border-color: #a5d6a7; }
+  .pill.blue { background: #e3f2fd; color: #0d47a1; border-color: #90caf9; }
+  .pill.orange { background: #fff3e0; color: #bf360c; border-color: #ffcc80; }
+  .footer { background: var(--primary-dark); color: rgba(255,255,255,0.85); padding: 9px 16px; font-size: 10.5px; border-radius: 0 0 10px 10px; display: flex; justify-content: space-between; align-items: center; }
+  .footer a { color: #f9d4e2; text-decoration: none; font-weight: 600; font-size: 10px; border: 1px solid rgba(249,212,226,0.4); padding: 2px 8px; border-radius: 3px; margin-left: 5px; }
+  .hl-red { color: var(--red); font-weight: 700; } .hl-green { color: var(--green); font-weight: 700; }
+  .hl-orange { color: var(--orange); font-weight: 700; } .hl-blue { color: var(--blue); font-weight: 700; }
+  .note-box { background: #fff9e6; border-left: 3px solid #f9a825; padding: 7px 10px; font-size: 11.5px; margin: 8px 0; border-radius: 0 4px 4px 0; }
+  .info-box { background: #e8f5e9; border-left: 3px solid #43a047; padding: 7px 10px; font-size: 11.5px; margin: 8px 0; border-radius: 0 4px 4px 0; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-left">
+    <h1>🌏 Population & Reproductive Health</h1>
+    <div class="subtitle">인구변천 · 생식보건 지표 · ICPD · 인구 정책</div>
+  </div>
+  <div class="header-right">
+    <span class="domain-tag">WOMEN'S & CHILD HEALTH</span>
+    <span class="weight-tag">KBA 20% · Women's Health</span>
+  </div>
+</div>
+<div class="stats-bar">
+  <div class="stat-item"><span class="stat-num">8.1B</span><span class="stat-label">세계 인구 (2024)</span></div>
+  <div class="stat-item"><span class="stat-num">2.1</span><span class="stat-label">인구 대체 출산율 (TFR)</span></div>
+  <div class="stat-item"><span class="stat-num">SDG 3.7</span><span class="stat-label">성·생식보건 보편적 접근 목표</span></div>
+  <div class="stat-item"><span class="stat-num">218M</span><span class="stat-label">미충족 피임 필요 여성 (전 세계)</span></div>
+</div>
+<div class="content">
+
+  <div class="section-title">인구변천 이론 (Demographic Transition) — 4단계</div>
+  <table>
+    <tr><th>단계</th><th>출생률</th><th>사망률</th><th>인구 성장</th><th>대표 국가 (현재)</th></tr>
+    <tr><td><strong>1단계</strong> 전통 사회</td><td>높음</td><td>높음</td><td>정체</td><td>고립된 부족 사회</td></tr>
+    <tr><td><strong>2단계</strong> 조기 변천</td><td>높음</td><td>↓ 감소</td><td><span class="hl-red">폭발적 성장</span></td><td>일부 SSA</td></tr>
+    <tr><td><strong>3단계</strong> 후기 변천</td><td>↓ 감소</td><td>낮음</td><td>성장 둔화</td><td>인도, 일부 LMIC</td></tr>
+    <tr><td><strong>4단계</strong> 저출산 사회</td><td>낮음</td><td>낮음</td><td>정체/감소</td><td>한국, 일본, 유럽</td></tr>
+  </table>
+  <div class="note-box">💡 <strong>인구 배당(Demographic Dividend):</strong> 2→3단계 이행 시 생산가능인구 비율 급증 → 경제 성장 기회. 교육·고용 투자 필요. 동아시아가 대표적 사례.</div>
+
+  <div class="section-title">핵심 인구·생식보건 지표 — 정의 암기</div>
+  <table>
+    <tr><th>지표</th><th>정의</th><th>공식 / 단위</th></tr>
+    <tr><td><strong>TFR</strong> (합계출산율)</td><td>여성 1명이 가임기간 동안 낳는 평균 자녀 수</td><td>대체 수준 = 2.1</td></tr>
+    <tr><td><strong>CBR</strong> (조출생률)</td><td>인구 1,000명당 연간 출생아 수</td><td>출생수/인구 × 1,000</td></tr>
+    <tr><td><strong>CDR</strong> (조사망률)</td><td>인구 1,000명당 연간 사망자 수</td><td>사망수/인구 × 1,000</td></tr>
+    <tr><td><strong>IMR</strong> (영아사망률)</td><td>출생아 1,000명당 1세 미만 사망 수</td><td>SDG 목표 ≤12/1,000</td></tr>
+    <tr><td><strong>U5MR</strong> (5세 미만 사망률)</td><td>출생아 1,000명당 5세 미만 사망 수</td><td>SDG 목표 ≤25/1,000</td></tr>
+    <tr><td><strong>NMR</strong> (신생아사망률)</td><td>출생아 1,000명당 생후 28일 미만 사망</td><td>SDG 목표 ≤12/1,000</td></tr>
+    <tr><td><strong>MMR</strong> (모성사망비)</td><td>생존출생아 100,000명당 모성사망 수</td><td>SDG 목표 &lt;70/100,000</td></tr>
+    <tr><td><strong>CPR</strong> (피임 실천율)</td><td>가임기 여성 중 피임 사용 비율</td><td>% (Contraceptive Prevalence Rate)</td></tr>
+    <tr><td><strong>Unmet need</strong></td><td>피임 원하지만 사용 못하는 여성 비율</td><td>미충족 피임 필요 — 핵심 형평성 지표</td></tr>
+  </table>
+
+  <div class="section-title">ICPD 1994 카이로 행동계획 — 시험 필수 개념</div>
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">📜 ICPD 핵심 원칙</div>
+      <ul>
+        <li>1994년 카이로 — 179개국 합의</li>
+        <li>인구 통제(population control) → <strong>개인 권리 중심</strong>으로 패러다임 전환</li>
+        <li>생식권(reproductive rights): 자녀 수·시기 결정할 권리</li>
+        <li>여성 임파워먼트 + 교육 = 출산율 감소의 핵심</li>
+        <li>강제적 피임·불임 수술 = 인권 침해</li>
+        <li>보편적 성·생식보건 서비스 접근 보장</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🌍 인구 정책 유형 — LMIC 맥락</div>
+      <ul>
+        <li><strong>출산 억제 정책</strong>: 과거 중국 1자녀, 인도 불임수술 캠페인 → 강압적, 인권 침해</li>
+        <li><strong>수요 기반 접근</strong>: 교육·피임 접근·여성 임파워먼트 → ICPD 원칙</li>
+        <li><strong>출산 장려 정책</strong>: 저출산 고소득국 (한국, 일본, 유럽)</li>
+        <li>여아 교육 1년 추가 → 출산율 5–10% 감소</li>
+        <li>가장 효과적 인구 정책 = <strong>여성 교육 + 피임 접근</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-title">생식보건 연속 케어 (Reproductive Health Continuum)</div>
+  <div class="g3">
+    <div class="card">
+      <div class="card-title">🔵 사전 임신 (Pre-conception)</div>
+      <ul>
+        <li>엽산 보충 (신경관 결손 예방)</li>
+        <li>STI/HIV 검사·치료</li>
+        <li>가족계획 상담</li>
+        <li>빈혈·영양 평가</li>
+        <li>당뇨·고혈압 조절</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🌸 산전 관리 (ANC)</div>
+      <ul>
+        <li>WHO: 최소 <strong>8회</strong> ANC 방문 (구 4회에서 2016년 개정)</li>
+        <li>철분·엽산 보충</li>
+        <li>말라리아 예방 (IPTp)</li>
+        <li>매독·HIV·B형간염 검사</li>
+        <li>혈압·단백뇨 모니터</li>
+        <li>TT (파상풍) 예방접종</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🌿 산후 관리 (PNC)</div>
+      <ul>
+        <li>분만 후 24시간, 48–72시간, 1주, 6주</li>
+        <li>모유수유 지원</li>
+        <li>가족계획 상담 (LARC 우선)</li>
+        <li>신생아 스크리닝</li>
+        <li>산후 우울증 스크리닝</li>
+        <li>HIV 양성: PMTCT 지속</li>
+      </ul>
+    </div>
+  </div>
+  <div class="note-box">💡 <strong>ANC 방문 횟수:</strong> WHO 2016 개정으로 최소 4회 → <strong>8회</strong>로 변경. 4회는 구식 답변.</div>
+
+  <div class="section-title">안전하지 않은 낙태 (Unsafe Abortion) — 글로벌 보건 문제</div>
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">📊 역학</div>
+      <ul>
+        <li>전 세계 연간 ~45백만 건 낙태 중 ~45%가 불안전 시술</li>
+        <li>불안전 낙태 → 연간 ~47,000명 사망 (모성사망 8%)</li>
+        <li>SSA: 불안전 낙태 비율 가장 높음</li>
+        <li>낙태 제한 법률 ≠ 낙태 감소 (오히려 불안전↑)</li>
+        <li>자유화 국가: 안전한 낙태 접근 → 모성사망 감소</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">💊 의약품 낙태 (Medical abortion)</div>
+      <ul>
+        <li><strong>Mifepristone 200mg + Misoprostol 800mcg</strong> (buccal/vaginal)</li>
+        <li>임신 12주 이내: 효과 95%+</li>
+        <li>Misoprostol 단독: mifepristone 없을 때 (LMIC) — 효과 80–85%</li>
+        <li>WHO 필수의약품 목록 포함</li>
+        <li>MVA (수동진공흡입): 12주 이내 수술적 방법</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="trap-header">⚠️ 시험 함정 4개</div>
+  <div class="trap-grid">
+    <div class="trap-card">
+      <div class="trap-q">🪤 함정 1: ANC 최소 방문 횟수 = 4회</div>
+      <div class="trap-a">WHO 2016 개정: 최소 <strong>8회</strong>. 구 권고(4회)는 폐기됨. 시험에서 "4회"가 오답 선택지로 빈출.</div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-q">🪤 함정 2: 낙태 법률 제한 → 낙태율 감소</div>
+      <div class="trap-a">낙태 법률 제한은 낙태율을 줄이지 못함 — 오히려 <strong>불안전 낙태↑ → 모성사망↑</strong>. Guttmacher 연구 근거. 법률보다 피임 접근이 낙태율 감소에 효과적.</div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-q">🪤 함정 3: 인구 통제 정책 = ICPD 원칙</div>
+      <div class="trap-a">ICPD 1994는 강압적 인구 통제를 <strong>명시적으로 거부</strong>. 생식권·여성 임파워먼트 중심. 강제 불임수술·1자녀 정책은 ICPD 위반.</div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-q">🪤 함정 4: TFR 2.1 초과 = 항상 인구 증가</div>
+      <div class="trap-a">TFR 2.1은 <strong>장기적 대체 수준</strong>. 단기적으로는 인구 모멘텀(젊은 연령 구조)으로 TFR 2.1 이하에도 수십 년간 인구 증가 가능. 인구 구조 함께 고려해야.</div>
+    </div>
+  </div>
+
+  <div class="section-title">Global Health 관점</div>
+  <div class="pills">
+    <span class="pill">ICPD 1994 — 카이로 행동계획</span>
+    <span class="pill green">생식권 = 개인 권리 (강제 금지)</span>
+    <span class="pill blue">인구 배당 (Demographic Dividend)</span>
+    <span class="pill">ANC 최소 8회 (WHO 2016)</span>
+    <span class="pill orange">불안전 낙태 — 모성사망 8%</span>
+    <span class="pill green">여아 교육 = 가장 효과적 인구 정책</span>
+    <span class="pill blue">Unmet need — 형평성 핵심 지표</span>
+    <span class="pill">TFR 2.1 = 인구 대체 수준</span>
+  </div>
+</div>
+<div class="footer">
+  <span>📚 Ref: ICPD Programme of Action 1994 · WHO ANC Guidelines 2016 · SDG Indicators</span>
+  <div><a href="#">← Maternal Mental Health</a><a href="#">STI (Women's) →</a></div>
+</div>
+</body>
+</html>

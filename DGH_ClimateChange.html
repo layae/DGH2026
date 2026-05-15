@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',sans-serif;}
+.w{padding:1rem 0.5rem;max-width:700px;}
+.hdr{background:linear-gradient(135deg,#27500A 0%,#1a3d08 100%);border-radius:12px;padding:1rem 1.25rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;}
+.hdr-l .tag{font-size:11px;color:#97C459;letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px;}
+.hdr-l h1{font-size:18px;font-weight:500;color:#EAF3DE;line-height:1.3;}
+.hdr-r{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.bdg{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:500;}
+.bg1{background:#3B6D11;color:#EAF3DE;}
+.bg2{background:#173404;color:#C0DD97;}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:1rem;}
+.st{background:#f4f7f1;border-radius:8px;padding:.75rem .875rem;}
+.st-l{font-size:11px;color:#555;margin-bottom:4px;line-height:1.3;}
+.st-v{font-size:16px;font-weight:600;color:#3B6D11;}
+.st-s{font-size:11px;color:#666;margin-top:2px;}
+.card{background:#fff;border:.5px solid #d0dfc8;border-radius:12px;padding:1rem 1.125rem;margin-bottom:1rem;}
+.card h3{font-size:13px;font-weight:500;color:#27500A;margin-bottom:.5rem;}
+.card p,.card li{font-size:12.5px;color:#1a2e1a;line-height:1.6;}
+.card ul{padding-left:14px;}
+.card li{margin-bottom:2px;}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:1rem;}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:1rem;}
+.tw{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:12px;}
+thead th{background:#27500A;color:#EAF3DE;font-weight:500;padding:6px 8px;text-align:left;}
+tbody td{padding:5px 8px;border-bottom:.5px solid #e0eae0;color:#1a2e1a;vertical-align:top;line-height:1.5;}
+tbody tr:last-child td{border-bottom:none;}
+em{color:#27500A;font-style:normal;font-weight:600;}
+.trap-h{font-size:13px;font-weight:500;color:#791F1F;margin-bottom:.5rem;}
+.tg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:1rem;}
+.trap{background:#FCEBEB;border-left:3px solid #A32D2D;border-radius:0 8px 8px 0;padding:.6rem .75rem;}
+.trap-q{font-size:12px;font-weight:500;color:#791F1F;margin-bottom:3px;}
+.trap-a{font-size:11.5px;color:#501313;line-height:1.5;}
+.gbox{background:#EAF3DE;border:.5px solid #97C459;border-radius:8px;padding:.6rem .875rem;margin-bottom:.75rem;}
+.gbox p{font-size:12px;color:#173404;line-height:1.6;}
+.gh-h{font-size:12px;font-weight:500;color:#555;margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em;}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:.75rem;}
+.pill{font-size:11.5px;padding:3px 10px;border-radius:20px;border:.5px solid #c8ddc8;color:#2a5a2a;}
+.footer{display:flex;align-items:center;justify-content:space-between;margin-top:.5rem;}
+.fn{font-size:11px;color:#666;}
+.btn{font-size:12px;padding:5px 14px;cursor:pointer;border-radius:8px;border:.5px solid #aac4aa;background:transparent;color:#27500A;}
+.divider{border:none;border-top:.5px solid #dde8dd;margin:.75rem 0;}
+.b1{background:#fef2f2;border:.5px solid #fca5a5;color:#7f1d1d;border-radius:8px;padding:.6rem .75rem;font-size:12px;line-height:1.6;}
+.b2{background:#fffbeb;border:.5px solid #fcd34d;color:#78350f;border-radius:8px;padding:.6rem .75rem;font-size:12px;line-height:1.6;}
+.b3{background:#eff6ff;border:.5px solid #93c5fd;color:#1e3a5f;border-radius:8px;padding:.6rem .75rem;font-size:12px;line-height:1.6;}
+.b4{background:#f0fdf4;border:.5px solid #86efac;color:#14532d;border-radius:8px;padding:.6rem .75rem;font-size:12px;line-height:1.6;}
+.b-t{font-weight:600;font-size:12.5px;margin-bottom:4px;}
+/* pathway arrows */
+.pathway{display:flex;flex-wrap:wrap;align-items:center;gap:4px;margin:.4rem 0;font-size:12px;}
+.pbox{background:#e8f5e8;border:.5px solid #97C459;border-radius:6px;padding:3px 8px;color:#173404;font-weight:500;}
+.parrow{color:#3B6D11;font-weight:700;font-size:14px;}
+</style>
+</head>
+<body>
+<div class="w">
+
+  <div class="hdr">
+    <div class="hdr-l">
+      <div class="tag">Global Public Health · Planetary Health 3/3</div>
+      <h1>Climate Change &amp; Health<br><span style="font-size:14px;color:#97C459;">기후변화 건강 영향 · 매개체 질환 · 기후 정의</span></h1>
+    </div>
+    <div class="hdr-r">
+      <span class="bdg bg1">Planetary Health</span>
+      <span class="bdg bg2">GPH 20%</span>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="st"><div class="st-l">기후변화 사망 (2030~2050)</div><div class="st-v">25만 명/년</div><div class="st-s">WHO 추산<br>영양·말라리아·설사·열스트레스</div></div>
+    <div class="st"><div class="st-l">1.5°C 목표</div><div class="st-v">Paris, 2015</div><div class="st-s">산업화 이전 대비<br>온도 상승 제한</div></div>
+    <div class="st"><div class="st-l">기후 취약국</div><div class="st-v">SIDS·LDCs</div><div class="st-s">Small Island States<br>최소 기여·최대 피해</div></div>
+    <div class="st"><div class="st-l">온실가스 최대 배출</div><div class="st-v">미·중·EU</div><div class="st-s">전 세계 배출의<br>~50% 차지</div></div>
+  </div>
+
+  <!-- 건강 영향 경로 -->
+  <div class="card">
+    <h3>🌡️ 기후변화 → 건강 영향 경로</h3>
+    <div class="pathway">
+      <div class="pbox">기온 상승</div><div class="parrow">→</div>
+      <div class="pbox">열사병·열탈진</div><div class="parrow">·</div>
+      <div class="pbox">CKD(만성신장병)</div><div class="parrow">·</div>
+      <div class="pbox">임산부·태아 위험 ↑</div>
+    </div>
+    <div class="pathway">
+      <div class="pbox">매개체 분포 변화</div><div class="parrow">→</div>
+      <div class="pbox">말라리아 고도 상승</div><div class="parrow">·</div>
+      <div class="pbox">뎅기 북상</div><div class="parrow">·</div>
+      <div class="pbox">Leishmaniasis 확장</div>
+    </div>
+    <div class="pathway">
+      <div class="pbox">극단적 기상</div><div class="parrow">→</div>
+      <div class="pbox">홍수 후 콜레라·렙토</div><div class="parrow">·</div>
+      <div class="pbox">난민 이동</div><div class="parrow">·</div>
+      <div class="pbox">식량 불안</div>
+    </div>
+    <div class="pathway">
+      <div class="pbox">해수면 상승</div><div class="parrow">→</div>
+      <div class="pbox">SIDS 거주지 소실</div><div class="parrow">·</div>
+      <div class="pbox">식수 염수화</div><div class="parrow">·</div>
+      <div class="pbox">강제 이주</div>
+    </div>
+    <div class="pathway">
+      <div class="pbox">대기 오염 악화</div><div class="parrow">→</div>
+      <div class="pbox">천식·COPD 악화</div><div class="parrow">·</div>
+      <div class="pbox">심혈관 질환</div><div class="parrow">·</div>
+      <div class="pbox">조산·저출생체중</div>
+    </div>
+    <div class="pathway">
+      <div class="pbox">가뭄·식량 불안</div><div class="parrow">→</div>
+      <div class="pbox">영양불량</div><div class="parrow">·</div>
+      <div class="pbox">분쟁·이주</div><div class="parrow">·</div>
+      <div class="pbox">정신건강 위기</div>
+    </div>
+  </div>
+
+  <!-- 매개체 질환 + 건강 취약성 -->
+  <div class="g2">
+    <div class="card">
+      <h3>🦟 기후변화와 매개체 매개 질환</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th>질환</th><th>기후 영향</th><th>위협 지역</th></tr></thead>
+          <tbody>
+            <tr><td><em>말라리아</em></td><td>고도 상승·우기 연장 → 분포 확대</td><td>아프리카 고원, 남아시아</td></tr>
+            <tr><td><em>뎅기열</em></td><td>Aedes 서식지 북상·도시화와 결합</td><td>유럽 남부, 중국 남부</td></tr>
+            <tr><td><em>치쿤구냐</em></td><td>뎅기와 동일 매개체 분포 변화</td><td>인도양 섬 → 유럽</td></tr>
+            <tr><td><em>내장 리슈만증</em></td><td>Phlebotomus 서식지 확대</td><td>유럽 남부, 중앙아시아</td></tr>
+            <tr><td><em>Lyme disease</em></td><td>진드기 활동 기간 연장</td><td>북유럽·북미 북상</td></tr>
+            <tr><td><em>서나일 열</em></td><td>Culex 모기 활동 증가</td><td>유럽, 북아메리카</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <h3>🏥 기후-건강 취약 집단</h3>
+      <div class="b1" style="margin-bottom:.4rem;">
+        <div class="b-t">🔴 최고 취약: 지역적 불평등</div>
+        · SIDS (태평양·인도양 섬나라)<br>
+        · Sub-Saharan Africa 농촌 지역<br>
+        · 방글라데시 해안 지역<br>
+        → 기여도 최소, 피해 최대 = <em>기후 정의 (Climate Justice)</em>
+      </div>
+      <div class="b2" style="margin-bottom:.4rem;">
+        <div class="b-t">🟡 취약 인구 집단</div>
+        · 노인 (열사병·심혈관)<br>
+        · 소아 (설사·영양불량·천식)<br>
+        · 임산부 (조산·저출생체중)<br>
+        · 야외 노동자 (열스트레스)
+      </div>
+      <div class="b3">
+        <div class="b-t">🔵 정신건강 영향</div>
+        · 기후 불안 (eco-anxiety)<br>
+        · 재해 후 PTSD·우울<br>
+        · 강제 이주로 인한 정체성 상실<br>
+        · 농업 실패 → 자살률 상관관계 (인도)
+      </div>
+    </div>
+  </div>
+
+  <!-- 의료 시스템 + 미티게이션 -->
+  <div class="card">
+    <h3>🏛️ 글로벌 기후-건강 대응 프레임워크 & 의료계 역할</h3>
+    <div class="g2" style="margin:0;">
+      <div>
+        <p><em>국제 협약·기구:</em></p>
+        <ul>
+          <li><em>UNFCCC & Paris Agreement (2015):</em> 1.5°C 목표; NDC(국가결정기여)</li>
+          <li><em>Lancet Countdown:</em> 기후변화-건강 연간 보고서; 의료 분야 핵심 레퍼런스</li>
+          <li><em>COP Health Day:</em> COP27(2022)부터 공식화. 건강 중심 기후 의제</li>
+          <li><em>Loss & Damage Fund:</em> COP27 합의. 취약국 기후 피해 보상 메커니즘</li>
+        </ul>
+      </div>
+      <div>
+        <p><em>의료 시스템 미티게이션 & 적응:</em></p>
+        <ul>
+          <li><em>탄소 발자국 감소:</em> NHS = 영국 탄소 배출의 4~5% → Net Zero 목표</li>
+          <li><em>기후-탄력적 보건 시스템:</em> WHO SPAR 역량에 기후 적응 통합</li>
+          <li><em>Heat action plan:</em> 폭염 조기경보·냉각 센터·취약자 모니터링</li>
+          <li><em>Mitigation co-benefits:</em> 저탄소 이동(도보·자전거) → 심혈관·당뇨 예방</li>
+          <li><em>식이 전환:</em> 육류 감소 → 탄소 감소 + 심혈관 건강 개선</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 식량 안보 + 물 안보 -->
+  <div class="g3">
+    <div class="b2">
+      <div class="b-t">🌾 식량 안보</div>
+      기온 1°C 상승 →<br>
+      밀·쌀·옥수수 수확량<br>2~6% 감소 추산<br><br>
+      가뭄·홍수 빈도 ↑ →<br>
+      영양불량 악화<br>
+      → U5 발육부진 증가<br>
+      → 인지 발달 영향
+    </div>
+    <div class="b3">
+      <div class="b-t">💧 물 안보</div>
+      빙하 소실 →<br>
+      아시아 강(갠지스·양쯔)<br>장기 수원 감소<br><br>
+      해수면 상승 →<br>
+      담수 염수화<br>
+      방글라데시·태평양 섬<br>식수 위기
+    </div>
+    <div class="b4">
+      <div class="b-t">🌬️ 대기질</div>
+      산불 증가 →<br>
+      PM2.5·오존 상승<br>
+      → 호흡기·심혈관 영향<br><br>
+      CO2 증가 →<br>
+      꽃가루 생산 ↑ →<br>
+      알레르기·천식 악화<br>
+      기후변화 의외 경로
+    </div>
+  </div>
+
+  <div class="trap-h">⚠️ 시험 함정 4개</div>
+  <div class="tg">
+    <div class="trap">
+      <div class="trap-q">기후변화 = LMIC만의 문제?</div>
+      <div class="trap-a">취약성은 LMIC에서 높지만 건강 영향은 전 지구적. 유럽 폭염 사망(2003년 7만 명), 북미 Lyme disease 북상, 미국 허리케인 등 고소득국도 심각한 영향. 단, 기후 정의(Climate Justice) 관점에서 LMIC가 불균형적 피해를 입음.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-q">온난화 → 말라리아 전 세계 증가?</div>
+      <div class="trap-a">단순하지 않음. 일부 지역(아프리카 고원·히말라야)에서 신규 말라리아 출현. 그러나 기존 고온 지역(사하라 남부 일부)에서는 너무 더워서 Anopheles 생존 불리 → 감소 가능. 지역별로 다른 방향. 단순히 "온난화 = 말라리아 증가" 단정은 오답.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-q">Paris Agreement = 법적 구속력 있는 감축 목표?</div>
+      <div class="trap-a">NDC(국가결정기여) 자체는 법적 구속력 없음. 제출 의무와 진행 보고만 법적 의무. 실제 감축 목표 달성은 각국 자율. 이것이 파리협정의 핵심 비판이자 한계. UNFCCC 프레임워크 내에서 정치적 약속.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-q">Mitigation = 건강에 비용만 발생?</div>
+      <div class="trap-a">저탄소 전환은 건강 동반 편익(co-benefits) 상당. 화석연료 감소 → 대기오염 감소 → 심혈관·호흡기 사망 즉각 감소. 식이 전환(육류 감소) → 심혈관·당뇨 감소 + 탄소 감소. 능동 교통(도보·자전거) → 신체 활동 증가 + 탄소 감소.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="gbox">
+    <p><strong>🎉 Global Public Health 20% 영역 전체 완료!</strong><br>
+    Global health actors & policy 5/5 · Public health 5/5 · Planetary health 3/3<br><br>
+    <strong>다음 대화 권장 순서 — Clinical Infectious Diseases 40%:</strong><br>
+    말라리아 5개 → TB 6개 → HIV 6개 → Bacterial 15개 → Viral 7개 → Parasitic 11개 → Fungal 2개<br>
+    시험 배점 40%로 가장 중요한 영역. Malaria부터 시작 권장.</p>
+  </div>
+
+  <div class="gh-h">Global Health 관점</div>
+  <div class="pills">
+    <span class="pill">🌡️ 기후 정의: 최소 기여국이 최대 피해</span>
+    <span class="pill">🦟 매개체 분포 변화 → 신규 감염 지역 출현</span>
+    <span class="pill">📊 Lancet Countdown = 기후-건강 연간 지표</span>
+    <span class="pill">🌱 Mitigation = 건강 co-benefits 동반</span>
+    <span class="pill">🏝️ SIDS = 기후 취약국의 상징</span>
+  </div>
+
+  <div class="footer">
+    <span class="fn">Source: WHO Climate & Health 2023 · Lancet Countdown 2023 · IPCC AR6 · Paris Agreement 2015</span>
+    <button class="btn" onclick="sendPrompt('Clinical Infectious Diseases — Malaria 5개 토픽 노트 만들어줘')">다음: Malaria →</button>
+  </div>
+
+</div>
+</body>
+</html>

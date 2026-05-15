@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH | Female Genital Schistosomiasis</title>
+<style>
+  :root {
+    --primary: #993556; --primary-dark: #7a2844; --primary-light: #c4607e;
+    --bg: #fdf4f7; --card-bg: #ffffff; --border: #e8c4d4; --text: #2d1a22;
+    --text-muted: #7a5060; --tag-bg: #f5e0e8; --stat-bg: #fce9ef;
+    --trap-bg: #fff5f7; --trap-border: #f0b8cc;
+    --green: #2e7d32; --orange: #e65100; --blue: #1565c0; --red: #c62828;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Georgia','Times New Roman',serif; background: var(--bg); color: var(--text); font-size: 13px; line-height: 1.55; max-width: 900px; margin: 0 auto; padding: 16px; }
+  .header { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%); color: white; padding: 18px 22px 14px; border-radius: 10px 10px 0 0; display: flex; justify-content: space-between; align-items: flex-start; }
+  .header-left h1 { font-size: 21px; font-weight: 700; }
+  .header-left .subtitle { font-size: 11.5px; opacity: 0.85; margin-top: 3px; }
+  .domain-tag { display: inline-block; background: rgba(255,255,255,0.22); border: 1px solid rgba(255,255,255,0.4); border-radius: 20px; padding: 3px 10px; font-size: 10.5px; font-weight: 600; margin-bottom: 4px; }
+  .weight-tag { display: block; font-size: 11px; opacity: 0.8; }
+  .stats-bar { background: var(--stat-bg); border: 1px solid var(--border); border-top: none; display: grid; grid-template-columns: repeat(4,1fr); }
+  .stat-item { padding: 10px 12px; border-right: 1px solid var(--border); text-align: center; }
+  .stat-item:last-child { border-right: none; }
+  .stat-num { font-size: 17px; font-weight: 700; color: var(--primary); display: block; line-height: 1.2; }
+  .stat-label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.4px; }
+  .content { background: var(--card-bg); border: 1px solid var(--border); border-top: none; padding: 16px; }
+  .section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--primary); border-bottom: 2px solid var(--border); padding-bottom: 4px; margin-bottom: 10px; margin-top: 14px; }
+  .section-title:first-child { margin-top: 0; }
+  .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+  .g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+  .card { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 10px 12px; }
+  .card-title { font-size: 11px; font-weight: 700; color: var(--primary-dark); margin-bottom: 6px; }
+  .card ul { padding-left: 14px; } .card li { font-size: 12px; margin-bottom: 3px; } .card p { font-size: 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 11.5px; margin-bottom: 10px; }
+  th { background: var(--primary); color: white; padding: 6px 8px; text-align: left; font-size: 10.5px; font-weight: 600; }
+  td { padding: 5px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--stat-bg); } tr:last-child td { border-bottom: none; }
+  .badge { display: inline-block; border-radius: 3px; padding: 1px 5px; font-size: 10px; font-weight: 700; }
+  .b-green { background: #e8f5e9; color: var(--green); } .b-red { background: #ffebee; color: var(--red); }
+  .b-orange { background: #fff3e0; color: var(--orange); } .b-blue { background: #e3f2fd; color: var(--blue); }
+  .trap-header { background: #6d1b35; color: white; padding: 7px 14px; font-size: 11px; font-weight: 700; border-radius: 5px 5px 0 0; margin-top: 14px; }
+  .trap-grid { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--trap-border); border-top: none; border-radius: 0 0 5px 5px; overflow: hidden; }
+  .trap-card { background: var(--trap-bg); padding: 9px 12px; border-right: 1px solid var(--trap-border); border-bottom: 1px solid var(--trap-border); }
+  .trap-card:nth-child(even) { border-right: none; } .trap-card:nth-child(3),.trap-card:nth-child(4) { border-bottom: none; }
+  .trap-q { font-size: 10.5px; font-weight: 700; color: #6d1b35; margin-bottom: 4px; }
+  .trap-a { font-size: 11.5px; } .trap-a strong { color: var(--primary-dark); }
+  .pills { display: flex; flex-wrap: wrap; gap: 5px; margin: 10px 0; }
+  .pill { background: var(--tag-bg); color: var(--primary-dark); border: 1px solid var(--border); border-radius: 20px; padding: 3px 10px; font-size: 10.5px; font-weight: 600; }
+  .pill.green { background: #e8f5e9; color: #1b5e20; border-color: #a5d6a7; }
+  .pill.blue { background: #e3f2fd; color: #0d47a1; border-color: #90caf9; }
+  .pill.orange { background: #fff3e0; color: #bf360c; border-color: #ffcc80; }
+  .footer { background: var(--primary-dark); color: rgba(255,255,255,0.85); padding: 9px 16px; font-size: 10.5px; border-radius: 0 0 10px 10px; display: flex; justify-content: space-between; align-items: center; }
+  .footer a { color: #f9d4e2; text-decoration: none; font-weight: 600; font-size: 10px; border: 1px solid rgba(249,212,226,0.4); padding: 2px 8px; border-radius: 3px; margin-left: 5px; }
+  .hl-red { color: var(--red); font-weight: 700; } .hl-green { color: var(--green); font-weight: 700; }
+  .hl-orange { color: var(--orange); font-weight: 700; } .hl-blue { color: var(--blue); font-weight: 700; }
+  .note-box { background: #fff9e6; border-left: 3px solid #f9a825; padding: 7px 10px; font-size: 11.5px; margin: 8px 0; border-radius: 0 4px 4px 0; }
+  .info-box { background: #e8f5e9; border-left: 3px solid #43a047; padding: 7px 10px; font-size: 11.5px; margin: 8px 0; border-radius: 0 4px 4px 0; }
+  .alert-box { background: #ffebee; border-left: 3px solid #c62828; padding: 7px 10px; font-size: 11.5px; margin: 8px 0; border-radius: 0 4px 4px 0; }
+
+  /* lifecycle diagram */
+  .lifecycle { display: flex; align-items: center; justify-content: space-between; background: var(--stat-bg); border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; margin-bottom: 10px; gap: 4px; flex-wrap: wrap; }
+  .lc-step { text-align: center; font-size: 10.5px; flex: 1; min-width: 80px; }
+  .lc-icon { font-size: 20px; display: block; }
+  .lc-label { font-weight: 600; color: var(--primary-dark); }
+  .lc-sub { color: var(--text-muted); font-size: 9.5px; }
+  .lc-arrow { color: var(--primary-light); font-size: 18px; flex-shrink: 0; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-left">
+    <h1>🪱 Female Genital Schistosomiasis (FGS)</h1>
+    <div class="subtitle">S. haematobium 여성 생식기 감염 · 진단·치료·HIV 연관</div>
+  </div>
+  <div class="header-right">
+    <span class="domain-tag">WOMEN'S & CHILD HEALTH</span>
+    <span class="weight-tag">KBA 20% · Women's Health</span>
+  </div>
+</div>
+<div class="stats-bar">
+  <div class="stat-item"><span class="stat-num">~56M</span><span class="stat-label">FGS 추정 환자 (SSA 여성)</span></div>
+  <div class="stat-item"><span class="stat-num">S. haematobium</span><span class="stat-label">FGS 원인 병원체 (거의 유일)</span></div>
+  <div class="stat-item"><span class="stat-num">3–4배</span><span class="stat-label">FGS → HIV 감수성 증가</span></div>
+  <div class="stat-item"><span class="stat-num">Praziquantel</span><span class="stat-label">40mg/kg 단회 — 유일한 치료</span></div>
+</div>
+<div class="content">
+
+  <div class="section-title">병태생리 — 생활사 & 생식기 침범 기전</div>
+  <div class="lifecycle">
+    <div class="lc-step"><span class="lc-icon">🐌</span><span class="lc-label">민물 달팽이</span><span class="lc-sub">중간 숙주<br>Bulinus spp.</span></div>
+    <span class="lc-arrow">→</span>
+    <div class="lc-step"><span class="lc-icon">💧</span><span class="lc-label">Cercariae 방출</span><span class="lc-sub">민물 접촉 시<br>피부 침투</span></div>
+    <span class="lc-arrow">→</span>
+    <div class="lc-step"><span class="lc-icon">🩸</span><span class="lc-label">문맥계 이동</span><span class="lc-sub">성충 → 방광<br>정맥총 도달</span></div>
+    <span class="lc-arrow">→</span>
+    <div class="lc-step"><span class="lc-icon">🥚</span><span class="lc-label">알 침착</span><span class="lc-sub">자궁·자궁경부<br>질·나팔관</span></div>
+    <span class="lc-arrow">→</span>
+    <div class="lc-step"><span class="lc-icon">🔥</span><span class="lc-label">육아종 형성</span><span class="lc-sub">만성 염증<br>섬유화·궤양</span></div>
+  </div>
+  <div class="note-box">💡 <strong>핵심:</strong> FGS는 S. haematobium의 알이 방광뿐 아니라 <strong>자궁경부·질·나팔관에 침착</strong>되어 만성 염증·육아종·궤양을 유발. S. mansoni는 주로 장 침범 — FGS 일으키지 않음.</div>
+
+  <div class="section-title">임상 소견 — 진단 어려운 이유</div>
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">🔴 FGS 특징적 소견</div>
+      <ul>
+        <li><strong>Grainy sandy patches</strong> (모래 알갱이 병변) — 자궁경부·질벽 콜포스코피 소견</li>
+        <li>비정상 혈관 분포 (abnormal blood vessels)</li>
+        <li>rubbery yellow deposits — 알 침착 부위</li>
+        <li>접촉 출혈, 성교통 (dyspareunia)</li>
+        <li>비정상 질 분비물, 하복부 통증</li>
+        <li>불임, 자궁외임신 위험↑ (나팔관 섬유화)</li>
+        <li><span class="hl-orange">혈뇨는 동반될 수도, 없을 수도 있음</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">⚠️ 왜 진단이 어려운가</div>
+      <ul>
+        <li>증상이 <strong>STI와 매우 유사</strong> → 반복적 STI 치료 → 반응 없음</li>
+        <li>무증상도 흔함</li>
+        <li>소변 검사: 알 검출 안 될 수 있음 (만성기)</li>
+        <li>조직 생검: 확진이나 LMIC 현실적 어려움</li>
+        <li>콜포스코피: 특징적 sandy patches 확인 — 가장 실용적</li>
+        <li>LMIC: 진단 도구 부재 → 대규모 미진단</li>
+        <li>낙인(stigma): STI로 오해받아 사회적 배제</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-title">FGS & HIV — 가장 중요한 글로벌 보건 연관성</div>
+  <div class="alert-box">🚨 <strong>FGS → HIV 감수성 3–4배 증가.</strong> 생식기 점막 궤양·염증 → HIV 침입 경로 제공. SSA에서 HIV 고부담 지역과 S. haematobium 고유행 지역이 지리적으로 일치. FGS 치료가 HIV 예방 전략의 일부.</div>
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">🔗 FGS-HIV 연관 기전</div>
+      <ul>
+        <li>생식기 점막 궤양·미란 → 물리적 장벽 파괴</li>
+        <li>만성 염증 → CD4+ T세포, dendritic cell 집중</li>
+        <li>→ HIV 선호 표적 세포 풍부 → 감수성↑</li>
+        <li>항HIV 점막 면역 저하</li>
+        <li>Praziquantel 치료 → HIV 감수성 감소 가능성 (연구 중)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🌍 역학 — SSA 부담</div>
+      <ul>
+        <li>아프리카 사하라 이남 (SSA) 집중 — 특히 동·남부 아프리카</li>
+        <li>추정 56백만 명 여성 이환</li>
+        <li>농촌 민물 접촉 직업군: 농부, 어부, 세탁 여성</li>
+        <li>어린 나이(10대) 감염 → 성인기 합병증</li>
+        <li>임신 중: 태반·태아 S. haematobium 알 침착 보고</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-title">진단 & 치료 — 시험 핵심</div>
+  <table>
+    <tr><th>방법</th><th>내용</th><th>LMIC 현실</th></tr>
+    <tr>
+      <td><strong>소변 현미경</strong></td>
+      <td>S. haematobium 알 검출 (terminally spined egg)<br>혈뇨 동반 → 민감도↑</td>
+      <td>간단, 저비용 — 1차 선별</td>
+    </tr>
+    <tr>
+      <td><strong>콜포스코피</strong></td>
+      <td>Sandy patches, 비정상 혈관, 궤양 — 특징적</td>
+      <td>가장 실용적 진단 도구</td>
+    </tr>
+    <tr>
+      <td><strong>조직 생검</strong></td>
+      <td>알·육아종 확인 — 확진</td>
+      <td>병리과 필요 — LMIC 제한</td>
+    </tr>
+    <tr>
+      <td><strong>POC-CCA 항원검사</strong></td>
+      <td>소변 항원 — 활동성 감염 확인</td>
+      <td>현장 검사 가능, 보급 확대 중</td>
+    </tr>
+    <tr>
+      <td><strong>치료: Praziquantel</strong></td>
+      <td><span class="badge b-green">40mg/kg 단회 경구</span> — 유일한 치료<br>기존 섬유화·구조 변화는 비가역적</td>
+      <td>MDA (대규모 약물 투여) 프로그램</td>
+    </tr>
+  </table>
+  <div class="info-box">🟢 <strong>MDA (Mass Drug Administration):</strong> WHO NTD 프로그램 — 학령기 아동 + 고위험 지역 성인 연 1–2회 Praziquantel 일괄 투여. FGS 예방의 핵심 공중보건 전략.</div>
+
+  <div class="section-title">임신 중 Praziquantel 안전성</div>
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">🤰 임신 중 치료 지침</div>
+      <ul>
+        <li>과거: 임신 1분기 금기 → 현재 개정</li>
+        <li>WHO 2022: <strong>임신 전 기간 Praziquantel 사용 가능</strong></li>
+        <li>태아 이익 > 이론적 위험</li>
+        <li>수유 중: 사용 가능 (모유 이행 미미)</li>
+        <li>MDA 프로그램에 임산부 포함 → WHO 권고</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🔄 치료 후 주의</div>
+      <ul>
+        <li>Praziquantel: 성충 사멸 효과 우수</li>
+        <li>알(egg)에 대한 효과는 제한적</li>
+        <li>기존 섬유화·구조 손상 <span class="hl-red">비가역적</span></li>
+        <li>재감염 예방: 민물 접촉 감소, WASH 개선</li>
+        <li>치료 6주 후 재평가 (소변 검사)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="trap-header">⚠️ 시험 함정 4개</div>
+  <div class="trap-grid">
+    <div class="trap-card">
+      <div class="trap-q">🪤 함정 1: FGS → S. mansoni 원인</div>
+      <div class="trap-a">FGS는 <strong>S. haematobium</strong>이 유일한 원인. S. mansoni는 장·간 침범(문맥계), S. japonicum도 장간 침범. "여성 생식기 = S. haematobium" 반드시 암기.</div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-q">🪤 함정 2: FGS → 소변 혈뇨 항상 동반</div>
+      <div class="trap-a">FGS는 <strong>혈뇨 없이도 발생</strong>. 알이 방광이 아닌 생식기에만 침착 시 혈뇨 없음. "혈뇨가 없으므로 schistosomiasis 아님"은 오답 함정.</div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-q">🪤 함정 3: 임신 중 Praziquantel 금기</div>
+      <div class="trap-a">WHO 2022 개정: <strong>임신 전 기간 사용 가능</strong>. MDA 프로그램에 임산부 포함. 과거 1분기 금기는 폐기됨. 시험에서 "임신 중 금기"는 오답.</div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-q">🪤 함정 4: Praziquantel → FGS 구조 손상 회복</div>
+      <div class="trap-a">Praziquantel은 성충을 사멸하고 신규 알 침착을 막지만, 이미 형성된 <strong>섬유화·구조 손상은 비가역적</strong>. 조기 치료가 중요한 이유. 치료 후 불임이 회복된다는 선택지는 오답.</div>
+    </div>
+  </div>
+
+  <div class="section-title">Global Health 관점</div>
+  <div class="pills">
+    <span class="pill">S. haematobium — FGS 유일 원인</span>
+    <span class="pill green">Sandy patches — 콜포스코피 특징 소견</span>
+    <span class="pill blue">FGS → HIV 감수성 3–4배↑</span>
+    <span class="pill orange">Praziquantel 40mg/kg 단회 — 유일 치료</span>
+    <span class="pill">MDA — WHO NTD 대규모 치료 전략</span>
+    <span class="pill green">임신 중 Praziquantel 가능 (WHO 2022)</span>
+    <span class="pill blue">섬유화 비가역 — 조기 치료 중요</span>
+    <span class="pill">STI 오진 주의 — Sandy patches로 감별</span>
+  </div>
+</div>
+<div class="footer">
+  <span>📚 Ref: WHO FGS Atlas 2015 · WHO Schistosomiasis Control Guidelines 2022 · Kjetland et al.</span>
+  <div><a href="#">← STI (Women's)</a><a href="#">Child Health: Diarrhoea →</a></div>
+</div>
+</body>
+</html>

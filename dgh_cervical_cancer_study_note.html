@@ -1,0 +1,288 @@
+<meta charset="UTF-8">
+
+<h2 class="sr-only">DGH KBA - Women's Health: Cervical Cancer 스터디 노트</h2>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.page{width:100%;font-family:var(--font-sans);font-size:12.5px;line-height:1.55;color:var(--color-text-primary);padding:1.1rem 1.2rem 1.4rem}
+.page-header{display:flex;align-items:flex-start;justify-content:space-between;border-bottom:2px solid #993556;padding-bottom:8px;margin-bottom:10px}
+.topic-tag{font-size:10px;font-weight:500;background:#FBEAF0;color:#72243E;padding:3px 9px;border-radius:999px;margin-bottom:4px;display:inline-block}
+.title{font-size:20px;font-weight:500;color:var(--color-text-primary);line-height:1.2}
+.subtitle{font-size:11px;color:var(--color-text-secondary);margin-top:2px}
+.badge-group{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.badge{font-size:10px;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.b-pink{background:#FBEAF0;color:#72243E}
+.b-red{background:#FCEBEB;color:#791F1F}
+.b-amber{background:#FAEEDA;color:#633806}
+.b-teal{background:#E1F5EE;color:#085041}
+
+.stat-row{display:flex;gap:6px;margin-bottom:8px}
+.stat{flex:1;background:#FBEAF0;border-radius:var(--border-radius-md);padding:6px 8px;text-align:center}
+.stat-num{font-size:16px;font-weight:500;color:#72243E;display:block}
+.stat-lbl{font-size:10px;color:#993556}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 10px}
+.card-full{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 10px;margin-bottom:8px}
+.sec-label{font-size:10px;font-weight:500;letter-spacing:.04em;color:var(--color-text-secondary);margin-bottom:5px;display:flex;align-items:center;gap:5px}
+
+.row{display:flex;gap:5px;align-items:baseline;margin-bottom:3px}
+.dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.d-pink{background:#C94F7C}.d-red{background:#E24B4A}.d-amber{background:#BA7517}
+.d-teal{background:#1D9E75}.d-gray{background:#888780}.d-blue{background:#378ADD}
+.d-purple{background:#7F77DD}.d-coral{background:#D85A30}
+.kw{font-weight:500}
+
+.tbl{width:100%;border-collapse:collapse;font-size:11px}
+.tbl th{background:#FBEAF0;color:#72243E;font-weight:500;padding:4px 6px;text-align:left;font-size:10px}
+.tbl td{padding:3.5px 6px;border-bottom:0.5px solid var(--color-border-tertiary);vertical-align:top;line-height:1.4}
+.tbl tr:last-child td{border-bottom:none}
+
+.pill{display:inline-block;padding:1px 7px;border-radius:999px;font-size:10px;margin:1px 2px 1px 0}
+.p-pink{background:#FBEAF0;color:#72243E}
+.p-red{background:#FCEBEB;color:#791F1F}
+.p-amber{background:#FAEEDA;color:#633806}
+.p-teal{background:#E1F5EE;color:#085041}
+.p-blue{background:#E6F1FB;color:#0C447C}
+.p-gray{background:#F1EFE8;color:#444441}
+.p-purple{background:#EEEDFE;color:#26215C}
+.p-coral{background:#FAECE7;color:#712B13}
+.p-green{background:#EAF3DE;color:#27500A}
+
+/* 90-70-90 strategy visual */
+.strategy-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:8px}
+.s-card{border-radius:var(--border-radius-md);padding:9px 10px;text-align:center;border:0.5px solid var(--color-border-tertiary)}
+.s-num{font-size:26px;font-weight:500;line-height:1;margin-bottom:3px}
+.s-title{font-size:10px;font-weight:500;margin-bottom:4px}
+.s-detail{font-size:10px;color:var(--color-text-secondary);line-height:1.45;text-align:left}
+.sc-1{background:#FBEAF0;border-top:3px solid #993556}
+.sc-2{background:#FAEEDA;border-top:3px solid #BA7517}
+.sc-3{background:#E1F5EE;border-top:3px solid #1D9E75}
+
+/* stage table */
+.stage-bar{height:7px;border-radius:3px;margin-bottom:2px}
+
+.step-row{display:flex;gap:6px;margin-bottom:4px;align-items:flex-start}
+.step-num{width:18px;height:18px;border-radius:50%;background:#993556;color:#FBEAF0;font-size:10px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+
+.exam-card{background:#FCEBEB;border:0.5px solid #F09595;border-radius:var(--border-radius-md);padding:8px 10px;margin-bottom:8px}
+.exam-label{font-size:10px;font-weight:500;color:#791F1F;margin-bottom:4px;display:flex;align-items:center;gap:5px}
+.trap-card{background:#FAEEDA;border:0.5px solid #EF9F27;border-radius:var(--border-radius-md);padding:7px 10px;margin-bottom:4px}
+.trap-label{font-size:10px;font-weight:500;color:#633806;margin-bottom:2px}
+
+.highlight-box{background:#FBEAF0;border-left:3px solid #993556;border-radius:0 var(--border-radius-sm) var(--border-radius-sm) 0;padding:6px 10px;margin-bottom:6px;font-size:11.5px}
+
+.footnote{font-size:10px;color:var(--color-text-tertiary);margin-top:8px;border-top:0.5px solid var(--color-border-tertiary);padding-top:5px}
+</style>
+
+<div class="page">
+
+  <div class="page-header">
+    <div>
+      <div class="topic-tag">Women's Health · 20% of KBA</div>
+      <div class="title">Cervical Cancer — 자궁경부암</div>
+      <div class="subtitle">역학 · HPV · 스크리닝 · WHO 90-70-90 전략 · LMIC 관리 — WHO 2022 · IARC · Oxford Handbook Tropical Medicine 5e</div>
+    </div>
+    <div class="badge-group">
+      <span class="badge b-pink">DGH KBA</span>
+      <span class="badge b-red">LMIC 여성 암 사망 2위</span>
+      <span class="badge b-amber">시험 출제빈도 ★★★</span>
+    </div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat"><span class="stat-num">660K</span><span class="stat-lbl">신규 발생 (2022, GLOBOCAN)</span></div>
+    <div class="stat"><span class="stat-num">350K</span><span class="stat-lbl">연간 사망</span></div>
+    <div class="stat"><span class="stat-num">90%</span><span class="stat-lbl">사망의 LMIC 집중</span></div>
+    <div class="stat"><span class="stat-num">99%</span><span class="stat-lbl">HPV 감염에 기인</span></div>
+  </div>
+
+  <!-- WHO 90-70-90 -->
+  <div class="card-full">
+    <div class="sec-label">WHO 90-70-90 자궁경부암 퇴치 전략 (2030) — 시험 최빈출 정책 목표</div>
+    <div class="strategy-row">
+      <div class="s-card sc-1">
+        <div class="s-num" style="color:#993556">90%</div>
+        <div class="s-title" style="color:#72243E">HPV 백신 접종</div>
+        <div class="s-detail">
+          · 15세 이전 여아 90% 완전 접종<br>
+          · HPV 2가(16·18) or 9가 백신<br>
+          · 9–14세: 2회 접종 (0, 6개월)<br>
+          · 15세 이상·면역저하: 3회 접종<br>
+          · LMIC 공급: Gavi Alliance 지원
+        </div>
+      </div>
+      <div class="s-card sc-2">
+        <div class="s-num" style="color:#633806">70%</div>
+        <div class="s-title" style="color:#633806">스크리닝</div>
+        <div class="s-detail">
+          · 35세, 45세 두 차례 고성능 스크리닝<br>
+          · <span class="kw">LMIC 1차 선택: HPV DNA test</span><br>
+          · 자원 극제한: VIA (식초산 육안검사)<br>
+          · Pap smear: 병리과 필요 → LMIC 제한<br>
+          · HIV 양성: 더 자주, 더 이른 나이부터
+        </div>
+      </div>
+      <div class="s-card sc-3">
+        <div class="s-num" style="color:#085041">90%</div>
+        <div class="s-title" style="color:#085041">치료</div>
+        <div class="s-detail">
+          · 전암 병변(CIN): 90% 치료<br>
+          · 침윤성 암: 90% 치료 접근<br>
+          · <span class="kw">LEEP/냉동치료</span>: LMIC 전암 치료<br>
+          · 침윤성: 수술 ± 방사선 ± 항암<br>
+          · Screen-and-treat 전략: 즉각 처치
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 병태생리 + 자연사 -->
+  <div class="grid2">
+    <div class="card">
+      <div class="sec-label">HPV 감염 → 자궁경부암 자연사</div>
+      <div class="highlight-box">
+        HPV 감염 → CIN 1 → CIN 2/3 → 침윤성 암<br>
+        <span style="font-size:11px;color:var(--color-text-secondary)">평균 진행 기간: 10–15년 (개입 기회 창)</span>
+      </div>
+      <div class="row"><div class="dot d-pink"></div><span><span class="kw">HPV 전파:</span> 성 접촉 (피부·점막 접촉) — 콘돔 부분적 보호</span></div>
+      <div class="row"><div class="dot d-pink"></div><span><span class="kw">고위험 HPV:</span> 16·18 (70%), 31·33·45·52·58 등</span></div>
+      <div class="row"><div class="dot d-pink"></div><span><span class="kw">저위험 HPV:</span> 6·11 → 생식기 사마귀 (암화 안 됨)</span></div>
+      <div class="row"><div class="dot d-red"></div><span><span class="kw">위험인자:</span> 다수 성 파트너, 조기 성 경험, 흡연, 장기 OCP, 면역저하</span></div>
+      <div class="row"><div class="dot d-red"></div><span><span class="kw">HIV + HPV:</span> 자궁경부암 위험 6배↑ — CD4↓일수록 진행 빠름</span></div>
+      <div class="row"><div class="dot d-gray"></div><span><span class="kw">자연 소실:</span> HPV 감염 80–90%가 2년 내 자연 소실 — 지속 감염만 위험</span></div>
+      <div class="row"><div class="dot d-teal"></div><span><span class="kw">변형 대 (Transformation zone):</span> 편평-원주 상피 이행부 → CIN 발생 위치</span></div>
+    </div>
+    <div class="card">
+      <div class="sec-label">임상 병기 & 증상 (FIGO 2018)</div>
+      <table class="tbl">
+        <thead><tr><th>병기</th><th>범위</th><th>5년 생존율</th></tr></thead>
+        <tbody>
+          <tr><td><span class="pill p-teal">I</span></td><td>자궁경부 국한</td><td>~90%</td></tr>
+          <tr><td><span class="pill p-blue">II</span></td><td>자궁경부 넘어 골반벽 미침범</td><td>~65%</td></tr>
+          <tr><td><span class="pill p-amber">III</span></td><td>골반벽·하부 질·수신증</td><td>~35%</td></tr>
+          <tr><td><span class="pill p-red">IV</span></td><td>방광·직장·원격 전이</td><td>~15%</td></tr>
+        </tbody>
+      </table>
+      <div style="margin-top:7px">
+        <div class="row"><div class="dot d-pink"></div><span><span class="kw">초기 증상:</span> 무증상 (조기) → 성교 후 출혈, 비정상 질 분비물</span></div>
+        <div class="row"><div class="dot d-red"></div><span><span class="kw">진행 증상:</span> 골반통, 요관 폐색 → 신부전, 직장 침범</span></div>
+        <div class="row"><div class="dot d-red"></div><span><span class="kw">LMIC 현실:</span> 대부분 Stage III–IV에서 진단 → 치료 선택 제한, 완화 중심</span></div>
+        <div class="row"><div class="dot d-gray"></div><span><span class="kw">조직형:</span> 편평상피암 70%, 선암 25% (HPV 16·18 관련)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 스크리닝 방법 비교 + 치료 -->
+  <div class="card-full">
+    <div class="sec-label">스크리닝 방법 비교 — 자원 수준별 선택 (시험 핵심)</div>
+    <table class="tbl">
+      <thead>
+        <tr><th>방법</th><th>민감도/특이도</th><th>필요 인프라</th><th>LMIC 적합성</th><th>WHO 권고</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="pill p-teal">HPV DNA test</span></td>
+          <td>민감도 高 (90–95%), 특이도 中</td>
+          <td>분자진단 장비 필요 — 비용↑</td>
+          <td>중간 자원 환경 ★★★</td>
+          <td><span class="kw">1차 선택 (WHO 2021)</span></td>
+        </tr>
+        <tr>
+          <td><span class="pill p-amber">VIA</span><br><small>식초산 육안검사</small></td>
+          <td>민감도 中 (70–80%), 특이도 低</td>
+          <td>도구 불필요, 훈련만 필요</td>
+          <td>저자원 환경 ★★★★</td>
+          <td>저자원 대안, Screen-and-treat 가능</td>
+        </tr>
+        <tr>
+          <td><span class="pill p-blue">Pap smear (세포검사)</span></td>
+          <td>민감도 低–中 (55–80%), 특이도 高</td>
+          <td>병리과·현미경·QC 필요</td>
+          <td>LMIC 제한적 ★★</td>
+          <td>자원 있을 때 옵션</td>
+        </tr>
+        <tr>
+          <td><span class="pill p-purple">Colposcopy + 생검</span></td>
+          <td>확진 방법</td>
+          <td>전문 장비·훈련 필요</td>
+          <td>LMIC 제한적 ★</td>
+          <td>스크리닝 양성 후 확진</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 전암 치료 + Screen-and-treat -->
+  <div class="grid2">
+    <div class="card">
+      <div class="sec-label">전암 병변(CIN) 치료 — LMIC 현실적 접근</div>
+      <div class="step-row"><div class="step-num">1</div><span><span class="kw">Screen-and-treat:</span> VIA 양성 → 즉시 냉동치료 (colposcopy 없이) — LMIC 표준 접근, 방문 1회로 완료</span></div>
+      <div class="step-row"><div class="step-num">2</div><span><span class="kw">냉동치료 (Cryotherapy):</span> CIN 1–2, 병변이 작고 전체 보임 → 액체 질소, 저비용, 1차 의료 가능</span></div>
+      <div class="step-row"><div class="step-num">3</div><span><span class="kw">LEEP/LLETZ:</span> CIN 2–3, 큰 병변, 선암 의심 → 전기 고리 절제, 조직 획득 가능</span></div>
+      <div class="step-row"><div class="step-num">4</div><span><span class="kw">냉동치료 금기:</span> 병변이 SCJ 너머 보이지 않을 때, 병변 크기 &gt;75% 경부 면적, 침윤 의심</span></div>
+      <div class="row" style="margin-top:4px"><div class="dot d-teal"></div><span><span class="kw">치료 후 F/U:</span> 12개월 후 HPV test or VIA 재시행</span></div>
+      <div class="row"><div class="dot d-red"></div><span><span class="kw">침윤성 암:</span> 수술 (초기) / 방사선+Cisplatin 동시 항암 (진행) — LMIC 방사선치료기 부족 심각</span></div>
+    </div>
+    <div class="card">
+      <div class="sec-label">HIV 양성 여성 — 특별 고려사항</div>
+      <div class="row"><div class="dot d-purple"></div><span><span class="kw">위험:</span> HIV 양성 → 자궁경부암 위험 6배↑, AIDS 정의 질환</span></div>
+      <div class="row"><div class="dot d-purple"></div><span><span class="kw">스크리닝 시작:</span> HIV 진단 즉시 (나이 무관), 이후 매 1–3년</span></div>
+      <div class="row"><div class="dot d-purple"></div><span><span class="kw">CD4 낮을수록:</span> HPV 지속 감염 ↑, CIN 진행 빠름, 다발성 병변</span></div>
+      <div class="row"><div class="dot d-teal"></div><span><span class="kw">ART:</span> 면역 회복 → HPV 제거율↑, 암 위험↓ — ART 시작이 예방의 핵심</span></div>
+      <div class="row"><div class="dot d-red"></div><span><span class="kw">치료 반응:</span> 재발률 높음, 더 적극적 F/U 필요</span></div>
+      <div style="margin-top:6px;padding-top:6px;border-top:0.5px solid var(--color-border-tertiary)">
+        <div class="sec-label" style="margin-bottom:4px">PMTCT 연계 — 통합 서비스</div>
+        <div class="row"><div class="dot d-pink"></div><span>산전 클리닉 방문 시 VIA 제공 → 임신 중 자궁경부 스크리닝 기회</span></div>
+        <div class="row"><div class="dot d-pink"></div><span>임신 중 CIN 2–3 → 분만 후 치료 (침윤성 암 아니면 즉각 치료 불필요)</span></div>
+        <div class="row"><div class="dot d-pink"></div><span>HPV 백신: 산후 여성에도 적용 (이전 미접종 시)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="exam-card">
+    <div class="exam-label">시험 핵심 포인트 & 자주 나오는 함정</div>
+    <div class="grid2" style="margin-bottom:0">
+      <div>
+        <div class="trap-card">
+          <div class="trap-label">함정 ①  LMIC 스크리닝 = VIA, Pap 아님</div>
+          <span>자원 제한 환경 자궁경부암 스크리닝 최선 → VIA 또는 HPV DNA test. "Pap smear 시행"은 병리과 필요 → LMIC 1차 의료에서 오답. Screen-and-treat(VIA → 즉시 냉동치료)가 LMIC 표준.</span>
+        </div>
+        <div class="trap-card">
+          <div class="trap-label">함정 ②  HPV 백신 접종 나이</div>
+          <span>HPV 백신 최적 대상: <span class="kw">성 경험 전</span> 9–14세 여아 (2회). 성 경험 후에도 효과 있으나 감소. "성 경험 있으면 접종 불필요"는 틀림 — 다른 HPV 아형에는 보호 가능.</span>
+        </div>
+      </div>
+      <div>
+        <div class="trap-card">
+          <div class="trap-label">함정 ③  냉동치료 금기 구분</div>
+          <span>SCJ(편평-원주 이행부)가 보이지 않거나 병변이 경부 75% 이상 덮거나 침윤 의심 → 냉동치료 금기, LEEP 또는 상급기관 의뢰. "VIA 양성 → 무조건 냉동치료"는 틀림.</span>
+        </div>
+        <div class="trap-card">
+          <div class="trap-label">함정 ④  WHO 90-70-90 수치 정확히</div>
+          <span>백신 90% / 스크리닝 70% / 치료 90% — 세 숫자가 다름. "모두 90%"는 오답. 스크리닝만 70%인 것이 단골 오답 포인트. 2030년 목표임도 기억.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-full" style="margin-bottom:0">
+    <div class="sec-label">Global health 관점 핵심 메시지</div>
+    <div style="display:flex;flex-wrap:wrap;gap:4px;line-height:1.9">
+      <span class="pill p-pink">LMIC 90% 사망 집중 — 예방 가능한 암임에도 불평등 극심</span>
+      <span class="pill p-red">HIV+HPV 시너지 — 아프리카 여성 이중 부담, ART+스크리닝 통합 필수</span>
+      <span class="pill p-amber">WHO 90-70-90 (2030) — 백신·스크리닝·치료 3박자 전략</span>
+      <span class="pill p-teal">VIA Screen-and-treat — 1회 방문 완결, 저자원 환경 최적 전략</span>
+      <span class="pill p-blue">Gavi Alliance — HPV 백신 LMIC 공급 지원, 접근성 개선 핵심 행위자</span>
+      <span class="pill p-purple">산전 클리닉 통합 — 임신 중 VIA = 기회 창구, 여성 건강 통합 서비스</span>
+      <span class="pill p-gray">방사선치료 부재 — 아프리카 진행성 암 치료 최대 장벽, 완화 치료 우선</span>
+    </div>
+  </div>
+
+  <div class="footnote">
+    참고: WHO Cervical Cancer Elimination Strategy 2022 · IARC GLOBOCAN 2022 · WHO Screening & Treatment Guidelines 2021 · Oxford Handbook Tropical Medicine 5e · DGH Blueprint Women's Health Level 3<br>
+    <button style="margin-top:5px;font-size:11px;padding:3px 10px" onclick="sendPrompt('DGH KBA Cervical Cancer (VIA·HPV·WHO 90-70-90) 관련 모의문제 5개 풀고 싶어. Best-of-5 SBA 형식으로 만들어줘')">모의문제 풀기 ↗</button>
+    <button style="margin-top:5px;font-size:11px;padding:3px 10px;margin-left:6px" onclick="sendPrompt('DGH KBA: Women\'s health > Maternal mortality 스터디 노트 A4 한 장 분량으로 만들어줘')">다음: Maternal mortality ↗</button>
+    <button style="margin-top:5px;font-size:11px;padding:3px 10px;margin-left:6px" onclick="sendPrompt('DGH KBA: Prevention of mother to child transmission (PMTCT) 스터디 노트 A4 한 장 분량으로 만들어줘')">연계: PMTCT 노트 ↗</button>
+  </div>
+
+</div>

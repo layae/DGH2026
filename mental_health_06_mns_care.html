@@ -1,0 +1,238 @@
+<meta charset="UTF-8">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+.wrap{padding:1rem 0.5rem;max-width:700px;}
+.header{background:#3C3489;border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;}
+.header-left .tag{font-size:11px;color:#AFA9EC;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:4px;}
+.header-left h1{font-size:18px;font-weight:500;color:#EEEDFE;line-height:1.3;}
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.badge{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:500;}
+.badge-purple{background:#534AB7;color:#EEEDFE;}
+.badge-pct{background:#26215C;color:#CECBF6;}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:1rem;}
+.stat{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:0.75rem 0.875rem;}
+.stat-label{font-size:11px;color:var(--color-text-secondary);margin-bottom:4px;line-height:1.3;}
+.stat-value{font-size:18px;font-weight:500;color:#534AB7;}
+.stat-sub{font-size:11px;color:var(--color-text-secondary);margin-top:2px;}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.125rem;margin-bottom:1rem;}
+.card h3{font-size:13px;font-weight:500;color:#534AB7;margin-bottom:0.5rem;display:flex;align-items:center;gap:6px;}
+.card h3 i{font-size:15px;}
+.card p{font-size:12.5px;color:var(--color-text-primary);line-height:1.6;}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:1rem;}
+.trap-section h3{font-size:13px;font-weight:500;color:#791F1F;margin-bottom:0.5rem;display:flex;align-items:center;gap:5px;}
+.trap-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:1rem;}
+.trap{background:#FCEBEB;border-left:3px solid #A32D2D;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:0.6rem 0.75rem;}
+.trap-q{font-size:12px;font-weight:500;color:#791F1F;margin-bottom:3px;}
+.trap-a{font-size:11.5px;color:#501313;line-height:1.5;}
+.who-box{background:#EEEDFE;border:0.5px solid #AFA9EC;border-radius:var(--border-radius-md);padding:0.6rem 0.875rem;margin-bottom:0.75rem;}
+.who-box p{font-size:12px;color:#26215C;line-height:1.6;}
+.gh-section h3{font-size:12px;font-weight:500;color:var(--color-text-secondary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.04em;}
+.gh-pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:0.75rem;}
+.gh-pill{font-size:11.5px;padding:3px 10px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-secondary);}
+.footer{display:flex;align-items:center;justify-content:space-between;margin-top:0.5rem;}
+.footer-note{font-size:11px;color:var(--color-text-secondary);}
+.btn-next{font-size:12px;padding:5px 14px;cursor:pointer;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-primary);}
+.divider{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:0.75rem 0;}
+.table-wrap{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:12px;}
+thead th{background:#534AB7;color:#EEEDFE;font-weight:500;padding:6px 8px;text-align:left;}
+tbody td{padding:5px 8px;border-bottom:0.5px solid var(--color-border-tertiary);color:var(--color-text-primary);vertical-align:top;line-height:1.5;}
+tbody tr:last-child td{border-bottom:none;}
+.complete-banner{background:linear-gradient(135deg,#3C3489,#534AB7);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;}
+.complete-banner p{color:#EEEDFE;font-size:13px;font-weight:500;}
+.complete-banner span{font-size:11px;color:#AFA9EC;}
+.subst-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:0.5rem 0;}
+.subst-box{border-radius:var(--border-radius-md);padding:0.65rem 0.75rem;font-size:12px;line-height:1.5;}
+.s-alc{background:#FAEEDA;border:0.5px solid #FAC775;color:#412402;}
+.s-opi{background:#FCEBEB;border:0.5px solid #F09595;color:#501313;}
+.s-oth{background:#EEEDFE;border:0.5px solid #AFA9EC;color:#26215C;}
+.subst-title{font-weight:500;font-size:12.5px;margin-bottom:4px;}
+.neuro-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:0.5rem 0;}
+.neuro-box{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:0.6rem 0.75rem;font-size:12px;line-height:1.5;color:var(--color-text-primary);}
+.neuro-box strong{color:#534AB7;display:block;margin-bottom:3px;}
+</style>
+<div class="wrap">
+  <div class="header">
+    <div class="header-left">
+      <div class="tag">Mental Health · Topic 6/6 — 완결</div>
+      <h1>Care of Mental, Neurological &amp;<br><span style="font-size:15px;color:#AFA9EC;">Substance Use (MNS) Conditions</span></h1>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-purple">Mental Health</span>
+      <span class="badge badge-pct">NCD+MH 10%</span>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-label">MNS 전 세계 부담</div>
+      <div class="stat-value">13%</div>
+      <div class="stat-sub">전체 질병 부담 (DALYs)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">알코올 관련 사망</div>
+      <div class="stat-value">3M명/년</div>
+      <div class="stat-sub">전체 사망의 5.3%</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">치매 유병 인구</div>
+      <div class="stat-value">55M</div>
+      <div class="stat-sub">2050년까지 139M 예상</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">약물사용장애 치료율</div>
+      <div class="stat-value">&lt;1/6</div>
+      <div class="stat-sub">적절한 치료 받는 비율</div>
+    </div>
+  </div>
+
+  <div class="who-box">
+    <p><strong>MNS 통합 접근 원칙:</strong> 정신(Mental), 신경(Neurological), 물질사용(Substance use) 장애는 별개가 아닌 통합 관리. mhGAP이 세 영역 모두를 포괄. 공통 과제: 낙인(stigma), 치료 공백, 1차 의료 통합. <strong>LMIC에서 MNS = 보건 시스템의 가장 소외된 영역.</strong></p>
+  </div>
+
+  <div class="card">
+    <h3><i class="ti ti-bottle" aria-hidden="true"></i>물질사용장애 — LMIC 핵심 관리</h3>
+    <div class="subst-grid">
+      <div class="subst-box s-alc">
+        <div class="subst-title">알코올 사용장애</div>
+        선별: AUDIT (≥8점 위험)<br>
+        Brief intervention: 5A (Ask·Advise·Assess·Assist·Arrange)<br>
+        금단: Diazepam (CIWA 프로토콜)<br>
+        Wernicke 예방: Thiamine IV<br>
+        유지: Naltrexone or Acamprosate<br>
+        <span style="font-size:11px;">LMIC: 밀주(home brew) 독성 주의</span>
+      </div>
+      <div class="subst-box s-opi">
+        <div class="subst-title">아편계 사용장애</div>
+        과용량: Naloxone IM/IV/IN (즉시)<br>
+        금단: Methadone or Buprenorphine<br>
+        유지치료(OST): Methadone or Buprenorphine/Naloxone<br>
+        주사약물 사용자: 바늘교환, HIV/HCV 검사<br>
+        <span style="font-size:11px;">WHO EML: Methadone·Buprenorphine 포함</span>
+      </div>
+      <div class="subst-box s-oth">
+        <div class="subst-title">기타 물질사용</div>
+        Khat (아프리카·예멘): 카티논 함유<br>
+        흡입제: 도시 노숙 청소년에서 흔함<br>
+        Amphetamine: 동남아 흔함 (Ya Ba 등)<br>
+        Cannabis: 급성 정신증 유발 가능<br>
+        <span style="font-size:11px;">지역별 흔한 물질 파악이 LMIC 핵심</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3><i class="ti ti-brain" aria-hidden="true"></i>신경계 질환 — 글로벌 관점</h3>
+      <div class="neuro-row">
+        <div class="neuro-box">
+          <strong>뇌졸중 (Stroke)</strong>
+          LMIC 뇌졸중 사망 87%<br>
+          CT 없어도 임상 진단<br>
+          tPA 접근 극히 제한적<br>
+          예방 = aspirin·혈압 관리
+        </div>
+        <div class="neuro-box">
+          <strong>치매 (Dementia)</strong>
+          알츠하이머 60~70%<br>
+          혈관성 치매 예방 가능<br>
+          가족 돌봄자 지지 중요<br>
+          항정신병약 조심 (낙상)
+        </div>
+        <div class="neuro-box">
+          <strong>두통 / 편두통</strong>
+          전 세계 2위 장애 원인<br>
+          Aspirin·Paracetamol<br>
+          Propranolol (예방)<br>
+          Ergotamine (LMIC 대안)
+        </div>
+        <div class="neuro-box">
+          <strong>수막염 (Neurological)</strong>
+          세균성: 즉시 항생제<br>
+          결핵성: 스테로이드 병용<br>
+          크립토코쿠스: HIV 동반<br>
+          척수마비: 예방 우선
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3><i class="ti ti-clipboard-list" aria-hidden="true"></i>통합 MNS 케어 — 실무 원칙</h3>
+      <p>
+        <strong>1차 의료 통합의 6가지 요소:</strong><br>
+        ① 표준화된 선별 도구 사용<br>
+        ② 비전문 인력 훈련 (mhGAP)<br>
+        ③ WHO EML 약물 공급 보장<br>
+        ④ 전문가 원격 지원 체계<br>
+        ⑤ 낙인 감소 캠페인<br>
+        ⑥ 지속적 추적관찰 시스템<br><br>
+        <strong>동반이환(Comorbidity) 주의:</strong><br>
+        우울증 + 당뇨·심장병·HIV → 상호 악화<br>
+        물질사용 + 정신증 → 이중 진단(dual diagnosis)<br>
+        뇌전증 + 우울증 → 함께 관리
+      </p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:1rem;">
+    <h3><i class="ti ti-vaccine" aria-hidden="true"></i>WHO EML — 정신·신경계 필수 약물 요약</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>분류</th><th>필수 약물</th><th>LMIC 실무 포인트</th></tr></thead>
+        <tbody>
+          <tr><td>항우울제</td><td>Fluoxetine, Amitriptyline</td><td>Fluoxetine = 1st choice (안전성); TCA 과용량 위험</td></tr>
+          <tr><td>항정신병약</td><td>Haloperidol, Chlorpromazine, Fluphenazine depot</td><td>Depot 주사 = 복약 순응도 낮은 환자에 유용</td></tr>
+          <tr><td>항경련제</td><td>Phenobarbital, Phenytoin, Valproate, Carbamazepine</td><td>Phenobarbital 최저가; Valproate = 가임기 주의</td></tr>
+          <tr><td>항불안/수면</td><td>Diazepam</td><td>금단 치료·Status epilepticus 모두 사용</td></tr>
+          <tr><td>OST (아편)</td><td>Methadone, Buprenorphine</td><td>많은 LMIC에서 접근 여전히 제한</td></tr>
+          <tr><td>해독제</td><td>Naloxone</td><td>아편 과용량 즉각 역전; 지역사회 배포 확대 중</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="trap-section">
+    <h3><i class="ti ti-alert-triangle" aria-hidden="true"></i>시험 함정 4개</h3>
+    <div class="trap-grid">
+      <div class="trap">
+        <div class="trap-q">알코올 금단 → Diazepam 대신 Haloperidol?</div>
+        <div class="trap-a">Haloperidol은 알코올 금단 경련 역치를 낮춤. 금단에는 반드시 Benzodiazepine. Haloperidol은 금단 섬망의 환각에만 보조적으로 사용.</div>
+      </div>
+      <div class="trap">
+        <div class="trap-q">Wernicke 뇌증 → 포도당 먼저?</div>
+        <div class="trap-a">Thiamine 먼저, 포도당 나중. 포도당 투여가 Thiamine 소모를 가속화 → Wernicke 악화. 반드시 Thiamine IV 후 포도당.</div>
+      </div>
+      <div class="trap">
+        <div class="trap-q">아편 과용량 → Naloxone 1회 투여로 충분?</div>
+        <div class="trap-a">아편의 반감기 > Naloxone. 재진정(re-sedation) 위험. Naloxone 반복 투여 필요하거나 infusion 고려. 퇴원 전 충분한 관찰 필수.</div>
+      </div>
+      <div class="trap">
+        <div class="trap-q">치매 환자 공격성 → 항정신병약 1st line?</div>
+        <div class="trap-a">비약물 접근(환경·루틴·감각 자극)이 1st line. 항정신병약은 치매에서 뇌졸중·사망 위험 증가 (Black box warning). 최후 수단으로 저용량 단기간.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="complete-banner">
+    <div>
+      <p>Mental Health 6개 토픽 완료!</p>
+      <span>다음: Global Public Health 13개 토픽으로 이어갑니다</span>
+    </div>
+    <button class="btn-next" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.3);color:#EEEDFE;" onclick="sendPrompt('Mental Health 완료! 다음은 Global Public Health 영역 시작해줘. Global health actors and policy 첫 번째 토픽부터')">Global Public Health 시작 →</button>
+  </div>
+
+  <hr class="divider">
+  <div class="gh-section">
+    <h3>Global Health 관점</h3>
+    <div class="gh-pills">
+      <span class="gh-pill">MNS = DALYs 13% — 소외된 우선순위</span>
+      <span class="gh-pill">OST(Methadone/Buprenorphine) = harm reduction 핵심</span>
+      <span class="gh-pill">Naloxone 지역사회 배포 = 생명 구조</span>
+      <span class="gh-pill">동반이환 관리 = 통합 1차 의료 필수</span>
+      <span class="gh-pill">낙인 = MNS 치료 접근 최대 장벽</span>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="footer-note">Source: WHO mhGAP 2.0 · WHO Mental Health Atlas 2020 · WHO EML 2023</span>
+  </div>
+</div>

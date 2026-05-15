@@ -1,0 +1,172 @@
+<meta charset="UTF-8">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.page{width:100%;font-family:var(--font-sans);font-size:12.5px;line-height:1.55;color:var(--color-text-primary);padding:1.1rem 1.2rem 1.4rem}
+.page-header{display:flex;align-items:flex-start;justify-content:space-between;border-bottom:2px solid #1D6FA5;padding-bottom:8px;margin-bottom:10px}
+.topic-tag{font-size:10px;font-weight:500;background:#E3F2FD;color:#0D47A1;padding:3px 9px;border-radius:999px;margin-bottom:4px;display:inline-block}
+.title{font-size:20px;font-weight:500;line-height:1.2}
+.subtitle{font-size:11px;color:var(--color-text-secondary);margin-top:2px}
+.badge-group{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.badge{font-size:10px;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.b-blue{background:#E3F2FD;color:#0D47A1}.b-red{background:#FCEBEB;color:#791F1F}.b-amber{background:#FAEEDA;color:#633806}
+.stat-row{display:flex;gap:6px;margin-bottom:8px}
+.stat{flex:1;background:#E3F2FD;border-radius:var(--border-radius-md);padding:6px 8px;text-align:center}
+.stat-num{font-size:16px;font-weight:500;color:#0D47A1;display:block}
+.stat-lbl{font-size:10px;color:#1D6FA5}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 10px}
+.card-full{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 10px;margin-bottom:8px}
+.sec-label{font-size:10px;font-weight:500;letter-spacing:.04em;color:var(--color-text-secondary);margin-bottom:5px}
+.row{display:flex;gap:5px;align-items:baseline;margin-bottom:3px}
+.dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.d-blue{background:#378ADD}.d-red{background:#E24B4A}.d-amber{background:#BA7517}.d-teal{background:#1D9E75}.d-gray{background:#888780}.d-purple{background:#7F77DD}.d-coral{background:#D85A30}
+.kw{font-weight:500}
+.tbl{width:100%;border-collapse:collapse;font-size:11px}
+.tbl th{background:#E3F2FD;color:#0D47A1;font-weight:500;padding:4px 6px;text-align:left;font-size:10px}
+.tbl td{padding:3.5px 6px;border-bottom:0.5px solid var(--color-border-tertiary);vertical-align:top;line-height:1.4}
+.tbl tr:last-child td{border-bottom:none}
+.pill{display:inline-block;padding:1px 7px;border-radius:999px;font-size:10px;margin:1px 2px 1px 0}
+.p-blue{background:#E3F2FD;color:#0D47A1}.p-red{background:#FCEBEB;color:#791F1F}.p-amber{background:#FAEEDA;color:#633806}.p-teal{background:#E1F5EE;color:#085041}.p-gray{background:#F1EFE8;color:#444441}.p-purple{background:#EEEDFE;color:#26215C}.p-coral{background:#FAECE7;color:#712B13}
+.exam-card{background:#FCEBEB;border:0.5px solid #F09595;border-radius:var(--border-radius-md);padding:8px 10px;margin-bottom:8px}
+.exam-label{font-size:10px;font-weight:500;color:#791F1F;margin-bottom:4px}
+.trap-card{background:#FAEEDA;border:0.5px solid #EF9F27;border-radius:var(--border-radius-md);padding:7px 10px;margin-bottom:4px}
+.trap-label{font-size:10px;font-weight:500;color:#633806;margin-bottom:2px}
+.footnote{font-size:10px;color:var(--color-text-tertiary);margin-top:8px;border-top:0.5px solid var(--color-border-tertiary);padding-top:5px}
+</style>
+<div class="page">
+  <div class="page-header">
+    <div>
+      <div class="topic-tag">NCD · 10% of KBA</div>
+      <div class="title">Ophthalmology — 안과 (글로벌 실명)</div>
+      <div class="subtitle">예방 가능한 실명 · 백내장 · 트라코마 · Onchocerciasis · 당뇨망막병증 — WHO Vision 2020 · IAPB · Oxford Handbook</div>
+    </div>
+    <div class="badge-group">
+      <span class="badge b-blue">DGH KBA</span>
+      <span class="badge b-red">실명 90%가 LMIC, 예방 가능</span>
+      <span class="badge b-amber">시험 출제빈도 ★★☆</span>
+    </div>
+  </div>
+  <div class="stat-row">
+    <div class="stat"><span class="stat-num">2.2B</span><span class="stat-lbl">시각 장애·실명 인구 (전 세계)</span></div>
+    <div class="stat"><span class="stat-num">90%</span><span class="stat-lbl">실명이 LMIC에 집중</span></div>
+    <div class="stat"><span class="stat-num">1위</span><span class="stat-lbl">실명 원인: 백내장 (전체 50%)</span></div>
+    <div class="stat"><span class="stat-num">80%</span><span class="stat-lbl">실명이 예방·치료 가능</span></div>
+  </div>
+
+  <div class="card-full">
+    <div class="sec-label">주요 실명 원인 — LMIC vs HIC 비교 (시험 핵심)</div>
+    <table class="tbl">
+      <thead><tr><th>질환</th><th>전 세계 순위</th><th>LMIC 특이점</th><th>예방/치료</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="pill p-blue">백내장 (Cataract)</span></td>
+          <td>실명 원인 1위 (50%)</td>
+          <td>LMIC에서 수술 접근 부족 → 치료 가능 실명 최다. 자외선·영양결핍·당뇨가 조기 발생 유발</td>
+          <td>수술(ECCE or phacoemulsification) — LMIC: 쿠폰 무료 수술 캠페인</td>
+        </tr>
+        <tr>
+          <td><span class="pill p-amber">굴절 이상 (Refractive error)</span></td>
+          <td>시각 장애 원인 1위</td>
+          <td>안경 접근성 부족 — LMIC 농촌 아동·성인 대다수 미교정</td>
+          <td>안경 처방 — 가장 비용효과적 개입. 지역사회 안경 배포 프로그램</td>
+        </tr>
+        <tr>
+          <td><span class="pill p-red">트라코마 (Trachoma)</span></td>
+          <td>감염성 실명 원인 1위</td>
+          <td>Chlamydia trachomatis → 반복 감염 → 눈꺼풀 내반 → 각막 혼탁. 아프리카·중동·아시아 건조 지역</td>
+          <td>SAFE 전략: Surgery·Antibiotics(Azithromycin)·Facial cleanliness·Environmental improvement</td>
+        </tr>
+        <tr>
+          <td><span class="pill p-coral">Onchocerciasis (River blindness)</span></td>
+          <td>감염성 실명 2위</td>
+          <td>Onchocerca volvulus → Simulium blackfly 매개 → 강 유역. 아프리카 사하라이남 주 분포</td>
+          <td>Ivermectin 연 1–2회 (CDTI — community-directed treatment). 벡터 통제</td>
+        </tr>
+        <tr>
+          <td><span class="pill p-purple">당뇨망막병증</span></td>
+          <td>성인 실명 원인 증가 중</td>
+          <td>LMIC 당뇨 급증 → 안저 검사 인프라 부족 → 말기 진단</td>
+          <td>혈당·혈압 조절, 안저 검사 스크리닝, 레이저 광응고술</td>
+        </tr>
+        <tr>
+          <td><span class="pill p-teal">녹내장 (Glaucoma)</span></td>
+          <td>비가역 실명 원인 2위</td>
+          <td>아프리카계에서 원발 개방각 녹내장 유병률 높음. LMIC 진단 인프라 부족</td>
+          <td>안압 하강제(Timolol, Latanoprost), 수술. 조기 발견이 핵심</td>
+        </tr>
+        <tr>
+          <td><span class="pill p-gray">비타민 A 결핍 (VAD)</span></td>
+          <td>소아 실명 주요 원인</td>
+          <td>야맹증 → 각막 건조증(Xerophthalmia) → 각막 연화증(Keratomalacia) → 실명. 5세 미만</td>
+          <td>비타민 A 보충(6개월마다) + 식이 다양화. 홍역 후 반드시 투여</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="sec-label">트라코마 SAFE 전략 — WHO NTD 퇴치 프로그램</div>
+      <div class="row"><div class="dot d-blue"></div><span><span class="kw">S — Surgery:</span> 눈꺼풀 내반(trichiasis) → 수술적 교정 (bilamellar tarsal rotation)</span></div>
+      <div class="row"><div class="dot d-blue"></div><span><span class="kw">A — Antibiotics:</span> Azithromycin 1g 경구 단회 or 1% Tetracycline 안연고 6주. 지역사회 대량 투약(MDA)</span></div>
+      <div class="row"><div class="dot d-blue"></div><span><span class="kw">F — Facial cleanliness:</span> 얼굴 세척 습관 → 파리 접촉 감소</span></div>
+      <div class="row"><div class="dot d-blue"></div><span><span class="kw">E — Environmental:</span> WASH 개선 — 위생시설·물 접근, 파리 번식 억제</span></div>
+      <div class="row"><div class="dot d-amber"></div><span><span class="kw">전파:</span> 직접 접촉·파리(Musca sorbens) 매개. 눈 분비물·코 분비물</span></div>
+      <div class="row"><div class="dot d-teal"></div><span><span class="kw">WHO 2030 목표:</span> 트라코마로 인한 실명 퇴치 (NTD 퇴치 목표)</span></div>
+    </div>
+    <div class="card">
+      <div class="sec-label">비타민 A 결핍 — Xerophthalmia 진행 단계</div>
+      <div class="row"><div class="dot d-amber"></div><span><span class="kw">XN — 야맹증:</span> 가장 초기, 가역적</span></div>
+      <div class="row"><div class="dot d-amber"></div><span><span class="kw">X1A — 결막 건조증:</span> 결막 건조·주름</span></div>
+      <div class="row"><div class="dot d-amber"></div><span><span class="kw">X1B — Bitot's spots:</span> 결막의 거품성 회백색 반점 (특징적 소견)</span></div>
+      <div class="row"><div class="dot d-coral"></div><span><span class="kw">X2 — 각막 건조증:</span> 각막 혼탁·주름 → 가역적</span></div>
+      <div class="row"><div class="dot d-red"></div><span><span class="kw">X3A/B — 각막 연화증:</span> 각막 용해 → 비가역적 실명</span></div>
+      <div style="margin-top:6px;padding-top:5px;border-top:0.5px solid var(--color-border-tertiary)">
+        <div class="sec-label" style="margin-bottom:4px">치료 프로토콜 (WHO)</div>
+        <div class="row"><div class="dot d-teal"></div><span>진단 즉시 비타민 A: <span class="kw">200,000 IU 경구</span> (6–12개월: 100,000 IU, 6개월 미만: 50,000 IU)</span></div>
+        <div class="row"><div class="dot d-teal"></div><span>다음 날 1회, 2–4주 후 1회 추가 (총 3회)</span></div>
+        <div class="row"><div class="dot d-red"></div><span><span class="kw">홍역 후 반드시 투여</span> — 홍역 → VAD 급격 악화</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="exam-card">
+    <div class="exam-label">시험 핵심 포인트 &amp; 자주 나오는 함정</div>
+    <div class="grid2" style="margin-bottom:0">
+      <div>
+        <div class="trap-card">
+          <div class="trap-label">함정 1 — 트라코마 항생제</div>
+          <span>트라코마 대량 투약: Azithromycin 단회 경구가 1차. Tetracycline 안연고는 대안. "Doxycycline 장기 투여"는 오답. 임신부: Azithromycin 안전.</span>
+        </div>
+        <div class="trap-card">
+          <div class="trap-label">함정 2 — Onchocerciasis 치료</div>
+          <span>Ivermectin = 성충 살충 아님 → 자충(microfilaria) 억제. 성충 수명 10–15년 → 연 1–2회 장기 투약 필요. "1회 투약으로 완치"는 오답.</span>
+        </div>
+      </div>
+      <div>
+        <div class="trap-card">
+          <div class="trap-label">함정 3 — Bitot's spots</div>
+          <span>Bitot's spots = 비타민 A 결핍의 특징적 소견 (결막 거품성 회백색 반점). 단독으로 실명 초래는 안 하지만 VAD 진행 중 징후. 즉각 비타민 A 투여 적응증.</span>
+        </div>
+        <div class="trap-card">
+          <div class="trap-label">함정 4 — 실명 원인 순위</div>
+          <span>전 세계 실명 1위: 백내장 (50%) — 치료 가능. 감염성 실명 1위: 트라코마. 감염성 실명 2위: Onchocerciasis. "녹내장이 LMIC 실명 1위"는 오답.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-full" style="margin-bottom:0">
+    <div class="sec-label">Global health 관점 핵심 메시지</div>
+    <div style="display:flex;flex-wrap:wrap;gap:4px;line-height:1.9">
+      <span class="pill p-blue">실명 80%가 예방·치료 가능 — 접근성 격차가 유일한 장벽</span>
+      <span class="pill p-amber">백내장 수술 캠페인 — 비용효과 최고의 의료 개입 중 하나 (DALY/$ 기준)</span>
+      <span class="pill p-teal">SAFE 전략 — 트라코마 퇴치 통합 접근, WASH와 연계</span>
+      <span class="pill p-coral">Ivermectin CDTI — Onchocerciasis 지역사회 주도 치료, 아프리카 10개국 퇴치 목표</span>
+      <span class="pill p-red">비타민 A 보충 — 소아 실명·사망 예방, 홍역 후 투여 의무</span>
+      <span class="pill p-gray">굴절 이상 + 안경 — 가장 저렴한 개입, LMIC 아동 학습 능력 직결</span>
+    </div>
+  </div>
+  <div class="footnote">참고: WHO Global Report on Vision 2019 · IAPB · Oxford Handbook of Tropical Medicine 5e · DGH Blueprint NCD Level 3</div>
+</div>

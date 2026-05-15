@@ -1,0 +1,192 @@
+<meta charset="UTF-8">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+.wrap{padding:1rem 0.5rem;max-width:700px;}
+.header{background:#3C3489;border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;}
+.header-left .tag{font-size:11px;color:#AFA9EC;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:4px;}
+.header-left h1{font-size:18px;font-weight:500;color:#EEEDFE;line-height:1.3;}
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.badge{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:500;}
+.badge-purple{background:#534AB7;color:#EEEDFE;}
+.badge-pct{background:#26215C;color:#CECBF6;}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:1rem;}
+.stat{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:0.75rem 0.875rem;}
+.stat-label{font-size:11px;color:var(--color-text-secondary);margin-bottom:4px;line-height:1.3;}
+.stat-value{font-size:18px;font-weight:500;color:#534AB7;}
+.stat-sub{font-size:11px;color:var(--color-text-secondary);margin-top:2px;}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.125rem;margin-bottom:1rem;}
+.card h3{font-size:13px;font-weight:500;color:#534AB7;margin-bottom:0.5rem;display:flex;align-items:center;gap:6px;}
+.card h3 i{font-size:15px;}
+.card p{font-size:12.5px;color:var(--color-text-primary);line-height:1.6;}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:1rem;}
+.table-wrap{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:12px;}
+thead th{background:#534AB7;color:#EEEDFE;font-weight:500;padding:6px 8px;text-align:left;}
+tbody td{padding:5px 8px;border-bottom:0.5px solid var(--color-border-tertiary);color:var(--color-text-primary);vertical-align:top;line-height:1.5;}
+tbody tr:last-child td{border-bottom:none;}
+.trap-section h3{font-size:13px;font-weight:500;color:#791F1F;margin-bottom:0.5rem;display:flex;align-items:center;gap:5px;}
+.trap-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:1rem;}
+.trap{background:#FCEBEB;border-left:3px solid #A32D2D;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:0.6rem 0.75rem;}
+.trap-q{font-size:12px;font-weight:500;color:#791F1F;margin-bottom:3px;}
+.trap-a{font-size:11.5px;color:#501313;line-height:1.5;}
+.who-box{background:#EEEDFE;border:0.5px solid #AFA9EC;border-radius:var(--border-radius-md);padding:0.6rem 0.875rem;margin-bottom:0.75rem;}
+.who-box p{font-size:12px;color:#26215C;line-height:1.6;}
+.gh-section h3{font-size:12px;font-weight:500;color:var(--color-text-secondary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.04em;}
+.gh-pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:0.75rem;}
+.gh-pill{font-size:11.5px;padding:3px 10px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-secondary);}
+.footer{display:flex;align-items:center;justify-content:space-between;margin-top:0.5rem;}
+.footer-note{font-size:11px;color:var(--color-text-secondary);}
+.btn-next{font-size:12px;padding:5px 14px;cursor:pointer;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-primary);}
+.divider{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:0.75rem 0;}
+.stepped-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:0.5rem 0;}
+.step-box{border-radius:var(--border-radius-md);padding:0.6rem 0.75rem;font-size:12px;line-height:1.5;}
+.step1{background:#EAF3DE;border:0.5px solid #C0DD97;color:#173404;}
+.step2{background:#EEEDFE;border:0.5px solid #AFA9EC;color:#26215C;}
+.step3{background:#FCEBEB;border:0.5px solid #F09595;color:#501313;}
+.step-title{font-weight:500;margin-bottom:3px;font-size:12.5px;}
+.condition-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:0.5rem 0;}
+.cond-box{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:0.5rem 0.6rem;font-size:11.5px;color:var(--color-text-primary);text-align:center;line-height:1.4;}
+.cond-box strong{display:block;color:#534AB7;font-size:12px;}
+</style>
+<div class="wrap">
+  <div class="header">
+    <div class="header-left">
+      <div class="tag">Mental Health · Topic 3/6</div>
+      <h1>mhGAP — Mental Health Gap Action Programme<br><span style="font-size:14px;color:#AFA9EC;">인도주의 개입 환경에서의 활용</span></h1>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-purple">Mental Health</span>
+      <span class="badge badge-pct">NCD+MH 10%</span>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-label">mhGAP 출시</div>
+      <div class="stat-value">2008</div>
+      <div class="stat-sub">개정판 2.0: 2016년</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">대상 조건 수</div>
+      <div class="stat-value">11개</div>
+      <div class="stat-sub">우선순위 MNS 조건</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">정신건강 전문의 밀도</div>
+      <div class="stat-value">0.05</div>
+      <div class="stat-sub">명/10만명 (LMIC 평균)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">훈련 기간 (비전문가)</div>
+      <div class="stat-value">5일</div>
+      <div class="stat-sub">기본 mhGAP 과정</div>
+    </div>
+  </div>
+
+  <div class="who-box">
+    <p><strong>mhGAP 핵심 원칙:</strong> 정신건강 전문의가 극히 부족한 LMIC에서 <strong>비전문 보건인력(non-specialist health workers)</strong>이 정신·신경·물질사용(MNS) 장애를 1차 의료에서 평가·치료·관리할 수 있도록 근거 기반 알고리즘 제공. 인도주의 상황(분쟁·재난)에서도 동일하게 적용.</p>
+  </div>
+
+  <div class="card">
+    <h3><i class="ti ti-list-check" aria-hidden="true"></i>mhGAP 11개 우선순위 MNS 조건</h3>
+    <div class="condition-grid">
+      <div class="cond-box"><strong>우울증</strong>Depression</div>
+      <div class="cond-box"><strong>정신증</strong>Psychosis</div>
+      <div class="cond-box"><strong>양극성장애</strong>Bipolar disorder</div>
+      <div class="cond-box"><strong>뇌전증</strong>Epilepsy</div>
+      <div class="cond-box"><strong>발달장애</strong>Developmental</div>
+      <div class="cond-box"><strong>행동장애</strong>Behavioural (child)</div>
+      <div class="cond-box"><strong>치매</strong>Dementia</div>
+      <div class="cond-box"><strong>알코올</strong>Alcohol use</div>
+      <div class="cond-box"><strong>약물사용</strong>Drug use</div>
+      <div class="cond-box"><strong>자해/자살</strong>Self-harm/suicide</div>
+      <div class="cond-box"><strong>기타 정서장애</strong>Other significant</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><i class="ti ti-stairs" aria-hidden="true"></i>단계적 치료 모델 (Stepped Care)</h3>
+    <div class="stepped-row">
+      <div class="step-box step1">
+        <div class="step-title">Step 1 — 경증</div>
+        지역사회 비전문 인력<br>심리사회적 지지<br>Problem-solving therapy<br>자조 그룹 연계
+      </div>
+      <div class="step-box step2">
+        <div class="step-title">Step 2 — 중등증</div>
+        1차 의료 보건인력<br>mhGAP 알고리즘 적용<br>약물치료 시작<br>추적관찰 계획
+      </div>
+      <div class="step-box step3">
+        <div class="step-title">Step 3 — 중증/복잡</div>
+        정신건강 전문의 의뢰<br>입원 치료<br>치료저항성 케이스<br>자해/타해 위험
+      </div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3><i class="ti ti-building-hospital" aria-hidden="true"></i>인도주의 상황 적용</h3>
+      <p>
+        <strong>Inter-Agency Standing Committee (IASC)</strong> 가이드라인과 연계<br><br>
+        난민·실향민 캠프에서:<br>
+        · MHPSS (Mental Health &amp; Psychosocial Support) 통합<br>
+        · Community-based 접근 우선<br>
+        · 급성 스트레스 반응 ≠ PTSD (시간 기준 중요)<br>
+        · AED 공급 연속성 보장 (뇌전증 환자)<br><br>
+        <strong>인도주의 원칙:</strong> 인류애·중립·공정·독립
+      </p>
+    </div>
+    <div class="card">
+      <h3><i class="ti ti-tool" aria-hidden="true"></i>mhGAP 알고리즘 구조</h3>
+      <p>
+        <strong>ASSESS:</strong> 증상·병력·신체 감별<br>
+        <strong>DECIDE:</strong> mhGAP 조건 해당 여부<br>
+        <strong>TREAT:</strong> 약물 + 심리사회적 개입<br>
+        <strong>LINK:</strong> 지역사회 자원 연계<br>
+        <strong>FOLLOW-UP:</strong> 정기 추적관찰<br><br>
+        <strong>선별 도구:</strong><br>
+        · 우울증: PHQ-9 / PHQ-2<br>
+        · 알코올: AUDIT<br>
+        · 소아: PSC (Pediatric Symptom Checklist)<br>
+        · 자살위험: Columbia Protocol (C-SSRS)
+      </p>
+    </div>
+  </div>
+
+  <div class="trap-section">
+    <h3><i class="ti ti-alert-triangle" aria-hidden="true"></i>시험 함정 4개</h3>
+    <div class="trap-grid">
+      <div class="trap">
+        <div class="trap-q">mhGAP 대상은 전문의만?</div>
+        <div class="trap-a">핵심 오개념. mhGAP은 비전문 보건인력(nurses, CHW, medical officers)을 위한 도구. 정신건강 전문의 부재 환경에서의 격차 해소가 목적.</div>
+      </div>
+      <div class="trap">
+        <div class="trap-q">인도주의 상황 → PTSD 즉시 진단?</div>
+        <div class="trap-a">급성 스트레스 반응(Acute stress reaction)은 사건 후 4주 이내. PTSD 진단은 1개월 이후. 초기엔 Psychological First Aid 적용이 우선.</div>
+      </div>
+      <div class="trap">
+        <div class="trap-q">mhGAP에서 자살 위험 환자 → 즉시 입원?</div>
+        <div class="trap-a">즉각적 위험(계획·수단 있음) → 입원. 하지만 mhGAP은 지역사회 기반 안전계획(safety planning) 우선 접근. 무조건 입원이 아닌 위험 수준 평가 후 결정.</div>
+      </div>
+      <div class="trap">
+        <div class="trap-q">mhGAP 11개 조건에 PTSD 포함?</div>
+        <div class="trap-a">PTSD는 별도 목록이 아닌 "Other significant emotional/medically unexplained complaints"에 포함. 별개 챕터로 존재하나 핵심 11개 외 분류 주의.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div class="gh-section">
+    <h3>Global Health 관점</h3>
+    <div class="gh-pills">
+      <span class="gh-pill">비전문 인력 역량강화 = 치료 공백 해소 핵심</span>
+      <span class="gh-pill">IASC MHPSS 가이드라인과 연계</span>
+      <span class="gh-pill">Task-shifting = mhGAP의 전략적 근거</span>
+      <span class="gh-pill">정신건강 예산 &lt;2% (전 세계 보건예산)</span>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="footer-note">Source: WHO mhGAP Intervention Guide 2.0 · IASC Guidelines 2007</span>
+    <button class="btn-next" onclick="sendPrompt('다음 Mental Health 토픽 계속 만들어줘')">다음 토픽 →</button>
+  </div>
+</div>

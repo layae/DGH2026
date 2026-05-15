@@ -1,0 +1,185 @@
+<meta charset="UTF-8">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+.wrap{padding:1rem 0.5rem;max-width:700px;}
+.header{background:#3C3489;border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;}
+.header-left .tag{font-size:11px;color:#AFA9EC;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:4px;}
+.header-left h1{font-size:18px;font-weight:500;color:#EEEDFE;line-height:1.3;}
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.badge{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:500;}
+.badge-purple{background:#534AB7;color:#EEEDFE;}
+.badge-pct{background:#26215C;color:#CECBF6;}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:1rem;}
+.stat{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:0.75rem 0.875rem;}
+.stat-label{font-size:11px;color:var(--color-text-secondary);margin-bottom:4px;line-height:1.3;}
+.stat-value{font-size:18px;font-weight:500;color:#534AB7;}
+.stat-sub{font-size:11px;color:var(--color-text-secondary);margin-top:2px;}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:1rem;}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.125rem;}
+.card h3{font-size:13px;font-weight:500;color:#534AB7;margin-bottom:0.5rem;display:flex;align-items:center;gap:6px;}
+.card h3 i{font-size:15px;}
+.card p{font-size:12.5px;color:var(--color-text-primary);line-height:1.6;}
+.table-wrap{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:12px;}
+thead th{background:#534AB7;color:#EEEDFE;font-weight:500;padding:6px 8px;text-align:left;}
+tbody td{padding:5px 8px;border-bottom:0.5px solid var(--color-border-tertiary);color:var(--color-text-primary);vertical-align:top;line-height:1.5;}
+tbody tr:last-child td{border-bottom:none;}
+.trap-section h3{font-size:13px;font-weight:500;color:#791F1F;margin-bottom:0.5rem;display:flex;align-items:center;gap:5px;}
+.trap-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:1rem;}
+.trap{background:#FCEBEB;border-left:3px solid #A32D2D;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:0.6rem 0.75rem;}
+.trap-q{font-size:12px;font-weight:500;color:#791F1F;margin-bottom:3px;}
+.trap-a{font-size:11.5px;color:#501313;line-height:1.5;}
+.who-box{background:#EEEDFE;border:0.5px solid #AFA9EC;border-radius:var(--border-radius-md);padding:0.6rem 0.875rem;margin-bottom:0.75rem;}
+.who-box p{font-size:12px;color:#26215C;line-height:1.6;}
+.gh-section h3{font-size:12px;font-weight:500;color:var(--color-text-secondary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.04em;}
+.gh-pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:0.75rem;}
+.gh-pill{font-size:11.5px;padding:3px 10px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-secondary);}
+.footer{display:flex;align-items:center;justify-content:space-between;margin-top:0.5rem;}
+.footer-note{font-size:11px;color:var(--color-text-secondary);}
+.btn-next{font-size:12px;padding:5px 14px;cursor:pointer;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-primary);}
+.btn-next:hover{background:var(--color-background-secondary);}
+.divider{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:0.75rem 0;}
+.flow-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:0.5rem 0;}
+.flow-box{background:#EEEDFE;border:0.5px solid #AFA9EC;border-radius:var(--border-radius-md);padding:4px 10px;font-size:12px;color:#26215C;font-weight:500;}
+.flow-arrow{color:#534AB7;font-size:14px;font-weight:500;}
+.flow-box.red{background:#FCEBEB;border-color:#F09595;color:#791F1F;}
+.flow-box.green{background:#EAF3DE;border-color:#C0DD97;color:#27500A;}
+</style>
+<div class="wrap">
+  <div class="header">
+    <div class="header-left">
+      <div class="tag">Mental Health · Topic 2/6</div>
+      <h1>Seizure Presentations &amp; Epilepsy<br><span style="font-size:14px;color:#AFA9EC;">분류 · 처치 · LMIC 맥락</span></h1>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-purple">Mental Health</span>
+      <span class="badge badge-pct">NCD+MH 10%</span>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-label">전 세계 뇌전증 환자</div>
+      <div class="stat-value">50M</div>
+      <div class="stat-sub">80%가 LMIC 거주</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">치료 공백 (LMIC)</div>
+      <div class="stat-value">75%</div>
+      <div class="stat-sub">적절한 치료 미수혜</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">신경낭미충증 기여</div>
+      <div class="stat-value">30%</div>
+      <div class="stat-sub">LMIC 뇌전증 원인</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Phenobarbital 비용</div>
+      <div class="stat-value">$0.01</div>
+      <div class="stat-sub">정당, WHO EML 등재</div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3><i class="ti ti-list" aria-hidden="true"></i>발작 분류 (ILAE 2017)</h3>
+      <p>
+        <strong>Focal onset:</strong> 의식 유지(aware) vs 손상(impaired)<br>
+        → focal to bilateral tonic-clonic<br><br>
+        <strong>Generalized onset:</strong><br>
+        · Tonic-clonic (대발작)<br>
+        · Absence (소발작) — 3Hz spike-wave<br>
+        · Myoclonic · Atonic<br><br>
+        <strong>Unknown onset:</strong> 정보 불충분<br><br>
+        <strong>LMIC 실무:</strong> EEG 없어도 임상 분류로 치료 가능. Focal 의심 시 뇌종양·NCC 감별
+      </p>
+    </div>
+    <div class="card">
+      <h3><i class="ti ti-pill" aria-hidden="true"></i>항경련제 선택 (LMIC 맥락)</h3>
+      <p>
+        <strong>Generalized tonic-clonic:</strong><br>
+        → Phenobarbital (1st, WHO EML, 저비용)<br>
+        → Valproate (효과 우수, 비용 높음)<br><br>
+        <strong>Focal epilepsy:</strong><br>
+        → Carbamazepine or Phenytoin<br><br>
+        <strong>Absence:</strong> Ethosuximide or Valproate<br>
+        (Carbamazepine = 금기, 악화)<br><br>
+        <strong>가임기 여성:</strong> Valproate 피할 것<br>
+        → Lamotrigine or Levetiracetam 선호<br><br>
+        <strong>중단 기준:</strong> 2년 무발작 후 점진적 감량
+      </p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:1rem;">
+    <h3><i class="ti ti-urgent" aria-hidden="true"></i>Status Epilepticus 처치 흐름 (LMIC 적용)</h3>
+    <div class="flow-row">
+      <div class="flow-box">0–5분<br><span style="font-size:11px;">기도·체위·산소</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">5–20분<br><span style="font-size:11px;">Diazepam IV 0.15mg/kg<br>or Rectal 0.5mg/kg<br>or Midazolam buccal</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">20–40분<br><span style="font-size:11px;">Phenytoin IV 20mg/kg<br>or Phenobarbital IV<br>(느린 주입, 혈압 모니터)</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box red">40분+<br><span style="font-size:11px;">Refractory SE<br>→ ICU·마취 필요</span></div>
+    </div>
+    <p style="font-size:11.5px;color:var(--color-text-secondary);margin-top:6px;">LMIC: IV 접근 없을 시 → Rectal diazepam or Buccal midazolam이 현실적 대안. IM Midazolam도 동등 효과.</p>
+  </div>
+
+  <div class="card" style="margin-bottom:1rem;">
+    <h3><i class="ti ti-thermometer" aria-hidden="true"></i>열성경련 vs 뇌전증 감별</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>구분</th><th>단순 열성경련</th><th>복잡 열성경련</th><th>뇌전증</th></tr></thead>
+        <tbody>
+          <tr><td>지속시간</td><td>&lt;15분</td><td>&gt;15분 or 반복</td><td>무열 발작</td></tr>
+          <tr><td>유형</td><td>전신 대칭</td><td>Focal or 편측</td><td>다양</td></tr>
+          <tr><td>나이</td><td>6개월~5세</td><td>동일</td><td>모든 연령</td></tr>
+          <tr><td>예방적 AED</td><td><span style="color:#791F1F;font-weight:500;">불필요</span></td><td>개별 판단</td><td>필요</td></tr>
+          <tr><td>재발률</td><td>30~35%</td><td>높음</td><td>높음</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="who-box">
+    <p><strong>신경낭미충증(NCC):</strong> Taenia solium 유충이 뇌에 기생 → LMIC 후천성 뇌전증 최다 원인. 치료: Albendazole 15mg/kg/d × 8일 + Dexamethasone (뇌부종 예방 필수). CT: calcified lesion or ring-enhancing lesion. 돼지 사육·위생 취약 지역에서 뇌전증 신환 → NCC 감별 필수.</p>
+  </div>
+
+  <div class="trap-section">
+    <h3><i class="ti ti-alert-triangle" aria-hidden="true"></i>시험 함정 4개</h3>
+    <div class="trap-grid">
+      <div class="trap">
+        <div class="trap-q">Absence에 Carbamazepine?</div>
+        <div class="trap-a">Carbamazepine은 Absence를 악화시킴. Generalized epilepsy에 금기. Ethosuximide 또는 Valproate 사용.</div>
+      </div>
+      <div class="trap">
+        <div class="trap-q">단순 열성경련 → 예방적 Phenobarbital?</div>
+        <div class="trap-a">불필요. 단순 열성경련은 신경학적 예후 양호, 예방적 AED의 이득 없음. 복잡 열성경련만 개별 판단.</div>
+      </div>
+      <div class="trap">
+        <div class="trap-q">Status epilepticus → Diazepam+Phenytoin 동시?</div>
+        <div class="trap-a">순차적으로. Benzodiazepine 먼저, 반응 없으면 Phenytoin. Phenytoin은 반드시 느린 IV (50mg/min 이하) — 빠른 주입 시 심부정맥.</div>
+      </div>
+      <div class="trap">
+        <div class="trap-q">NCC 치료 시 스테로이드 없이 Albendazole?</div>
+        <div class="trap-a">위험. 낭충 사멸 시 급격한 염증반응으로 뇌부종 악화. Dexamethasone 병용이 표준. 안구 NCC는 수술 먼저.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div class="gh-section">
+    <h3>Global Health 관점</h3>
+    <div class="gh-pills">
+      <span class="gh-pill">Phenobarbital = LMIC cost-effective 1st line</span>
+      <span class="gh-pill">NCC = 후천성 뇌전증 주요 원인 (위생·돼지)</span>
+      <span class="gh-pill">치료 공백 해소 = 지역사회 약물 공급 체계</span>
+      <span class="gh-pill">Buccal midazolam = IV 없는 현장 대안</span>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="footer-note">Source: WHO mhGAP 2.0 · ILAE 2017 · Oxford Handbook Public Health 4e</span>
+    <button class="btn-next" onclick="sendPrompt('다음 Mental Health 토픽 계속 만들어줘')">다음 토픽 →</button>
+  </div>
+</div>

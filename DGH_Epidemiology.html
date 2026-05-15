@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', sans-serif; background: #f0f4f0; color: #1a2e1a; font-size: 13px; }
+  .page { max-width: 860px; margin: 0 auto; padding: 16px; }
+  .header { background: linear-gradient(135deg, #27500A 0%, #3d7a12 100%); color: white; border-radius: 10px 10px 0 0; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; }
+  .header-left h1 { font-size: 20px; font-weight: 700; }
+  .header-left p { font-size: 11px; opacity: 0.85; margin-top: 2px; }
+  .tag-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+  .tag { background: rgba(255,255,255,0.18); border-radius: 20px; padding: 2px 10px; font-size: 10px; font-weight: 600; }
+  .pct-badge { background: #f5c518; color: #1a2e1a; border-radius: 8px; padding: 6px 14px; font-size: 14px; font-weight: 800; }
+  .stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; background: #e8f0e8; padding: 10px; border-left: 4px solid #27500A; border-right: 4px solid #27500A; }
+  .stat { text-align: center; }
+  .stat-num { font-size: 13px; font-weight: 800; color: #27500A; }
+  .stat-label { font-size: 10px; color: #4a6a4a; margin-top: 2px; }
+  .body { background: white; padding: 14px; border-left: 4px solid #27500A; border-right: 4px solid #27500A; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+  .box { background: #f7faf7; border: 1px solid #c8ddc8; border-radius: 6px; padding: 10px; }
+  .box h3 { color: #27500A; font-size: 12px; font-weight: 700; border-bottom: 1px solid #c8ddc8; padding-bottom: 4px; margin-bottom: 6px; }
+  .box p, .box li { font-size: 12px; line-height: 1.55; color: #2a3a2a; }
+  .box ul { padding-left: 14px; }
+  .box li { margin-bottom: 2px; }
+  em { color: #27500A; font-style: normal; font-weight: 700; }
+  .tbl-wrap { margin-bottom: 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 11.5px; }
+  th { background: #27500A; color: white; padding: 5px 8px; text-align: left; }
+  td { padding: 4px 8px; border-bottom: 1px solid #e0eae0; }
+  tr:nth-child(even) td { background: #f3f8f3; }
+  .trap-section { background: #fff8e1; border: 1px solid #f5c518; border-radius: 6px; padding: 10px; margin-bottom: 12px; }
+  .trap-section h3 { color: #7a5a00; font-size: 12px; font-weight: 700; margin-bottom: 6px; }
+  .trap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .trap-card { background: white; border-left: 3px solid #f5c518; border-radius: 4px; padding: 6px 8px; font-size: 11.5px; }
+  .trap-card strong { color: #7a5a00; display: block; margin-bottom: 2px; }
+  .pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+  .pill { background: #e8f5e8; border: 1px solid #27500A; border-radius: 20px; padding: 3px 10px; font-size: 10.5px; color: #27500A; font-weight: 600; }
+  .footer { background: #27500A; color: #cde8cd; border-radius: 0 0 10px 10px; padding: 8px 16px; font-size: 10.5px; display: flex; justify-content: space-between; align-items: center; }
+  .full-box { background: #f7faf7; border: 1px solid #c8ddc8; border-radius: 6px; padding: 10px; margin-bottom: 12px; }
+  .full-box h3 { color: #27500A; font-size: 12px; font-weight: 700; border-bottom: 1px solid #c8ddc8; padding-bottom: 4px; margin-bottom: 6px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="header-left">
+      <h1>📊 Epidemiology</h1>
+      <p>Global Public Health · DGH KBA Blueprint</p>
+      <div class="tag-row">
+        <span class="tag">Study Design</span>
+        <span class="tag">Bias & Confounding</span>
+        <span class="tag">Measures of Association</span>
+        <span class="tag">Screening</span>
+        <span class="tag">LMIC 적용</span>
+      </div>
+    </div>
+    <div class="pct-badge">20% 영역</div>
+  </div>
+  <div class="stats-bar">
+    <div class="stat"><div class="stat-num">RR vs OR</div><div class="stat-label">코호트 vs 환자-대조군<br>해석 차이 핵심</div></div>
+    <div class="stat"><div class="stat-num">NNT = 1/ARR</div><div class="stat-label">정책 결정 지표<br>낮을수록 효과적</div></div>
+    <div class="stat"><div class="stat-num">Sens / Spec</div><div class="stat-label">선별검사 설계<br>cut-off trade-off</div></div>
+    <div class="stat"><div class="stat-num">PPV / NPV</div><div class="stat-label">유병률 의존<br>LMIC 함정</div></div>
+  </div>
+  <div class="body">
+    <div class="grid2">
+      <div class="box">
+        <h3>🔬 연구 설계 위계</h3>
+        <ul>
+          <li><em>RCT</em> — 인과관계 최강; LMIC 시행 어려움</li>
+          <li><em>코호트</em> — Incidence·RR 산출; 전향/후향</li>
+          <li><em>환자-대조군</em> — 희귀질환 적합; OR 산출</li>
+          <li><em>단면 연구</em> — 유병률만; 인과관계 불가</li>
+          <li><em>생태 연구</em> — 집단 수준; ecological fallacy ⚠</li>
+          <li><em>체계적 리뷰/메타분석</em> — 증거 피라미드 최상위</li>
+        </ul>
+        <p style="margin-top:6px; font-size:11px; color:#555;">▶ LMIC 현실: 후향 코호트·단면 연구 다수 → 인과추론 한계</p>
+      </div>
+      <div class="box">
+        <h3>📐 핵심 측정 지표</h3>
+        <ul>
+          <li><em>Incidence rate</em> = 신규 발생 / person-time</li>
+          <li><em>Attack rate</em> = 노출 후 발병률 (아웃브레이크)</li>
+          <li><em>CFR</em> = 사망/확진; 분모 정의가 핵심</li>
+          <li><em>RR</em> = 코호트; RR=1 → 연관 없음</li>
+          <li><em>OR</em> = 환자대조군; 희귀질환 시 RR 근사</li>
+          <li><em>AR%</em> = (RR-1)/RR × 100 → 예방가능분율</li>
+          <li><em>NNT</em> = 1/ARR → 낮을수록 효과적 중재</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Bias 유형</th><th>정의</th><th>LMIC 예시</th><th>통제 방법</th></tr>
+        <tr><td><em>Selection bias</em></td><td>참여자가 모집단 비대표</td><td>병원 기반 → 중증 편향</td><td>지역사회 무작위 샘플링</td></tr>
+        <tr><td><em>Recall bias</em></td><td>과거 노출 회상 오류</td><td>환자-대조군 식이력 오류</td><td>객관적 측정, 맹검</td></tr>
+        <tr><td><em>Confounding</em></td><td>제3 변수가 노출·결과 연관</td><td>흡연·폐암 연구서 SES</td><td>매칭, 층화, 다변량 회귀</td></tr>
+        <tr><td><em>Healthy worker</em></td><td>취업자 기저 건강 우수</td><td>광산 노동자 코호트</td><td>지역사회 대조군 사용</td></tr>
+        <tr><td><em>Berkson's bias</em></td><td>병원 기반 OR 왜곡</td><td>입원 환자 대조군 연구</td><td>지역사회 대조군</td></tr>
+      </table>
+    </div>
+    <div class="grid2">
+      <div class="box">
+        <h3>🔍 선별검사 원칙 (Wilson-Jungner)</h3>
+        <ul>
+          <li>중요한 건강 문제일 것</li>
+          <li>수용 가능한 치료법 존재</li>
+          <li>잠복기/초기에 발견 가능</li>
+          <li>적합한 검사 도구 존재 (sensitivity 우선)</li>
+          <li>비용-효과적이어야 함</li>
+        </ul>
+        <p style="margin-top:5px;"><em>Sensitivity</em> = TP/(TP+FN) → rule OUT (SNOUT)<br>
+        <em>Specificity</em> = TN/(TN+FP) → rule IN (SPIN)<br>
+        <em>PPV/NPV</em>는 유병률 따라 변동 → LMIC 고유병률 → PPV ↑</p>
+      </div>
+      <div class="box">
+        <h3>📈 ROC 커브 & 역학 적용</h3>
+        <ul>
+          <li>AUC: 0.5=무작위, 1.0=완벽</li>
+          <li>Cut-off ↓ → sensitivity ↑, specificity ↓</li>
+          <li>대규모 선별: sensitivity 우선 (HIV ELISA)</li>
+          <li>확진: specificity 우선 (HIV Western blot)</li>
+        </ul>
+        <p style="margin-top:5px;"><em>LR(+)</em> = Sens/(1-Spec)<br>
+        <em>LR(+) &gt;10</em> → 질환 있을 가능성 크게 ↑<br>
+        <em>LR(-) &lt;0.1</em> → 질환 배제에 유용</p>
+      </div>
+    </div>
+    <div class="full-box">
+      <h3>🌍 LMIC 역학 특수 고려사항</h3>
+      <div class="grid2" style="margin:0;">
+        <div>
+          <ul>
+            <li><em>감시 체계 취약</em>: under-reporting → 실제 발병률 과소 추정</li>
+            <li><em>사망 원인 불명확</em>: verbal autopsy 사용 → 정확도 한계</li>
+            <li><em>이중 부담</em>: 감염병 + NCD 동시 → 복합 역학</li>
+            <li><em>연령 구조</em>: 피라미드형 → 소아 사망이 DALYs 주도</li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li><em>DALY</em> = YLL + YLD; GBD 연구 핵심 지표</li>
+            <li><em>QALY</em>: $50,000/QALY 이하 → 비용효과적</li>
+            <li><em>HALE</em>: 단순 기대수명보다 정책 관련성 높음</li>
+            <li><em>Bradford Hill 기준</em>: 강도·일관성·특이성·시간성·생물학적 타당성</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="trap-section">
+      <h3>⚠️ 시험 함정 (Exam Traps)</h3>
+      <div class="trap-grid">
+        <div class="trap-card">
+          <strong>🪤 OR ≠ RR (흔한 질환)</strong>
+          환자-대조군 OR은 희귀질환에서만 RR 근사. 유병률 &gt;10%이면 OR이 RR 크게 과대추정. "환자-대조군에서 RR 직접 계산" → 오답.
+        </div>
+        <div class="trap-card">
+          <strong>🪤 PPV는 유병률 의존</strong>
+          sensitivity/specificity는 검사 고유 특성. 저유병률 집단(일반인 HIV 선별)에서는 PPV 낮아 FP 많음. 고유병률 LMIC → PPV 상승 효과 기억.
+        </div>
+        <div class="trap-card">
+          <strong>🪤 단면연구 → 인과관계 불가</strong>
+          단면연구는 prevalence만 측정. "단면연구에서 인과관계 증명" → 항상 오답. 만성질환은 생존 편향으로 prevalence 과대; incidence와 구분 필수.
+        </div>
+        <div class="trap-card">
+          <strong>🪤 Confounding ≠ Effect modification</strong>
+          교란변수는 통계 조정으로 제거 가능. 효과변경인자(effect modifier)는 층화 분리 보고 필요 — 조정하면 정보 손실. 예: 침상망 효과가 연령군별 다름 → interaction.
+        </div>
+      </div>
+    </div>
+    <div class="pills">
+      <span class="pill">🌐 GBD — DALY 기반 정책 우선순위</span>
+      <span class="pill">📉 감시 취약 → under-reporting 상시 가정</span>
+      <span class="pill">⚖️ 형평성 지표: GINI, SDH, 건강 불평등</span>
+      <span class="pill">🧪 Bradford Hill — 인과관계 판단 9기준</span>
+      <span class="pill">💰 QALY/$50K 임계값 — 비용효과 정책결정</span>
+    </div>
+  </div>
+  <div class="footer">
+    <span>📚 Oxford Handbook of Public Health 4th Ed · Textbook of Global Health 4th Ed · GBD 2021</span>
+    <span>DGH KBA · Global Public Health 20% · Public Health 1/5</span>
+  </div>
+</div>
+</body>
+</html>

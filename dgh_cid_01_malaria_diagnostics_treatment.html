@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH CID 01 · Malaria: Diagnostics & Treatment</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+  :root {
+    --hdr: #791F1F;
+    --hdr2: #9B2C2C;
+    --bg: #fdf4f4;
+    --border: #e8c4c4;
+    --accent: #f5dcdc;
+    --accent2: #fce8e8;
+    --text: #2d1515;
+    --muted: #7a4040;
+    --white: #ffffff;
+    --yellow: #b45309;
+    --green: #166534;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 11.5px;
+    line-height: 1.55;
+    padding: 18px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, var(--hdr) 0%, var(--hdr2) 60%, #7B2020 100%);
+    color: var(--white);
+    border-radius: 10px 10px 0 0;
+    padding: 14px 20px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .header-left .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    opacity: 0.75;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .header-left h1 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+  .header-left .subtitle {
+    font-size: 10.5px;
+    opacity: 0.8;
+    margin-top: 2px;
+  }
+  .header-right {
+    text-align: right;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    opacity: 0.7;
+    line-height: 1.6;
+  }
+
+  /* STATS BAR */
+  .stats-bar {
+    background: var(--hdr);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-left: 3px solid var(--hdr2);
+    border-right: 3px solid var(--hdr2);
+  }
+  .stat {
+    padding: 8px 12px;
+    color: var(--white);
+    border-right: 1px solid rgba(255,255,255,0.15);
+    text-align: center;
+  }
+  .stat:last-child { border-right: none; }
+  .stat-val {
+    font-family: 'Crimson Pro', serif;
+    font-size: 20px;
+    font-weight: 700;
+    display: block;
+    line-height: 1.1;
+  }
+  .stat-lbl {
+    font-size: 9px;
+    opacity: 0.78;
+    letter-spacing: 0.5px;
+  }
+
+  /* MAIN BODY */
+  .body-wrap {
+    border: 1.5px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    padding: 14px 16px 12px;
+    background: var(--white);
+  }
+
+  /* SECTION TITLE */
+  .sec-title {
+    font-family: 'Crimson Pro', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--hdr);
+    border-bottom: 1.5px solid var(--border);
+    padding-bottom: 3px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+
+  /* G2 GRID */
+  .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+  .g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+
+  .card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 9px 11px;
+  }
+  .card-title {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--hdr);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 5px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid var(--border);
+  }
+  .card ul { padding-left: 13px; }
+  .card li { margin-bottom: 2px; font-size: 11px; }
+  .card li strong { color: var(--hdr); }
+
+  /* TABLE */
+  table { width: 100%; border-collapse: collapse; margin-bottom: 10px; font-size: 10.5px; }
+  th {
+    background: var(--hdr);
+    color: var(--white);
+    padding: 5px 8px;
+    text-align: left;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+  }
+  td { padding: 4px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--accent2); }
+  tr:hover td { background: var(--accent); }
+  .badge {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 10px;
+    font-size: 9px;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .badge-severe { background: #fee2e2; color: #991b1b; }
+  .badge-un { background: #fef3c7; color: #92400e; }
+  .badge-ok { background: #d1fae5; color: #065f46; }
+
+  /* TRAP SECTION */
+  .trap-h {
+    background: linear-gradient(90deg, var(--hdr) 0%, var(--hdr2) 100%);
+    color: var(--white);
+    padding: 5px 12px;
+    border-radius: 5px 5px 0 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 10px;
+  }
+  .trap-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1.5px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 7px 7px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  .trap {
+    padding: 8px 11px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--white);
+    position: relative;
+  }
+  .trap:nth-child(even) { border-right: none; }
+  .trap:nth-child(3), .trap:nth-child(4) { border-bottom: none; }
+  .trap-num {
+    font-family: 'Crimson Pro', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent);
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    line-height: 1;
+  }
+  .trap-q {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--hdr);
+    margin-bottom: 3px;
+    padding-right: 20px;
+  }
+  .trap-a { font-size: 10.5px; color: var(--text); }
+  .trap-a strong { color: var(--hdr); }
+
+  /* PILLS */
+  .pills { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
+  .pill {
+    background: var(--accent);
+    border: 1px solid var(--border);
+    color: var(--hdr);
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 10px;
+    font-weight: 600;
+  }
+  .pill-dark {
+    background: var(--hdr);
+    color: var(--white);
+    border-color: var(--hdr);
+  }
+
+  /* STEP BOXES */
+  .steps { display: flex; gap: 0; margin-bottom: 10px; }
+  .step {
+    flex: 1;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-right: none;
+    padding: 7px 9px;
+    text-align: center;
+  }
+  .step:last-child { border-right: 1px solid var(--border); border-radius: 0 5px 5px 0; }
+  .step:first-child { border-radius: 5px 0 0 5px; }
+  .step-n {
+    font-family: 'Crimson Pro', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--hdr);
+    display: block;
+  }
+  .step-t { font-size: 9.5px; font-weight: 700; color: var(--muted); }
+  .step-d { font-size: 9.5px; margin-top: 2px; }
+
+  /* FOOTER */
+  .footer {
+    background: var(--accent);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 7px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .footer-note { font-size: 10px; color: var(--muted); }
+  .footer-btns { display: flex; gap: 6px; }
+  .footer-btn {
+    background: var(--hdr);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 9.5px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.5px;
+  }
+
+  .highlight { background: #fff3cd; padding: 1px 4px; border-radius: 3px; font-weight: 700; }
+  .red { color: #991b1b; font-weight: 700; }
+  .green-t { color: #166534; font-weight: 700; }
+
+  hr.thin { border: none; border-top: 1px solid var(--border); margin: 8px 0; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-left">
+    <div class="tag">DGH KBA · CID-01 · Clinical Infectious Diseases · Malaria</div>
+    <h1>Malaria: Diagnostics &amp; Treatment</h1>
+    <div class="subtitle">WHO 2023 Guidelines · LMIC 맥락 · 시험 함정 집중 | 내과전문의 수준</div>
+  </div>
+  <div class="header-right">
+    RCP Diploma in Global Health<br>
+    Blueprint 40% — CID<br>
+    Oxford HTM 5e Ch.3 · WHO 2023
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat"><span class="stat-val">249M</span><span class="stat-lbl">2022년 전 세계 환자수</span></div>
+  <div class="stat"><span class="stat-val">608K</span><span class="stat-lbl">2022년 사망 (대부분 아동)</span></div>
+  <div class="stat"><span class="stat-val">95%</span><span class="stat-lbl">사망 Sub-Saharan Africa</span></div>
+  <div class="stat"><span class="stat-val">&lt;24h</span><span class="stat-lbl">Severe malaria 치료 목표</span></div>
+</div>
+
+<!-- BODY -->
+<div class="body-wrap">
+
+  <!-- DIAGNOSTICS -->
+  <div class="sec-title">🔬 진단 알고리즘</div>
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">⚡ RDT (Rapid Diagnostic Test)</div>
+      <ul>
+        <li><strong>HRP-2 항원</strong> 검출 — P. falciparum 특이적</li>
+        <li>민감도 &gt;95%, 특이도 &gt;95% (falciparum)</li>
+        <li><strong>함정:</strong> 치료 후 4주까지 위양성 (HRP-2 잔류)</li>
+        <li><strong>함정:</strong> pfhrp2/3 유전자 결실 → Sub-Saharan 위음성</li>
+        <li>전기 불필요 → 오지 1차 진단 표준</li>
+        <li>pLDH 기반 RDT = vivax 검출 가능</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🔭 Microscopy — Gold Standard</div>
+      <ul>
+        <li><strong>Thick film</strong>: 감도 우수 (기생충혈증 낮을 때 유리)</li>
+        <li><strong>Thin film</strong>: 충 감별, 기생충혈증 정량 (% parasitaemia)</li>
+        <li>기술자 의존 → LMIC에서 RDT 우선 현실</li>
+        <li><strong>Severe malaria</strong>: thick film 음성도 임상 판단 우선</li>
+        <li>Gametocyte → thick film에서만 관찰 가능</li>
+        <li>WHO: RDT 음성이어도 임상 의심 시 치료</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SPECIES TABLE -->
+  <div class="sec-title">🦟 충별 임상 특성 (시험 빈출)</div>
+  <table>
+    <tr>
+      <th>Species</th>
+      <th>주요 특징</th>
+      <th>Severe risk</th>
+      <th>Hypnozoite</th>
+      <th>비고</th>
+    </tr>
+    <tr>
+      <td><strong>P. falciparum</strong></td>
+      <td>열 주기 불규칙, 적혈구 전 침범</td>
+      <td><span class="badge badge-severe">HIGH</span></td>
+      <td>없음</td>
+      <td>사망 원인 90%+</td>
+    </tr>
+    <tr>
+      <td><strong>P. vivax</strong></td>
+      <td>48h 주기, 비장 비대</td>
+      <td><span class="badge badge-un">MODERATE</span></td>
+      <td><span class="red">있음</span></td>
+      <td>Primaquine 필요 (G6PD↑)</td>
+    </tr>
+    <tr>
+      <td><strong>P. ovale</strong></td>
+      <td>48h 주기, 서아프리카</td>
+      <td><span class="badge badge-ok">LOW</span></td>
+      <td><span class="red">있음</span></td>
+      <td>Radical cure 필요</td>
+    </tr>
+    <tr>
+      <td><strong>P. malariae</strong></td>
+      <td>72h 주기, 낮은 기생충혈증</td>
+      <td><span class="badge badge-ok">LOW</span></td>
+      <td>없음</td>
+      <td>Nephrotic syndrome</td>
+    </tr>
+    <tr>
+      <td><strong>P. knowlesi</strong></td>
+      <td>동남아, 24h 주기 (zoonosis)</td>
+      <td><span class="badge badge-severe">HIGH</span></td>
+      <td>없음</td>
+      <td>Microscopy = P. malariae 오인</td>
+    </tr>
+  </table>
+
+  <!-- TREATMENT -->
+  <div class="sec-title">💊 치료 프로토콜 (WHO 2023)</div>
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">Uncomplicated Falciparum</div>
+      <ul>
+        <li><strong>1st line: ACT (Artemisinin-based Combination Therapy)</strong></li>
+        <li>• AL (Artemether-Lumefantrine) — 가장 널리 사용</li>
+        <li>• ASAQ (Artesunate-Amodiaquine) — 서아프리카</li>
+        <li>• DHAP (DHA-Piperaquine) — 아시아</li>
+        <li><strong>반드시 지방과 함께</strong> 복용 (lumefantrine 흡수↑)</li>
+        <li>Primaquine <span class="highlight">단회</span> → gametocyte 제거 (전파 차단)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Severe / Complicated Falciparum</div>
+      <ul>
+        <li><strong>IV Artesunate → 1st line (WHO 2023)</strong></li>
+        <li>Quinine → IV artesunate 없을 때만 (부작용↑)</li>
+        <li>경구 가능 시 → ACT 전환</li>
+        <li><strong>Severe 기준:</strong> 의식저하, 경련, 중증빈혈(Hb&lt;7), 호흡곤란, 저혈당, 신부전, 출혈, Parasitaemia &gt;10%</li>
+        <li>Pre-referral: <span class="highlight">Rectal artesunate</span> (소아 오지)</li>
+        <li>Cerebral malaria: 스테로이드 <span class="red">금기</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">Vivax / Ovale (Radical Cure)</div>
+      <ul>
+        <li>혈액기 → Chloroquine (감수성 지역) or ACT</li>
+        <li><strong>Hypnozoite 제거:</strong> Primaquine 14일 or Tafenoquine 단회</li>
+        <li><span class="red">G6PD 검사 필수</span> → 용혈 위험</li>
+        <li>G6PD 결핍 → Primaquine 금기; 전문가 상담</li>
+        <li>Chloroquine 저항 vivax: 동남아·파푸아뉴기니</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Malaria in Special Situations</div>
+      <ul>
+        <li><strong>임신 1분기:</strong> Quinine + Clindamycin (ACT 피함)</li>
+        <li><strong>임신 2-3분기:</strong> ACT 사용 가능</li>
+        <li><strong>수유부:</strong> ACT 대부분 안전</li>
+        <li><strong>소아 &lt;5kg:</strong> AL 사용 가능 (체중 기준)</li>
+        <li><strong>HIV+ART:</strong> 약물 상호작용 주의 (Efavirenz ↓Lumefantrine)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- TRAPS -->
+  <div class="trap-h">⚠️ 시험 함정 TRAP × 4</div>
+  <div class="trap-grid">
+    <div class="trap">
+      <div class="trap-num">01</div>
+      <div class="trap-q">RDT 음성 = 말라리아 없음?</div>
+      <div class="trap-a"><strong>NO.</strong> 임상 강하게 의심 시 치료 우선. pfhrp2/3 결실 위음성 + 치료 후 HRP-2 위양성 모두 가능. WHO: "treat on clinical grounds if RDT negative but high suspicion"</div>
+    </div>
+    <div class="trap">
+      <div class="trap-num">02</div>
+      <div class="trap-q">Severe malaria → Quinine IV가 1st line?</div>
+      <div class="trap-a"><strong>NO.</strong> WHO 2023 기준 <strong>IV Artesunate가 1st line.</strong> Quinine은 artesunate 없을 때만. Quinine 부작용(cinchonism, 저혈당, QTc 연장) 더 많음.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-num">03</div>
+      <div class="trap-q">Cerebral malaria → 뇌부종이므로 스테로이드?</div>
+      <div class="trap-a"><strong>절대 금기.</strong> Dexamethasone → 합병증 증가, 사망률 증가. RCT 근거. 임상적으로 익숙한 처치지만 DGH에서 <strong>틀리는 대표 함정.</strong></div>
+    </div>
+    <div class="trap">
+      <div class="trap-num">04</div>
+      <div class="trap-q">Vivax radical cure → G6PD 확인 없이 Primaquine?</div>
+      <div class="trap-a"><strong>NO.</strong> G6PD 결핍 시 급성 용혈. 검사 불가 환경 → <strong>Primaquine 금기 or 격일 저용량</strong> 프로토콜. Tafenoquine도 동일 주의. G6PD 먼저!</div>
+    </div>
+  </div>
+
+  <!-- GLOBAL HEALTH PILLS -->
+  <div class="sec-title">🌍 Global Health 관점</div>
+  <div class="pills">
+    <span class="pill pill-dark">SDG 3.3 말라리아 퇴치 2030</span>
+    <span class="pill">ACT 무상 공급 → GFATM 재원</span>
+    <span class="pill">LLIN 보급 → 예방 1st line</span>
+    <span class="pill">pfhrp2 결실 = 진단 위기</span>
+    <span class="pill">기후변화 → 말라리아 범위 확대</span>
+    <span class="pill">Artemisinin 저항 — GMS 확산 중</span>
+    <span class="pill">Rectal artesunate → pre-referral LMIC</span>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-note">📚 Oxford HTM 5e Ch.3 · WHO Guidelines for Malaria 2023 · RCP DGH KBA Blueprint CID-Malaria</div>
+    <div class="footer-btns">
+      <button class="footer-btn" onclick="window.print()">🖨 PRINT</button>
+      <button class="footer-btn" style="background:var(--hdr2)">→ CID-02: Chemoprevention</button>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH CID 27 | Cholera</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Noto Sans KR',sans-serif;background:#fdf4f4;color:#2d1a1a;font-size:12.5px;line-height:1.55}
+  .page{max-width:900px;margin:0 auto;padding:18px}
+  .header{background:#791F1F;color:#fff;border-radius:8px 8px 0 0;padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+  .header-left .tag{font-size:10px;letter-spacing:2px;opacity:.7;text-transform:uppercase;font-family:'JetBrains Mono',monospace}
+  .header-left h1{font-size:20px;font-weight:700;margin-top:2px}
+  .header-right{text-align:right;font-size:10px;opacity:.75;font-family:'JetBrains Mono',monospace;line-height:1.8}
+  .stats-bar{background:#6b1a1a;padding:10px 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .stat{text-align:center;color:#fff;padding:4px 8px;border-right:1px solid rgba(255,255,255,0.15)}
+  .stat:last-child{border-right:none}
+  .stat-num{font-size:17px;font-weight:700;color:#f5dcdc;font-family:'JetBrains Mono',monospace}
+  .stat-label{font-size:9.5px;opacity:.8;margin-top:1px;letter-spacing:.5px}
+  .body-wrap{background:#fff;border:1px solid #e8c4c4;border-top:none;border-radius:0 0 8px 8px;padding:16px 20px}
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+  .box{background:#fdf4f4;border:1px solid #e8c4c4;border-radius:6px;padding:12px}
+  .box-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#791F1F;margin-bottom:8px;border-bottom:1px solid #e8c4c4;padding-bottom:4px}
+  .box ul{list-style:none;padding:0}
+  .box ul li{padding:2px 0 2px 10px;position:relative;font-size:12px}
+  .box ul li::before{content:'›';position:absolute;left:0;color:#791F1F;font-weight:700}
+  strong{color:#791F1F;font-weight:700}
+  .section-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#791F1F;margin-bottom:7px}
+  table{width:100%;border-collapse:collapse;font-size:11.5px;margin-bottom:14px}
+  th{background:#791F1F;color:#fff;padding:6px 10px;text-align:left;font-weight:600;font-size:10.5px}
+  td{padding:5px 10px;border-bottom:1px solid #e8c4c4;vertical-align:top}
+  tr:nth-child(even) td{background:#fdf4f4}
+  tr:last-child td{border-bottom:none}
+  .steps{display:flex;gap:6px;margin-bottom:14px}
+  .step{background:#f5dcdc;border:1px solid #e8c4c4;border-radius:6px;padding:8px 10px;flex:1}
+  .step-num{font-size:9px;font-weight:700;color:#791F1F;text-transform:uppercase;letter-spacing:1px}
+  .step-content{font-size:11.5px;margin-top:3px;font-weight:600}
+  .trap-h{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fff;background:#791F1F;padding:5px 12px;border-radius:4px;display:inline-block;margin-bottom:8px}
+  .trap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:14px}
+  .trap{background:#fff;border:1.5px solid #791F1F;border-radius:6px;padding:10px}
+  .trap-icon{font-size:15px;margin-bottom:4px}
+  .trap-q{font-size:10.5px;font-weight:700;color:#791F1F;margin-bottom:3px}
+  .trap-a{font-size:11px;color:#2d1a1a;line-height:1.5}
+  .pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+  .pill{background:#f5dcdc;border:1px solid #e8c4c4;border-radius:20px;padding:3px 11px;font-size:10.5px;color:#791F1F;font-weight:600}
+  .pill-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#791F1F;margin-bottom:5px}
+  .footer{margin-top:10px;padding-top:8px;border-top:1px solid #e8c4c4;display:flex;justify-content:space-between;align-items:center}
+  .footer-note{font-size:10px;color:#888;font-family:'JetBrains Mono',monospace}
+  .nav-btn{background:#791F1F;color:#fff;border:none;border-radius:4px;padding:4px 12px;font-size:10.5px;font-weight:600;cursor:default;letter-spacing:.5px}
+  .severity-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+  .severity{border-radius:6px;padding:10px;text-align:center;border:1px solid #e8c4c4}
+  .sev-mild{background:#fff9f9}
+  .sev-mod{background:#f5dcdc}
+  .sev-sev{background:#e8c4c4}
+  .sev-title{font-size:10px;font-weight:700;color:#791F1F;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+  .sev-detail{font-size:11px;line-height:1.6}
+  .alert-box{background:#f5dcdc;border-left:4px solid #791F1F;padding:8px 12px;border-radius:0 6px 6px 0;margin-bottom:12px;font-size:11.5px}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <div class="header-left">
+    <div class="tag">DGH KBA · Clinical Infectious Diseases · CID-27</div>
+    <h1>Cholera</h1>
+  </div>
+  <div class="header-right">
+    창 C · Bacterial Infections<br>
+    Blueprint 40% · Oxford Trop Med 5e<br>
+    WHO GTFCC · Sphere Handbook 2018
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">1.3–4M</div>
+    <div class="stat-label">연간 발병 추정</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">21,000–143K</div>
+    <div class="stat-label">연간 사망 추정</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">&lt;1%</div>
+    <div class="stat-label">CFR 목표 (적절 치료 시)</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">20–30L/일</div>
+    <div class="stat-label">중증 수분 손실 최대</div>
+  </div>
+</div>
+
+<div class="body-wrap">
+
+  <div class="g2">
+    <div class="box">
+      <div class="box-title">병원체 · 독소 · 병태생리</div>
+      <ul>
+        <li><strong>V. cholerae O1 (El Tor):</strong> 현재 7차 대유행 원인 (1961~)</li>
+        <li><strong>O139:</strong> 1992 벵갈 출현, O1 면역 교차 없음</li>
+        <li><strong>독소:</strong> Cholera toxin (CT) → ADP-ribosylation Gs → cAMP↑↑ → CFTR 활성화 → Cl⁻·H₂O 분비</li>
+        <li>소장 상피 파괴 없음 → 점혈변 없음 (vs 이질)</li>
+        <li><strong>쌀뜨물 대변(rice-water stool):</strong> 등장성 대량 수양성 설사</li>
+        <li>잠복기 2시간–5일, 발열 드묾</li>
+        <li>혈액형 O형 → 중증 위험↑ (기전 불명)</li>
+      </ul>
+    </div>
+    <div class="box">
+      <div class="box-title">역학 · LMIC 취약 맥락</div>
+      <ul>
+        <li>7차 대유행: 아시아→아프리카→아메리카 (2010 아이티 대규모 발생)</li>
+        <li>2022~: 예멘·시리아·아이티·콩고·에티오피아 동시 유행</li>
+        <li><strong>인도주의 긴급상황</strong> 직후 집단발생 패턴 (난민캠프·홍수 후)</li>
+        <li>오염된 식수·식품 → 10⁶–10⁸ 균 섭취 필요 (위산 보호막)</li>
+        <li>무증상 감염 80% → 지역사회 전파 유지</li>
+        <li>계절성: 우기 직후, 수온 상승 시 환경 증식</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SEVERITY CLASSIFICATION -->
+  <div class="section-title">중증도 분류 및 치료 전략 (WHO 기반)</div>
+  <div class="severity-bar">
+    <div class="severity sev-mild">
+      <div class="sev-title">경증 (탈수 없음)</div>
+      <div class="sev-detail">
+        3회↓ 설사/일<br>
+        BP·PR 정상<br>
+        <strong>→ ORS 경구</strong><br>
+        (손실량 1.5× 보충)
+      </div>
+    </div>
+    <div class="severity sev-mod">
+      <div class="sev-title">중등증 (일부 탈수)</div>
+      <div class="sev-detail">
+        ≥3회 설사/일<br>
+        안구함몰, 구강건조<br>
+        피부탄력↓<br>
+        <strong>→ ORS 75ml/kg × 4h</strong>
+      </div>
+    </div>
+    <div class="severity sev-sev">
+      <div class="sev-title">중증 (심한 탈수)</div>
+      <div class="sev-detail">
+        쌀뜨물 대변<br>
+        맥박 약함, 저혈압<br>
+        의식저하<br>
+        <strong>→ Ringer's Lactate IV<br>100ml/kg (성인 3h)</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- ORS TABLE -->
+  <div class="section-title">수액 처방 — 핵심 수치</div>
+  <table>
+    <tr><th>상황</th><th>수액 종류</th><th>속도/용량</th><th>주의사항</th></tr>
+    <tr><td>경증 경구</td><td>WHO ORS (저삼투압)</td><td>매 설사 후 100–200ml</td><td>구토 시 소량 씩 자주</td></tr>
+    <tr><td>중등증 경구</td><td>WHO ORS</td><td>75ml/kg/4h → 재평가</td><td>4시간 후 재분류</td></tr>
+    <tr><td>중증 IV</td><td><strong>Ringer's Lactate</strong></td><td>성인 100ml/kg/3h<br>소아 100ml/kg/3–6h</td><td>생리식염수 단독 금지 (고염소혈증·산증)</td></tr>
+    <tr><td>유지 IV</td><td>RL + ORS 병행</td><td>손실량만큼 1:1 교체</td><td>시간당 대변량 측정 (cholera cot)</td></tr>
+  </table>
+
+  <!-- ANTIBIOTICS -->
+  <div class="section-title">항생제 — 선택과 내성 (중등증 이상에서만)</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">성인 1차</div>
+      <div class="step-content">Doxycycline 300mg<br>단회 경구<br><span style="font-size:10.5px;font-weight:400">균 배출 기간↓, 설사량↓</span></div>
+    </div>
+    <div class="step">
+      <div class="step-num">소아/임신부</div>
+      <div class="step-content">Azithromycin 20mg/kg<br>단회 (최대 1g)<br><span style="font-size:10.5px;font-weight:400">Doxy 금기 시 대안</span></div>
+    </div>
+    <div class="step">
+      <div class="step-num">내성 시</div>
+      <div class="step-content">Ciprofloxacin 1g 단회<br>or TMP-SMX (감수성 확인 후)<br><span style="font-size:10.5px;font-weight:400">지역 내성 모니터링 필수</span></div>
+    </div>
+    <div class="step">
+      <div class="step-num">핵심 원칙</div>
+      <div class="step-content">항생제 = 보조치료<br><strong>수액이 생명</strong><br><span style="font-size:10.5px;font-weight:400">항생제 없어도 수액만으로 CFR &lt;1% 가능</span></div>
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <strong>콜레라 키트 (LMIC 현장):</strong> Cholera cot (구멍 뚫린 침대) + 출입구 소독조 + 경구보수염 분말 + 아연 보충(소아) + 수인성 식품 격리. Sphere 기준 — 최소 15L/인/일 식수 공급.
+  </div>
+
+  <!-- TRAP CARDS -->
+  <div class="trap-h">⚠ 시험 함정 4</div>
+  <div class="trap-grid">
+    <div class="trap">
+      <div class="trap-icon">💧</div>
+      <div class="trap-q">중증 콜레라 IV 수액 — Normal Saline 선택 가능?</div>
+      <div class="trap-a"><strong>권장하지 않음.</strong> 대량 NS 투여 → 고염소혈증 대사성 산증 악화. <strong>Ringer's Lactate가 1차 선택.</strong> RL 없을 때만 NS 고려, 이 경우 중탄산나트륨 병용.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-icon">💊</div>
+      <div class="trap-q">항생제가 치료의 핵심인가?</div>
+      <div class="trap-a"><strong>No. 수액이 핵심.</strong> 항생제는 중등증 이상에서 균 배출 단축, 설사 기간 감소 목적. 항생제 없어도 적절한 수액 치료만으로 CFR을 1% 미만으로 낮출 수 있음.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-icon">🦠</div>
+      <div class="trap-q">점혈변 있는 급성 설사 → 콜레라인가?</div>
+      <div class="trap-a"><strong>아님.</strong> 콜레라는 장점막 파괴 없음 → 무통성 수양성 설사, 점혈변 없음. 점혈변이 있으면 이질(Shigella), 아메바, EHEC 감별. 콜레라는 복통도 드묾.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-icon">💉</div>
+      <div class="trap-q">OCV(경구 콜레라 백신) — 유행 시 효과는?</div>
+      <div class="trap-a">Shanchol/Euvichol-Plus: 85% 이상 단기 보호효과, <strong>예방적(선제적) 접종이 반응적 접종보다 효과적.</strong> 유행 발생 후 투여는 확산 이미 진행 중 → GTFCC는 위험 지역 예방 접종 권고.</div>
+    </div>
+  </div>
+
+  <!-- PILLS -->
+  <div class="pill-title">🌐 Global Health 관점</div>
+  <div class="pills">
+    <span class="pill">GTFCC 2030 목표 — 콜레라 사망 90% 감소</span>
+    <span class="pill">인도주의 위기 → 콜레라 집단발생 선행지표</span>
+    <span class="pill">Sphere 최소 기준 15L/인/일 식수</span>
+    <span class="pill">OCV 예방적 접종 = 대응 캠페인보다 효과적</span>
+    <span class="pill">WASH 개선 = 장기 콜레라 근절 전략</span>
+    <span class="pill">7차 대유행 El Tor — 환경 저수지 존재 (수생 생태계)</span>
+  </div>
+
+  <div class="footer">
+    <div class="footer-note">CID-27 · Cholera · Oxford Trop Med 5e · WHO Cholera Fact Sheet 2023 · Sphere 2018</div>
+    <div style="display:flex;gap:6px">
+      <span class="nav-btn">← CID-26 Typhoid</span>
+      <span class="nav-btn">CID-28 Tetanus →</span>
+    </div>
+  </div>
+
+</div>
+</div>
+</body>
+</html>

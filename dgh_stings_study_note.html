@@ -1,0 +1,227 @@
+<meta charset="UTF-8">
+
+<h2 class="sr-only">DGH KBA - NCD: Stings 스터디 노트 (A4 한 장 분량)</h2>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.page{width:100%;font-family:var(--font-sans);font-size:12.5px;line-height:1.55;color:var(--color-text-primary);padding:1.1rem 1.2rem 1.4rem}
+.page-header{display:flex;align-items:flex-start;justify-content:space-between;border-bottom:2px solid #854F0B;padding-bottom:8px;margin-bottom:10px}
+.topic-tag{font-size:10px;font-weight:500;background:#FAEEDA;color:#633806;padding:3px 9px;border-radius:999px;margin-bottom:4px;display:inline-block}
+.title{font-size:20px;font-weight:500;color:var(--color-text-primary);line-height:1.2}
+.subtitle{font-size:11px;color:var(--color-text-secondary);margin-top:2px}
+.badge-group{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.badge{font-size:10px;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.b-amber{background:#FAEEDA;color:#633806}
+.b-red{background:#FCEBEB;color:#791F1F}
+.b-teal{background:#E1F5EE;color:#085041}
+.stat-row{display:flex;gap:6px;margin-bottom:8px}
+.stat{flex:1;background:#FAEEDA;border-radius:var(--border-radius-md);padding:6px 8px;text-align:center}
+.stat-num{font-size:16px;font-weight:500;color:#633806;display:block}
+.stat-lbl{font-size:10px;color:#854F0B}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 10px}
+.card-full{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 10px;margin-bottom:8px}
+.sec-label{font-size:10px;font-weight:500;letter-spacing:.04em;color:var(--color-text-secondary);margin-bottom:5px;display:flex;align-items:center;gap:5px}
+.sec-label i{font-size:13px}
+.row{display:flex;gap:5px;align-items:baseline;margin-bottom:3px}
+.dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.d-amber{background:#BA7517}.d-red{background:#E24B4A}.d-teal{background:#1D9E75}.d-blue{background:#378ADD}.d-coral{background:#D85A30}.d-gray{background:#888780}.d-purple{background:#7F77DD}
+.kw{font-weight:500}
+.creature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:8px}
+.cc{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:7px 9px;background:var(--color-background-primary)}
+.cc-scorpion{border-top:2px solid #BA7517}
+.cc-jellyfish{border-top:2px solid #378ADD}
+.cc-bee{border-top:2px solid #E24B4A}
+.cc-cone{border-top:2px solid #7F77DD}
+.cc-fish{border-top:2px solid #1D9E75}
+.cc-sea{border-top:2px solid #D85A30}
+.cc-name{font-size:11px;font-weight:500;margin-bottom:4px}
+.n-scorpion{color:#633806}.n-jellyfish{color:#0C447C}.n-bee{color:#791F1F}.n-cone{color:#26215C}.n-fish{color:#085041}.n-sea{color:#712B13}
+.step-row{display:flex;gap:6px;margin-bottom:4px;align-items:flex-start}
+.step-num{width:18px;height:18px;border-radius:50%;background:#854F0B;color:#FAEEDA;font-size:10px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.exam-card{background:#FCEBEB;border:0.5px solid #F09595;border-radius:var(--border-radius-md);padding:8px 10px;margin-bottom:8px}
+.exam-label{font-size:10px;font-weight:500;color:#791F1F;margin-bottom:4px;display:flex;align-items:center;gap:5px}
+.trap-card{background:#FAEEDA;border:0.5px solid #EF9F27;border-radius:var(--border-radius-md);padding:7px 10px;margin-bottom:4px}
+.trap-label{font-size:10px;font-weight:500;color:#633806;margin-bottom:2px}
+.tbl{width:100%;border-collapse:collapse;font-size:11px}
+.tbl th{background:#FAEEDA;color:#633806;font-weight:500;padding:4px 6px;text-align:left;font-size:10px}
+.tbl td{padding:3px 6px;border-bottom:0.5px solid var(--color-border-tertiary);vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.pill{display:inline-block;padding:1px 7px;border-radius:999px;font-size:10px;margin:1px 2px 1px 0}
+.p-amber{background:#FAEEDA;color:#633806}
+.p-red{background:#FCEBEB;color:#791F1F}
+.p-teal{background:#E1F5EE;color:#085041}
+.p-blue{background:#E6F1FB;color:#0C447C}
+.p-gray{background:#F1EFE8;color:#444441}
+.p-coral{background:#FAECE7;color:#712B13}
+.p-purple{background:#EEEDFE;color:#26215C}
+.anaphylaxis-box{background:#FCEBEB;border:1px solid #F09595;border-radius:var(--border-radius-md);padding:8px 10px;margin-bottom:8px}
+.anaphylaxis-title{font-size:11px;font-weight:500;color:#791F1F;margin-bottom:5px;display:flex;align-items:center;gap:5px}
+.footnote{font-size:10px;color:var(--color-text-tertiary);margin-top:8px;border-top:0.5px solid var(--color-border-tertiary);padding-top:5px}
+</style>
+
+<div class="page">
+
+  <div class="page-header">
+    <div>
+      <div class="topic-tag">NCD · 10% of KBA</div>
+      <div class="title">Stings — 자상·독침</div>
+      <div class="subtitle">전갈·해파리·벌·독어류 등 — Oxford Handbook Tropical Medicine 5e · WHO · Auerbach's Wilderness Medicine</div>
+    </div>
+    <div class="badge-group">
+      <span class="badge b-amber">DGH KBA</span>
+      <span class="badge b-red">아나필락시스 처치 = 최우선 출제</span>
+      <span class="badge b-teal">시험 출제빈도 ★★☆</span>
+    </div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat"><span class="stat-num">~1M</span><span class="stat-lbl">전갈 자상 연간 (추정)</span></div>
+    <div class="stat"><span class="stat-num">3,250</span><span class="stat-lbl">전갈 자상 연간 사망</span></div>
+    <div class="stat"><span class="stat-num">30%</span><span class="stat-lbl">전 세계 사망의 아프리카·중동 집중</span></div>
+    <div class="stat"><span class="stat-num">~50</span><span class="stat-lbl">벌 쏘임 연간 사망 (미국 기준, LMIC 미집계)</span></div>
+  </div>
+
+  <div class="creature-grid">
+    <div class="cc cc-scorpion">
+      <div class="cc-name n-scorpion"><i class="ti ti-bug" aria-hidden="true" style="font-size:12px;margin-right:3px"></i>전갈 (Scorpion)</div>
+      <div class="row"><div class="dot d-amber"></div><span><span class="kw">독:</span> 신경독 (Na⁺ 채널 활성화)</span></div>
+      <div class="row"><div class="dot d-amber"></div><span><span class="kw">위험종:</span> Androctonus (북아프리카), Leiurus (중동), Tityus (중남미)</span></div>
+      <div class="row"><div class="dot d-amber"></div><span><span class="kw">증상:</span> 국소통증→교감항진(빈맥·고혈압)→심부전·폐부종·췌장염</span></div>
+      <div class="row"><div class="dot d-red"></div><span><span class="kw">소아 치명적:</span> 성인보다 독소/체중 비율 ↑</span></div>
+      <div class="row"><div class="dot d-teal"></div><span><span class="kw">치료:</span> 항독소 + Prazosin (교감항진 조절) + 지지치료</span></div>
+    </div>
+    <div class="cc cc-jellyfish">
+      <div class="cc-name n-jellyfish"><i class="ti ti-ripple" aria-hidden="true" style="font-size:12px;margin-right:3px"></i>해파리 (Jellyfish)</div>
+      <div class="row"><div class="dot d-blue"></div><span><span class="kw">독:</span> nematocyst(자포) 촉각 활성화</span></div>
+      <div class="row"><div class="dot d-blue"></div><span><span class="kw">위험종:</span> Box jellyfish (Chironex) — 수분 내 사망 가능</span></div>
+      <div class="row"><div class="dot d-blue"></div><span><span class="kw">Portuguese man o' war:</span> 심한 통증·전신반응</span></div>
+      <div class="row"><div class="dot d-red"></div><span><span class="kw">금기:</span> 민물·문지르기 → 자포 추가 발사</span></div>
+      <div class="row"><div class="dot d-teal"></div><span><span class="kw">처치:</span> 식초(Box jelly) or 해수로 세척, 촉수 제거(도구 사용)</span></div>
+    </div>
+    <div class="cc cc-bee">
+      <div class="cc-name n-bee"><i class="ti ti-bug" aria-hidden="true" style="font-size:12px;margin-right:3px"></i>벌·말벌 (Bee/Wasp)</div>
+      <div class="row"><div class="dot d-red"></div><span><span class="kw">독:</span> Melittin, phospholipase A2 → 세포용해</span></div>
+      <div class="row"><div class="dot d-red"></div><span><span class="kw">Africanized honey bee:</span> 아프리카·중남미 — 집단 공격, 대량 자상 → 독소 과부하</span></div>
+      <div class="row"><div class="dot d-red"></div><span><span class="kw">위험:</span> 아나필락시스 (단 1회 자상에도), 대량 자상 → 횡문근융해·신부전</span></div>
+      <div class="row"><div class="dot d-teal"></div><span><span class="kw">처치:</span> 침 제거(긁어내기) → 냉찜질, 아나필락시스 시 Epinephrine</span></div>
+    </div>
+    <div class="cc cc-cone">
+      <div class="cc-name n-cone"><i class="ti ti-ripple" aria-hidden="true" style="font-size:12px;margin-right:3px"></i>쏘는 물고기류</div>
+      <div class="row"><div class="dot d-purple"></div><span><span class="kw">Stonefish:</span> 가장 독성 강한 어류 — 인도-태평양</span></div>
+      <div class="row"><div class="dot d-purple"></div><span><span class="kw">Lionfish/Scorpionfish:</span> 관상용으로 확산, 지중해·카리브해 침입종</span></div>
+      <div class="row"><div class="dot d-purple"></div><span><span class="kw">Stingray:</span> 물리적 외상 + 독소 — 열대성 바다·민물</span></div>
+      <div class="row"><div class="dot d-teal"></div><span><span class="kw">핵심 처치:</span> <span class="kw">뜨거운 물 담금 (45°C, 30-90분)</span> — 단백질 독소 열변성</span></div>
+    </div>
+    <div class="cc cc-fish">
+      <div class="cc-name n-fish"><i class="ti ti-bug" aria-hidden="true" style="font-size:12px;margin-right:3px"></i>쐐기풀·불개미</div>
+      <div class="row"><div class="dot d-teal"></div><span><span class="kw">Fire ant (Solenopsis):</span> 중남미·미국 남부·아시아 확산</span></div>
+      <div class="row"><div class="dot d-teal"></div><span><span class="kw">독:</span> Solenopsin (알칼로이드) → 화농성 수포, 아나필락시스 가능</span></div>
+      <div class="row"><div class="dot d-teal"></div><span><span class="kw">Caterpillar:</span> 독침모 → 피부 접촉성 피부염, 드물게 전신반응</span></div>
+      <div class="row"><div class="dot d-gray"></div><span>처치: 국소 스테로이드, 항히스타민, 아나필락시스 대비</span></div>
+    </div>
+    <div class="cc cc-sea">
+      <div class="cc-name n-sea"><i class="ti ti-ripple" aria-hidden="true" style="font-size:12px;margin-right:3px"></i>성게·산호·기타</div>
+      <div class="row"><div class="dot d-coral"></div><span><span class="kw">성게 (Sea urchin):</span> 가시 제거 — 식초로 용해 보조, 뜨거운 물</span></div>
+      <div class="row"><div class="dot d-coral"></div><span><span class="kw">산호 찰과:</span> 세균 감염 위험 높음 (Vibrio, Pseudomonas) — 광범위 항생제</span></div>
+      <div class="row"><div class="dot d-coral"></div><span><span class="kw">Blue-ringed octopus:</span> 강력 신경독(tetrodotoxin) → 즉각 호흡마비, 항독소 없음</span></div>
+      <div class="row"><div class="dot d-teal"></div><span>처치: 기도확보·인공호흡이 전부 — 지지치료</span></div>
+    </div>
+  </div>
+
+  <div class="anaphylaxis-box">
+    <div class="anaphylaxis-title"><i class="ti ti-alert-triangle" aria-hidden="true"></i>아나필락시스 응급 처치 — 모든 Stings의 공통 위협 (시험 최빈출)</div>
+    <div class="grid2" style="margin-bottom:0">
+      <div>
+        <div class="step-row"><div class="step-num">1</div><span><span class="kw">Epinephrine (Adrenaline) 0.5mg IM</span> 대퇴 외측 — 즉시, 지체 금물</span></div>
+        <div class="step-row"><div class="step-num">2</div><span>앙와위 + 하지 거상 (저혈압 시), 기도 확보</span></div>
+        <div class="step-row"><div class="step-num">3</div><span>O₂ 고유량, IV access → 생리식염수 급속 주입</span></div>
+      </div>
+      <div>
+        <div class="step-row"><div class="step-num">4</div><span>5-15분 후 미호전 → Epinephrine 반복 IM (최대 3회)</span></div>
+        <div class="step-row"><div class="step-num">5</div><span>Antihistamine (Chlorphenamine) + Hydrocortisone — 보조적 (1차 아님)</span></div>
+        <div class="step-row"><div class="step-num">6</div><span>관찰 최소 4-6시간 — 이상성(biphasic) 반응 주의</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-full">
+    <div class="sec-label"><i class="ti ti-table" aria-hidden="true"></i>독어류 처치 핵심 비교 — 자주 혼동되는 쌍</div>
+    <table class="tbl">
+      <thead>
+        <tr><th>생물</th><th>독 기전</th><th>핵심 처치</th><th>금기/주의</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="pill p-purple">Stonefish/Lionfish</span></td>
+          <td>단백질 독소 (열에 불안정)</td>
+          <td><span class="kw">뜨거운 물 45°C</span> 30-90분 담금 + 항독소(Stonefish)</td>
+          <td>냉찜질 금기 — 독소 활성 유지</td>
+        </tr>
+        <tr>
+          <td><span class="pill p-blue">Box jellyfish</span></td>
+          <td>nematocyst 단백질독</td>
+          <td><span class="kw">식초</span> 도포 → 자포 비활성화 후 제거</td>
+          <td>민물·문지르기 금기 → 추가 자포 발사</td>
+        </tr>
+        <tr>
+          <td><span class="pill p-teal">기타 해파리</span></td>
+          <td>nematocyst</td>
+          <td>해수 세척 (식초 효과 없는 종도 있음), 뜨거운 물</td>
+          <td>민물 사용 금기</td>
+        </tr>
+        <tr>
+          <td><span class="pill p-coral">Blue-ringed octopus</span></td>
+          <td>Tetrodotoxin (신경독, 열에 안정)</td>
+          <td>기도확보·인공호흡 — 항독소 없음</td>
+          <td>뜨거운 물 무효, 항독소 없음</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="exam-card">
+    <div class="exam-label"><i class="ti ti-alert-triangle" aria-hidden="true"></i>시험 핵심 포인트 & 자주 나오는 함정</div>
+    <div class="grid2" style="margin-bottom:0">
+      <div>
+        <div class="trap-card">
+          <div class="trap-label">함정 ①  아나필락시스 1차 처치</div>
+          <span>Antihistamine이나 스테로이드가 아닌 Epinephrine IM이 유일한 1차 치료. "Chlorphenamine 먼저"는 오답.</span>
+        </div>
+        <div class="trap-card">
+          <div class="trap-label">함정 ②  해파리에 민물</div>
+          <span>해파리 자상에 민물 세척 → 자포 추가 발사 → 독소 주입량 증가. 반드시 해수(식염수) 또는 식초 사용.</span>
+        </div>
+      </div>
+      <div>
+        <div class="trap-card">
+          <div class="trap-label">함정 ③  독어류에 냉찜질</div>
+          <span>Stonefish 등 단백질 독소는 열에 변성 → 뜨거운 물이 핵심. 냉찜질은 독소를 유지시켜 통증 악화.</span>
+        </div>
+        <div class="trap-card">
+          <div class="trap-label">함정 ④  전갈 — 소아 위험도</div>
+          <span>전갈 자상은 성인에서 대개 자기한정적이나 소아·고령자에서 치명적. 시나리오에 소아 등장 시 즉각 항독소+입원.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-full" style="margin-bottom:0">
+    <div class="sec-label"><i class="ti ti-bulb" aria-hidden="true"></i>Global health 관점 핵심 메시지</div>
+    <div style="display:flex;flex-wrap:wrap;gap:4px;line-height:1.9">
+      <span class="pill p-amber">전갈 자상 — LMIC 농촌 소아 사망의 과소평가된 원인</span>
+      <span class="pill p-red">항독소 접근성 — 아프리카·중동 공급 불안정, 냉장 유통망 문제</span>
+      <span class="pill p-teal">Africanized bee 확산 — 기후변화로 분포 북상, 신흥 위협</span>
+      <span class="pill p-blue">해양 스팅 — 기후변화로 독성 해파리 분포 확대</span>
+      <span class="pill p-gray">예방: 신발·장갑 착용, 야간 조명, 수영 전 해파리 주의보 확인</span>
+      <span class="pill p-coral">LMIC 전통 치료(문지르기·민물) 교정이 1차 공중보건 개입</span>
+    </div>
+  </div>
+
+  <div class="footnote">
+    참고: Oxford Handbook of Tropical Medicine 5e · Auerbach's Wilderness Medicine 7e · WHO Scorpion Envenomation Guidelines · DGH Blueprint NCD Level 3<br>
+    <button style="margin-top:5px;font-size:11px;padding:3px 10px" onclick="sendPrompt('DGH KBA Stings (전갈·해파리·벌) 관련 모의문제 5개 풀고 싶어. Best-of-5 SBA 형식으로 만들어줘')">Stings 모의문제 풀기 ↗</button>
+    <button style="margin-top:5px;font-size:11px;padding:3px 10px;margin-left:6px" onclick="sendPrompt('DGH KBA: Non-communicable disease > Poisonings 스터디 노트 A4 한 장 분량으로 만들어줘')">다음: Poisonings 노트 ↗</button>
+    <button style="margin-top:5px;font-size:11px;padding:3px 10px;margin-left:6px" onclick="sendPrompt('DGH KBA: Non-communicable disease > Bites 스터디 노트 A4 한 장 분량으로 만들어줘')">이전: Bites 복습 ↗</button>
+  </div>
+
+</div>

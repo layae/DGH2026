@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH CID 23 | Rabies</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#fdf4f4;font-family:'Crimson Pro',serif;color:#2d1a1a;font-size:14px;line-height:1.5;}
+  .page{max-width:900px;margin:0 auto;padding:18px;}
+  .header{background:#791F1F;color:#fff;border-radius:10px 10px 0 0;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;}
+  .header-left .tag{font-family:'JetBrains Mono',monospace;font-size:10px;background:rgba(255,255,255,0.2);padding:2px 8px;border-radius:20px;letter-spacing:1px;}
+  .header-left h1{font-size:20px;font-weight:700;margin-top:4px;}
+  .header-left h1 span{font-size:12px;font-weight:400;opacity:0.8;margin-left:8px;}
+  .header-right{font-family:'JetBrains Mono',monospace;font-size:10px;text-align:right;opacity:0.8;}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);border:1.5px solid #e8c4c4;border-top:none;}
+  .stat{background:#f5dcdc;padding:10px 12px;text-align:center;border-right:1px solid #e8c4c4;}
+  .stat:last-child{border-right:none;}
+  .stat-val{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:700;color:#791F1F;}
+  .stat-lab{font-size:10px;color:#5a2a2a;margin-top:1px;}
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;}
+  .card{background:#fff;border:1.5px solid #e8c4c4;border-radius:8px;padding:12px;}
+  .card h3{font-size:12px;font-weight:700;color:#791F1F;text-transform:uppercase;letter-spacing:0.8px;border-bottom:1px solid #f5dcdc;padding-bottom:5px;margin-bottom:8px;}
+  .card li{font-size:12.5px;color:#3a1a1a;line-height:1.65;margin-bottom:2px;}
+  .card ul{padding-left:14px;}
+  .tbl-wrap{margin-top:10px;}
+  table{width:100%;border-collapse:collapse;font-size:11.5px;}
+  thead th{background:#791F1F;color:#fff;padding:7px 10px;text-align:left;font-weight:600;}
+  tbody tr:nth-child(odd){background:#fdf4f4;}
+  tbody tr:nth-child(even){background:#f5dcdc;}
+  tbody td{padding:5px 9px;border-bottom:1px solid #e8c4c4;vertical-align:top;}
+  td strong{color:#791F1F;}
+  .trap-h{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:#791F1F;letter-spacing:1px;margin:12px 0 6px;padding:4px 10px;background:#f5dcdc;border-left:4px solid #791F1F;border-radius:0 4px 4px 0;}
+  .trap-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .trap{background:#fff;border:1.5px solid #e8c4c4;border-radius:6px;padding:9px 11px 9px 28px;font-size:12px;position:relative;}
+  .trap::before{content:"⚠";position:absolute;left:9px;top:8px;font-size:13px;color:#791F1F;}
+  .pills{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;}
+  .pill{background:#791F1F;color:#fff;font-size:10px;padding:3px 10px;border-radius:20px;font-family:'JetBrains Mono',monospace;}
+  .pill.light{background:#f5dcdc;color:#791F1F;}
+  .footer{margin-top:10px;padding:8px 12px;background:#f5dcdc;border:1px solid #e8c4c4;border-radius:6px;font-size:11px;color:#5a2a2a;display:flex;justify-content:space-between;align-items:center;}
+  .btn{font-size:10px;padding:3px 10px;border-radius:20px;border:1.5px solid #791F1F;color:#791F1F;background:#fff;font-family:'JetBrains Mono',monospace;}
+  .redbox{background:#791F1F;color:#fff;padding:6px 10px;border-radius:5px;font-size:12px;margin-top:6px;line-height:1.5;}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="header-left">
+      <div class="tag">CID · 23/34 · Viral</div>
+      <h1>Rabies <span>광견병 — PEP 프로토콜 · 예방</span></h1>
+    </div>
+    <div class="header-right">DGH KBA · 창 B<br>Blueprint 40%</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-val">~59,000</div><div class="stat-lab">연간 사망 (99% 개 매개)</div></div>
+    <div class="stat"><div class="stat-val">99%</div><div class="stat-lab">발병 시 치명률</div></div>
+    <div class="stat"><div class="stat-val">즉시</div><div class="stat-lab">상처 세척 — 가장 중요</div></div>
+    <div class="stat"><div class="stat-val">아시아·아프리카</div><div class="stat-lab">사망 95% 집중</div></div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <h3>역학 & 전파</h3>
+      <ul>
+        <li><strong>병원체</strong>: Lyssavirus (Rhabdoviridae); ssRNA</li>
+        <li><strong>주요 저장소</strong>: 개(LMIC 99%), 박쥐(고소득국), 여우·너구리(유럽·북미)</li>
+        <li><strong>전파</strong>: 감염 동물의 타액 → 교상·긁힘·점막 접촉</li>
+        <li>인간→인간 전파: 없음 (각막·장기 이식 제외 — 매우 드묾)</li>
+        <li><strong>잠복기</strong>: 1주~1년 (평균 1~3개월)</li>
+        <li>잠복기 결정 요인: 물린 부위(얼굴·두경부 = 짧음), 상처 깊이·바이러스량</li>
+        <li><strong>글로벌 부담</strong>: 아시아·아프리카에 집중; 어린이 취약</li>
+        <li>Zero by 30: WHO 목표 — 2030년까지 개 매개 인간 광견병 사망 0</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>임상 & 발병 후</h3>
+      <ul>
+        <li><strong>전구기(2~10일)</strong>: 물린 부위 이상감각·통증, 발열·불안·두통</li>
+        <li><strong>흥분형(Furious, 80%)</strong>:</li>
+        <li>· 공수증(Hydrophobia): 물 삼키려 할 때 인두 경련</li>
+        <li>· 공기공포증(Aerophobia): 바람에 경련</li>
+        <li>· 과흥분·환각·자율신경 불안정</li>
+        <li><strong>마비형(Paralytic, 20%)</strong>:</li>
+        <li>· 점진적 이완성 마비; GBS와 혼동 가능</li>
+        <li>· 수두증 증상 없어 진단 지연 위험</li>
+        <li><strong>발병 후 치료</strong>: 사실상 없음 (Milwaukee protocol 보고 있으나 재현성 낮음)</li>
+        <li><strong>완화의료</strong>: Ketamine·Midazolam으로 진정; 가족 지지</li>
+        <li><strong>감염관리</strong>: 표준주의 충분; 격리 불필요</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>PEP 단계</th><th>WHO 분류</th><th>조치</th><th>RIG 필요?</th></tr></thead>
+      <tbody>
+        <tr><td><strong>즉시 상처 세척</strong></td><td>모든 노출</td><td>비누·물로 15분 이상 세척 → 요오드·알코올 소독</td><td>—</td></tr>
+        <tr><td><strong>Category I</strong></td><td>동물 만지기·핥기 (피부 무손상)</td><td>세척만; PEP 불필요</td><td>No</td></tr>
+        <tr><td><strong>Category II</strong></td><td>찰과상·경미한 교상 (출혈 없음)</td><td>세척 + <strong>백신 접종</strong></td><td>No</td></tr>
+        <tr><td><strong>Category III</strong></td><td>깊은 교상·점막 노출·박쥐 접촉</td><td>세척 + <strong>백신 + RIG</strong></td><td><strong>Yes</strong></td></tr>
+        <tr><td><strong>백신 스케줄</strong></td><td>사전 미접종</td><td>0·3·7·14일 (4회); IM 삼각근</td><td>—</td></tr>
+        <tr><td><strong>백신 스케줄</strong></td><td>사전 접종자</td><td>0·3일 (2회)만; RIG 불필요</td><td>No</td></tr>
+        <tr><td><strong>RIG 투여</strong></td><td>Cat III</td><td>상처 주위에 최대한 침윤; 잔여분 대퇴부 IM; 백신과 다른 부위</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="trap-h">⚠ EXAM TRAPS × 4</div>
+  <div class="trap-grid">
+    <div class="trap"><strong>상처 세척이 PEP의 첫 번째이자 가장 중요한 단계</strong>. 비누·물 15분 세척으로 바이러스 부하를 기계적으로 제거. 백신·RIG보다 선행. "백신 먼저" 오답.</div>
+    <div class="trap"><strong>RIG는 Category III에만</strong>. Cat II(찰과·경미 교상)에는 백신만으로 충분. RIG를 모든 교상에 투여하는 것은 과잉 + LMIC에서 공급 제한. RIG와 백신은 반드시 다른 부위에 투여.</div>
+    <div class="trap"><strong>사전 접종자는 RIG 불필요</strong>. PrEP(사전예방접종) 받은 경우 노출 후 0·3일 백신 2회만. RIG 추가 투여는 면역반응 간섭 가능 — "접종력 있어도 RIG 줘야지" 오답.</div>
+    <div class="trap"><strong>마비형 광견병 = GBS 혼동</strong>. 이완성 마비·반사 소실로 GBS처럼 보임. 공수증·공기공포증 없어 진단 지연. 동물 교상력 + 마비 = 광견병 마비형 고려. LMIC에서 특히 놓치기 쉬움.</div>
+  </div>
+
+  <div class="pills">
+    <span class="pill">세척 15분 = PEP 1순위</span>
+    <span class="pill">Cat III = 백신+RIG</span>
+    <span class="pill light">사전접종 = 0·3일 2회만</span>
+    <span class="pill light">마비형 = GBS 혼동 주의</span>
+    <span class="pill">Zero by 30 WHO 목표</span>
+    <span class="pill">발병 후 = 사실상 치료 없음</span>
+  </div>
+
+  <div class="footer">
+    <span>📚 WHO Rabies PEP Guidelines 2018 · WHO Zero by 30 · Oxford TropMed 5e</span>
+    <div class="footer-nav">
+      <span class="btn">← 22 Yellow Fever</span>
+      <span class="btn">24 Polio →</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

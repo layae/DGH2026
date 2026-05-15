@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',sans-serif;}
+.w{padding:1rem 0.5rem;max-width:700px;}
+.hdr{background:#27500A;border-radius:12px;padding:1rem 1.25rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;}
+.hdr-l .tag{font-size:11px;color:#97C459;letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px;}
+.hdr-l h1{font-size:18px;font-weight:500;color:#EAF3DE;line-height:1.3;}
+.hdr-r{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.bdg{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:500;}
+.bg1{background:#3B6D11;color:#EAF3DE;}
+.bg2{background:#173404;color:#C0DD97;}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:1rem;}
+.st{background:#f4f7f1;border-radius:8px;padding:.75rem .875rem;}
+.st-l{font-size:11px;color:#555;margin-bottom:4px;line-height:1.3;}
+.st-v{font-size:16px;font-weight:600;color:#3B6D11;}
+.st-s{font-size:11px;color:#666;margin-top:2px;}
+.card{background:#fff;border:.5px solid #d0dfc8;border-radius:12px;padding:1rem 1.125rem;margin-bottom:1rem;}
+.card h3{font-size:13px;font-weight:500;color:#27500A;margin-bottom:.5rem;}
+.card p,.card li{font-size:12.5px;color:#1a2e1a;line-height:1.6;}
+.card ul{padding-left:14px;}
+.card li{margin-bottom:2px;}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:1rem;}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:1rem;}
+.tw{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:12px;}
+thead th{background:#27500A;color:#EAF3DE;font-weight:500;padding:6px 8px;text-align:left;}
+tbody td{padding:5px 8px;border-bottom:.5px solid #e0eae0;color:#1a2e1a;vertical-align:top;line-height:1.5;}
+tbody tr:last-child td{border-bottom:none;}
+em{color:#27500A;font-style:normal;font-weight:600;}
+.trap-h{font-size:13px;font-weight:500;color:#791F1F;margin-bottom:.5rem;}
+.tg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:1rem;}
+.trap{background:#FCEBEB;border-left:3px solid #A32D2D;border-radius:0 8px 8px 0;padding:.6rem .75rem;}
+.trap-q{font-size:12px;font-weight:500;color:#791F1F;margin-bottom:3px;}
+.trap-a{font-size:11.5px;color:#501313;line-height:1.5;}
+.gbox{background:#EAF3DE;border:.5px solid #97C459;border-radius:8px;padding:.6rem .875rem;margin-bottom:.75rem;}
+.gbox p{font-size:12px;color:#173404;line-height:1.6;}
+.gh-h{font-size:12px;font-weight:500;color:#555;margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em;}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:.75rem;}
+.pill{font-size:11.5px;padding:3px 10px;border-radius:20px;border:.5px solid #c8ddc8;color:#2a5a2a;}
+.footer{display:flex;align-items:center;justify-content:space-between;margin-top:.5rem;}
+.fn{font-size:11px;color:#666;}
+.btn{font-size:12px;padding:5px 14px;cursor:pointer;border-radius:8px;border:.5px solid #aac4aa;background:transparent;color:#27500A;}
+.divider{border:none;border-top:.5px solid #dde8dd;margin:.75rem 0;}
+.formula{background:#f0f7e8;border-left:3px solid #3B6D11;border-radius:0 6px 6px 0;padding:.5rem .75rem;font-size:12.5px;color:#173404;margin:.4rem 0;font-family:monospace;}
+.b1{background:#FCEBEB;border:.5px solid #F09595;color:#501313;border-radius:8px;padding:.6rem .75rem;font-size:12px;line-height:1.5;}
+.b2{background:#FAEEDA;border:.5px solid #FAC775;color:#412402;border-radius:8px;padding:.6rem .75rem;font-size:12px;line-height:1.5;}
+.b3{background:#EEEDFE;border:.5px solid #AFA9EC;color:#26215C;border-radius:8px;padding:.6rem .75rem;font-size:12px;line-height:1.5;}
+.b-t{font-weight:600;font-size:12.5px;margin-bottom:3px;}
+</style>
+</head>
+<body>
+<div class="w">
+
+  <div class="hdr">
+    <div class="hdr-l">
+      <div class="tag">Global Public Health · Public Health 4/5</div>
+      <h1>Public Health Statistics<br><span style="font-size:14px;color:#97C459;">핵심 통계 지표 · 건강 측정 · 글로벌 데이터 해석</span></h1>
+    </div>
+    <div class="hdr-r">
+      <span class="bdg bg1">Global Public Health</span>
+      <span class="bdg bg2">GPH 20%</span>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="st"><div class="st-l">전 세계 MMR (2023)</div><div class="st-v">~200/10만</div><div class="st-s">Sub-Saharan Africa<br>&gt;400/10만명 출생</div></div>
+    <div class="st"><div class="st-l">U5MR 목표 (SDG 3.2)</div><div class="st-v">&lt;25/1,000</div><div class="st-s">2030 목표<br>출생 1,000명당</div></div>
+    <div class="st"><div class="st-l">DALY 구성</div><div class="st-v">YLL + YLD</div><div class="st-s">조기사망 + 장애<br>GBD 핵심 지표</div></div>
+    <div class="st"><div class="st-l">기대수명 격차</div><div class="st-v">~20년</div><div class="st-s">고소득 vs 저소득국<br>출생 시 기대수명 차이</div></div>
+  </div>
+
+  <!-- 사망률 지표 -->
+  <div class="card">
+    <h3>📉 핵심 사망률 지표 총정리</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>지표</th><th>공식</th><th>분모</th><th>LMIC 맥락</th></tr></thead>
+        <tbody>
+          <tr><td><em>조사망률 (CMR)</em></td><td>전체 사망/총 인구 × 1,000</td><td>연중 인구</td><td>인도주의 위기: CMR &gt;1/10,000/일 → 비상</td></tr>
+          <tr><td><em>영아사망률 (IMR)</em></td><td>1세 미만 사망/출생 × 1,000</td><td>출생 수</td><td>보건 시스템 수준 반영</td></tr>
+          <tr><td><em>5세 미만 사망률 (U5MR)</em></td><td>5세 미만 사망/출생 × 1,000</td><td>출생 수</td><td>SDG 3.2 핵심 지표</td></tr>
+          <tr><td><em>신생아사망률 (NMR)</em></td><td>생후 28일 미만 사망/출생 × 1,000</td><td>출생 수</td><td>U5 사망의 ~47% 차지</td></tr>
+          <tr><td><em>모성사망비 (MMR)</em></td><td>임신관련 사망/출생 × 100,000</td><td>출생 수</td><td>산과적 원인; SDG 3.1 목표 &lt;70</td></tr>
+          <tr><td><em>사인별 사망률 (CSDR)</em></td><td>특정 원인 사망/인구 × 100,000</td><td>총 인구</td><td>질환별 우선순위 책정</td></tr>
+          <tr><td><em>CFR (치명률)</em></td><td>질환 사망/확진 × 100</td><td>확진자 수</td><td>분모 정의에 따라 크게 변동</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:.5rem;font-size:11.5px;color:#444;"><strong>인도주의 위기 기준값:</strong> CMR &gt;1/10,000/일 = 비상사태. &gt;2/10,000/일 = 심각한 비상사태 (Sphere 기준).</p>
+  </div>
+
+  <!-- DALY + 질병 부담 -->
+  <div class="g2">
+    <div class="card">
+      <h3>⚖️ DALY & 질병 부담 측정</h3>
+      <div class="formula">DALY = YLL + YLD</div>
+      <p><em>YLL (Years of Life Lost):</em><br>
+      = 사망자 수 × (기대수명 − 사망 연령)<br>
+      조기 사망의 부담 반영<br><br>
+      <em>YLD (Years Lived with Disability):</em><br>
+      = 유병 기간 × 장애 가중치(0~1)<br>
+      장애 가중치: 0=완전 건강, 1=사망과 동등<br><br>
+      <em>QALY vs DALY:</em><br>
+      · QALY: 개입의 효과 측정 (비용-효과 분석)<br>
+      · DALY: 질병 부담 측정 (정책 우선순위)<br>
+      · DALY 낮추는 것 = QALY 높이는 것<br><br>
+      <em>GBD 2021:</em> 허혈성 심질환·뇌졸중이 전 세계 DALYs 1,2위. LMIC에서는 하기도 감염·설사질환·말라리아가 상위권.</p>
+    </div>
+    <div class="card">
+      <h3>📊 건강 형평성 지표</h3>
+      <p><em>기대수명 (Life Expectancy, LE):</em><br>
+      출생 시 기대수명 = 현재 연령별 사망률 지속 가정<br><br>
+      <em>건강기대수명 (HALE):</em><br>
+      질병·장애 없이 건강하게 사는 기간<br>
+      LE − HALE = 질병 부담 기간<br><br>
+      <em>GINI 계수:</em> 소득 불평등 (0=완전 평등, 1=완전 불평등)<br><br>
+      <em>SDI (Socio-demographic Index):</em><br>
+      소득·교육·출산율 복합 지수 (GBD 연구)<br><br>
+      <em>인간개발지수 (HDI):</em><br>
+      건강(LE) + 교육 + 소득 복합<br><br>
+      <em>건강 불평등 측정:</em><br>
+      · 농촌-도시 격차<br>
+      · 소득 5분위별 U5MR<br>
+      · 성별 격차 (여아 사망률 초과 등)</p>
+    </div>
+  </div>
+
+  <!-- 통계 검정 핵심 -->
+  <div class="card">
+    <h3>🧮 핵심 통계 개념 (시험 출제 빈도 높음)</h3>
+    <div class="g3">
+      <div class="b1">
+        <div class="b-t">신뢰구간 (CI)</div>
+        95% CI가 1을 포함하지 않음<br>
+        → RR/OR 통계적 유의<br><br>
+        CI 폭 넓음 → 표본 작음<br>
+        CI 폭 좁음 → 정밀도 높음<br>
+        p-value보다 CI가 더 많은 정보 제공
+      </div>
+      <div class="b2">
+        <div class="b-t">p-value & 오류</div>
+        p &lt; 0.05 → 통계적 유의<br>
+        (귀무가설 기각 기준)<br><br>
+        <strong>1종 오류 (α):</strong> 실제 없는데 있다고<br>
+        <strong>2종 오류 (β):</strong> 실제 있는데 없다고<br>
+        검정력 (Power) = 1-β<br>
+        → 표본 크기 증가로 개선
+      </div>
+      <div class="b3">
+        <div class="b-t">표본 크기 & 검정력</div>
+        표본 크기 결정 요인:<br>
+        · 예상 효과 크기<br>
+        · 유의수준 (α=0.05)<br>
+        · 검정력 (통상 80%)<br>
+        · 기저 유병률<br><br>
+        샘플 Q4: 8% 유병률에서<br>
+        시설 14-19% → 재조사 필요
+      </div>
+    </div>
+  </div>
+
+  <!-- 주요 글로벌 데이터 소스 -->
+  <div class="g2">
+    <div class="card">
+      <h3>🗄️ 주요 글로벌 통계 데이터 소스</h3>
+      <ul>
+        <li><em>GBD (Global Burden of Disease):</em> IHME 주관. DALY·YLL·YLD·사망 원인. 국가·연령·성별 분류. 정책 우선순위 근거.</li>
+        <li><em>WHO Global Health Observatory:</em> 국가별 핵심 건강 지표 공식 저장소</li>
+        <li><em>DHS (Demographic & Health Surveys):</em> 가구 조사 기반. 접종률·영양·생식보건. LMIC 핵심 데이터원.</li>
+        <li><em>MICS (UNICEF):</em> 다중지표군집조사. 아동·여성 지표 특화.</li>
+        <li><em>Civil registration & CRVS:</em> 출생·사망 등록. LMIC에서 미비 → verbal autopsy 보완.</li>
+        <li><em>Sentinel surveillance:</em> 대표 시설 집중 모니터링. 자원 효율적.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>📐 표준화 & 비교 방법</h3>
+      <p><em>직접 표준화:</em><br>
+      각 연령군 사망률을 표준 인구에 적용<br>
+      → 연령 구조 다른 국가 간 비교 가능<br><br>
+      <em>간접 표준화 (SMR):</em><br>
+      SMR = 관찰 사망/기대 사망<br>
+      SMR &gt;1 → 해당 집단 사망률 과잉<br><br>
+      <em>연령 표준화 필수 이유:</em><br>
+      LMIC(젊은 인구) vs 고소득국(고령 인구)<br>
+      원시율 비교 시 LMIC가 유리하게 보이는 착시<br><br>
+      <em>Disability weight:</em><br>
+      HIV 무치료 = 0.582<br>
+      ART 치료 중 = 0.078<br>
+      → ART의 DALY 감소 효과 정량화</p>
+    </div>
+  </div>
+
+  <div class="trap-h">⚠️ 시험 함정 4개</div>
+  <div class="tg">
+    <div class="trap">
+      <div class="trap-q">MMR과 IMR 분모가 같다?</div>
+      <div class="trap-a">다름. MMR = 모성 사망/출생 × 100,000. IMR = 영아 사망/출생 × 1,000. 분모는 둘 다 출생 수지만 배수(multiplier)가 다름. SDG 3.1 MMR 목표는 &lt;70/100,000 출생. 단위 혼동 → 오답.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-q">CFR이 높으면 병원체가 치명적?</div>
+      <div class="trap-a">CFR은 분모(확진자 수) 정의에 크게 의존. 검사 역량 낮으면 경증 확진 누락 → CFR 과대추정. 에볼라 초기 CFR 90% vs 실제 관리 CFR 40-60%. 감시 체계 비교 시 CFR 단순 비교 불가.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-q">DALY 낮춤 = 수명 연장?</div>
+      <div class="trap-a">DALY = YLL+YLD이므로, 수명 연장 없이 장애 기간(YLD) 감소로도 DALY 줄일 수 있음. 예: 백내장 수술은 사망 예방 없이 시력 회복으로 YLD 감소 → DALY ↓. 중재 유형(치료vs예방)에 따라 YLL vs YLD 어느 것이 주로 줄어드는지 구분.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-q">p&lt;0.05이면 임상적으로 유의?</div>
+      <div class="trap-a">통계적 유의와 임상적 유의는 다름. 대규모 표본에서는 임상적으로 무의미한 작은 차이도 p&lt;0.05 가능. 반대로 소규모 표본에서 임상적으로 중요한 차이도 p&gt;0.05 가능. 효과 크기(effect size)와 CI를 함께 봐야 함.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="gbox">
+    <p><strong>샘플 문제 Q4 연계 — HIV 역학 데이터 해석:</strong> 지역 익명 조사 HIV 8% vs 시설 양성률 14-19% 불일치. 정답(B)은 더 큰 표본으로 재조사 → 통계적 검정력 부족 상황. 단순 프로그램 확대 전에 데이터 신뢰성 확보가 우선. 공중보건 통계 판단 문제의 전형적 패턴.</p>
+  </div>
+
+  <div class="gh-h">Global Health 관점</div>
+  <div class="pills">
+    <span class="pill">📉 DALY = YLL + YLD (GBD 핵심)</span>
+    <span class="pill">🏕️ CMR &gt;1/10,000/일 = 인도주의 비상</span>
+    <span class="pill">📊 DHS/MICS = LMIC 건강 데이터 주요 원</span>
+    <span class="pill">⚖️ 연령 표준화 없이 국가 간 비교 불가</span>
+    <span class="pill">🎯 SDG 3.1 MMR &lt;70 · 3.2 U5MR &lt;25</span>
+  </div>
+
+  <div class="footer">
+    <span class="fn">Source: GBD 2021 · WHO GHO · Sphere Handbook 2018 · IHME</span>
+    <button class="btn" onclick="sendPrompt('다음 Public Health 5번 WASH 노트 만들어줘')">다음 토픽 →</button>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<meta charset="UTF-8">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.page{width:100%;font-family:var(--font-sans);font-size:12.5px;line-height:1.55;color:var(--color-text-primary);padding:1.1rem 1.2rem 1.4rem}
+.page-header{display:flex;align-items:flex-start;justify-content:space-between;border-bottom:2px solid #A32D2D;padding-bottom:8px;margin-bottom:10px}
+.topic-tag{font-size:10px;font-weight:500;background:#FCEBEB;color:#791F1F;padding:3px 9px;border-radius:999px;margin-bottom:4px;display:inline-block}
+.title{font-size:20px;font-weight:500;line-height:1.2}
+.subtitle{font-size:11px;color:var(--color-text-secondary);margin-top:2px}
+.badge-group{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.badge{font-size:10px;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.b-red{background:#FCEBEB;color:#791F1F}.b-amber{background:#FAEEDA;color:#633806}.b-teal{background:#E1F5EE;color:#085041}
+.stat-row{display:flex;gap:6px;margin-bottom:8px}
+.stat{flex:1;background:#FCEBEB;border-radius:var(--border-radius-md);padding:6px 8px;text-align:center}
+.stat-num{font-size:16px;font-weight:500;color:#791F1F;display:block}
+.stat-lbl{font-size:10px;color:#A32D2D}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 10px}
+.card-full{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 10px;margin-bottom:8px}
+.sec-label{font-size:10px;font-weight:500;letter-spacing:.04em;color:var(--color-text-secondary);margin-bottom:5px}
+.row{display:flex;gap:5px;align-items:baseline;margin-bottom:3px}
+.dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.d-red{background:#E24B4A}.d-amber{background:#BA7517}.d-teal{background:#1D9E75}.d-blue{background:#378ADD}.d-gray{background:#888780}.d-purple{background:#7F77DD}.d-coral{background:#D85A30}.d-green{background:#3B6D11}
+.kw{font-weight:500}
+.tbl{width:100%;border-collapse:collapse;font-size:11px}
+.tbl th{background:#FCEBEB;color:#791F1F;font-weight:500;padding:4px 6px;text-align:left;font-size:10px}
+.tbl td{padding:3.5px 6px;border-bottom:0.5px solid var(--color-border-tertiary);vertical-align:top;line-height:1.4}
+.tbl tr:last-child td{border-bottom:none}
+.pill{display:inline-block;padding:1px 7px;border-radius:999px;font-size:10px;margin:1px 2px 1px 0}
+.p-red{background:#FCEBEB;color:#791F1F}.p-amber{background:#FAEEDA;color:#633806}.p-teal{background:#E1F5EE;color:#085041}.p-blue{background:#E6F1FB;color:#0C447C}.p-gray{background:#F1EFE8;color:#444441}.p-purple{background:#EEEDFE;color:#26215C}.p-coral{background:#FAECE7;color:#712B13}.p-green{background:#EAF3DE;color:#27500A}
+.step-row{display:flex;gap:6px;margin-bottom:4px;align-items:flex-start}
+.step-num{width:18px;height:18px;border-radius:50%;background:#A32D2D;color:#FCEBEB;font-size:10px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.exam-card{background:#FCEBEB;border:0.5px solid #F09595;border-radius:var(--border-radius-md);padding:8px 10px;margin-bottom:8px}
+.exam-label{font-size:10px;font-weight:500;color:#791F1F;margin-bottom:4px}
+.trap-card{background:#FAEEDA;border:0.5px solid #EF9F27;border-radius:var(--border-radius-md);padding:7px 10px;margin-bottom:4px}
+.trap-label{font-size:10px;font-weight:500;color:#633806;margin-bottom:2px}
+.footnote{font-size:10px;color:var(--color-text-tertiary);margin-top:8px;border-top:0.5px solid var(--color-border-tertiary);padding-top:5px}
+</style>
+<div class="page">
+  <div class="page-header">
+    <div>
+      <div class="topic-tag">NCD · 10% of KBA</div>
+      <div class="title">Cardiovascular Disease — 심혈관 질환</div>
+      <div class="subtitle">글로벌 CVD 부담 · LMIC 위험인자 · ACS · 심부전 · 류마티스 심장질환 — WHO PEN · ESC · Oxford Handbook</div>
+    </div>
+    <div class="badge-group">
+      <span class="badge b-red">DGH KBA · 전 세계 사망 1위</span>
+      <span class="badge b-amber">류마티스 심장질환 = LMIC 핵심</span>
+      <span class="badge b-teal">시험 출제빈도 ★★★</span>
+    </div>
+  </div>
+  <div class="stat-row">
+    <div class="stat"><span class="stat-num">17.9M</span><span class="stat-lbl">CVD 연간 사망 (전 세계 1위)</span></div>
+    <div class="stat"><span class="stat-num">80%</span><span class="stat-lbl">사망의 LMIC 집중</span></div>
+    <div class="stat"><span class="stat-num">40M</span><span class="stat-lbl">류마티스 심장질환 유병</span></div>
+    <div class="stat"><span class="stat-num">1.4M</span><span class="stat-lbl">RHD 연간 사망 (대부분 LMIC)</span></div>
+  </div>
+
+  <div class="card-full">
+    <div class="sec-label">LMIC에서 중요한 CVD 유형 — 고소득국과 다른 패턴</div>
+    <table class="tbl">
+      <thead><tr><th>질환</th><th>LMIC 특이점</th><th>주요 원인/위험인자</th><th>핵심 처치/예방</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="pill p-red">허혈성 심질환 (IHD)</span></td>
+          <td>조기 발병↑, 젊은 환자 多, 당뇨·고혈압 동반</td>
+          <td>고혈압, 흡연, 당뇨, 이상지질혈증, 복부비만</td>
+          <td>Aspirin+Statin+ACEi+β-blocker (ABCS), 위험인자 조절</td>
+        </tr>
+        <tr>
+          <td><span class="pill p-amber">류마티스 심장질환 (RHD)</span></td>
+          <td><span class="kw">LMIC 획득 심장병 1위</span> — 소아·청소년 승모판 협착</td>
+          <td>A군 연쇄구균 인두염 → 류마티스열 → 판막 손상</td>
+          <td>Penicillin 2차 예방 (벤질, 4주 간격), 판막 수술</td>
+        </tr>
+        <tr>
+          <td><span class="pill p-purple">심부전</span></td>
+          <td>HIV심근병증, 산후심근병증, 영양결핍 심근병증 多</td>
+          <td>고혈압(LMIC 주요원인), RHD, HIV, 임신</td>
+          <td>ACEi/ARB + β-blocker + 이뇨제, 원인 치료</td>
+        </tr>
+        <tr>
+          <td><span class="pill p-teal">뇌졸중</span></td>
+          <td>출혈성 뇌졸중 비율 LMIC에서 더 높음 (고혈압 조절 불량)</td>
+          <td>고혈압(1위), 심방세동, 당뇨, 흡연</td>
+          <td>혈압 조절(가장 효과적 예방), 혈전용해제(허혈성)</td>
+        </tr>
+        <tr>
+          <td><span class="pill p-coral">샤가스 심장병</span></td>
+          <td>중남미 특이 — 확장성 심근병증, 심차단, 돌연사</td>
+          <td>Trypanosoma cruzi (트리아토민 벌레 매개)</td>
+          <td>Benznidazole/Nifurtimox (급성기), 증상 치료</td>
+        </tr>
+        <tr>
+          <td><span class="pill p-blue">산후심근병증 (PPCM)</span></td>
+          <td>아프리카·아시아 高발생 — 임신 말기~분만 후 5개월</td>
+          <td>고령 초산, 다태 임신, 고혈압, 영양결핍</td>
+          <td>표준 심부전 치료 (임신 중: hydralazine/nitrate)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="sec-label">류마티스 심장질환(RHD) 심층 — LMIC 최중요 CVD</div>
+      <div class="row"><div class="dot d-amber"></div><span><span class="kw">병태생리:</span> GAS 인두염 → 분자 모방 → 심장 판막 자가면역 손상 → 섬유화</span></div>
+      <div class="row"><div class="dot d-amber"></div><span><span class="kw">가장 흔한 판막:</span> 승모판 협착(MS) → 승모판 역류 → 대동맥판 역류 순</span></div>
+      <div class="row"><div class="dot d-amber"></div><span><span class="kw">증상:</span> 호흡곤란, 심방세동, 혈전색전증, 심부전</span></div>
+      <div class="row"><div class="dot d-red"></div><span><span class="kw">1차 예방:</span> GAS 인두염 → Penicillin V 10일 치료</span></div>
+      <div class="row"><div class="dot d-red"></div><span><span class="kw">2차 예방(핵심):</span> Benzathine Penicillin G 1.2M units IM 4주 간격 — 최소 10년 or 21세까지 (더 긴 쪽)</span></div>
+      <div class="row"><div class="dot d-teal"></div><span><span class="kw">LMIC 수술 접근:</span> 판막 수술 불가 → 심방세동 시 항응고(Warfarin) — INR 목표 2.0–3.0</span></div>
+      <div class="row"><div class="dot d-blue"></div><span><span class="kw">임신+MS:</span> 심방세동·폐부종 위험 극↑ → 고위험 임신 관리</span></div>
+    </div>
+    <div class="card">
+      <div class="sec-label">ACS 처치 + 고혈압 — LMIC 현실</div>
+      <div class="row"><div class="dot d-red"></div><span><span class="kw">STEMI LMIC 현실:</span> 혈전용해제(Streptokinase/tPA) — PCI 대부분 불가. 증상 후 12시간 내 투여</span></div>
+      <div class="row"><div class="dot d-red"></div><span><span class="kw">이중항혈소판:</span> Aspirin 300mg + Clopidogrel 300mg 로딩 → 유지</span></div>
+      <div class="row"><div class="dot d-amber"></div><span><span class="kw">2차 예방 4제:</span> Aspirin + Statin + ACEi + β-blocker (ABCS) — WHO EML 모두 등재</span></div>
+      <div style="margin-top:6px;padding-top:5px;border-top:0.5px solid var(--color-border-tertiary)">
+        <div class="sec-label" style="margin-bottom:3px">고혈압 — LMIC 가장 흔한 CVD 위험인자</div>
+        <div class="row"><div class="dot d-blue"></div><span><span class="kw">목표:</span> &lt;130/80 mmHg (당뇨·신질환), &lt;140/90 (일반)</span></div>
+        <div class="row"><div class="dot d-blue"></div><span><span class="kw">1차 선택:</span> Thiazide or CCB or ACEi/ARB — 아프리카계: CCB or Thiazide 선호</span></div>
+        <div class="row"><div class="dot d-blue"></div><span><span class="kw">WHO PEN:</span> 고정 용량 복합제(Polypill) → LMIC 순응도↑ 전략</span></div>
+        <div class="row"><div class="dot d-teal"></div><span><span class="kw">비약물:</span> 저염식, 금주, 운동, 체중 감량 — 비용 없는 핵심 개입</span></div>
+        <div class="row"><div class="dot d-coral"></div><span><span class="kw">고혈압 위기:</span> Hydralazine IV or Labetalol IV — 임신: Hydralazine 1차</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="exam-card">
+    <div class="exam-label">시험 핵심 포인트 & 자주 나오는 함정</div>
+    <div class="grid2" style="margin-bottom:0">
+      <div>
+        <div class="trap-card">
+          <div class="trap-label">함정 ①  RHD 2차 예방 기간</div>
+          <span>Benzathine Penicillin G IM 4주 간격 — 판막 침범 없는 류마티스열: 5년 or 18세까지. 판막 침범 있는 RHD: <span class="kw">10년 or 21세까지</span> (더 긴 쪽 선택). "치료 완료 후 중단"은 오답.</span>
+        </div>
+        <div class="trap-card">
+          <div class="trap-label">함정 ②  샤가스 심장병 치료</div>
+          <span>Benznidazole/Nifurtimox는 급성기·초기 만성기에 효과. 확장성 심근병증 진행 후 기생충 박멸 효과 제한적 → 증상 치료가 핵심. "진행 심근병증에 항기생충제 우선"은 오답.</span>
+        </div>
+      </div>
+      <div>
+        <div class="trap-card">
+          <div class="trap-label">함정 ③  LMIC STEMI — PCI vs 혈전용해</div>
+          <span>PCI 불가능 환경 → 증상 후 12시간 내 혈전용해제(Streptokinase). "PCI 이송"이 항상 정답이 아님 — 이송 시간 &gt;120분이면 혈전용해 우선. LMIC 시나리오에서 맥락 파악 필수.</span>
+        </div>
+        <div class="trap-card">
+          <div class="trap-label">함정 ④  산후심근병증 치료 주의</div>
+          <span>임신 중 심부전: ACEi/ARB → 태아 독성 → 금기. 대신 Hydralazine + Nitrate 사용. 분만 후에는 ACEi 사용 가능 (모유수유 중에는 주의). "ACEi 즉시 투여"는 임신 중 오답.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-full" style="margin-bottom:0">
+    <div class="sec-label">Global health 관점 핵심 메시지</div>
+    <div style="display:flex;flex-wrap:wrap;gap:4px;line-height:1.9">
+      <span class="pill p-red">CVD = 전 세계 사망 원인 1위 — LMIC 80% 집중, 예방 가능 원인이 대부분</span>
+      <span class="pill p-amber">RHD — 예방 가능한 LMIC 판막 질환, GAS 치료·Penicillin 예방이 핵심</span>
+      <span class="pill p-teal">Polypill 전략 — 고정 용량 복합제로 LMIC 순응도·비용 문제 해결 시도</span>
+      <span class="pill p-coral">샤가스 심장병 — 중남미 기후 변화로 분포 확대, 이민자 통해 비유행 지역 유입</span>
+      <span class="pill p-purple">산후심근병증 — 아프리카·아시아 과소진단, 산전 클리닉 통합 스크리닝 필요</span>
+      <span class="pill p-blue">WHO PEN — 1차 의료 기반 CVD 위험인자 관리 패키지, Aspirin+Statin EML 등재</span>
+    </div>
+  </div>
+  <div class="footnote">참고: WHO CVD Risk Chart 2019 · ESC Guidelines · RHD Australia Guidelines · Oxford Handbook of Tropical Medicine 5e · DGH Blueprint NCD Level 3</div>
+</div>

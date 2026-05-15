@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',sans-serif;}
+.w{padding:1rem 0.5rem;max-width:700px;}
+.hdr{background:linear-gradient(135deg,#854F0B 0%,#5c3508 100%);border-radius:12px;padding:1rem 1.25rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;}
+.hdr-l .tag{font-size:11px;color:#F5C08A;letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px;}
+.hdr-l h1{font-size:18px;font-weight:500;color:#FEF3E8;line-height:1.3;}
+.hdr-r{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.bdg{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:500;}
+.bg1{background:#A86520;color:#FEF3E8;}
+.bg2{background:#3d2005;color:#F5C08A;}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:1rem;}
+.st{background:#fdf6ee;border-radius:8px;padding:.75rem .875rem;}
+.st-l{font-size:11px;color:#7a5a30;margin-bottom:4px;line-height:1.3;}
+.st-v{font-size:16px;font-weight:600;color:#854F0B;}
+.st-s{font-size:11px;color:#9a7040;margin-top:2px;}
+.card{background:#fff;border:.5px solid #e8cfa8;border-radius:12px;padding:1rem 1.125rem;margin-bottom:1rem;}
+.card h3{font-size:13px;font-weight:500;color:#854F0B;margin-bottom:.5rem;}
+.card p,.card li{font-size:12.5px;color:#2a1a08;line-height:1.6;}
+.card ul{padding-left:14px;}
+.card li{margin-bottom:2px;}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:1rem;}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:1rem;}
+.tw{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:12px;}
+thead th{background:#854F0B;color:#FEF3E8;font-weight:500;padding:6px 8px;text-align:left;}
+tbody td{padding:5px 8px;border-bottom:.5px solid #f0dcc0;color:#2a1a08;vertical-align:top;line-height:1.5;}
+tbody tr:last-child td{border-bottom:none;}
+em{color:#854F0B;font-style:normal;font-weight:600;}
+.trap-h{font-size:13px;font-weight:500;color:#791F1F;margin-bottom:.5rem;}
+.tg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:1rem;}
+.trap{background:#FCEBEB;border-left:3px solid #A32D2D;border-radius:0 8px 8px 0;padding:.6rem .75rem;}
+.trap-q{font-size:12px;font-weight:500;color:#791F1F;margin-bottom:3px;}
+.trap-a{font-size:11.5px;color:#501313;line-height:1.5;}
+.gbox{background:#FEF3E8;border:.5px solid #F5C08A;border-radius:8px;padding:.6rem .875rem;margin-bottom:.75rem;}
+.gbox p{font-size:12px;color:#3d2005;line-height:1.6;}
+.gh-h{font-size:12px;font-weight:500;color:#7a5a30;margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em;}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:.75rem;}
+.pill{font-size:11.5px;padding:3px 10px;border-radius:20px;border:.5px solid #e8cfa8;color:#854F0B;}
+.footer{display:flex;align-items:center;justify-content:space-between;margin-top:.5rem;}
+.fn{font-size:11px;color:#9a7040;}
+.btn{font-size:12px;padding:5px 14px;cursor:pointer;border-radius:8px;border:.5px solid #e8cfa8;background:transparent;color:#854F0B;}
+.divider{border:none;border-top:.5px solid #f0dcc0;margin:.75rem 0;}
+.b1{background:#fef2f2;border:.5px solid #fca5a5;color:#7f1d1d;border-radius:8px;padding:.6rem .75rem;font-size:12px;line-height:1.6;}
+.b2{background:#fffbeb;border:.5px solid #fcd34d;color:#78350f;border-radius:8px;padding:.6rem .75rem;font-size:12px;line-height:1.6;}
+.b3{background:#fdf6ee;border:.5px solid #e8cfa8;color:#3d2005;border-radius:8px;padding:.6rem .75rem;font-size:12px;line-height:1.6;}
+.b4{background:#f0fdf4;border:.5px solid #86efac;color:#14532d;border-radius:8px;padding:.6rem .75rem;font-size:12px;line-height:1.6;}
+.b-t{font-weight:600;font-size:12.5px;margin-bottom:4px;}
+.step{display:flex;gap:8px;margin-bottom:5px;align-items:flex-start;}
+.step-num{background:#854F0B;color:white;border-radius:50%;width:20px;height:20px;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.step-txt{font-size:12.5px;color:#2a1a08;line-height:1.5;}
+</style>
+</head>
+<body>
+<div class="w">
+
+  <div class="hdr">
+    <div class="hdr-l">
+      <div class="tag">Humanitarian Medicine · 3/4</div>
+      <h1>Epidemiological Principles in Outbreak Response<br><span style="font-size:14px;color:#F5C08A;">인도주의 현장 아웃브레이크 역학 대응 원칙</span></h1>
+    </div>
+    <div class="hdr-r">
+      <span class="bdg bg1">Humanitarian Medicine</span>
+      <span class="bdg bg2">HM 10%</span>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="st"><div class="st-l">난민캠프 인구밀도</div><div class="st-v">고위험</div><div class="st-s">홍역 R₀ 12–18<br>밀집 = 폭발적 전파</div></div>
+    <div class="st"><div class="st-l">EWARN 목표</div><div class="st-v">72시간</div><div class="st-s">아웃브레이크 감지~<br>대응 시작 목표</div></div>
+    <div class="st"><div class="st-l">에볼라 링 백신</div><div class="st-v">rVSV-ZEBOV</div><div class="st-s">접촉자·접촉자의 접촉자<br>링 백신접종 전략</div></div>
+    <div class="st"><div class="st-l">콜레라 OCV</div><div class="st-v">Shanchol</div><div class="st-s">경구 콜레라 백신<br>2회 접종; 1회도 효과</div></div>
+  </div>
+
+  <!-- 인도주의 현장 아웃브레이크 특수성 -->
+  <div class="card">
+    <h3>⚡ 인도주의 현장 아웃브레이크의 특수성</h3>
+    <div class="g2">
+      <div>
+        <p><em>위험 증폭 요인:</em></p>
+        <ul>
+          <li><em>인구 이동:</em> 면역 미보유 인구 유입; 기존 주민과 접촉</li>
+          <li><em>밀집 거주:</em> 비말·접촉 전파 가속; 홍역·수막염·ARI</li>
+          <li><em>WASH 붕괴:</em> 콜레라·장티푸스·설사 급증</li>
+          <li><em>영양불량:</em> 홍역 CFR ↑↑ (정상 &lt;0.1% → 영양불량 소아 20~30%)</li>
+          <li><em>접종 공백:</em> 분쟁 중 EPI 중단 → 홍역·소아마비 취약</li>
+          <li><em>보건 시스템 붕괴:</em> 감시 부재 → 늦은 감지</li>
+        </ul>
+      </div>
+      <div>
+        <p><em>감시 체계 (인도주의 특화):</em></p>
+        <div class="b3" style="margin-bottom:.4rem;">
+          <div class="b-t">EWARN (조기경보·대응)</div>
+          WHO/UNHCR 공동 시스템<br>
+          주요 신드롬 주간 보고<br>
+          임계값 초과 시 즉각 조사<br>
+          목표: 72시간 내 대응
+        </div>
+        <div class="b4">
+          <div class="b-t">Rumour Surveillance</div>
+          지역사회 소문·소셜미디어 모니터링<br>
+          공식 신고 전 조기 신호 포착<br>
+          핵심: 지역사회 신뢰 구축
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 주요 아웃브레이크 대응 -->
+  <div class="card">
+    <h3>🦠 인도주의 현장 주요 아웃브레이크 대응 비교</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>질환</th><th>감지 기준</th><th>즉각 대응</th><th>핵심 예방 전략</th></tr></thead>
+        <tbody>
+          <tr><td><em>홍역</em></td><td>1건 확진도 아웃브레이크<br>(저접종 지역)</td><td>긴급 SIA (6개월~15세)<br>비타민A 투여</td><td>MCV1·MCV2 접종;<br>캠프 입소 시 즉시 접종</td></tr>
+          <tr><td><em>콜레라</em></td><td>수양성 설사 + 탈수<br>확진 1건</td><td>CTC 설치·ORS 대량배포<br>WASH 긴급 개선</td><td>OCV (Shanchol 2회)<br>안전한 물·위생</td></tr>
+          <tr><td><em>수막구균성</em></td><td>주 15건/10만 이상<br>(수막염 벨트)</td><td>MenACWY 캠프 전체 접종<br>화학예방 (접촉자)</td><td>MenAfriVac (A형)<br>밀집 거주 개선</td></tr>
+          <tr><td><em>에볼라</em></td><td>1건 의심 = 즉각 대응</td><td>IPC 강화·접촉자 추적<br>안전 매장·ETC 설치</td><td>링 백신 (rVSV-ZEBOV)<br>접촉자+접촉자의 접촉자</td></tr>
+          <tr><td><em>소아마비(cVDPV)</em></td><td>AFP 감시 + 환경 감시</td><td>긴급 OPV/nOPV2 SIA</td><td>일상 OPV 접종 유지</td></tr>
+          <tr><td><em>황열</em></td><td>단일 확진 = 아웃브레이크</td><td>17D 백신 긴급 접종<br>(1회로 평생 면역)</td><td>일상 YF 백신; 방충</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 접촉자 추적 & 링 백신 -->
+  <div class="g2">
+    <div class="card">
+      <h3>🔗 접촉자 추적 (Contact Tracing)</h3>
+      <p><em>원칙:</em> 노출원 확인 → 접촉자 목록 작성 → 추적·모니터링 → 격리/치료<br><br>
+      <em>인도주의 현장 한계:</em><br>
+      · 인구 이동 잦음 → 접촉자 소재 불명<br>
+      · 신뢰 부족 → 숨김·도주<br>
+      · 자원 부족 → 대규모 추적 불가<br><br>
+      <em>에볼라 링 전략:</em><br>
+      확진자 → 모든 접촉자(1링) → 접촉자의 접촉자(2링) 모두 백신접종·모니터링<br><br>
+      <em>COVID-19 교훈 적용:</em><br>
+      디지털 도구·커뮤니티 자원봉사자 활용 → 자원 한계 극복</p>
+    </div>
+    <div class="card">
+      <h3>📊 인도주의 현장 역학 조사 특수 고려</h3>
+      <ul>
+        <li><em>분모 불명확:</em> 캠프 등록 인구 vs 실제 인구 차이 → 발병률 부정확</li>
+        <li><em>이동 인구:</em> 코호트 유지 불가 → 단면 조사 반복</li>
+        <li><em>증례 정의 단순화:</em> 실험실 불가 시 임상 기준만으로 운영</li>
+        <li><em>Lot Quality Assurance Sampling (LQAS):</em> 소규모 표본으로 신속 접종률 평가</li>
+        <li><em>Mortality survey:</em> CMR 추정; 두 단계 군집 표본 (30×30)</li>
+        <li><em>SMART survey:</em> 영양 상태 신속 평가 (W/H·MUAC·부종)</li>
+      </ul>
+      <p style="margin-top:.5rem;font-size:11.5px;"><em>30×30 클러스터 방법:</em> 30개 지역·30명 무작위 표본 → 접종률 추정. 신속하고 현장 적용 가능.</p>
+    </div>
+  </div>
+
+  <div class="trap-h">⚠️ 시험 함정 4개</div>
+  <div class="tg">
+    <div class="trap">
+      <div class="trap-q">영양불량 소아 홍역 = 경증?</div>
+      <div class="trap-a">영양불량(특히 비타민A 결핍) 소아에서 홍역 CFR 20~30%까지 상승 (선진국 0.1%와 비교). 각막 손상으로 실명 위험. 인도주의 현장에서 홍역 확진 즉시 비타민A 투여가 표준 치료. 영양 상태가 감염병 CFR을 결정적으로 높임.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-q">에볼라 = 비말 전파?</div>
+      <div class="trap-a">에볼라는 직접 접촉(체액)·안전하지 않은 매장 전파. 비말 전파 아님. 샘플 Q7에서 확인 — IPC는 증상 발현 즉시(증상 전 전파력 낮음) 시작. 비말 격리가 아닌 접촉 격리가 핵심. 안전 매장 = 인도주의 현장 에볼라 통제 핵심 요소.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-q">링 백신 = 확진자만 접종?</div>
+      <div class="trap-a">링 백신 전략은 확진자의 모든 접촉자(1링) + 그 접촉자들의 접촉자(2링)에게 접종. 에볼라 rVSV-ZEBOV는 노출 후에도 효과 (노출 후 예방 가능). 확진자 본인은 이미 감염 상태이므로 접종 대상 아님.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-q">콜레라 OCV = 1회 접종으로 완전 면역?</div>
+      <div class="trap-a">Shanchol은 기본 2회 접종 (2주 간격). 1회 접종도 단기(6개월) 보호 효과 있어 아웃브레이크 초기 대규모 1회 캠페인 사용. 완전 면역(2년)은 2회 접종 필요. 자원 제한 시 1회 전략 허용 but "1회로 완전 면역" = 오답.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="gbox">
+    <p><strong>샘플 Q7 에볼라 IPC 연계:</strong> 정답(B) — 증상 발현 즉시(vague undifferentiating symptoms 단계부터) IPC 조치. 출혈이 나타날 때까지 기다리면 이미 전파 발생. 에볼라 IPC의 핵심은 <em>조기 격리 + 체액 접촉 차단</em>. 안전 매장이 지역사회 전파 차단에 결정적. 옵션 C("출혈 시 조치")는 전형적 오답 함정.</p>
+  </div>
+
+  <div class="gh-h">Global Health 관점</div>
+  <div class="pills">
+    <span class="pill">🔴 홍역 CFR: 영양불량 소아 20~30%</span>
+    <span class="pill">⚡ EWARN = 72시간 내 대응 목표</span>
+    <span class="pill">💉 에볼라 링 백신 = 1+2링 접촉자</span>
+    <span class="pill">📊 30×30 클러스터 = 신속 접종률 평가</span>
+    <span class="pill">🌊 에볼라 = 직접 접촉 전파 (비말 아님)</span>
+  </div>
+
+  <div class="footer">
+    <span class="fn">Source: WHO EWARN · Sphere Handbook 2018 · WHO Ebola Guidelines · MSF Outbreak Guidelines</span>
+    <button class="btn" onclick="sendPrompt('다음 Humanitarian Medicine 4번 마지막 노트 만들어줘')">다음: 마지막 토픽 →</button>
+  </div>
+
+</div>
+</body>
+</html>

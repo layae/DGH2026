@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH CID 26 | Typhoid Fever</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Noto Sans KR',sans-serif;background:#fdf4f4;color:#2d1a1a;font-size:12.5px;line-height:1.55}
+  .page{max-width:900px;margin:0 auto;padding:18px}
+  .header{background:#791F1F;color:#fff;border-radius:8px 8px 0 0;padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+  .header-left .tag{font-size:10px;letter-spacing:2px;opacity:.7;text-transform:uppercase;font-family:'JetBrains Mono',monospace}
+  .header-left h1{font-size:20px;font-weight:700;margin-top:2px}
+  .header-right{text-align:right;font-size:10px;opacity:.75;font-family:'JetBrains Mono',monospace;line-height:1.8}
+  .stats-bar{background:#6b1a1a;padding:10px 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .stat{text-align:center;color:#fff;padding:4px 8px;border-right:1px solid rgba(255,255,255,0.15)}
+  .stat:last-child{border-right:none}
+  .stat-num{font-size:17px;font-weight:700;color:#f5dcdc;font-family:'JetBrains Mono',monospace}
+  .stat-label{font-size:9.5px;opacity:.8;margin-top:1px;letter-spacing:.5px}
+  .body-wrap{background:#fff;border:1px solid #e8c4c4;border-top:none;border-radius:0 0 8px 8px;padding:16px 20px}
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+  .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px}
+  .box{background:#fdf4f4;border:1px solid #e8c4c4;border-radius:6px;padding:12px}
+  .box-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#791F1F;margin-bottom:8px;border-bottom:1px solid #e8c4c4;padding-bottom:4px}
+  .box ul{list-style:none;padding:0}
+  .box ul li{padding:2px 0 2px 10px;position:relative;font-size:12px}
+  .box ul li::before{content:'›';position:absolute;left:0;color:#791F1F;font-weight:700}
+  strong{color:#791F1F;font-weight:700}
+  .section-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#791F1F;margin-bottom:7px}
+  table{width:100%;border-collapse:collapse;font-size:11.5px;margin-bottom:14px}
+  th{background:#791F1F;color:#fff;padding:6px 10px;text-align:left;font-weight:600;font-size:10.5px}
+  td{padding:5px 10px;border-bottom:1px solid #e8c4c4;vertical-align:top}
+  tr:nth-child(even) td{background:#fdf4f4}
+  tr:last-child td{border-bottom:none}
+  .steps{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+  .step{background:#f5dcdc;border:1px solid #e8c4c4;border-radius:6px;padding:8px 10px;flex:1;min-width:130px}
+  .step-num{font-size:9px;font-weight:700;color:#791F1F;text-transform:uppercase;letter-spacing:1px}
+  .step-content{font-size:11.5px;margin-top:3px;font-weight:600}
+  .trap-h{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fff;background:#791F1F;padding:5px 12px;border-radius:4px;display:inline-block;margin-bottom:8px}
+  .trap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:14px}
+  .trap{background:#fff;border:1.5px solid #791F1F;border-radius:6px;padding:10px}
+  .trap-icon{font-size:15px;margin-bottom:4px}
+  .trap-q{font-size:10.5px;font-weight:700;color:#791F1F;margin-bottom:3px}
+  .trap-a{font-size:11px;color:#2d1a1a;line-height:1.5}
+  .pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+  .pill{background:#f5dcdc;border:1px solid #e8c4c4;border-radius:20px;padding:3px 11px;font-size:10.5px;color:#791F1F;font-weight:600}
+  .pill-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#791F1F;margin-bottom:5px}
+  .footer{margin-top:10px;padding-top:8px;border-top:1px solid #e8c4c4;display:flex;justify-content:space-between;align-items:center}
+  .footer-note{font-size:10px;color:#888;font-family:'JetBrains Mono',monospace}
+  .nav-btn{background:#791F1F;color:#fff;border:none;border-radius:4px;padding:4px 12px;font-size:10.5px;font-weight:600;cursor:default;letter-spacing:.5px}
+  .highlight-box{background:#f5dcdc;border-left:3px solid #791F1F;padding:8px 12px;border-radius:0 6px 6px 0;margin-bottom:12px;font-size:11.5px}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <div class="header-left">
+    <div class="tag">DGH KBA · Clinical Infectious Diseases · CID-26</div>
+    <h1>Typhoid Fever</h1>
+  </div>
+  <div class="header-right">
+    창 C · Bacterial Infections<br>
+    Blueprint 40% · Oxford Trop Med 5e<br>
+    Sample Q2: Salmonella osteomyelitis
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">11M</div>
+    <div class="stat-label">연간 발병 추정 (전세계)</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">116,800</div>
+    <div class="stat-label">연간 사망 (WHO 2019)</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1–4%</div>
+    <div class="stat-label">담낭 만성 보균율</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">&gt;80%</div>
+    <div class="stat-label">XDR typhoid: 파키스탄 기원</div>
+  </div>
+</div>
+
+<div class="body-wrap">
+
+  <div class="g2">
+    <div class="box">
+      <div class="box-title">병원체 · 전파 · 역학</div>
+      <ul>
+        <li><strong>S. Typhi:</strong> 인간 유일 숙주 (동물 보균 없음)</li>
+        <li><strong>S. Paratyphi A·B·C:</strong> 유사 임상, 진단검사 다름 주의</li>
+        <li>분변-경구 전파 — 오염 음식·물 (단 10²–10³ 균으로 감염 가능)</li>
+        <li>남아시아·동남아·사하라 이남 아프리카 고유행</li>
+        <li>만성 보균자(주로 여성·담석): 공중보건 전파 위험</li>
+        <li>샘플 Q2 핵심: 낸 아프리카 소아 + 빈혈 + 골수염 → <strong>Salmonella typhimurium</strong> (non-typhi Salmonella + SCD 조합)</li>
+      </ul>
+    </div>
+    <div class="box">
+      <div class="box-title">주차별 임상경과 (내과의 암기 틀)</div>
+      <ul>
+        <li><strong>1주:</strong> 계단식 발열(stepwise)↑, 두통, 기침, 비출혈, 상대적 서맥(Faget sign)</li>
+        <li><strong>2주:</strong> 지속 고열, 장미진(rose spots, 10–30%, 흉복부), 비장종대</li>
+        <li><strong>3주:</strong> 합병증 — 장출혈(10%), 장천공(1–3%), 뇌병증</li>
+        <li><strong>4주:</strong> 회복 or 패혈성 쇼크</li>
+        <li>소아: 발열 외 비특이적 → 진단 지연 흔함</li>
+        <li>HIV+: 균혈증 반복, 비장비대 현저</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- DIAGNOSIS TABLE -->
+  <div class="section-title">진단 — 검사 선택과 해석</div>
+  <table>
+    <tr><th>검사</th><th>민감도</th><th>특이도</th><th>LMIC 적용성</th><th>주의사항</th></tr>
+    <tr><td><strong>혈액배양</strong></td><td>40–80% (1주↑)</td><td>&gt;99%</td><td>제한적 (배양기 필요)</td><td>발열 초기, 항생제 전 채혈 필수</td></tr>
+    <tr><td>골수배양</td><td>80–95%</td><td>&gt;99%</td><td>침습적, 2차 기관</td><td>항생제 사용 후에도 양성 유지</td></tr>
+    <tr><td>Widal test</td><td>가변적</td><td>낮음</td><td>널리 사용(저비용)</td><td><strong>단독으로 진단 불가</strong> — 교차반응·과거 감염 양성</td></tr>
+    <tr><td>Typhidot IgM</td><td>70–80%</td><td>80%↑</td><td>RDT 형태 가능</td><td>발병 4–5일 후 민감도↑</td></tr>
+    <tr><td>대변/소변배양</td><td>30–40%</td><td>높음</td><td>3주 이후 양성률↑</td><td>보균자 스크리닝에 활용</td></tr>
+  </table>
+
+  <!-- TREATMENT -->
+  <div class="section-title">치료 — 항생제 내성 시대 전략</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1차 선택</div>
+      <div class="step-content">Azithromycin 1g/일 × 5–7일<br><span style="font-size:10.5px;font-weight:400">경증·중등증 외래 / 내성 낮은 지역</span></div>
+    </div>
+    <div class="step">
+      <div class="step-num">중증/입원</div>
+      <div class="step-content">Ceftriaxone 2g IV q24h × 10–14일<br><span style="font-size:10.5px;font-weight:400">OR Cefixime 경구 (합병증 없는 경우)</span></div>
+    </div>
+    <div class="step">
+      <div class="step-num">XDR-Typhoid</div>
+      <div class="step-content">Meropenem or Azithromycin<br><span style="font-size:10.5px;font-weight:400">파키스탄 H58 클론 — Cipro·Amp·TMP·Chloramph 모두 내성</span></div>
+    </div>
+    <div class="step">
+      <div class="step-num">중증 합병증</div>
+      <div class="step-content">장천공 → 외과 협진 필수<br>Dexamethasone: 뇌병증·쇼크 시 (단기)</div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <strong>Non-typhoidal Salmonella (NTS) vs Typhoid 핵심 구분:</strong> NTS (S. Typhimurium, S. Enteritidis) → 동물 감염원 있음, 자기한정성 장염, BUT 겸상구 빈혈(SCD)·HIV·영유아에서 <strong>침습성 NTS(iNTS)</strong> → 균혈증·골수염·수막염. 샘플Q2 카메룬 소아 = iNTS 패턴. 아프리카에서 발열+빈혈 소아 → S. Typhimurium 감별 필수.
+  </div>
+
+  <!-- TRAP CARDS -->
+  <div class="trap-h">⚠ 시험 함정 4</div>
+  <div class="trap-grid">
+    <div class="trap">
+      <div class="trap-icon">🧪</div>
+      <div class="trap-q">Widal test 양성 = Typhoid 확진?</div>
+      <div class="trap-a"><strong>절대 No.</strong> 말라리아, 기타 살모넬라 감염, 과거 감염, 백신 접종 모두 위양성. LMIC에서 과잉 진단의 주요 원인. 혈액배양 없이 진단 불가.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-icon">💊</div>
+      <div class="trap-q">Ciprofloxacin이 1차 치료제인가?</div>
+      <div class="trap-a"><strong>더 이상 아님.</strong> 남아시아·아프리카에서 Fluoroquinolone 내성 광범위. XDR typhoid는 Cipro·Amp·TMP-SMX·Chloramphenicol 모두 내성. 지역 내성 패턴 확인 필수.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-icon">🦴</div>
+      <div class="trap-q">SCD 소아 + 장골 골수염 → 원인균?</div>
+      <div class="trap-a"><strong>Salmonella species</strong> (특히 S. Typhimurium). 서구는 S. aureus가 1위지만, 겸상구빈혈+아프리카 맥락이면 Salmonella가 정답. 샘플 Q2 정답(D) 논리.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-icon">🌊</div>
+      <div class="trap-q">장천공 징후: 발열 갑작스런 호전 = 회복?</div>
+      <div class="trap-a"><strong>위험 신호.</strong> 3주차 복통 완화+발열 감소는 복막염으로 진행 중일 수 있음. 복부 경직·복막 자극 징후 재확인. 즉시 외과 협진.</div>
+    </div>
+  </div>
+
+  <!-- PILLS -->
+  <div class="pill-title">🌐 Global Health 관점</div>
+  <div class="pills">
+    <span class="pill">TCV (Typhoid Conjugate Vaccine) — 6개월+ 소아 1회 접종</span>
+    <span class="pill">XDR Typhoid = 파키스탄 2016~ 전 세계 확산</span>
+    <span class="pill">WASH 개선 = 근본 예방 전략</span>
+    <span class="pill">iNTS = 아프리카 SCD·HIV에서 주요 균혈증 원인</span>
+    <span class="pill">만성 보균자 → 담낭절제술 고려</span>
+    <span class="pill">Gavi TCV 지원 → 저소득국 접종 확대 중</span>
+  </div>
+
+  <div class="footer">
+    <div class="footer-note">CID-26 · Typhoid Fever · Oxford Trop Med 5e · WHO TCV position paper 2018</div>
+    <div style="display:flex;gap:6px">
+      <span class="nav-btn">← CID-25 Meningitis</span>
+      <span class="nav-btn">CID-27 Cholera →</span>
+    </div>
+  </div>
+
+</div>
+</div>
+</body>
+</html>

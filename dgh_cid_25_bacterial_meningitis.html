@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH CID 25 | Bacterial Meningitis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Noto Sans KR',sans-serif;background:#fdf4f4;color:#2d1a1a;font-size:12.5px;line-height:1.55}
+  .page{max-width:900px;margin:0 auto;padding:18px}
+
+  /* HEADER */
+  .header{background:#791F1F;color:#fff;border-radius:8px 8px 0 0;padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+  .header-left .tag{font-size:10px;letter-spacing:2px;opacity:.7;text-transform:uppercase;font-family:'JetBrains Mono',monospace}
+  .header-left h1{font-size:20px;font-weight:700;margin-top:2px}
+  .header-right{text-align:right;font-size:10px;opacity:.75;font-family:'JetBrains Mono',monospace;line-height:1.8}
+
+  /* STATS BAR */
+  .stats-bar{background:#6b1a1a;border-radius:0;padding:10px 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .stat{text-align:center;color:#fff;padding:4px 8px;border-right:1px solid rgba(255,255,255,0.15)}
+  .stat:last-child{border-right:none}
+  .stat-num{font-size:17px;font-weight:700;color:#f5dcdc;font-family:'JetBrains Mono',monospace}
+  .stat-label{font-size:9.5px;opacity:.8;margin-top:1px;letter-spacing:.5px}
+
+  /* BODY GRID */
+  .body-wrap{background:#fff;border:1px solid #e8c4c4;border-top:none;border-radius:0 0 8px 8px;padding:16px 20px}
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+  .box{background:#fdf4f4;border:1px solid #e8c4c4;border-radius:6px;padding:12px}
+  .box-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#791F1F;margin-bottom:8px;border-bottom:1px solid #e8c4c4;padding-bottom:4px}
+  .box ul{list-style:none;padding:0}
+  .box ul li{padding:2px 0 2px 10px;position:relative;font-size:12px}
+  .box ul li::before{content:'›';position:absolute;left:0;color:#791F1F;font-weight:700}
+  strong{color:#791F1F;font-weight:700}
+
+  /* TABLE */
+  .tbl-wrap{margin-bottom:14px}
+  .section-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#791F1F;margin-bottom:7px}
+  table{width:100%;border-collapse:collapse;font-size:11.5px}
+  th{background:#791F1F;color:#fff;padding:6px 10px;text-align:left;font-weight:600;font-size:10.5px}
+  td{padding:5px 10px;border-bottom:1px solid #e8c4c4;vertical-align:top}
+  tr:nth-child(even) td{background:#fdf4f4}
+  tr:last-child td{border-bottom:none}
+
+  /* STEP BOX */
+  .steps{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+  .step{background:#f5dcdc;border:1px solid #e8c4c4;border-radius:6px;padding:8px 10px;flex:1;min-width:120px}
+  .step-num{font-size:9px;font-weight:700;color:#791F1F;text-transform:uppercase;letter-spacing:1px}
+  .step-content{font-size:11.5px;margin-top:3px;font-weight:600}
+
+  /* TRAP CARDS */
+  .trap-h{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fff;background:#791F1F;padding:5px 12px;border-radius:4px;display:inline-block;margin-bottom:8px}
+  .trap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:14px}
+  .trap{background:#fff;border:1.5px solid #791F1F;border-radius:6px;padding:10px;position:relative}
+  .trap-icon{font-size:15px;margin-bottom:4px}
+  .trap-q{font-size:10.5px;font-weight:700;color:#791F1F;margin-bottom:3px}
+  .trap-a{font-size:11px;color:#2d1a1a;line-height:1.5}
+
+  /* PILLS */
+  .pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+  .pill{background:#f5dcdc;border:1px solid #e8c4c4;border-radius:20px;padding:3px 11px;font-size:10.5px;color:#791F1F;font-weight:600}
+  .pill-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#791F1F;margin-bottom:5px}
+
+  /* FOOTER */
+  .footer{margin-top:10px;padding-top:8px;border-top:1px solid #e8c4c4;display:flex;justify-content:space-between;align-items:center}
+  .footer-note{font-size:10px;color:#888;font-family:'JetBrains Mono',monospace}
+  .nav-btn{background:#791F1F;color:#fff;border:none;border-radius:4px;padding:4px 12px;font-size:10.5px;font-weight:600;cursor:default;letter-spacing:.5px}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-left">
+    <div class="tag">DGH KBA · Clinical Infectious Diseases · CID-25</div>
+    <h1>Bacterial Meningitis</h1>
+  </div>
+  <div class="header-right">
+    창 C · Bacterial Infections<br>
+    Blueprint 40% · Oxford Trop Med 5e<br>
+    WHO 2020 Meningitis Roadmap
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">~50%</div>
+    <div class="stat-label">CFR (미치료, LMIC)</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">10–15%</div>
+    <div class="stat-label">CFR (치료 후, 성인)</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1/3</div>
+    <div class="stat-label">생존자 신경후유증</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">2030</div>
+    <div class="stat-label">WHO Defeat Meningitis 목표</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="body-wrap">
+
+  <!-- G2 GRID -->
+  <div class="g2">
+    <div class="box">
+      <div class="box-title">병원체별 역학 (LMIC 맥락)</div>
+      <ul>
+        <li><strong>Nm (Neisseria meningitidis):</strong> 수막염 벨트(사하라 이남 아프리카) — 건기 집단발생, 혈청형 A·C·W·Y</li>
+        <li><strong>Sp (Streptococcus pneumoniae):</strong> 전 세계 성인 1위 원인균, HIV+ 시 위험 10배↑</li>
+        <li><strong>Hi (H. influenzae b):</strong> Hib 백신 미접종 소아에서 여전히 중요</li>
+        <li><strong>Lm (Listeria):</strong> 임신부·면역저하·65세↑, 살균 유제품 노출</li>
+        <li><strong>GBS:</strong> 신생아 수막염 1위 (조기/후기 발현)</li>
+        <li><strong>TB meningitis:</strong> 별도 챕터(CID-07), HIV 동반 시 반드시 고려</li>
+      </ul>
+    </div>
+    <div class="box">
+      <div class="box-title">임상 진단 핵심 (내과의 관점)</div>
+      <ul>
+        <li><strong>고전 3증:</strong> 발열+두통+경부강직 — 동시 3증은 44%만 충족</li>
+        <li><strong>Jolt accentuation:</strong> 두부 수평회전 시 두통 악화 — SR 97%↑</li>
+        <li><strong>경부강직 없이도</strong> 의식저하+발열 → 즉시 LP 검토</li>
+        <li><strong>점상출혈/자반:</strong> Nm 수막구균혈증 → Waterhouse–Friderichsen 가능</li>
+        <li><strong>Kernig/Brudzinski:</strong> 감도 낮음(53%), 특이도는 높음</li>
+        <li><strong>CT 선행 필요:</strong> 유두부종·국소신경증상·면역저하·발작 시에만</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CSF TABLE -->
+  <div class="tbl-wrap">
+    <div class="section-title">CSF 분석 — 빠른 감별표</div>
+    <table>
+      <tr><th>항목</th><th>세균성</th><th>바이러스성</th><th>결핵성</th><th>진균성(Crypto)</th></tr>
+      <tr><td>압력</td><td>↑↑</td><td>정상/↑</td><td>↑</td><td>↑↑↑</td></tr>
+      <tr><td>백혈구</td><td>&gt;1000 PMN↑↑</td><td>10–1000 림프구</td><td>100–500 림프구</td><td>20–500 림프구</td></tr>
+      <tr><td>단백</td><td>&gt;100 mg/dL</td><td>정상/경도↑</td><td>100–500</td><td>↑</td></tr>
+      <tr><td>당</td><td>&lt;40 (CSF/혈당 &lt;0.4)</td><td>정상</td><td>↓↓ (&lt;45)</td><td>↓</td></tr>
+      <tr><td>Gram stain</td><td>양성 60–90%</td><td>음성</td><td>AFB 10–40%</td><td>India ink 양성</td></tr>
+      <tr><td>Ag test</td><td>CrAg 음성</td><td>—</td><td>—</td><td><strong>CrAg 양성</strong></td></tr>
+    </table>
+  </div>
+
+  <!-- TREATMENT STEPS -->
+  <div class="section-title">치료 단계 (LMIC 성인 표준)</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">Step 1 · 즉시</div>
+      <div class="step-content">Ceftriaxone 2g IV q12h<br><span style="font-size:10.5px;font-weight:400">LP 전이라도 항생제 먼저</span></div>
+    </div>
+    <div class="step">
+      <div class="step-num">Step 2 · 덱사메타손</div>
+      <div class="step-content">Dexamethasone 0.4mg/kg IV q12h × 4일<br><span style="font-size:10.5px;font-weight:400">항생제와 동시 or 직전 투여 — 사망↓, 청각손실↓</span></div>
+    </div>
+    <div class="step">
+      <div class="step-num">Step 3 · 보조치료</div>
+      <div class="step-content">두개내압 관리<br>경련 시 diazepam/phenobarb<br>저혈당 교정</div>
+    </div>
+    <div class="step">
+      <div class="step-num">Step 4 · 특수상황</div>
+      <div class="step-content">Listeria 의심 → Ampicillin 추가<br>Penicillin allergy → Chloramphenicol<br>자원제한 환경 선택지</div>
+    </div>
+  </div>
+
+  <!-- MENINGITIS BELT BOX -->
+  <div class="g2" style="margin-bottom:14px">
+    <div class="box">
+      <div class="box-title">수막염 벨트 — 아프리카 건기 유행</div>
+      <ul>
+        <li>세네갈~에티오피아 위도 4–15°N 범위</li>
+        <li>건기(12–6월) → 비말 전파, 상기도 점막 건조</li>
+        <li><strong>Nm A:</strong> 과거 주요 혈청형 → MenAfriVac 접종 후 극적 감소</li>
+        <li><strong>Nm C·W·X:</strong> 최근 유행 혈청형</li>
+        <li>집단발생 기준: 인구 100,000당 10건/주 → 대응 캠페인</li>
+        <li>WHO Roadmap 2030: 주요 유행 제거 목표</li>
+      </ul>
+    </div>
+    <div class="box">
+      <div class="box-title">예방 · 공중보건</div>
+      <ul>
+        <li><strong>MenAfriVac (MenA):</strong> 2010~ 벨트 전체 접종 → Nm A 95%↓</li>
+        <li><strong>PCV13/PCV15:</strong> 폐렴구균 수막염 감소 핵심</li>
+        <li><strong>Hib 백신:</strong> EPI 포함 국가에서 Hi 수막염 거의 소멸</li>
+        <li><strong>화학예방:</strong> 수막구균 밀접접촉자 — Ciprofloxacin 500mg 단회</li>
+        <li><strong>신고/격리:</strong> Nm → 즉시 신고, 비말주의 24h (항생제 투여 후)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- TRAP CARDS -->
+  <div class="trap-h">⚠ 시험 함정 4</div>
+  <div class="trap-grid">
+    <div class="trap">
+      <div class="trap-icon">🔬</div>
+      <div class="trap-q">LP 전 CT가 항상 필요한가?</div>
+      <div class="trap-a"><strong>No.</strong> 국소신경증상·유두부종·면역저하·발작·의식저하 없으면 즉시 LP 가능. CT 기다리느라 항생제 지연 = 치명적 실수.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-icon">💊</div>
+      <div class="trap-q">덱사메타손은 언제 투여해야 효과적?</div>
+      <div class="trap-a"><strong>항생제와 동시 또는 직전.</strong> 항생제 투여 후 덱사메타손 주면 염증 cascade 이미 시작 → 이득↓. LMIC 환경에서도 DXM 사용 권고 (신경후유증, 특히 청각손실 감소).</div>
+    </div>
+    <div class="trap">
+      <div class="trap-icon">🌍</div>
+      <div class="trap-q">LMIC에서 Penicillin G vs Ceftriaxone?</div>
+      <div class="trap-a">자원제한 환경에서 Benzylpenicillin + Chloramphenicol 조합은 여전히 WHO 대안으로 인정. <strong>Ceftriaxone 없을 때의 차선책</strong> 숙지 필요.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-icon">🦠</div>
+      <div class="trap-q">수막구균 벨트 유행 기준과 대응은?</div>
+      <div class="trap-a">주간 발생률 &gt;<strong>15/100,000</strong> → 대규모 백신 캠페인 트리거. 2–5/100,000 = 경보. WHO는 혈청형 확인 후 맞춤 백신 전략 시행.</div>
+    </div>
+  </div>
+
+  <!-- GLOBAL HEALTH PILLS -->
+  <div class="pill-title">🌐 Global Health 관점</div>
+  <div class="pills">
+    <span class="pill">수막염 벨트 → MenAfriVac 성공사례</span>
+    <span class="pill">HIV+ → Cryptococcal meningitis 감별 필수</span>
+    <span class="pill">Hib 백신 = EPI 포함 여부가 역학 결정</span>
+    <span class="pill">PCV 보급 → Sp 수막염 감소 중</span>
+    <span class="pill">자원제한 → Chloramphenicol 여전히 유효</span>
+    <span class="pill">WHO 2030 Defeat Meningitis Roadmap</span>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-note">CID-25 · Bacterial Meningitis · Ref: Oxford Trop Med 5e · WHO Meningitis Roadmap 2021</div>
+    <div style="display:flex;gap:6px">
+      <span class="nav-btn">← CID-24 Polio</span>
+      <span class="nav-btn">CID-26 Typhoid →</span>
+    </div>
+  </div>
+
+</div>
+</div>
+</body>
+</html>

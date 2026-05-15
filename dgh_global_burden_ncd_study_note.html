@@ -1,0 +1,173 @@
+<meta charset="UTF-8">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.page{width:100%;font-family:var(--font-sans);font-size:12.5px;line-height:1.55;color:var(--color-text-primary);padding:1.1rem 1.2rem 1.4rem}
+.page-header{display:flex;align-items:flex-start;justify-content:space-between;border-bottom:2px solid #27500A;padding-bottom:8px;margin-bottom:10px}
+.topic-tag{font-size:10px;font-weight:500;background:#EAF3DE;color:#27500A;padding:3px 9px;border-radius:999px;margin-bottom:4px;display:inline-block}
+.title{font-size:20px;font-weight:500;line-height:1.2}
+.subtitle{font-size:11px;color:var(--color-text-secondary);margin-top:2px}
+.badge-group{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.badge{font-size:10px;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.b-green{background:#EAF3DE;color:#27500A}.b-red{background:#FCEBEB;color:#791F1F}.b-amber{background:#FAEEDA;color:#633806}
+.stat-row{display:flex;gap:6px;margin-bottom:8px}
+.stat{flex:1;background:#EAF3DE;border-radius:var(--border-radius-md);padding:6px 8px;text-align:center}
+.stat-num{font-size:16px;font-weight:500;color:#27500A;display:block}
+.stat-lbl{font-size:10px;color:#3B6D11}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 10px}
+.card-full{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 10px;margin-bottom:8px}
+.sec-label{font-size:10px;font-weight:500;letter-spacing:.04em;color:var(--color-text-secondary);margin-bottom:5px}
+.row{display:flex;gap:5px;align-items:baseline;margin-bottom:3px}
+.dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.d-green{background:#3B6D11}.d-red{background:#E24B4A}.d-amber{background:#BA7517}.d-teal{background:#1D9E75}.d-blue{background:#378ADD}.d-gray{background:#888780}.d-purple{background:#7F77DD}
+.kw{font-weight:500}
+.tbl{width:100%;border-collapse:collapse;font-size:11px}
+.tbl th{background:#EAF3DE;color:#27500A;font-weight:500;padding:4px 6px;text-align:left;font-size:10px}
+.tbl td{padding:3.5px 6px;border-bottom:0.5px solid var(--color-border-tertiary);vertical-align:top;line-height:1.4}
+.tbl tr:last-child td{border-bottom:none}
+.pill{display:inline-block;padding:1px 7px;border-radius:999px;font-size:10px;margin:1px 2px 1px 0}
+.p-green{background:#EAF3DE;color:#27500A}.p-red{background:#FCEBEB;color:#791F1F}.p-amber{background:#FAEEDA;color:#633806}.p-teal{background:#E1F5EE;color:#085041}.p-blue{background:#E6F1FB;color:#0C447C}.p-gray{background:#F1EFE8;color:#444441}.p-purple{background:#EEEDFE;color:#26215C}
+.ncd4-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:8px}
+.nc{border-radius:var(--border-radius-md);padding:8px;text-align:center;border:0.5px solid var(--color-border-tertiary)}
+.nc1{background:#FCEBEB;border-top:3px solid #E24B4A}
+.nc2{background:#FAEEDA;border-top:3px solid #BA7517}
+.nc3{background:#E3F2FD;border-top:3px solid #378ADD}
+.nc4{background:#EEEDFE;border-top:3px solid #7F77DD}
+.nc-num{font-size:20px;font-weight:500;display:block;margin-bottom:2px}
+.nc-name{font-size:10px;font-weight:500;margin-bottom:3px}
+.nc-pct{font-size:11px}
+.exam-card{background:#FCEBEB;border:0.5px solid #F09595;border-radius:var(--border-radius-md);padding:8px 10px;margin-bottom:8px}
+.exam-label{font-size:10px;font-weight:500;color:#791F1F;margin-bottom:4px}
+.trap-card{background:#FAEEDA;border:0.5px solid #EF9F27;border-radius:var(--border-radius-md);padding:7px 10px;margin-bottom:4px}
+.trap-label{font-size:10px;font-weight:500;color:#633806;margin-bottom:2px}
+.footnote{font-size:10px;color:var(--color-text-tertiary);margin-top:8px;border-top:0.5px solid var(--color-border-tertiary);padding-top:5px}
+</style>
+<div class="page">
+  <div class="page-header">
+    <div>
+      <div class="topic-tag">NCD · 10% of KBA</div>
+      <div class="title">Global Burden of NCDs — NCD 글로벌 부담</div>
+      <div class="subtitle">NCD 역학 · WHO 목표 · 위험인자 · LMIC 이중 부담 · SDG 연계 — WHO NCD Progress Monitor 2022 · GBD 2019</div>
+    </div>
+    <div class="badge-group">
+      <span class="badge b-green">DGH KBA</span>
+      <span class="badge b-red">NCD = 전 세계 사망 74%</span>
+      <span class="badge b-amber">시험 출제빈도 ★★★</span>
+    </div>
+  </div>
+  <div class="stat-row">
+    <div class="stat"><span class="stat-num">74%</span><span class="stat-lbl">전 세계 사망 중 NCD 비율</span></div>
+    <div class="stat"><span class="stat-num">41M</span><span class="stat-lbl">NCD 연간 사망 (2019)</span></div>
+    <div class="stat"><span class="stat-num">77%</span><span class="stat-lbl">NCD 사망의 LMIC 집중</span></div>
+    <div class="stat"><span class="stat-num">1/3</span><span class="stat-lbl">NCD 사망이 70세 이전 조기 사망</span></div>
+  </div>
+
+  <div class="card-full">
+    <div class="sec-label">4대 NCD — 전 세계 NCD 사망의 80% 차지</div>
+    <div class="ncd4-grid">
+      <div class="nc nc1">
+        <span class="nc-num" style="color:#791F1F">1위</span>
+        <div class="nc-name" style="color:#791F1F">심혈관 질환</div>
+        <div class="nc-pct">NCD 사망 44%<br>연간 17.9M</div>
+      </div>
+      <div class="nc nc2">
+        <span class="nc-num" style="color:#633806">2위</span>
+        <div class="nc-name" style="color:#633806">암</div>
+        <div class="nc-pct">NCD 사망 22%<br>연간 9.3M</div>
+      </div>
+      <div class="nc nc3">
+        <span class="nc-num" style="color:#0C447C">3위</span>
+        <div class="nc-name" style="color:#0C447C">만성 호흡기질환</div>
+        <div class="nc-pct">NCD 사망 9%<br>연간 4.1M</div>
+      </div>
+      <div class="nc nc4">
+        <span class="nc-num" style="color:#26215C">4위</span>
+        <div class="nc-name" style="color:#26215C">당뇨</div>
+        <div class="nc-pct">NCD 사망 4%<br>연간 2.0M</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="sec-label">4대 공통 위험인자 — 예방의 핵심 타깃</div>
+      <div class="row"><div class="dot d-red"></div><span><span class="kw">흡연:</span> NCD 사망 원인 1위 위험인자 — 7가지 암, CVD, COPD, DM. 전 세계 8M 사망/년</span></div>
+      <div class="row"><div class="dot d-amber"></div><span><span class="kw">유해 음주:</span> 200개 이상 질병과 연관. 간경변·암·사고·폭력. 전 세계 3M 사망/년</span></div>
+      <div class="row"><div class="dot d-blue"></div><span><span class="kw">신체 활동 부족:</span> 비만·CVD·당뇨·암 위험↑. 전 세계 성인 27% 신체 활동 부족</span></div>
+      <div class="row"><div class="dot d-green"></div><span><span class="kw">불건강 식이:</span> 고염·고지방·저섬유·가공식품. LMIC 도시화로 급격히 악화</span></div>
+      <div style="margin-top:6px;padding-top:5px;border-top:0.5px solid var(--color-border-tertiary)">
+        <div class="sec-label" style="margin-bottom:3px">추가 위험인자 (LMIC 특이)</div>
+        <div class="row"><div class="dot d-purple"></div><span><span class="kw">실내 공기오염:</span> 바이오매스 연소 → COPD·폐암·CVD</span></div>
+        <div class="row"><div class="dot d-purple"></div><span><span class="kw">대기오염:</span> 도시화 → CVD·호흡기 암·COPD. 전 세계 7M 사망/년</span></div>
+        <div class="row"><div class="dot d-gray"></div><span><span class="kw">심리사회적 스트레스:</span> 분쟁·빈곤 → CVD·정신건강 NCD</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="sec-label">WHO NCD 글로벌 행동 계획 & SDG 목표</div>
+      <div class="row"><div class="dot d-green"></div><span><span class="kw">WHO 목표 (2030):</span> 30–70세 조기 사망률 1/3 감소 (SDG 3.4)</span></div>
+      <div class="row"><div class="dot d-green"></div><span><span class="kw">MPOWER (담배):</span> Monitor·Protect·Offer·Warn·Enforce·Raise — 담배 규제 6가지 정책</span></div>
+      <div class="row"><div class="dot d-green"></div><span><span class="kw">SAFER (알코올):</span> Strengthen·Access·Facilitate·Enforce·Reduce — 알코올 규제 5가지</span></div>
+      <div class="row"><div class="dot d-teal"></div><span><span class="kw">WHO Best Buys:</span> 비용효과 최고의 NCD 개입 — 담배세·알코올 가격 정책·소금 섭취 감소·신체 활동 증진</span></div>
+      <div class="row"><div class="dot d-blue"></div><span><span class="kw">WHO PEN 프로토콜:</span> 1차 의료 기반 NCD 관리 패키지 — LMIC 표준</span></div>
+      <div style="margin-top:6px;padding-top:5px;border-top:0.5px solid var(--color-border-tertiary)">
+        <div class="sec-label" style="margin-bottom:3px">LMIC 이중 부담 (Double burden)</div>
+        <div class="row"><div class="dot d-red"></div><span><span class="kw">감염병 + NCD 동시 부담:</span> HIV+CVD, TB+당뇨, 말라리아+빈혈+NCD 혼재</span></div>
+        <div class="row"><div class="dot d-red"></div><span><span class="kw">영양 이중 부담:</span> 저영양(발육 부진) + 과영양(비만) 동시 존재</span></div>
+        <div class="row"><div class="dot d-amber"></div><span><span class="kw">도시화 가속:</span> 식이 변화·신체 활동 감소 → LMIC NCD 급증 주요 원인</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-full">
+    <div class="sec-label">NCD 지표 개념 — 시험 직결 통계 개념</div>
+    <table class="tbl">
+      <thead><tr><th>지표</th><th>정의</th><th>NCD 맥락 활용</th></tr></thead>
+      <tbody>
+        <tr><td><span class="pill p-blue">DALY</span></td><td>장애보정생존년수 = YLL + YLD. 질병 부담의 종합 측정</td><td>NCD DALY — LMIC에서 감염병보다 NCD가 이미 더 높음</td></tr>
+        <tr><td><span class="pill p-green">YLL</span></td><td>조기 사망으로 인한 손실 년수</td><td>CVD·암 조기 사망이 LMIC DALY 주요 원인</td></tr>
+        <tr><td><span class="pill p-amber">YLD</span></td><td>장애로 인한 손실 년수</td><td>당뇨·정신질환·COPD — 만성 장애 부담</td></tr>
+        <tr><td><span class="pill p-red">조기 사망률</span></td><td>30–70세 CVD·암·당뇨·만성 호흡기 사망률</td><td>SDG 3.4 모니터링 지표 — WHO Progress Report</td></tr>
+        <tr><td><span class="pill p-purple">NCD 위험인자 유병률</span></td><td>고혈압·당뇨·비만·흡연율 인구 기반 측정</td><td>STEPS Survey(WHO) — LMIC NCD 감시 표준 도구</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="exam-card">
+    <div class="exam-label">시험 핵심 포인트 &amp; 자주 나오는 함정</div>
+    <div class="grid2" style="margin-bottom:0">
+      <div>
+        <div class="trap-card">
+          <div class="trap-label">함정 1 — NCD = 선진국 질병?</div>
+          <span>NCD 사망 77%가 LMIC 발생. "NCD는 고소득국 문제"는 완전히 틀림. LMIC의 조기 사망률이 오히려 더 높음 — 진단·치료 접근 격차 때문.</span>
+        </div>
+        <div class="trap-card">
+          <div class="trap-label">함정 2 — SDG 3.4 목표</div>
+          <span>SDG 3.4: 2030년까지 NCD로 인한 30–70세 조기 사망률 1/3 감소. "NCD 완전 퇴치"나 "2025년 목표"는 오답. 조기 사망률 감소가 정확한 표현.</span>
+        </div>
+      </div>
+      <div>
+        <div class="trap-card">
+          <div class="trap-label">함정 3 — WHO Best Buys</div>
+          <span>담배세·알코올 가격 정책·소금 감소·신체 활동 증진이 WHO Best Buys. "비싼 약물 치료"나 "고급 스크리닝"은 아님 — 저비용 정책 개입이 핵심.</span>
+        </div>
+        <div class="trap-card">
+          <div class="trap-label">함정 4 — 이중 부담 개념</div>
+          <span>LMIC은 감염병과 NCD를 동시에 부담 (double burden). HIV 환자의 CVD 위험↑, TB 환자의 당뇨 동반 → 통합 관리가 필요. "LMIC = 감염병만 문제"는 오답.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-full" style="margin-bottom:0">
+    <div class="sec-label">Global health 관점 핵심 메시지</div>
+    <div style="display:flex;flex-wrap:wrap;gap:4px;line-height:1.9">
+      <span class="pill p-red">NCD = 전 세계 사망 74%, LMIC 77% 집중 — "선진국 병"이 아님</span>
+      <span class="pill p-green">WHO Best Buys — 담배세·알코올가격·소금·신체활동이 가장 비용효과적</span>
+      <span class="pill p-amber">이중 부담 — 감염병+NCD 동시 대응, 통합 의료 시스템 필요</span>
+      <span class="pill p-blue">WHO PEN — 1차 의료 NCD 관리 표준화, LMIC 보건 시스템 강화</span>
+      <span class="pill p-purple">SDG 3.4 — 2030 조기 사망률 1/3 감소 목표, 현재 진행 부진</span>
+    </div>
+  </div>
+  <div class="footnote">참고: WHO NCD Progress Monitor 2022 · GBD 2019 · WHO Global Action Plan NCDs 2013–2030 · DGH Blueprint NCD Level 3</div>
+</div>

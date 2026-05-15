@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH CID-09 | MDR-TB</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&family=Roboto+Mono:wght@400;600&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Noto Sans KR',sans-serif;background:#fdf4f4;color:#2c1010;font-size:12.5px;line-height:1.55;}
+  .page{max-width:900px;margin:0 auto;padding:18px;}
+
+  /* HEADER */
+  .header{background:#791F1F;color:#fff;border-radius:10px 10px 0 0;padding:14px 20px 12px;display:flex;align-items:center;justify-content:space-between;}
+  .header-left .tag{font-family:'Roboto Mono',monospace;font-size:10px;background:rgba(255,255,255,0.18);padding:2px 8px;border-radius:20px;letter-spacing:1px;margin-bottom:5px;display:inline-block;}
+  .header-left h1{font-size:20px;font-weight:700;letter-spacing:-0.5px;}
+  .header-left h1 span{color:#f5a0a0;}
+  .header-right{text-align:right;font-size:10.5px;opacity:0.85;line-height:1.6;}
+
+  /* STATS BAR */
+  .stats-bar{background:#791F1F;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,0.15);}
+  .stat{padding:9px 12px;text-align:center;border-right:1px solid rgba(255,255,255,0.15);color:#fff;}
+  .stat:last-child{border-right:none;}
+  .stat-val{font-family:'Roboto Mono',monospace;font-size:16px;font-weight:700;color:#ffcece;display:block;}
+  .stat-lbl{font-size:9.5px;opacity:0.8;margin-top:1px;}
+
+  /* BODY */
+  .body{background:#fff;border:1px solid #e8c4c4;border-top:none;border-radius:0 0 10px 10px;padding:16px;}
+
+  /* SECTION TITLE */
+  .sec{font-size:11px;font-weight:700;color:#791F1F;letter-spacing:0.5px;text-transform:uppercase;border-left:3px solid #791F1F;padding-left:7px;margin:14px 0 8px;}
+
+  /* 2-COL GRID */
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;}
+  .card{background:#fdf4f4;border:1px solid #e8c4c4;border-radius:7px;padding:10px 12px;}
+  .card h4{font-size:11px;font-weight:700;color:#791F1F;margin-bottom:6px;}
+  .card ul{padding-left:14px;}
+  .card li{font-size:11.5px;margin-bottom:3px;}
+  .card li b{color:#791F1F;}
+
+  /* TABLE */
+  table{width:100%;border-collapse:collapse;font-size:11px;margin-bottom:10px;}
+  th{background:#791F1F;color:#fff;padding:6px 8px;text-align:left;font-weight:600;}
+  td{padding:5px 8px;border-bottom:1px solid #e8c4c4;vertical-align:top;}
+  tr:nth-child(even) td{background:#fdf4f4;}
+  td b{color:#791F1F;}
+
+  /* STEP BOX */
+  .steps{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap;}
+  .step{flex:1;min-width:130px;background:#f5dcdc;border:1px solid #e8c4c4;border-radius:7px;padding:8px 10px;}
+  .step-num{font-family:'Roboto Mono',monospace;font-size:9px;font-weight:700;color:#791F1F;background:rgba(121,31,31,0.12);display:inline-block;padding:1px 6px;border-radius:10px;margin-bottom:4px;}
+  .step h4{font-size:11px;font-weight:700;color:#791F1F;margin-bottom:3px;}
+  .step p{font-size:11px;color:#3a1515;}
+
+  /* TRAP */
+  .trap-h{background:#791F1F;color:#fff;font-size:11px;font-weight:700;padding:6px 12px;border-radius:6px 6px 0 0;letter-spacing:0.5px;}
+  .trap-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid #e8c4c4;border-radius:0 0 6px 6px;overflow:hidden;margin-bottom:10px;}
+  .trap{background:#fff;padding:9px 11px;border-right:1px solid #e8c4c4;border-bottom:1px solid #e8c4c4;}
+  .trap:nth-child(even){border-right:none;}
+  .trap:nth-last-child(-n+2){border-bottom:none;}
+  .trap-label{font-size:9.5px;font-weight:700;color:#791F1F;background:#f5dcdc;display:inline-block;padding:1px 7px;border-radius:10px;margin-bottom:4px;}
+  .trap p{font-size:11px;color:#2c1010;}
+  .trap em{color:#791F1F;font-style:normal;font-weight:700;}
+
+  /* PILLS */
+  .pills{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px;}
+  .pill{font-size:10.5px;background:#f5dcdc;border:1px solid #e8c4c4;color:#791F1F;padding:3px 10px;border-radius:20px;font-weight:600;}
+
+  /* FOOTER */
+  .footer{margin-top:10px;padding-top:8px;border-top:1px solid #e8c4c4;display:flex;align-items:center;justify-content:space-between;font-size:10px;color:#7a4040;}
+  .footer-ref{font-style:italic;}
+  .footer-nav{display:flex;gap:6px;}
+  .btn{font-size:10px;background:#791F1F;color:#fff;border:none;padding:3px 11px;border-radius:12px;cursor:pointer;font-family:inherit;}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="header-left">
+      <div class="tag">CID-09 · TUBERCULOSIS</div>
+      <h1>Multidrug-Resistant <span>Tuberculosis</span></h1>
+    </div>
+    <div class="header-right">
+      DGH KBA Blueprint 40%<br>
+      Oxford HTM 5e · WHO TB Guidelines 2022<br>
+      Rx: BPaLM regimen 2022↑
+    </div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat"><span class="stat-val">500K</span><span class="stat-lbl">연간 MDR/RR-TB 신환 (2022)</span></div>
+    <div class="stat"><span class="stat-val">63%</span><span class="stat-lbl">MDR-TB 치료 성공률 (2020)</span></div>
+    <div class="stat"><span class="stat-val">6개월</span><span class="stat-lbl">BPaLM 단기요법 목표기간</span></div>
+    <div class="stat"><span class="stat-val">XDR</span><span class="stat-lbl">FQ + 2nd-line injectable 내성</span></div>
+  </div>
+
+  <div class="body">
+
+    <div class="sec">정의 · 분류</div>
+    <div class="g2">
+      <div class="card">
+        <h4>내성 분류 (WHO 2022)</h4>
+        <ul>
+          <li><b>RR-TB:</b> Rifampicin 내성 (MDR 포함)</li>
+          <li><b>MDR-TB:</b> INH + RIF 동시 내성</li>
+          <li><b>pre-XDR-TB:</b> MDR/RR + Fluoroquinolone (FQ) 내성</li>
+          <li><b>XDR-TB:</b> pre-XDR + BDQ 또는 LZD 내성</li>
+          <li>※ 구 XDR (injectable) 정의 2021년 폐기</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>WHO Group 분류 (2022 개정)</h4>
+        <ul>
+          <li><b>Group A:</b> LFX/MFX, BDQ, LZD → <em>우선 3개 모두 포함</em></li>
+          <li><b>Group B:</b> CFZ, CS/TRD</li>
+          <li><b>Group C:</b> EMB, DLM, PZA, IMI, AMK, ETH/PTH, PAS</li>
+          <li>최소 4개 유효약물로 regimen 구성</li>
+          <li>Injectable (KM, CM)은 가급적 배제</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sec">BPaLM / BPaL 단기요법 (2022 WHO 권고 — 시험 핵심)</div>
+    <table>
+      <tr><th>Regimen</th><th>구성</th><th>기간</th><th>적응증</th></tr>
+      <tr><td><b>BPaLM</b></td><td>Bedaquiline + Pretomanid + Linezolid + Moxifloxacin</td><td>6개월</td><td>MDR/RR-TB (FQ 감수성)</td></tr>
+      <tr><td><b>BPaL</b></td><td>Bedaquiline + Pretomanid + Linezolid</td><td>6–9개월</td><td>pre-XDR / XDR-TB</td></tr>
+      <tr><td><b>구 장기요법</b></td><td>Group A+B+C 조합</td><td>18–20개월</td><td>BPaLM 불가 시 대안</td></tr>
+    </table>
+
+    <div class="sec">Bedaquiline 적응증 (Sample Q6 직결)</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">WHO 2022</div>
+        <h4>권고 적응증</h4>
+        <p>confirmed <b>MDR-TB 또는 pre-XDR TB</b> 환자 전체 (Q6 정답 D)</p>
+      </div>
+      <div class="step">
+        <div class="step-num">오답 주의</div>
+        <h4>적응증 아닌 것</h4>
+        <p>5개 2nd-line 조합 불가 시만 → 구 가이드라인. 현재는 MDR/pre-XDR 확인 시 즉시 사용 권고</p>
+      </div>
+      <div class="step">
+        <div class="step-num">부작용</div>
+        <h4>QTc 연장</h4>
+        <p>BDQ + CFZ + FQ 병용 시 QTc 모니터링 필수. 500ms 초과 시 중단 고려</p>
+      </div>
+      <div class="step">
+        <div class="step-num">기간</div>
+        <h4>BDQ 사용기간</h4>
+        <p>BPaLM/BPaL 내 6개월. 단독 연장은 pre-XDR/XDR에서 6개월 추가 가능</p>
+      </div>
+    </div>
+
+    <div class="sec">DST & 치료 결과 모니터링</div>
+    <table>
+      <tr><th>검사</th><th>시점</th><th>임상적 의미</th></tr>
+      <tr><td>Xpert MTB/RIF Ultra</td><td>초진 시</td><td>RIF 내성 신속 검출 → RR-TB 정의</td></tr>
+      <tr><td>Line Probe Assay (LPA)</td><td>초진 / RIF 내성 확인 후</td><td>INH, FQ, injectable 내성 패턴 확인</td></tr>
+      <tr><td>Liquid culture + DST</td><td>치료 시작 전 + 2개월</td><td>Group A~C 감수성 확인</td></tr>
+      <tr><td>월간 배양 음전 확인</td><td>치료 중</td><td>6개월 배양 음전 = 치료 성공 지표</td></tr>
+      <tr><td>ECG</td><td>baseline + 2주 + 월 1회</td><td>BDQ/CFZ QTc 모니터링</td></tr>
+    </table>
+
+    <div class="sec">LMIC 맥락 — 주요 도전과제</div>
+    <div class="g2">
+      <div class="card">
+        <h4>진단 접근성 문제</h4>
+        <ul>
+          <li>LPA · liquid culture: 3차 기관에만 존재</li>
+          <li>Xpert Ultra는 지역화 가능하나 카트리지 비용 부담</li>
+          <li>DST 없이 경험적 치료 → 내성 악화 위험</li>
+          <li>인도·중국·러시아·남아공이 전체 MDR-TB 절반 차지</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>치료 지원 / 순응도</h4>
+        <ul>
+          <li>DOT(직접 복약 확인): LMIC 표준, 이동 어려움 시 Video DOT</li>
+          <li>LZD 부작용(말초신경병증, 골수억제) → 저용량(600→300mg) 전환</li>
+          <li>BDQ 접근성: 글로벌 펀드 지원 국가 위주</li>
+          <li>접촉자 추적: 동거 가족 잠복결핵 검사 필수</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TRAP SECTION -->
+    <div class="trap-h">⚠ 시험 함정 4 (MDR-TB)</div>
+    <div class="trap-grid">
+      <div class="trap">
+        <div class="trap-label">함정 1 — Bedaquiline 적응증</div>
+        <p>Q6 오답: "5개 2nd-line 조합 불가 시" → 구 2013 가이드라인. <em>2022년 WHO: MDR/pre-XDR 확인 시 즉시 BPaLM 권고</em>. 반드시 D("confirmed MDR-TB or pre-XDR TB") 선택.</p>
+      </div>
+      <div class="trap">
+        <div class="trap-label">함정 2 — XDR 재정의</div>
+        <p>구 XDR = MDR + FQ + injectable 내성. <em>2021년 WHO 개정: pre-XDR = MDR+FQ, XDR = pre-XDR+BDQ or LZD</em>. Injectable 내성은 더 이상 XDR 기준 아님.</p>
+      </div>
+      <div class="trap">
+        <div class="trap-label">함정 3 — BPaLM vs BPaL 혼동</div>
+        <p>BPaLM은 FQ 감수성 MDR-TB. BPaL(M 없이)은 FQ 내성인 <em>pre-XDR/XDR</em>. 시나리오에서 FQ 내성 여부 먼저 확인.</p>
+      </div>
+      <div class="trap">
+        <div class="trap-label">함정 4 — QTc & Drug combo</div>
+        <p>BDQ + CFZ 병용 자체가 QTc 연장 시너지. <em>500ms 초과 → 원인약 중단</em>. "BDQ 독성 없음" 선지는 함정. ECG 모니터링은 필수이지 선택 아님.</p>
+      </div>
+    </div>
+
+    <div class="sec">Global Health 관점</div>
+    <div class="pills">
+      <span class="pill">🌍 WHO End TB Strategy — MDR-TB 치료 성공률 75% 목표</span>
+      <span class="pill">💊 BPaLM: 18개월→6개월 단축, 비용 절감, LMIC 게임체인저</span>
+      <span class="pill">🧬 AMR 관점: 부적절한 처방이 MDR 주요 원인</span>
+      <span class="pill">🏥 글로벌 펀드·UNITAID: BDQ 접근성 지원</span>
+      <span class="pill">📊 High-burden 30개국: 인도·중국·러시아·남아공·인도네시아 중심</span>
+    </div>
+
+    <div class="footer">
+      <div class="footer-ref">Ref: WHO TB Guidelines 2022 | Oxford HTM 5e Ch.3 | Sample Q6</div>
+      <div class="footer-nav">
+        <button class="btn">← CID-08 TB Mgmt</button>
+        <button class="btn">CID-10 TB/HIV →</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

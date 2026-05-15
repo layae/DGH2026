@@ -1,0 +1,164 @@
+<meta charset="UTF-8">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+.w{padding:1rem 0.5rem;max-width:700px;}
+.hdr{background:#27500A;border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;}
+.hdr-l .tag{font-size:11px;color:#97C459;letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px;}
+.hdr-l h1{font-size:18px;font-weight:500;color:#EAF3DE;line-height:1.3;}
+.hdr-r{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.bdg{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:500;}
+.bg1{background:#3B6D11;color:#EAF3DE;}
+.bg2{background:#173404;color:#C0DD97;}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:1rem;}
+.st{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.75rem .875rem;}
+.st-l{font-size:11px;color:var(--color-text-secondary);margin-bottom:4px;line-height:1.3;}
+.st-v{font-size:18px;font-weight:500;color:#3B6D11;}
+.st-s{font-size:11px;color:var(--color-text-secondary);margin-top:2px;}
+.card{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.125rem;margin-bottom:1rem;}
+.card h3{font-size:13px;font-weight:500;color:#27500A;margin-bottom:.5rem;display:flex;align-items:center;gap:6px;}
+.card h3 i{font-size:15px;}
+.card p{font-size:12.5px;color:var(--color-text-primary);line-height:1.6;}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:1rem;}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:.5rem 0;}
+.tw{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:12px;}
+thead th{background:#27500A;color:#EAF3DE;font-weight:500;padding:6px 8px;text-align:left;}
+tbody td{padding:5px 8px;border-bottom:.5px solid var(--color-border-tertiary);color:var(--color-text-primary);vertical-align:top;line-height:1.5;}
+tbody tr:last-child td{border-bottom:none;}
+.trap-h{font-size:13px;font-weight:500;color:#791F1F;margin-bottom:.5rem;display:flex;align-items:center;gap:5px;}
+.tg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:1rem;}
+.trap{background:#FCEBEB;border-left:3px solid #A32D2D;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:.6rem .75rem;}
+.trap-q{font-size:12px;font-weight:500;color:#791F1F;margin-bottom:3px;}
+.trap-a{font-size:11.5px;color:#501313;line-height:1.5;}
+.gbox{background:#EAF3DE;border:.5px solid #97C459;border-radius:var(--border-radius-md);padding:.6rem .875rem;margin-bottom:.75rem;}
+.gbox p{font-size:12px;color:#173404;line-height:1.6;}
+.gh-h{font-size:12px;font-weight:500;color:var(--color-text-secondary);margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em;}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:.75rem;}
+.pill{font-size:11.5px;padding:3px 10px;border-radius:20px;border:.5px solid var(--color-border-tertiary);color:var(--color-text-secondary);}
+.footer{display:flex;align-items:center;justify-content:space-between;margin-top:.5rem;}
+.fn{font-size:11px;color:var(--color-text-secondary);}
+.btn{font-size:12px;padding:5px 14px;cursor:pointer;border-radius:var(--border-radius-md);border:.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-primary);}
+.divider{border:none;border-top:.5px solid var(--color-border-tertiary);margin:.75rem 0;}
+.barrier-box{border-radius:var(--border-radius-md);padding:.6rem .75rem;font-size:12px;line-height:1.5;}
+.b1{background:#FCEBEB;border:.5px solid #F09595;color:#501313;}
+.b2{background:#FAEEDA;border:.5px solid #FAC775;color:#412402;}
+.b3{background:#EEEDFE;border:.5px solid #AFA9EC;color:#26215C;}
+.b-t{font-weight:500;font-size:12.5px;margin-bottom:3px;}
+</style>
+<div class="w">
+  <div class="hdr">
+    <div class="hdr-l">
+      <div class="tag">Global Public Health · Policy 3/5</div>
+      <h1>Access to Diagnostics &amp; Medicines<br><span style="font-size:14px;color:#97C459;">의약품·진단 접근성 · TRIPS · 필수의약품</span></h1>
+    </div>
+    <div class="hdr-r">
+      <span class="bdg bg1">Global Public Health</span>
+      <span class="bdg bg2">GPH 20%</span>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="st"><div class="st-l">접근 불가 인구</div><div class="st-v">2B명</div><div class="st-s">필수의약품 접근 불가</div></div>
+    <div class="st"><div class="st-l">R&D 투자 불균형</div><div class="st-v">10/90</div><div class="st-s">연구비 10%만 LMIC 질환</div></div>
+    <div class="st"><div class="st-l">TRIPS 유연성</div><div class="st-v">2001년</div><div class="st-s">도하선언 — 공중보건 우선</div></div>
+    <div class="st"><div class="st-l">WHO EML 등재 약물</div><div class="st-v">502개</div><div class="st-s">2023년 제23판 기준</div></div>
+  </div>
+
+  <div class="card">
+    <h3><i class="ti ti-barrier-block" aria-hidden="true"></i>접근성 장벽 3대 축</h3>
+    <div class="g3">
+      <div class="barrier-box b1">
+        <div class="b-t">가용성 (Availability)</div>
+        · 공급망 부재<br>
+        · 냉장 유통망(cold chain) 부족<br>
+        · 제조 역량 LMIC 부족<br>
+        · 약물 위조·불량품
+      </div>
+      <div class="barrier-box b2">
+        <div class="b-t">접근 가능성 (Affordability)</div>
+        · 특허 독점 → 고가<br>
+        · OOP(본인부담) 높음<br>
+        · UHC 미비<br>
+        · 제네릭 허용 여부
+      </div>
+      <div class="barrier-box b3">
+        <div class="b-t">적절성 (Appropriateness)</div>
+        · 용량 형태 (소아용 없음)<br>
+        · 언어·문해력 장벽<br>
+        · 문화적 수용성<br>
+        · 진단 역량 없으면 무의미
+      </div>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <h3><i class="ti ti-gavel" aria-hidden="true"></i>TRIPS 협정 & 도하선언</h3>
+      <p>
+        <strong>TRIPS (1995):</strong> WTO 무역관련 지적재산권 협정. 의약품 특허 20년 보호 의무.<br><br>
+        <strong>도하선언 (2001):</strong> 공중보건 위기 시 TRIPS 유연성 허용:<br>
+        · <strong>강제실시권(Compulsory Licensing):</strong> 특허권자 동의 없이 제네릭 생산 허용<br>
+        · <strong>병행수입(Parallel Import):</strong> 저렴한 국가에서 수입<br>
+        · <strong>최빈국 면제:</strong> LDC는 의약품 특허 의무 면제 (2033년까지 연장)<br><br>
+        <strong>실제 사례:</strong> 브라질(ARV), 인도(제네릭 생산 허브), 태국(Efavirenz 강제실시)
+      </p>
+    </div>
+    <div class="card">
+      <h3><i class="ti ti-microscope" aria-hidden="true"></i>진단 접근성 특수 과제</h3>
+      <p>
+        <strong>10/90 Gap:</strong> 진단 R&D도 동일 문제<br><br>
+        <strong>LMIC 진단 현실:</strong><br>
+        · TB: GeneXpert 비용 장벽 → 객담 도말이 현실<br>
+        · HIV: RDT(신속검사) = 게임체인저<br>
+        · 말라리아: RDT 확산으로 현미경 의존 감소<br><br>
+        <strong>ASSURED 기준 (이상적 진단):</strong><br>
+        Affordable · Sensitive · Specific · User-friendly · Rapid · Equipment-free · Delivered to those who need it<br><br>
+        <strong>FIND:</strong> 진단 접근성 전담 글로벌 기구
+      </p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:1rem;">
+    <h3><i class="ti ti-arrows-exchange" aria-hidden="true"></i>혁신적 접근성 메커니즘</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>메커니즘</th><th>내용</th><th>사례</th></tr></thead>
+        <tbody>
+          <tr><td>Tiered Pricing (차등가격)</td><td>소득 수준별 차등 가격 책정</td><td>ARV, HPV 백신</td></tr>
+          <tr><td>Pooled Procurement (공동구매)</td><td>여러 국가 합산 구매로 가격 협상력</td><td>PAHO Revolving Fund</td></tr>
+          <tr><td>Voluntary Licensing (자발적 허가)</td><td>제약사 자발적 제네릭 허용</td><td>MPP (의약품 특허풀)</td></tr>
+          <tr><td>Push Funding</td><td>R&D 직접 지원 (성과 무관)</td><td>BARDA, CEPI</td></tr>
+          <tr><td>Pull Funding</td><td>개발 성공 시 보상 보장</td><td>AMC (선구매약정)</td></tr>
+          <tr><td>Open Source</td><td>특허 공개 → 누구나 생산 가능</td><td>COVID-19 일부 백신 기술</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="gbox">
+    <p><strong>MPP (Medicines Patent Pool):</strong> UNITAID 지원, 제약사 특허를 자발적으로 허가받아 제네릭 생산업체에 재허가. HIV ARV, DAA(C형간염), TB 약 등. 가격 대폭 인하 성과. DGH 시험에서 접근성 메커니즘 문제 출제 시 자주 등장.</p>
+  </div>
+
+  <div class="trap-h"><i class="ti ti-alert-triangle" aria-hidden="true"></i>시험 함정 4개</div>
+  <div class="tg">
+    <div class="trap"><div class="trap-q">강제실시권 = TRIPS 위반?</div><div class="trap-a">합법. 도하선언(2001)이 공중보건 위기 시 TRIPS 유연성 명확화. 강제실시권은 TRIPS 31조에 이미 존재. 도하선언이 이를 공중보건 우선 해석으로 확인.</div></div>
+    <div class="trap"><div class="trap-q">제네릭 = 효능 열등?</div><div class="trap-a">생물학적 동등성(bioequivalence) 입증 제네릭은 오리지널과 동등. 품질 문제는 규제 역량 부족 국가에서의 불량품 문제이지 제네릭 자체의 문제가 아님.</div></div>
+    <div class="trap"><div class="trap-q">10/90 Gap = 치료제 수량의 불균형?</div><div class="trap-a">수량이 아닌 R&D 투자의 불균형. 전 세계 의약품 연구비의 90%가 선진국 질환에 집중, 10%만 LMIC 인구가 겪는 질환에 투자.</div></div>
+    <div class="trap"><div class="trap-q">ASSURED 기준 = WHO 공식 가이드라인?</div><div class="trap-a">WHO가 제시한 이상적 LMIC 진단 기준 프레임워크. 공식 가이드라인이라기보다는 진단 개발 방향성 제시 도구. 시험에서 각 글자 의미 확인.</div></div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="gh-h">Global Health 관점</div>
+  <div class="pills">
+    <span class="pill">도하선언 2001 = 공중보건 > 특허권</span>
+    <span class="pill">MPP = 자발적 허가로 접근성 확대</span>
+    <span class="pill">ASSURED = LMIC 진단 이상 기준</span>
+    <span class="pill">10/90 Gap = R&D 불균형의 핵심 표현</span>
+    <span class="pill">AMC = 폐렴구균 백신 가격 혁신 사례</span>
+  </div>
+  <div class="footer">
+    <span class="fn">Source: TRIPS Agreement · Doha Declaration 2001 · WHO EML 2023 · MPP Annual Report</span>
+    <button class="btn" onclick="sendPrompt('다음 Global Public Health 토픽 계속 만들어줘')">다음 토픽 →</button>
+  </div>
+</div>

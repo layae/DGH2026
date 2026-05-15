@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH CID 06 · TB: Epidemiology</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap');
+  :root { --hdr:#791F1F; --hdr2:#9B2C2C; --bg:#fdf4f4; --border:#e8c4c4; --accent:#f5dcdc; --accent2:#fce8e8; --text:#2d1515; --muted:#7a4040; --white:#ffffff; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Noto Sans KR',sans-serif; background:var(--bg); color:var(--text); font-size:11.5px; line-height:1.55; padding:18px; max-width:900px; margin:0 auto; }
+  .header { background:linear-gradient(135deg,var(--hdr) 0%,var(--hdr2) 60%,#7B2020 100%); color:var(--white); border-radius:10px 10px 0 0; padding:14px 20px 12px; display:flex; justify-content:space-between; align-items:flex-start; }
+  .header-left .tag { font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:2px; opacity:0.75; text-transform:uppercase; margin-bottom:4px; }
+  .header-left h1 { font-family:'Crimson Pro',serif; font-size:22px; font-weight:700; }
+  .header-left .subtitle { font-size:10.5px; opacity:0.8; margin-top:2px; }
+  .header-right { text-align:right; font-family:'JetBrains Mono',monospace; font-size:9px; opacity:0.7; line-height:1.6; }
+  .stats-bar { background:var(--hdr); display:grid; grid-template-columns:repeat(4,1fr); border-left:3px solid var(--hdr2); border-right:3px solid var(--hdr2); }
+  .stat { padding:8px 12px; color:var(--white); border-right:1px solid rgba(255,255,255,0.15); text-align:center; }
+  .stat:last-child { border-right:none; }
+  .stat-val { font-family:'Crimson Pro',serif; font-size:20px; font-weight:700; display:block; line-height:1.1; }
+  .stat-lbl { font-size:9px; opacity:0.78; letter-spacing:0.5px; }
+  .body-wrap { border:1.5px solid var(--border); border-top:none; border-radius:0 0 10px 10px; padding:14px 16px 12px; background:var(--white); }
+  .sec-title { font-family:'Crimson Pro',serif; font-size:13px; font-weight:700; color:var(--hdr); border-bottom:1.5px solid var(--border); padding-bottom:3px; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.8px; }
+  .g2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px; }
+  .g3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:10px; }
+  .card { background:var(--bg); border:1px solid var(--border); border-radius:7px; padding:9px 11px; }
+  .card-title { font-size:10px; font-weight:700; color:var(--hdr); text-transform:uppercase; letter-spacing:0.6px; margin-bottom:5px; padding-bottom:3px; border-bottom:1px solid var(--border); }
+  .card ul { padding-left:13px; }
+  .card li { margin-bottom:2px; font-size:11px; }
+  .card li strong { color:var(--hdr); }
+  table { width:100%; border-collapse:collapse; margin-bottom:10px; font-size:10.5px; }
+  th { background:var(--hdr); color:var(--white); padding:5px 8px; text-align:left; font-size:10px; font-weight:600; }
+  td { padding:4px 8px; border-bottom:1px solid var(--border); vertical-align:top; }
+  tr:nth-child(even) td { background:var(--accent2); }
+  .badge { display:inline-block; padding:1px 6px; border-radius:10px; font-size:9px; font-weight:700; font-family:'JetBrains Mono',monospace; }
+  .badge-red { background:#fee2e2; color:#991b1b; }
+  .badge-green { background:#d1fae5; color:#065f46; }
+  .badge-yellow { background:#fef3c7; color:#92400e; }
+  .trap-h { background:linear-gradient(90deg,var(--hdr) 0%,var(--hdr2) 100%); color:var(--white); padding:5px 12px; border-radius:5px 5px 0 0; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-top:10px; }
+  .trap-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; border:1.5px solid var(--border); border-top:none; border-radius:0 0 7px 7px; overflow:hidden; margin-bottom:10px; }
+  .trap { padding:8px 11px; border-right:1px solid var(--border); border-bottom:1px solid var(--border); background:var(--white); position:relative; }
+  .trap:nth-child(even) { border-right:none; }
+  .trap:nth-child(3),.trap:nth-child(4) { border-bottom:none; }
+  .trap-num { font-family:'Crimson Pro',serif; font-size:22px; font-weight:700; color:var(--accent); position:absolute; top:4px; right:8px; }
+  .trap-q { font-size:10px; font-weight:700; color:var(--hdr); margin-bottom:3px; padding-right:20px; }
+  .trap-a { font-size:10.5px; }
+  .trap-a strong { color:var(--hdr); }
+  .pills { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:10px; }
+  .pill { background:var(--accent); border:1px solid var(--border); color:var(--hdr); border-radius:20px; padding:3px 10px; font-size:10px; font-weight:600; }
+  .pill-dark { background:var(--hdr); color:var(--white); border-color:var(--hdr); }
+  .highlight { background:#fff3cd; padding:1px 4px; border-radius:3px; font-weight:700; }
+  .red { color:#991b1b; font-weight:700; }
+  .footer { background:var(--accent); border:1px solid var(--border); border-radius:6px; padding:7px 12px; display:flex; justify-content:space-between; align-items:center; margin-top:8px; flex-wrap:wrap; gap:5px; }
+  .footer-note { font-size:10px; color:var(--muted); }
+  .footer-btns { display:flex; gap:6px; }
+  .footer-btn { background:var(--hdr); color:var(--white); border:none; border-radius:4px; padding:4px 10px; font-size:9.5px; font-weight:700; cursor:pointer; font-family:'JetBrains Mono',monospace; }
+
+  /* Country ranking */
+  .ranking { display:flex; gap:0; margin-bottom:10px; border-radius:7px; overflow:hidden; border:1.5px solid var(--border); }
+  .rank-item { flex:1; padding:7px 6px; text-align:center; border-right:1px solid var(--border); background:var(--white); }
+  .rank-item:last-child { border-right:none; }
+  .rank-n { font-family:'Crimson Pro',serif; font-size:16px; font-weight:700; color:var(--hdr); }
+  .rank-country { font-size:10px; font-weight:700; margin:1px 0; }
+  .rank-val { font-size:9px; color:var(--muted); }
+
+  /* Risk factors grid */
+  .rf-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; margin-bottom:10px; }
+  .rf-item { background:var(--bg); border:1px solid var(--border); border-radius:6px; padding:7px 8px; text-align:center; }
+  .rf-icon { font-size:18px; }
+  .rf-label { font-size:9.5px; font-weight:700; color:var(--hdr); margin-top:2px; }
+  .rf-rr { font-size:9px; color:var(--muted); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <div class="tag">DGH KBA · CID-06 · Clinical Infectious Diseases · Tuberculosis</div>
+    <h1>TB: Epidemiology</h1>
+    <div class="subtitle">글로벌 부담 · 고위험 국가 · 위험인자 · LTBI · WHO End TB 전략</div>
+  </div>
+  <div class="header-right">RCP Diploma in Global Health<br>Blueprint 40% — CID<br>Oxford HTM 5e · WHO GTB Report 2023</div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat"><span class="stat-val">7.5M</span><span class="stat-lbl">2022년 신규 TB 환자 (역대 최고)</span></div>
+  <div class="stat"><span class="stat-val">1.32M</span><span class="stat-lbl">2022년 TB 사망 (HIV 제외)</span></div>
+  <div class="stat"><span class="stat-val">30개국</span><span class="stat-lbl">High-burden countries (전세계 87%)</span></div>
+  <div class="stat"><span class="stat-val">10%</span><span class="stat-lbl">LTBI → Active TB 평생 전환율</span></div>
+</div>
+
+<div class="body-wrap">
+
+  <!-- HIGH BURDEN COUNTRIES -->
+  <div class="sec-title">🌍 High-Burden 국가 TOP 8 (WHO 2023)</div>
+  <div class="ranking">
+    <div class="rank-item"><div class="rank-n">🥇</div><div class="rank-country">인도</div><div class="rank-val">~27% 세계 TB</div></div>
+    <div class="rank-item"><div class="rank-n">🥈</div><div class="rank-country">인도네시아</div><div class="rank-val">~10%</div></div>
+    <div class="rank-item"><div class="rank-n">🥉</div><div class="rank-country">중국</div><div class="rank-val">~7%</div></div>
+    <div class="rank-item"><div class="rank-n">4</div><div class="rank-country">필리핀</div><div class="rank-val">~7%</div></div>
+    <div class="rank-item"><div class="rank-n">5</div><div class="rank-country">파키스탄</div><div class="rank-val">~6%</div></div>
+    <div class="rank-item"><div class="rank-n">6</div><div class="rank-country">나이지리아</div><div class="rank-val">~5%</div></div>
+    <div class="rank-item"><div class="rank-n">7</div><div class="rank-country">방글라데시</div><div class="rank-val">~4%</div></div>
+    <div class="rank-item"><div class="rank-n">8</div><div class="rank-country">남아프리카</div><div class="rank-val">~3%</div></div>
+  </div>
+
+  <!-- TRANSMISSION & RISK -->
+  <div class="sec-title">⚠️ 위험인자 — 상대위험도</div>
+  <div class="rf-grid">
+    <div class="rf-item">
+      <div class="rf-icon">🦠</div>
+      <div class="rf-label">HIV 감염</div>
+      <div class="rf-rr">RR 20–30× (가장 강한 위험인자)</div>
+    </div>
+    <div class="rf-item">
+      <div class="rf-icon">🩺</div>
+      <div class="rf-label">Silicosis</div>
+      <div class="rf-rr">RR 30× (광부)</div>
+    </div>
+    <div class="rf-item">
+      <div class="rf-icon">💉</div>
+      <div class="rf-label">IVDU / 알코올</div>
+      <div class="rf-rr">RR 10–15×</div>
+    </div>
+    <div class="rf-item">
+      <div class="rf-icon">🏥</div>
+      <div class="rf-label">Diabetes</div>
+      <div class="rf-rr">RR 2–3× (전 세계 부담↑)</div>
+    </div>
+    <div class="rf-item">
+      <div class="rf-icon">💊</div>
+      <div class="rf-label">TNF-α 차단제</div>
+      <div class="rf-rr">RR 5–25× (LTBI 재활성)</div>
+    </div>
+    <div class="rf-item">
+      <div class="rf-icon">🚬</div>
+      <div class="rf-label">흡연</div>
+      <div class="rf-rr">RR 2–3×</div>
+    </div>
+    <div class="rf-item">
+      <div class="rf-icon">🏚️</div>
+      <div class="rf-label">과밀 거주</div>
+      <div class="rf-rr">사회적 결정 인자</div>
+    </div>
+    <div class="rf-item">
+      <div class="rf-icon">👶</div>
+      <div class="rf-label">&lt;5세 아동</div>
+      <div class="rf-rr">진행성 Primary TB</div>
+    </div>
+  </div>
+
+  <!-- TRANSMISSION & LTBI -->
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">전파 역학</div>
+      <ul>
+        <li><strong>비말핵(droplet nuclei)</strong>: 1–5μm, 수 시간 공중 부유</li>
+        <li>도말 양성 폐 TB 환자 → 연간 10–15명 감염</li>
+        <li>감염 → <span class="highlight">약 10%</span>만 Active TB 발병 (평생)</li>
+        <li>잠복기: 감염 후 2년 내 발병 위험 최대</li>
+        <li>HIV+ → 감염 후 발병 위험 10%/년</li>
+        <li>bovine TB (M. bovis): 저온살균 우유 전파</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">LTBI (잠복 결핵 감염)</div>
+      <ul>
+        <li>전 세계 인구 <span class="highlight">약 1/4</span> LTBI 추정</li>
+        <li>증상 없음, 전파력 없음</li>
+        <li><strong>LTBI → Active TB 전환:</strong> 평생 10% (면역 정상)</li>
+        <li>HIV+: 연간 10% → 면역 저하 시 급증</li>
+        <li>LTBI 치료: 3HP (INH+Rifapentine 12주) or 6H</li>
+        <li>우선 치료 대상: HIV+, 접촉자, TNF-α 사용 예정</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- END TB STRATEGY -->
+  <div class="sec-title">🎯 WHO End TB 전략 (2015~2030)</div>
+  <table>
+    <tr>
+      <th>목표</th>
+      <th>2025 중간목표</th>
+      <th>2030 최종목표</th>
+      <th>현황 (2022)</th>
+    </tr>
+    <tr>
+      <td><strong>TB 발생률 감소</strong></td>
+      <td>50% ↓ (2015 기준)</td>
+      <td>80% ↓</td>
+      <td><span class="badge badge-red">~18% 감소 — 목표 미달</span></td>
+    </tr>
+    <tr>
+      <td><strong>TB 사망률 감소</strong></td>
+      <td>75% ↓</td>
+      <td>90% ↓</td>
+      <td><span class="badge badge-red">~40% 감소</span></td>
+    </tr>
+    <tr>
+      <td><strong>재앙적 지출 가구 비율</strong></td>
+      <td>0%</td>
+      <td>0%</td>
+      <td><span class="badge badge-red">여전히 ~50% 가구</span></td>
+    </tr>
+  </table>
+
+  <!-- COVID IMPACT -->
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">COVID-19 pandemic 영향</div>
+      <ul>
+        <li>2020~2021: TB 발견율 <span class="red">급감</span> (진단·치료 중단)</li>
+        <li>2022: 신규 환자 7.5M — 역대 최고 (반등)</li>
+        <li>건강 시스템 붕괴 → TB 진단 공백 2~3년</li>
+        <li>DOTS 서비스 중단 → 치료 완료율 감소</li>
+        <li>장기적: MDR-TB 증가 우려</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">사회적 결정인자 & SDG 연계</div>
+      <ul>
+        <li><strong>TB는 빈곤의 질병</strong> — 과밀, 영양불량, 흡연</li>
+        <li>SDG 1(빈곤퇴치) 달성 없이 End TB 불가</li>
+        <li>UHC (SDG 3.8) → TB 진단·치료 접근성</li>
+        <li>영양 개선 → TB 예방 효과 (WHO)</li>
+        <li>광산, 교도소, 난민캠프 = 고위험 환경</li>
+        <li>이주노동자 → 국경 간 TB 전파</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="trap-h">⚠️ 시험 함정 TRAP × 4</div>
+  <div class="trap-grid">
+    <div class="trap">
+      <div class="trap-num">01</div>
+      <div class="trap-q">TB 최고 부담 국가 = 아프리카?</div>
+      <div class="trap-a"><strong>NO.</strong> 절대적 환자 수 기준 <strong>인도 1위 (27%)</strong>. 아프리카는 인구 대비 발생률이 높음. 국가별 부담 vs 지역별 발생률 구별 필수.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-num">02</div>
+      <div class="trap-q">TB 감염 = 발병?</div>
+      <div class="trap-a"><strong>NO.</strong> 감염 후 <strong>평생 10%</strong>만 발병 (면역 정상). HIV+ 환자는 <strong>연간 10%</strong> — 근본적으로 다름. LTBI vs Active TB 구별은 시험 기본.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-num">03</div>
+      <div class="trap-q">Diabetes → TB 위험인자로 무시해도 됨?</div>
+      <div class="trap-a"><strong>증가하는 중요 인자.</strong> DM은 TB RR 2~3배. 전 세계 DM 증가로 TB-DM 공존 급증. 특히 아시아 (인도, 중국) 문제. DGH 시험에서 점점 출제 빈도 증가.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-num">04</div>
+      <div class="trap-q">LTBI 치료 = 모든 감염자에게?</div>
+      <div class="trap-a"><strong>NO.</strong> 우선 대상: HIV+, 최근 접촉자, TNF-α 치료 예정, 5세 미만 아동, 장기 이식 예정자. 자원 제한 환경에서 <strong>우선순위 선택적 치료</strong>가 WHO 권고.</div>
+    </div>
+  </div>
+
+  <div class="sec-title">🌍 Global Health 관점</div>
+  <div class="pills">
+    <span class="pill pill-dark">Stop TB Partnership</span>
+    <span class="pill">End TB 2030 — 목표 크게 미달 중</span>
+    <span class="pill">COVID-19 → TB 후퇴 2~3년</span>
+    <span class="pill">GFATM 재원 → 진단·치료</span>
+    <span class="pill">사회적 결정인자 개입 없이 퇴치 불가</span>
+    <span class="pill">Universal Drug Susceptibility Testing</span>
+    <span class="pill">이주민·난민 — TB 고위험 특별 대응</span>
+  </div>
+
+  <div class="footer">
+    <div class="footer-note">📚 Oxford HTM 5e Ch.5 · WHO Global TB Report 2023 · Stop TB Partnership · RCP DGH KBA Blueprint</div>
+    <div class="footer-btns">
+      <button class="footer-btn" onclick="window.print()">🖨 PRINT</button>
+      <button class="footer-btn" style="background:var(--hdr2)">→ CID-07: TB Diagnosis</button>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

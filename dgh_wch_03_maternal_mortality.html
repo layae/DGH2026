@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH | Maternal Mortality</title>
+<style>
+  :root {
+    --primary: #993556;
+    --primary-dark: #7a2844;
+    --primary-light: #c4607e;
+    --bg: #fdf4f7;
+    --card-bg: #ffffff;
+    --border: #e8c4d4;
+    --text: #2d1a22;
+    --text-muted: #7a5060;
+    --accent: #d4507a;
+    --tag-bg: #f5e0e8;
+    --stat-bg: #fce9ef;
+    --trap-bg: #fff5f7;
+    --trap-border: #f0b8cc;
+    --green: #2e7d32;
+    --orange: #e65100;
+    --blue: #1565c0;
+    --red: #c62828;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.55;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+  .header {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%);
+    color: white;
+    padding: 18px 22px 14px;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .header-left h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.3px; }
+  .header-left .subtitle { font-size: 11.5px; opacity: 0.85; margin-top: 3px; }
+  .domain-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.22);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .weight-tag { display: block; font-size: 11px; opacity: 0.8; }
+
+  .stats-bar {
+    background: var(--stat-bg);
+    border: 1px solid var(--border);
+    border-top: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .stat-item {
+    padding: 10px 12px;
+    border-right: 1px solid var(--border);
+    text-align: center;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num { font-size: 18px; font-weight: 700; color: var(--primary); display: block; line-height: 1.2; }
+  .stat-label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.4px; }
+
+  .content {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-top: none;
+    padding: 16px;
+  }
+  .section-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--primary);
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+    margin-top: 14px;
+  }
+  .section-title:first-child { margin-top: 0; }
+
+  .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+  .g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+
+  .card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 12px;
+  }
+  .card-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .card ul { padding-left: 14px; }
+  .card li { font-size: 12px; margin-bottom: 3px; }
+  .card p { font-size: 12px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 11.5px; margin-bottom: 10px; }
+  th {
+    background: var(--primary);
+    color: white;
+    padding: 6px 8px;
+    text-align: left;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  td { padding: 5px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--stat-bg); }
+  tr:last-child td { border-bottom: none; }
+
+  .badge { display: inline-block; border-radius: 3px; padding: 1px 5px; font-size: 10px; font-weight: 700; }
+  .b-green { background: #e8f5e9; color: var(--green); }
+  .b-orange { background: #fff3e0; color: var(--orange); }
+  .b-red { background: #ffebee; color: var(--red); }
+  .b-blue { background: #e3f2fd; color: var(--blue); }
+  .b-pink { background: var(--tag-bg); color: var(--primary-dark); }
+
+  .trap-header {
+    background: #6d1b35;
+    color: white;
+    padding: 7px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-radius: 5px 5px 0 0;
+    margin-top: 14px;
+  }
+  .trap-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--trap-border);
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    overflow: hidden;
+  }
+  .trap-card {
+    background: var(--trap-bg);
+    padding: 9px 12px;
+    border-right: 1px solid var(--trap-border);
+    border-bottom: 1px solid var(--trap-border);
+  }
+  .trap-card:nth-child(even) { border-right: none; }
+  .trap-card:nth-child(3), .trap-card:nth-child(4) { border-bottom: none; }
+  .trap-q { font-size: 10.5px; font-weight: 700; color: #6d1b35; margin-bottom: 4px; }
+  .trap-a { font-size: 11.5px; color: var(--text); }
+  .trap-a strong { color: var(--primary-dark); }
+
+  .pills { display: flex; flex-wrap: wrap; gap: 5px; margin: 10px 0; }
+  .pill {
+    background: var(--tag-bg);
+    color: var(--primary-dark);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 10.5px;
+    font-weight: 600;
+  }
+  .pill.green { background: #e8f5e9; color: #1b5e20; border-color: #a5d6a7; }
+  .pill.blue { background: #e3f2fd; color: #0d47a1; border-color: #90caf9; }
+  .pill.orange { background: #fff3e0; color: #bf360c; border-color: #ffcc80; }
+
+  .footer {
+    background: var(--primary-dark);
+    color: rgba(255,255,255,0.85);
+    padding: 9px 16px;
+    font-size: 10.5px;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer a {
+    color: #f9d4e2;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 10px;
+    border: 1px solid rgba(249,212,226,0.4);
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-left: 5px;
+  }
+
+  .hl-pink { color: var(--primary); font-weight: 700; }
+  .hl-green { color: var(--green); font-weight: 700; }
+  .hl-orange { color: var(--orange); font-weight: 700; }
+  .hl-red { color: var(--red); font-weight: 700; }
+  .hl-blue { color: var(--blue); font-weight: 700; }
+
+  .note-box {
+    background: #fff9e6;
+    border-left: 3px solid #f9a825;
+    padding: 7px 10px;
+    font-size: 11.5px;
+    margin: 8px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .info-box {
+    background: #e8f5e9;
+    border-left: 3px solid #43a047;
+    padding: 7px 10px;
+    font-size: 11.5px;
+    margin: 8px 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* 원인 순위 강조 bar */
+  .cause-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 5px;
+    font-size: 12px;
+  }
+  .cause-rank {
+    min-width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    font-weight: 700;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cause-fill {
+    height: 14px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--primary-light), var(--primary));
+    opacity: 0.75;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <h1>💔 Maternal Mortality</html>
+    <div class="subtitle">모성사망 정의·원인·지표·감소 전략 — LMIC 맥락</div>
+  </div>
+  <div class="header-right">
+    <span class="domain-tag">WOMEN'S & CHILD HEALTH</span>
+    <span class="weight-tag">KBA 20% 영역 · Women's Health</span>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat-item">
+    <span class="stat-num">~287,000</span>
+    <span class="stat-label">연간 모성사망 (전 세계, WHO 2020)</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">94%</span>
+    <span class="stat-label">사망의 LMIC 집중 비율</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">70%</span>
+    <span class="stat-label">SSA 모성사망 비율 (세계 전체)</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">SDG 3.1</span>
+    <span class="stat-label">목표: MMR &lt;70/100,000 by 2030</span>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- 정의 -->
+  <div class="section-title">WHO 정의 — 시험에 자주 나오는 구분</div>
+  <table>
+    <tr>
+      <th>용어</th>
+      <th>정의</th>
+      <th>기간</th>
+    </tr>
+    <tr>
+      <td><strong>Maternal death</strong></td>
+      <td>임신 중 또는 임신 종료 후 42일 이내 사망 — 임신 관련 또는 악화된 원인 (우발 사고 제외)</td>
+      <td>임신 중 ~ 42일</td>
+    </tr>
+    <tr>
+      <td><strong>Late maternal death</strong></td>
+      <td>임신 종료 후 42일~1년 이내 사망 (직접·간접 원인)</td>
+      <td>42일~1년</td>
+    </tr>
+    <tr>
+      <td><strong>Direct cause</strong></td>
+      <td>임신 자체의 합병증 — PPH, 자간증, 패혈증, 산과적 출혈, 불안전 낙태</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><strong>Indirect cause</strong></td>
+      <td>임신 전부터 있던 질환이 임신으로 악화 — 심장병, 말라리아, HIV, 빈혈</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><strong>MMR</strong> (Maternal Mortality Ratio)</td>
+      <td>모성사망 수 / 생존 출생아 10만 명당 — 가장 중요한 모성 지표</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><strong>MMRate</strong> (Maternal Mortality Rate)</td>
+      <td>모성사망 수 / 가임기 여성 10만 명당 — MMR과 혼동 주의</td>
+      <td>-</td>
+    </tr>
+  </table>
+  <div class="note-box">💡 <strong>MMR vs MMRate 구분 필수:</strong> MMR = 분모가 <strong>생존 출생아</strong> / MMRate = 분모가 <strong>가임기 여성</strong>. 시험에서 혼용 출제됨.</div>
+
+  <!-- 원인 Top 5 -->
+  <div class="section-title">직접 원인 순위 (Direct Causes) — 전 세계</div>
+  <div class="g2">
+    <div>
+      <div class="cause-bar"><span class="cause-rank">1</span><div class="cause-fill" style="width:90px"></div><span><strong>PPH (산후출혈)</strong> — <span class="hl-red">~27%</span>, 전 세계 1위</span></div>
+      <div class="cause-bar"><span class="cause-rank">2</span><div class="cause-fill" style="width:70px"></div><span><strong>고혈압 질환</strong> (자간증/전자간증) — ~14%</span></div>
+      <div class="cause-bar"><span class="cause-rank">3</span><div class="cause-fill" style="width:55px"></div><span><strong>패혈증</strong> — ~11%</span></div>
+      <div class="cause-bar"><span class="cause-rank">4</span><div class="cause-fill" style="width:45px"></div><span><strong>불안전 낙태</strong> — ~8%</span></div>
+      <div class="cause-bar"><span class="cause-rank">5</span><div class="cause-fill" style="width:35px"></div><span><strong>분만 지연/난산</strong> — ~5%</span></div>
+    </div>
+    <div class="card">
+      <div class="card-title">🌍 간접 원인 (Indirect) — LMIC 중요</div>
+      <ul>
+        <li><strong>빈혈</strong> — SSA에서 모성사망 간접 기여 1위</li>
+        <li><strong>말라리아</strong> — 임신 중 중증 말라리아, 저체중아</li>
+        <li><strong>HIV/AIDS</strong> — 면역저하로 산욕기 패혈증↑</li>
+        <li><strong>심장 질환</strong> — 고소득국 간접 원인 1위</li>
+        <li><strong>결핵</strong> — HIV 동반 시 모성사망↑↑</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 3 delays 모델 -->
+  <div class="section-title">Three Delays Model — 모성사망 분석 핵심 프레임워크</div>
+  <div class="g3">
+    <div class="card">
+      <div class="card-title">⏱ Delay 1 — 결정 지연</div>
+      <p><strong>의료 추구 결정 지연</strong><br><br>
+      원인: 증상 인식 부족, 문화적 장벽, 남편/가족 허락 필요, 비용 우려<br><br>
+      개입: 지역사회 교육, 전통 조산사(TBA) 훈련, 여성 임파워먼트</p>
+    </div>
+    <div class="card">
+      <div class="card-title">⏱ Delay 2 — 이송 지연</div>
+      <p><strong>의료시설 도달 지연</strong><br><br>
+      원인: 거리, 교통 부재, 도로 불량, 비용<br><br>
+      개입: 지역사회 교통 계획, 대기 가옥(maternity waiting home), 구급차 네트워크</p>
+    </div>
+    <div class="card">
+      <div class="card-title">⏱ Delay 3 — 치료 지연</div>
+      <p><strong>적절한 치료 수령 지연</strong><br><br>
+      원인: 인력 부족, 혈액 없음, 수술실 미가동, 약품 부족<br><br>
+      개입: EmONC 강화, 혈액은행, 24시간 수술팀</p>
+    </div>
+  </div>
+  <div class="info-box">🟢 <strong>Three Delays → 개입 연결:</strong> 시험에서 "어떤 개입이 가장 적절한가"를 묻는 문제는 Three Delays 어느 단계인지 파악하면 정답이 보임.</div>
+
+  <!-- EmONC -->
+  <div class="section-title">Emergency Obstetric & Newborn Care (EmONC)</div>
+  <table>
+    <tr>
+      <th>수준</th>
+      <th>시설</th>
+      <th>핵심 기능 (Signal Functions)</th>
+    </tr>
+    <tr>
+      <td><span class="badge b-blue">BEmONC</span><br>기본</td>
+      <td>1차 의료시설<br>보건소</td>
+      <td>
+        ① 옥시토신 투여 ② 항경련제(MgSO₄) 투여 ③ 항생제 투여<br>
+        ④ 분만 보조 (진공흡입/겸자) ⑤ 태반 수기 제거<br>
+        ⑥ 소파술/MVA ⑦ 신생아 소생술
+      </td>
+    </tr>
+    <tr>
+      <td><span class="badge b-red">CEmONC</span><br>포괄</td>
+      <td>지역 병원<br>의뢰 센터</td>
+      <td>BEmONC 전체 + <strong>⑧ 제왕절개 ⑨ 수혈</strong></td>
+    </tr>
+  </table>
+  <div class="note-box">💡 <strong>BEmONC 7 signal functions</strong> 암기 필수. 옥시토신·MgSO₄·항생제 3가지가 약물 기반 핵심. 제왕절개·수혈은 CEmONC에서만.</div>
+
+  <!-- PPH 관리 -->
+  <div class="section-title">PPH 예방 및 처치 — LMIC 프로토콜</div>
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">💉 AMTSL (분만 3기 적극 관리)</div>
+      <ul>
+        <li><strong>옥시토신 10IU IM</strong> — 태아 만출 직후 (1st line)</li>
+        <li>옥시토신 없을 때: misoprostol 600mcg PO (지역사회)</li>
+        <li>자궁 마사지 — 옥시토신 병용 시</li>
+        <li>탯줄 조기 견인 — 자궁 수축 확인 후</li>
+        <li><strong>Heat-stable carbetocin</strong> — 냉장 불필요, LMIC 이상적</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🚨 PPH 치료 단계</div>
+      <ul>
+        <li>1st: 옥시토신 IV + 자궁 마사지</li>
+        <li>2nd: <strong>Tranexamic acid (TXA)</strong> — 출혈 3시간 이내 1g IV (WOMAN trial)</li>
+        <li>3rd: Ergometrine, carboprost, misoprostol 직장 투여</li>
+        <li>자궁 압박 봉합 (B-Lynch), 자궁 탐폰 거즈</li>
+        <li>최후: 수혈, 자궁 절제술</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 자간증 MgSO4 -->
+  <div class="section-title">자간전증/자간증 처치 — MgSO₄ 핵심</div>
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">💊 MgSO₄ 프로토콜</div>
+      <ul>
+        <li><strong>경련 예방/치료 1st line</strong> — 디아제팜보다 우월 (Magpie trial)</li>
+        <li>Loading: 4g IV 천천히 (20분) + 10g IM (양 둔부 5g씩)</li>
+        <li>유지: 1–2g/hr IV 또는 5g IM q4h</li>
+        <li>독성 모니터: <span class="hl-red">무릎 반사 소실 → 호흡 억제 → 심정지</span></li>
+        <li>해독제: <strong>Calcium gluconate 1g IV</strong></li>
+        <li>소변량 &lt;25mL/hr → 중단 고려</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">📊 중증 고혈압 처치</div>
+      <ul>
+        <li>목표: 수축기 &lt;160, 이완기 &lt;110 mmHg</li>
+        <li>1st line (IV): <strong>Hydralazine</strong> 5mg IV 또는 <strong>Labetalol</strong> 20mg IV</li>
+        <li>경구: <strong>Nifedipine</strong> 10mg (즉방형)</li>
+        <li>ACE inhibitor — <span class="hl-red">임신 중 금기</span></li>
+        <li>최종 치료: <strong>분만</strong> (태반 제거)</li>
+        <li>MgSO₄ + 강압제 병용이 표준</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- TRAPS -->
+  <div class="trap-header">⚠️ 시험 함정 4개 — 오답 패턴 주의</div>
+  <div class="trap-grid">
+    <div class="trap-card">
+      <div class="trap-q">🪤 함정 1: MMR 분모 = 가임기 여성 인구</div>
+      <div class="trap-a">MMR(Maternal Mortality <em>Ratio</em>) 분모는 <strong>생존 출생아 10만 명당</strong>.<br>분모가 여성 인구수인 것은 MMRate(모성사망률). 시험에서 혼동 유발 단골.</div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-q">🪤 함정 2: 자간증 → 디아제팜 먼저</div>
+      <div class="trap-a">Magpie trial: MgSO₄가 디아제팜보다 경련 재발, 모성사망 모두 감소.<br><strong>자간증 경련 = MgSO₄ 1st line</strong>. 디아제팜은 MgSO₄ 없을 때만.</div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-q">🪤 함정 3: PPH에 Tranexamic acid는 늦게 투여해도 됨</div>
+      <div class="trap-a">WOMAN trial: TXA는 <strong>출혈 발생 후 3시간 이내</strong> 투여해야 사망 감소 효과.<br>3시간 초과 투여 시 효과 없음 — 즉각 투여가 핵심.</div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-q">🪤 함정 4: 간접 원인 = 모성사망 기여 없음</div>
+      <div class="trap-a">간접 원인(말라리아·HIV·빈혈·심장병)도 모성사망 정의에 포함.<br><strong>SSA에서는 빈혈·말라리아가 간접 모성사망의 주요 원인</strong>. 무시하면 오답.</div>
+    </div>
+  </div>
+
+  <!-- Global Health Pills -->
+  <div class="section-title">Global Health 관점</div>
+  <div class="pills">
+    <span class="pill">SDG 3.1 MMR &lt;70/100,000 by 2030</span>
+    <span class="pill green">Three Delays Model</span>
+    <span class="pill blue">EmONC (BEmONC / CEmONC)</span>
+    <span class="pill">Skilled Birth Attendant (SBA)</span>
+    <span class="pill orange">Maternity Waiting Home</span>
+    <span class="pill">AMTSL — 분만 3기 적극 관리</span>
+    <span class="pill green">Magpie Trial (MgSO₄)</span>
+    <span class="pill blue">WOMAN Trial (TXA)</span>
+    <span class="pill">불안전 낙태 — 예방 가능 모성사망</span>
+  </div>
+
+</div>
+
+<div class="footer">
+  <span>📚 Ref: WHO Trends in Maternal Mortality 2023 · Magpie Trial 2002 · WOMAN Trial 2017</span>
+  <div>
+    <a href="#">← Family Planning</a>
+    <a href="#">PMTCT →</a>
+  </div>
+</div>
+
+</body>
+</html>

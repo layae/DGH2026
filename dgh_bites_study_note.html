@@ -1,0 +1,218 @@
+<meta charset="UTF-8">
+
+<h2 class="sr-only">DGH KBA - NCD: Bites 스터디 노트 (A4 한 장 분량)</h2>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.page{width:100%;font-family:var(--font-sans);font-size:12.5px;line-height:1.55;color:var(--color-text-primary);padding:1.1rem 1.2rem 1.4rem}
+.page-header{display:flex;align-items:flex-start;justify-content:space-between;border-bottom:2px solid #993C1D;padding-bottom:8px;margin-bottom:10px}
+.topic-tag{font-size:10px;font-weight:500;background:#FAECE7;color:#712B13;padding:3px 9px;border-radius:999px;margin-bottom:4px;display:inline-block}
+.title{font-size:20px;font-weight:500;color:var(--color-text-primary);line-height:1.2}
+.subtitle{font-size:11px;color:var(--color-text-secondary);margin-top:2px}
+.badge-group{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.badge{font-size:10px;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.b-coral{background:#FAECE7;color:#712B13}
+.b-red{background:#FCEBEB;color:#791F1F}
+.b-amber{background:#FAEEDA;color:#633806}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 10px}
+.card-full{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 10px;margin-bottom:8px}
+.sec-label{font-size:10px;font-weight:500;letter-spacing:.04em;color:var(--color-text-secondary);margin-bottom:5px;display:flex;align-items:center;gap:5px}
+.sec-label i{font-size:13px}
+.row{display:flex;gap:5px;align-items:baseline;margin-bottom:3px}
+.dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.d-coral{background:#D85A30}.d-red{background:#E24B4A}.d-amber{background:#BA7517}.d-teal{background:#1D9E75}.d-blue{background:#378ADD}.d-gray{background:#888780}
+.kw{font-weight:500}
+.stat-row{display:flex;gap:6px;margin-bottom:8px}
+.stat{flex:1;background:#FAECE7;border-radius:var(--border-radius-md);padding:6px 8px;text-align:center}
+.stat-num{font-size:16px;font-weight:500;color:#712B13;display:block}
+.stat-lbl{font-size:10px;color:#993C1D}
+.animal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:8px}
+.animal-card{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:7px 9px;background:var(--color-background-primary)}
+.animal-name{font-size:11px;font-weight:500;margin-bottom:4px;display:flex;align-items:center;gap:5px}
+.a-snake{color:#712B13;border-top:2px solid #D85A30}
+.a-dog{color:#0C447C;border-top:2px solid #378ADD}
+.a-croc{color:#085041;border-top:2px solid #1D9E75}
+.a-monkey{color:#633806;border-top:2px solid #BA7517}
+.a-spider{color:#791F1F;border-top:2px solid #E24B4A}
+.a-rat{color:#5F5E5A;border-top:2px solid #888780}
+.step-row{display:flex;gap:6px;margin-bottom:4px;align-items:flex-start}
+.step-num{width:18px;height:18px;border-radius:50%;background:#993C1D;color:#FAECE7;font-size:10px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.exam-card{background:#FCEBEB;border:0.5px solid #F09595;border-radius:var(--border-radius-md);padding:8px 10px;margin-bottom:8px}
+.exam-label{font-size:10px;font-weight:500;color:#791F1F;margin-bottom:4px;display:flex;align-items:center;gap:5px}
+.trap-card{background:#FAEEDA;border:0.5px solid #EF9F27;border-radius:var(--border-radius-md);padding:7px 10px;margin-bottom:4px}
+.trap-label{font-size:10px;font-weight:500;color:#633806;margin-bottom:2px}
+.pill{display:inline-block;padding:1px 7px;border-radius:999px;font-size:10px;margin:1px 2px 1px 0}
+.p-coral{background:#FAECE7;color:#712B13}
+.p-red{background:#FCEBEB;color:#791F1F}
+.p-amber{background:#FAEEDA;color:#633806}
+.p-teal{background:#E1F5EE;color:#085041}
+.p-blue{background:#E6F1FB;color:#0C447C}
+.p-gray{background:#F1EFE8;color:#444441}
+.tbl{width:100%;border-collapse:collapse;font-size:11px}
+.tbl th{background:#FAECE7;color:#712B13;font-weight:500;padding:4px 6px;text-align:left;font-size:10px}
+.tbl td{padding:3px 6px;border-bottom:0.5px solid var(--color-border-tertiary);vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.footnote{font-size:10px;color:var(--color-text-tertiary);margin-top:8px;border-top:0.5px solid var(--color-border-tertiary);padding-top:5px}
+</style>
+
+<div class="page">
+
+  <div class="page-header">
+    <div>
+      <div class="topic-tag">NCD · 10% of KBA</div>
+      <div class="title">Bites — 교상</div>
+      <div class="subtitle">뱀·개·동물 교상의 글로벌 접근 — Oxford Handbook Tropical Medicine 5e · WHO Snakebite Guidelines 2022</div>
+    </div>
+    <div class="badge-group">
+      <span class="badge b-coral">DGH KBA</span>
+      <span class="badge b-red">뱀교상 = NTD 지정 (WHO 2017)</span>
+      <span class="badge b-amber">시험 출제빈도 ★★★</span>
+    </div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat"><span class="stat-num">5.4M</span><span class="stat-lbl">연간 뱀에 물리는 사례</span></div>
+    <div class="stat"><span class="stat-num">138K</span><span class="stat-lbl">뱀교상 연간 사망</span></div>
+    <div class="stat"><span class="stat-num">400K</span><span class="stat-lbl">뱀교상 후 영구장애</span></div>
+    <div class="stat"><span class="stat-num">59K</span><span class="stat-lbl">광견병 연간 사망 (개 교상)</span></div>
+  </div>
+
+  <div class="animal-grid">
+    <div class="animal-card a-snake">
+      <div class="animal-name"><i class="ti ti-needle" aria-hidden="true" style="font-size:13px"></i>뱀 (Snakebite)</div>
+      <div class="row"><div class="dot d-coral"></div><span><span class="kw">독 분류:</span> 세포독(Viper), 신경독(Elapid), 용혈독</span></div>
+      <div class="row"><div class="dot d-coral"></div><span><span class="kw">고위험 지역:</span> 사하라이남 아프리카, 남아시아, 중남미</span></div>
+      <div class="row"><div class="dot d-coral"></div><span><span class="kw">주 피해자:</span> 농촌 농업 종사자, 맨발 이동</span></div>
+    </div>
+    <div class="animal-card a-dog">
+      <div class="animal-name"><i class="ti ti-paw" aria-hidden="true" style="font-size:13px"></i>개 (Dog bite)</div>
+      <div class="row"><div class="dot d-blue"></div><span><span class="kw">광견병:</span> 전 세계 전파의 99%가 개 교상</span></div>
+      <div class="row"><div class="dot d-blue"></div><span><span class="kw">세균:</span> Pasteurella, Capnocytophaga, Streptococcus</span></div>
+      <div class="row"><div class="dot d-blue"></div><span><span class="kw">고위험:</span> 소아, 면역저하자, 안면부 교상</span></div>
+    </div>
+    <div class="animal-card a-monkey">
+      <div class="animal-name"><i class="ti ti-paw" aria-hidden="true" style="font-size:13px"></i>원숭이 (Monkey bite)</div>
+      <div class="row"><div class="dot d-amber"></div><span><span class="kw">Herpes B virus:</span> Macaque 교상 → 치명적 뇌염 가능</span></div>
+      <div class="row"><div class="dot d-amber"></div><span><span class="kw">광견병:</span> 원숭이도 매개 가능 (드물지만)</span></div>
+      <div class="row"><div class="dot d-amber"></div><span><span class="kw">즉시:</span> 상처 세척 + 항바이러스 (Valaciclovir)</span></div>
+    </div>
+    <div class="animal-card a-croc">
+      <div class="animal-name"><i class="ti ti-ripple" aria-hidden="true" style="font-size:13px"></i>악어·대형동물</div>
+      <div class="row"><div class="dot d-teal"></div><span><span class="kw">감염:</span> 구강 내 그람음성균 다수 — 광범위 항생제 필수</span></div>
+      <div class="row"><div class="dot d-teal"></div><span><span class="kw">외상:</span> 조직 파쇄, 근막구획증후군 주의</span></div>
+      <div class="row"><div class="dot d-teal"></div><span>Aeromonas hydrophila 특히 주의</span></div>
+    </div>
+    <div class="animal-card a-rat">
+      <div class="animal-name"><i class="ti ti-bug" aria-hidden="true" style="font-size:13px"></i>쥐 (Rat bite)</div>
+      <div class="row"><div class="dot d-gray"></div><span><span class="kw">Rat-bite fever:</span> Streptobacillus moniliformis (서방), Spirillum minus (동아시아)</span></div>
+      <div class="row"><div class="dot d-gray"></div><span><span class="kw">증상:</span> 발열 + 관절통 + 발진 (교상 후 수일~수주)</span></div>
+      <div class="row"><div class="dot d-gray"></div><span>치료: Penicillin G or Doxycycline</span></div>
+    </div>
+    <div class="animal-card a-spider">
+      <div class="animal-name"><i class="ti ti-bug" aria-hidden="true" style="font-size:13px"></i>거미·전갈</div>
+      <div class="row"><div class="dot d-red"></div><span><span class="kw">Black widow:</span> 신경독 → 근육경련·고혈압 (항독소 가용시)</span></div>
+      <div class="row"><div class="dot d-red"></div><span><span class="kw">Brown recluse:</span> 세포독 → 괴사성 피부병변</span></div>
+      <div class="row"><div class="dot d-red"></div><span><span class="kw">전갈:</span> 소아에서 심혈관·신경독 → 치명적 가능</span></div>
+    </div>
+  </div>
+
+  <div class="card-full">
+    <div class="sec-label"><i class="ti ti-table" aria-hidden="true"></i>뱀독 유형별 임상 양상 & 응급 처치 — 가장 중요한 구분</div>
+    <table class="tbl">
+      <thead>
+        <tr><th>독 유형</th><th>대표 뱀</th><th>주요 임상</th><th>응급 처치</th><th>항독소</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="pill p-coral">세포독 Cytotoxic</span></td>
+          <td>Viper (살모사류), Puff adder</td>
+          <td>국소 부종·괴사, DIC, 출혈, 신부전</td>
+          <td>부목 고정, 모니터링, 항독소</td>
+          <td>Polyvalent antivenom</td>
+        </tr>
+        <tr>
+          <td><span class="pill p-red">신경독 Neurotoxic</span></td>
+          <td>Cobra, Mamba, Krait, Sea snake</td>
+          <td>하행성 마비, 안검하수, 호흡마비 (ptosis → 호흡부전)</td>
+          <td>기도 확보 최우선, 항독소, 기계환기</td>
+          <td>종별 특이 antivenom</td>
+        </tr>
+        <tr>
+          <td><span class="pill p-amber">용혈독 Haemotoxic</span></td>
+          <td>Boomslang, Vine snake</td>
+          <td>소비성 응고장애, 전신 출혈</td>
+          <td>항독소, FFP/혈액제제</td>
+          <td>단일 특이 antivenom</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="sec-label"><i class="ti ti-arrows-transfer-up" aria-hidden="true"></i>뱀교상 현장 처치 — 해서는 안 될 것 (시험 핵심)</div>
+      <div class="row"><div class="dot d-red"></div><span><span class="kw">금지 ①:</span> 절개·흡입 (incision &amp; suction) → 감염·출혈 악화</span></div>
+      <div class="row"><div class="dot d-red"></div><span><span class="kw">금지 ②:</span> 지혈대 (tourniquet) → 허혈·괴사 악화</span></div>
+      <div class="row"><div class="dot d-red"></div><span><span class="kw">금지 ③:</span> 전통 치료제·허브 도포 → 지연 + 감염</span></div>
+      <div class="row"><div class="dot d-red"></div><span><span class="kw">금지 ④:</span> 냉찜질 → 조직 손상 악화</span></div>
+      <div class="row"><div class="dot d-teal"></div><span><span class="kw">해야 할 것:</span> 부목 고정 (심장 아래), 안정, 빠른 이송, 뱀 종류 기억</span></div>
+      <div class="row"><div class="dot d-teal"></div><span><span class="kw">Pressure immobilisation:</span> 신경독(Elapid)에서만 — 세포독에는 금기</span></div>
+    </div>
+    <div class="card">
+      <div class="sec-label"><i class="ti ti-vaccine" aria-hidden="true"></i>개 교상 → 광견병 예방 프로토콜</div>
+      <div class="step-row"><div class="step-num">1</div><span><span class="kw">즉시 세척:</span> 흐르는 물 + 비누 15분 이상 → 바이러스 부하 감소 (가장 중요)</span></div>
+      <div class="step-row"><div class="step-num">2</div><span><span class="kw">상처 분류:</span> Category I (접촉만) / II (피부 찰과) / III (심부 교상·점막)</span></div>
+      <div class="step-row"><div class="step-num">3</div><span><span class="kw">Cat III:</span> RIG (Rabies Immunoglobulin) 상처 주변 침윤 + PEP 4회 접종 (0, 3, 7, 14일)</span></div>
+      <div class="step-row"><div class="step-num">4</div><span><span class="kw">Cat II:</span> PEP만 (RIG 불필요). Cat I: 처치 불필요</span></div>
+      <div class="step-row"><div class="step-num">5</div><span><span class="kw">항생제:</span> Amoxicillin-clavulanate 1차 선택 (Pasteurella 커버)</span></div>
+      <div class="step-row"><div class="step-num">6</div><span><span class="kw">파상풍:</span> 예방접종력 확인 → Td 또는 TIG 투여</span></div>
+    </div>
+  </div>
+
+  <div class="exam-card">
+    <div class="exam-label"><i class="ti ti-alert-triangle" aria-hidden="true"></i>시험 핵심 포인트 & 자주 나오는 함정</div>
+    <div class="grid2" style="margin-bottom:0">
+      <div>
+        <div class="trap-card">
+          <div class="trap-label">함정 ①  항독소 적응증</div>
+          <span>국소 부종만으로도 Viper 항독소 투여 가능. "전신 증상 없으면 불필요"는 틀림. 진행성 부종·응고장애·신경 증상 → 즉시 투여.</span>
+        </div>
+        <div class="trap-card">
+          <div class="trap-label">함정 ②  Pressure bandage</div>
+          <span>Elapid(신경독)에서만 적용. Viper(세포독)에 적용 시 국소 허혈 악화 → 금기. 뱀 종류 구분이 처치 핵심.</span>
+        </div>
+      </div>
+      <div>
+        <div class="trap-card">
+          <div class="trap-label">함정 ③  RIG 투여 위치</div>
+          <span>RIG는 반드시 상처 부위 주변 침윤 투여 (wound infiltration) — 백신과 다른 부위 근육주사 병행. 둔부 단독 근주는 오답.</span>
+        </div>
+        <div class="trap-card">
+          <div class="trap-label">함정 ④  광견병 증상 후 PEP</div>
+          <span>광견병 증상 발현 후 PEP는 무의미 — 사망률 거의 100%. 예방 시기가 핵심. "증상 초기 PEP 효과 있다"는 틀림.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-full" style="margin-bottom:0">
+    <div class="sec-label"><i class="ti ti-bulb" aria-hidden="true"></i>Global health 관점 핵심 메시지</div>
+    <div style="display:flex;flex-wrap:wrap;gap:4px;line-height:1.9">
+      <span class="pill p-coral">뱀교상 = WHO NTD (2017) — LMIC 농촌 빈곤층 주요 사망 원인</span>
+      <span class="pill p-red">항독소 접근성 위기 — 아프리카 생산 중단 이후 공급 부족 심각</span>
+      <span class="pill p-teal">광견병 — 개 백신접종률 70% 이상이면 인간 전파 차단 가능</span>
+      <span class="pill p-amber">LMIC 전통 치료 의존 → 병원 도착 지연이 사망률 핵심 요인</span>
+      <span class="pill p-blue">Rat-bite fever — 도시 빈곤층, 쥐 많은 환경 거주자 위험</span>
+      <span class="pill p-gray">예방: 신발 착용, 수면 중 모기장, 야간 조명, 개 예방접종 캠페인</span>
+    </div>
+  </div>
+
+  <div class="footnote">
+    참고: WHO Guidelines for the Management of Snakebites 2nd ed. 2022 · WHO Rabies PEP guidelines 2018 · Oxford Handbook of Tropical Medicine 5e · DGH Blueprint NCD Level 3<br>
+    <button style="margin-top:5px;font-size:11px;padding:3px 10px" onclick="sendPrompt('DGH KBA Bites (뱀교상·개교상) 관련 모의문제 5개 풀고 싶어. Best-of-5 SBA 형식으로 만들어줘')">Bites 모의문제 풀기 ↗</button>
+    <button style="margin-top:5px;font-size:11px;padding:3px 10px;margin-left:6px" onclick="sendPrompt('DGH KBA: Non-communicable disease > Stings 스터디 노트 A4 한 장 분량으로 만들어줘')">다음: Stings 노트 ↗</button>
+    <button style="margin-top:5px;font-size:11px;padding:3px 10px;margin-left:6px" onclick="sendPrompt('DGH KBA: Non-communicable disease > Poisonings 스터디 노트 A4 한 장 분량으로 만들어줘')">다음: Poisonings 노트 ↗</button>
+  </div>
+
+</div>

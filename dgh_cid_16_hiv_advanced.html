@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH CID 16 | Advanced HIV</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#fdf4f4;font-family:'Crimson Pro',serif;color:#2d1a1a;font-size:14px;line-height:1.5;}
+  .page{max-width:900px;margin:0 auto;padding:18px;}
+  .header{background:#791F1F;color:#fff;border-radius:10px 10px 0 0;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;}
+  .header-left .tag{font-family:'JetBrains Mono',monospace;font-size:10px;background:rgba(255,255,255,0.2);padding:2px 8px;border-radius:20px;letter-spacing:1px;}
+  .header-left h1{font-size:20px;font-weight:700;margin-top:4px;}
+  .header-left h1 span{font-size:12px;font-weight:400;opacity:0.8;margin-left:8px;}
+  .header-right{font-family:'JetBrains Mono',monospace;font-size:10px;text-align:right;opacity:0.8;}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);border:1.5px solid #e8c4c4;border-top:none;}
+  .stat{background:#f5dcdc;padding:10px 12px;text-align:center;border-right:1px solid #e8c4c4;}
+  .stat:last-child{border-right:none;}
+  .stat-val{font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:700;color:#791F1F;}
+  .stat-lab{font-size:10px;color:#5a2a2a;margin-top:1px;}
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;}
+  .card{background:#fff;border:1.5px solid #e8c4c4;border-radius:8px;padding:12px;}
+  .card h3{font-size:12px;font-weight:700;color:#791F1F;text-transform:uppercase;letter-spacing:0.8px;border-bottom:1px solid #f5dcdc;padding-bottom:5px;margin-bottom:8px;}
+  .card li{font-size:12.5px;color:#3a1a1a;line-height:1.65;margin-bottom:2px;}
+  .card ul{padding-left:14px;}
+  .tbl-wrap{margin-top:10px;}
+  table{width:100%;border-collapse:collapse;font-size:11.5px;}
+  thead th{background:#791F1F;color:#fff;padding:7px 10px;text-align:left;font-weight:600;}
+  tbody tr:nth-child(odd){background:#fdf4f4;}
+  tbody tr:nth-child(even){background:#f5dcdc;}
+  tbody td{padding:5px 9px;border-bottom:1px solid #e8c4c4;vertical-align:top;}
+  td strong{color:#791F1F;}
+  .trap-h{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:#791F1F;letter-spacing:1px;margin:12px 0 6px;padding:4px 10px;background:#f5dcdc;border-left:4px solid #791F1F;border-radius:0 4px 4px 0;}
+  .trap-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .trap{background:#fff;border:1.5px solid #e8c4c4;border-radius:6px;padding:9px 11px 9px 28px;font-size:12px;position:relative;}
+  .trap::before{content:"⚠";position:absolute;left:9px;top:8px;font-size:13px;color:#791F1F;}
+  .pills{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;}
+  .pill{background:#791F1F;color:#fff;font-size:10px;padding:3px 10px;border-radius:20px;font-family:'JetBrains Mono',monospace;}
+  .pill.light{background:#f5dcdc;color:#791F1F;}
+  .footer{margin-top:10px;padding:8px 12px;background:#f5dcdc;border:1px solid #e8c4c4;border-radius:6px;font-size:11px;color:#5a2a2a;display:flex;justify-content:space-between;align-items:center;}
+  .btn{font-size:10px;padding:3px 10px;border-radius:20px;border:1.5px solid #791F1F;color:#791F1F;background:#fff;font-family:'JetBrains Mono',monospace;}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="header-left">
+      <div class="tag">CID · 16/34 · HIV</div>
+      <h1>Advanced HIV <span>중증 HIV 질환 관리</span></h1>
+    </div>
+    <div class="header-right">DGH KBA · 창 B<br>Blueprint 40%</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-val">CD4&lt;200</div><div class="stat-lab">Advanced HIV 정의</div></div>
+    <div class="stat"><div class="stat-val">CrAg LAM</div><div class="stat-lab">입원 전 선별 핵심</div></div>
+    <div class="stat"><div class="stat-val">4~6주</div><div class="stat-lab">Crypto 후 ART 지연</div></div>
+    <div class="stat"><div class="stat-val">WHO</div><div class="stat-lab">AHD Package 2021</div></div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <h3>Advanced HIV Disease 정의 & 패키지</h3>
+      <ul>
+        <li><strong>정의</strong>: CD4&lt;200 cells/μL <em>또는</em> WHO Stage 3/4 (성인/청소년)</li>
+        <li>5세 미만 소아: 모두 Advanced로 간주</li>
+        <li><strong>WHO AHD Package (2021)</strong>:</li>
+        <li>① CrAg 혈청검사 → 선제적 Fluconazole</li>
+        <li>② TB LAM 소변검사 (CD4&lt;200)</li>
+        <li>③ TMP-SMX 예방투여</li>
+        <li>④ Fluconazole 예방 (CD4&lt;100)</li>
+        <li>⑤ ART 즉시 또는 적절한 시기에 시작</li>
+        <li>이 패키지 적용 시 12개월 사망률 유의하게 감소</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Cryptococcal Meningitis — 심화</h3>
+      <ul>
+        <li>SSA 성인 HIV 관련 수막염의 50~70%</li>
+        <li><strong>진단</strong>: CSF India ink, CrAg (혈청·CSF), Culture</li>
+        <li>혈청 CrAg (+) → 무증상자도 선제 Fluconazole</li>
+        <li><strong>유도기</strong>: AmB B 0.7~1mg/kg/일 + Flucytosine 25mg/kg QID × 2주</li>
+        <li>Flucytosine 없을 경우: AmB + Fluconazole 800mg</li>
+        <li><strong>공고기</strong>: Fluconazole 400mg × 8주</li>
+        <li><strong>유지기</strong>: Fluconazole 200mg (CD4&gt;200 유지 최소 1년)</li>
+        <li>두개내압 관리: 연속 LP (ICP &gt;25cmH₂O 시); Mannitol 무효</li>
+        <li>ART는 항진균 치료 4~6주 후 시작</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Stage 4 질환 (AIDS-defining)</th><th>주요 특징</th><th>LMIC 접근법</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Extrapulmonary TB</strong></td><td>결핵성 수막염, 복막염, 림프절, 심낭염</td><td>Stage 3(폐TB)와 구별; Xpert 이용</td></tr>
+        <tr><td><strong>PCP</strong></td><td>CD4&lt;200; 아급성 호흡곤란; LDH↑</td><td>β-D-glucan 없으면 임상 진단 후 치료</td></tr>
+        <tr><td><strong>Toxoplasmosis</strong></td><td>다발 환상증강, 의식변화, 발작</td><td>자원 제한 시 경험적 치료 후 반응 평가</td></tr>
+        <tr><td><strong>CMV</strong></td><td>망막염, 식도염, 대장염 (CD4&lt;50)</td><td>안저검사 접근 제한 → 증상 기반 진단</td></tr>
+        <tr><td><strong>Kaposi Sarcoma</strong></td><td>HHV-8; 피부·점막·내장 보라빛 병변</td><td>ART 단독으로 일부 관해; 진행 시 화학요법</td></tr>
+        <tr><td><strong>HIV Wasting Syndrome</strong></td><td>&gt;10% 체중감소 + 발열/설사 30일 이상</td><td>TB·기타 OI 배제 우선</td></tr>
+        <tr><td><strong>HIV Encephalopathy</strong></td><td>인지기능저하, 운동장애, 행동변화</td><td>CSF HIV RNA↑; ART로 부분 회복</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="trap-h">⚠ EXAM TRAPS × 4</div>
+  <div class="trap-grid">
+    <div class="trap"><strong>샘플 Q9 직결</strong>: "Advanced HIV와 가장 관련 있는 것?" → Extrapulmonary TB (Stage 4). Oral candidiasis=Stage 3, Molluscum=Stage 2/3, Weight loss&lt;10%=Stage 2. Extrapulmonary만 Stage 4.</div>
+    <div class="trap"><strong>CrAg 혈청 양성 = 즉시 LP 고려</strong>. 증상 없어도 잠복 뇌수막염 가능 → LP로 CNS 침범 확인 후 치료 강도 결정. 혈청 CrAg만 보고 Fluconazole만 주면 수막염 놓칠 수 있음.</div>
+    <div class="trap"><strong>두개내압 상승 관리</strong>: Dexamethasone은 Crypto 뇌수막염에 <em>금기</em> (사망률 증가 RCT). 연속 LP로 압력 제거. Mannitol·Acetazolamide도 비효과적.</div>
+    <div class="trap"><strong>Flucytosine 유무 차이</strong>: AmB+5FC 유도 = 표준 (가장 좋은 결과). 5FC 없으면 AmB+Fluconazole 800mg. Fluconazole 단독 유도는 WHO 권고하지 않음 — 자원 제한 환경에서 Fluconazole만 주는 오류 주의.</div>
+  </div>
+
+  <div class="pills">
+    <span class="pill">AHD = CD4&lt;200 or Stage 3/4</span>
+    <span class="pill">CrAg LAM 패키지 = AHD 표준</span>
+    <span class="pill light">Dexa: Crypto에 금기</span>
+    <span class="pill light">연속 LP = ICP 관리</span>
+    <span class="pill">Extrapulmonary TB = Stage 4</span>
+    <span class="pill">AmB+5FC = Crypto 표준유도</span>
+  </div>
+
+  <div class="footer">
+    <span>📚 WHO Advanced HIV Disease Guidelines 2021 · ISHAM Cryptococcal Guidelines</span>
+    <div class="footer-nav">
+      <span class="btn">← 15 Treatment</span>
+      <span class="btn">17 HIV Children →</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

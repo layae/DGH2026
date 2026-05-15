@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH CID 22 | Yellow Fever</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#fdf4f4;font-family:'Crimson Pro',serif;color:#2d1a1a;font-size:14px;line-height:1.5;}
+  .page{max-width:900px;margin:0 auto;padding:18px;}
+  .header{background:#791F1F;color:#fff;border-radius:10px 10px 0 0;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;}
+  .header-left .tag{font-family:'JetBrains Mono',monospace;font-size:10px;background:rgba(255,255,255,0.2);padding:2px 8px;border-radius:20px;letter-spacing:1px;}
+  .header-left h1{font-size:20px;font-weight:700;margin-top:4px;}
+  .header-left h1 span{font-size:12px;font-weight:400;opacity:0.8;margin-left:8px;}
+  .header-right{font-family:'JetBrains Mono',monospace;font-size:10px;text-align:right;opacity:0.8;}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);border:1.5px solid #e8c4c4;border-top:none;}
+  .stat{background:#f5dcdc;padding:10px 12px;text-align:center;border-right:1px solid #e8c4c4;}
+  .stat:last-child{border-right:none;}
+  .stat-val{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:700;color:#791F1F;}
+  .stat-lab{font-size:10px;color:#5a2a2a;margin-top:1px;}
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;}
+  .card{background:#fff;border:1.5px solid #e8c4c4;border-radius:8px;padding:12px;}
+  .card h3{font-size:12px;font-weight:700;color:#791F1F;text-transform:uppercase;letter-spacing:0.8px;border-bottom:1px solid #f5dcdc;padding-bottom:5px;margin-bottom:8px;}
+  .card li{font-size:12.5px;color:#3a1a1a;line-height:1.65;margin-bottom:2px;}
+  .card ul{padding-left:14px;}
+  .tbl-wrap{margin-top:10px;}
+  table{width:100%;border-collapse:collapse;font-size:11.5px;}
+  thead th{background:#791F1F;color:#fff;padding:7px 10px;text-align:left;font-weight:600;}
+  tbody tr:nth-child(odd){background:#fdf4f4;}
+  tbody tr:nth-child(even){background:#f5dcdc;}
+  tbody td{padding:5px 9px;border-bottom:1px solid #e8c4c4;vertical-align:top;}
+  td strong{color:#791F1F;}
+  .trap-h{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:#791F1F;letter-spacing:1px;margin:12px 0 6px;padding:4px 10px;background:#f5dcdc;border-left:4px solid #791F1F;border-radius:0 4px 4px 0;}
+  .trap-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .trap{background:#fff;border:1.5px solid #e8c4c4;border-radius:6px;padding:9px 11px 9px 28px;font-size:12px;position:relative;}
+  .trap::before{content:"⚠";position:absolute;left:9px;top:8px;font-size:13px;color:#791F1F;}
+  .pills{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;}
+  .pill{background:#791F1F;color:#fff;font-size:10px;padding:3px 10px;border-radius:20px;font-family:'JetBrains Mono',monospace;}
+  .pill.light{background:#f5dcdc;color:#791F1F;}
+  .footer{margin-top:10px;padding:8px 12px;background:#f5dcdc;border:1px solid #e8c4c4;border-radius:6px;font-size:11px;color:#5a2a2a;display:flex;justify-content:space-between;align-items:center;}
+  .btn{font-size:10px;padding:3px 10px;border-radius:20px;border:1.5px solid #791F1F;color:#791F1F;background:#fff;font-family:'JetBrains Mono',monospace;}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="header-left">
+      <div class="tag">CID · 22/34 · Viral</div>
+      <h1>Yellow Fever <span>황열 — 역학·임상·백신 정책</span></h1>
+    </div>
+    <div class="header-right">DGH KBA · 창 B<br>Blueprint 40%</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-val">Flavivirus</div><div class="stat-lab">Aedes/Haemagogus 매개</div></div>
+    <div class="stat"><div class="stat-val">20~50%</div><div class="stat-lab">중증(독성기) 치명률</div></div>
+    <div class="stat"><div class="stat-val">평생</div><div class="stat-lab">1회 접종 면역 지속</div></div>
+    <div class="stat"><div class="stat-val">IHR 2005</div><div class="stat-lab">국제 공중보건 비상 대응 근거</div></div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <h3>역학 & 전파 사이클</h3>
+      <ul>
+        <li><strong>병원체</strong>: Flavivirus (뎅기·Zika와 동일 과)</li>
+        <li><strong>매개체</strong>: Aedes aegypti (도시형), Haemagogus spp. (밀림형)</li>
+        <li><strong>3가지 전파 사이클</strong>:</li>
+        <li>① <strong>밀림형(Sylvatic)</strong>: 영장류↔모기; 인간은 우발적 숙주</li>
+        <li>② <strong>중간형(Intermediate/Savanna)</strong>: 아프리카 사바나; 반야생 모기; 소규모 집단 발생</li>
+        <li>③ <strong>도시형(Urban)</strong>: 인간↔Aedes aegypti; 대규모 유행 위험</li>
+        <li><strong>분포</strong>: 사하라 이남 아프리카(44개국) + 중·남미(13개국)</li>
+        <li>아시아: Aedes 있지만 황열 없음 (역사적으로 미유입)</li>
+        <li>연간 추정: 20만 명 감염, 3만 명 사망</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>임상 경과 & 치료</h3>
+      <ul>
+        <li><strong>잠복기</strong>: 3~6일</li>
+        <li><strong>감염기(1단계, 3~4일)</strong>: 발열·두통·근육통·구역·황달 경미</li>
+        <li><strong>완화기</strong>: 24~48시간 증상 호전 → 회복 or 독성기 진입</li>
+        <li><strong>독성기(2단계, 15%에서)</strong>:</li>
+        <li>· 황달 재악화 (간 손상)</li>
+        <li>· 신부전 (Faget 징후: 서맥 + 고열 = 특징적)</li>
+        <li>· 출혈 (흑색 구토 = vómito negro, 위장출혈)</li>
+        <li>· 치명률 20~50%</li>
+        <li><strong>치료</strong>: 지지요법만 (항바이러스제 없음)</li>
+        <li>· 수액·전해질; 출혈 시 수혈; 신대체요법</li>
+        <li>· NSAIDs·Aspirin 금기 (출혈 위험)</li>
+        <li><strong>진단</strong>: RT-PCR (급성기), IgM Elisa (5일 이후)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>백신 정책</th><th>내용</th><th>핵심 포인트</th></tr></thead>
+      <tbody>
+        <tr><td><strong>백신 종류</strong></td><td>17D 약독화 생백신 (YF-VAX, Stamaril)</td><td>매우 효과적; 단 1회 접종으로 평생 면역</td></tr>
+        <tr><td><strong>접종 시기</strong></td><td>9개월 이상; 유행지 여행 10일 전</td><td>10일 미만이면 출국 전 접종해도 증명서 효력 없음</td></tr>
+        <tr><td><strong>국제증명서 (IHR)</strong></td><td>Yellow Card (ICVP)</td><td>유행국 입국 or 유행국 경유 후 비유행국 입국 시 요구</td></tr>
+        <tr><td><strong>금기</strong></td><td>생후 6개월 미만·심한 면역저하·계란 알레르기·임신(상대적)</td><td>60세 이상: YEL-AVD 위험 증가 → 개별 위험-이익 평가</td></tr>
+        <tr><td><strong>이상반응</strong></td><td>YEL-AND (신경계): 드묾; YEL-AVD (장기부전): 치명적·노인↑</td><td>YEL-AVD는 실제 황열과 구별 어려움</td></tr>
+        <tr><td><strong>용량 절약 전략</strong></td><td>1/5 dose fractionation: 면역 동등성 입증 (2016 DRC)</td><td>공급 부족 시 WHO 권고; 증명서 효력 인정</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="trap-h">⚠ EXAM TRAPS × 4</div>
+  <div class="trap-grid">
+    <div class="trap"><strong>황열 백신 = 평생 면역, 1회</strong>: 2016년 WHO·IHR 개정으로 10년 효력→평생으로 변경. "10년마다 재접종 필요" = 구시대 정보. 시험에서 부스터 여부 묻는 함정 자주 출제.</div>
+    <div class="trap"><strong>완화기 함정</strong>: 증상이 24~48시간 호전되면 "회복"처럼 보이나, 15%에서 독성기로 재진입. 완화기 후 퇴원 = 위험. "열이 떨어졌다 = 회복" 오개념 → 관찰 지속 필요.</div>
+    <div class="trap"><strong>아시아에 황열 없음</strong>: Aedes aegypti가 아시아에 있음에도 황열이 없는 이유는 바이러스가 유입된 적 없기 때문. 아시아 여행 후 귀국자에게 황열 Yellow Card 요구 = 불필요 (단, 아프리카·남미 경유 시는 필요).</div>
+    <div class="trap"><strong>Fractionated dose 증명서 효력</strong>: 1/5 용량 접종도 국제 여행 증명서(ICVP) 효력 인정 (2016 WHO). 공급 부족 유행지 대응 시 사용. "1/5 용량은 증명서 안 됨" = 오답.</div>
+  </div>
+
+  <div class="pills">
+    <span class="pill">YF 백신 = 1회로 평생</span>
+    <span class="pill">완화기 후 독성기 15% 진입</span>
+    <span class="pill light">Faget 징후: 서맥+고열</span>
+    <span class="pill light">아시아 황열 없음</span>
+    <span class="pill">1/5 dose = 증명서 유효</span>
+    <span class="pill">YEL-AVD: 노인 위험↑</span>
+  </div>
+
+  <div class="footer">
+    <span>📚 WHO Yellow Fever Fact Sheet 2023 · IHR 2005 · Oxford TropMed 5e</span>
+    <div class="footer-nav">
+      <span class="btn">← 21 VHF</span>
+      <span class="btn">23 Rabies →</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

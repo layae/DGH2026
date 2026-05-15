@@ -1,0 +1,256 @@
+<meta charset="UTF-8">
+
+<h2 class="sr-only">DGH KBA - NCD: COPD 스터디 노트</h2>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.page{width:100%;font-family:var(--font-sans);font-size:12.5px;line-height:1.55;color:var(--color-text-primary);padding:1.1rem 1.2rem 1.4rem}
+.page-header{display:flex;align-items:flex-start;justify-content:space-between;border-bottom:2px solid #5C3D8F;padding-bottom:8px;margin-bottom:10px}
+.topic-tag{font-size:10px;font-weight:500;background:#EEEDFE;color:#26215C;padding:3px 9px;border-radius:999px;margin-bottom:4px;display:inline-block}
+.title{font-size:20px;font-weight:500;color:var(--color-text-primary);line-height:1.2}
+.subtitle{font-size:11px;color:var(--color-text-secondary);margin-top:2px}
+.badge-group{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.badge{font-size:10px;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.b-purple{background:#EEEDFE;color:#26215C}
+.b-red{background:#FCEBEB;color:#791F1F}
+.b-amber{background:#FAEEDA;color:#633806}
+.b-teal{background:#E1F5EE;color:#085041}
+
+.stat-row{display:flex;gap:6px;margin-bottom:8px}
+.stat{flex:1;background:#EEEDFE;border-radius:var(--border-radius-md);padding:6px 8px;text-align:center}
+.stat-num{font-size:16px;font-weight:500;color:#26215C;display:block}
+.stat-lbl{font-size:10px;color:#5C3D8F}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 10px}
+.card-full{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 10px;margin-bottom:8px}
+.sec-label{font-size:10px;font-weight:500;letter-spacing:.04em;color:var(--color-text-secondary);margin-bottom:5px;display:flex;align-items:center;gap:5px}
+
+.row{display:flex;gap:5px;align-items:baseline;margin-bottom:3px}
+.dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.d-purple{background:#7F77DD}.d-red{background:#E24B4A}.d-amber{background:#BA7517}
+.d-teal{background:#1D9E75}.d-gray{background:#888780}.d-coral{background:#D85A30}
+.d-blue{background:#378ADD}
+.kw{font-weight:500}
+
+.tbl{width:100%;border-collapse:collapse;font-size:11px}
+.tbl th{background:#EEEDFE;color:#26215C;font-weight:500;padding:4px 6px;text-align:left;font-size:10px}
+.tbl td{padding:3.5px 6px;border-bottom:0.5px solid var(--color-border-tertiary);vertical-align:top;line-height:1.4}
+.tbl tr:last-child td{border-bottom:none}
+
+.pill{display:inline-block;padding:1px 7px;border-radius:999px;font-size:10px;margin:1px 2px 1px 0}
+.p-purple{background:#EEEDFE;color:#26215C}
+.p-red{background:#FCEBEB;color:#791F1F}
+.p-amber{background:#FAEEDA;color:#633806}
+.p-teal{background:#E1F5EE;color:#085041}
+.p-gray{background:#F1EFE8;color:#444441}
+.p-coral{background:#FAECE7;color:#712B13}
+.p-blue{background:#E6F1FB;color:#0C447C}
+
+.step-row{display:flex;gap:6px;margin-bottom:4px;align-items:flex-start}
+.step-num{width:18px;height:18px;border-radius:50%;background:#5C3D8F;color:#EEEDFE;font-size:10px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+
+/* GOLD 분류 박스 */
+.gold-row{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-bottom:8px}
+.gold-card{border-radius:var(--border-radius-md);padding:7px 8px;text-align:center;border:0.5px solid var(--color-border-tertiary)}
+.g1{background:#E1F5EE;border-top:3px solid #1D9E75}
+.g2{background:#FAEEDA;border-top:3px solid #BA7517}
+.g3{background:#FCEBEB;border-top:3px solid #E24B4A}
+.g4{background:#FAECE7;border-top:3px solid #D85A30}
+.gold-label{font-size:10px;font-weight:500;margin-bottom:2px}
+.gold-fev{font-size:13px;font-weight:500;margin-bottom:1px}
+.gold-desc{font-size:10px;color:var(--color-text-secondary)}
+
+.acutebox{background:#FCEBEB;border:0.5px solid #F09595;border-radius:var(--border-radius-md);padding:8px 10px;margin-bottom:8px}
+.acutelabel{font-size:10px;font-weight:500;color:#791F1F;margin-bottom:5px;display:flex;align-items:center;gap:5px}
+
+.exam-card{background:#FCEBEB;border:0.5px solid #F09595;border-radius:var(--border-radius-md);padding:8px 10px;margin-bottom:8px}
+.exam-label{font-size:10px;font-weight:500;color:#791F1F;margin-bottom:4px;display:flex;align-items:center;gap:5px}
+.trap-card{background:#FAEEDA;border:0.5px solid #EF9F27;border-radius:var(--border-radius-md);padding:7px 10px;margin-bottom:4px}
+.trap-label{font-size:10px;font-weight:500;color:#633806;margin-bottom:2px}
+
+.vs-box{display:grid;grid-template-columns:1fr 20px 1fr;gap:0;margin-bottom:8px;align-items:stretch}
+.vs-col{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 10px}
+.vs-mid{display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:var(--color-text-tertiary)}
+.vs-title{font-size:11px;font-weight:500;margin-bottom:5px}
+.t-copd{color:#5C3D8F}.t-asthma{color:#0C447C}
+
+.footnote{font-size:10px;color:var(--color-text-tertiary);margin-top:8px;border-top:0.5px solid var(--color-border-tertiary);padding-top:5px}
+</style>
+
+<div class="page">
+
+  <!-- Header -->
+  <div class="page-header">
+    <div>
+      <div class="topic-tag">NCD · 10% of KBA</div>
+      <div class="title">COPD — 만성폐쇄성폐질환</div>
+      <div class="subtitle">글로벌 부담 · GOLD 분류 · LMIC 위험인자 · 급성 악화 — GOLD 2024 · WHO · Oxford Handbook Tropical Medicine 5e</div>
+    </div>
+    <div class="badge-group">
+      <span class="badge b-purple">DGH KBA</span>
+      <span class="badge b-red">흡연 외 LMIC 위험인자 핵심</span>
+      <span class="badge b-amber">시험 출제빈도 ★★☆</span>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stat-row">
+    <div class="stat"><span class="stat-num">480M</span><span class="stat-lbl">전 세계 COPD 유병 (2020)</span></div>
+    <div class="stat"><span class="stat-num">3위</span><span class="stat-lbl">전 세계 사망 원인 순위</span></div>
+    <div class="stat"><span class="stat-num">3.23M</span><span class="stat-lbl">연간 사망 (2019, WHO)</span></div>
+    <div class="stat"><span class="stat-num">90%</span><span class="stat-lbl">COPD 사망의 LMIC 집중</span></div>
+  </div>
+
+  <!-- GOLD 분류 -->
+  <div class="card-full">
+    <div class="sec-label">GOLD 중증도 분류 (post-bronchodilator FEV₁/FVC &lt;0.70 확인 후)</div>
+    <div class="gold-row">
+      <div class="gold-card g1">
+        <div class="gold-label" style="color:#085041">GOLD 1 · 경증</div>
+        <div class="gold-fev" style="color:#085041">FEV₁ ≥80%</div>
+        <div class="gold-desc">증상 경미<br>SABA PRN</div>
+      </div>
+      <div class="gold-card g2">
+        <div class="gold-label" style="color:#633806">GOLD 2 · 중등도</div>
+        <div class="gold-fev" style="color:#633806">50–79%</div>
+        <div class="gold-desc">운동 시 호흡곤란<br>LAMA ± LABA</div>
+      </div>
+      <div class="gold-card g3">
+        <div class="gold-label" style="color:#791F1F">GOLD 3 · 중증</div>
+        <div class="gold-fev" style="color:#791F1F">30–49%</div>
+        <div class="gold-desc">일상 제한<br>LAMA+LABA ± ICS</div>
+      </div>
+      <div class="gold-card g4">
+        <div class="gold-label" style="color:#712B13">GOLD 4 · 최중증</div>
+        <div class="gold-fev" style="color:#712B13">&lt;30%</div>
+        <div class="gold-desc">호흡부전 위험<br>삼중요법 + LTOT</div>
+      </div>
+    </div>
+    <div style="font-size:11px;color:var(--color-text-secondary)">
+      ※ GOLD ABE 그룹 (증상·악화 빈도 기반): A — 증상 적음/악화 적음 / B — 증상 많음/악화 적음 / E — 악화 많음(≥2회/년 or 입원 ≥1회)
+    </div>
+  </div>
+
+  <!-- 위험인자 + 병태생리 -->
+  <div class="grid2">
+    <div class="card">
+      <div class="sec-label">위험인자 — LMIC 특유 인자가 시험 핵심</div>
+      <div class="row"><div class="dot d-red"></div><span><span class="kw">흡연:</span> 고소득국 주요 원인 — 전 세계 COPD의 약 70%</span></div>
+      <div class="row"><div class="dot d-red"></div><span><span class="kw">실내 공기오염 (IAP):</span> <span class="kw">LMIC 핵심</span> — 바이오매스 연소(장작·숯·농업 폐기물). 전 세계 COPD의 25–45%가 비흡연자, 특히 여성</span></div>
+      <div class="row"><div class="dot d-amber"></div><span><span class="kw">직업성 노출:</span> 광산 분진, 농업 화학물질, 면·곡물 분진 — LMIC 농업·광업 종사자</span></div>
+      <div class="row"><div class="dot d-amber"></div><span><span class="kw">소아기 폐 발육 저해:</span> 반복 호흡기 감염, 결핵, 영양결핍 → 폐 기능 최대치 저하 → 조기 COPD</span></div>
+      <div class="row"><div class="dot d-teal"></div><span><span class="kw">결핵 후 COPD:</span> 결핵 치료 후 기도 손상 → LMIC에서 중요한 COPD 원인 (Post-TB lung disease)</span></div>
+      <div class="row"><div class="dot d-purple"></div><span><span class="kw">α₁-antitrypsin 결핍:</span> 유전성, 비흡연 젊은 환자 → 하엽 우세 폐기종</span></div>
+      <div class="row"><div class="dot d-gray"></div><span><span class="kw">외부 공기오염:</span> 도시화 가속으로 LMIC 도시 대기오염 COPD 증가 추세</span></div>
+    </div>
+    <div class="card">
+      <div class="sec-label">병태생리 & COPD vs 천식 감별</div>
+      <div class="row"><div class="dot d-purple"></div><span><span class="kw">핵심 기전:</span> 만성 염증(중성구·대식세포 주도) → 기도벽 섬유화 + 폐기종(폐포 파괴) → <span class="kw">비가역적</span> 기류제한</span></div>
+      <div class="row"><div class="dot d-purple"></div><span><span class="kw">점액 과분비:</span> 만성 기침·객담 → 만성기관지염 정의 (2년 이상 연속 3개월 이상)</span></div>
+      <div class="row"><div class="dot d-gray"></div><span><span class="kw">Dynamic hyperinflation:</span> 운동 시 공기 포집 → 횡격막 평탄화 → 호흡 효율 저하</span></div>
+      <div style="margin-top:7px;padding-top:6px;border-top:0.5px solid var(--color-border-tertiary)">
+        <div class="sec-label" style="margin-bottom:4px">COPD vs 천식 핵심 감별</div>
+        <table class="tbl" style="font-size:10.5px">
+          <thead><tr><th></th><th>COPD</th><th>천식</th></tr></thead>
+          <tbody>
+            <tr><td>기류제한</td><td><span class="kw">비가역적</span></td><td>가역적 (≥12%)</td></tr>
+            <tr><td>발병 연령</td><td>보통 >40세</td><td>소아·청소년 多</td></tr>
+            <tr><td>흡연/IAP</td><td>거의 항상 존재</td><td>무관 가능</td></tr>
+            <tr><td>야간 증상</td><td>드묾</td><td>특징적</td></tr>
+            <tr><td>주 염증세포</td><td>중성구·대식세포</td><td>호산구·비만세포</td></tr>
+            <tr><td>ICS 반응</td><td>제한적</td><td>좋음</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 급성 악화 -->
+  <div class="acutebox">
+    <div class="acutelabel">급성 악화 (AECOPD) 처치 — Stepwise (LMIC 환경 포함)</div>
+    <div class="grid2" style="margin-bottom:0">
+      <div>
+        <div class="step-row"><div class="step-num">1</div><span><span class="kw">중증도 평가:</span> RR, SpO₂, 의식, ABG (가능 시) — 입원 기준: SpO₂&lt;90%, 의식변화, 사회적 지지 부족</span></div>
+        <div class="step-row"><div class="step-num">2</div><span><span class="kw">산소 요법:</span> 목표 SpO₂ <span class="kw">88–92%</span> — 고농도 산소 금기 (CO₂ 저류, 저산소 호흡 드라이브 억제)</span></div>
+        <div class="step-row"><div class="step-num">3</div><span><span class="kw">기관지확장제:</span> SABA (Salbutamol) + SAMA (Ipratropium) 동시 흡입 — spacer or nebuliser</span></div>
+      </div>
+      <div>
+        <div class="step-row"><div class="step-num">4</div><span><span class="kw">전신 스테로이드:</span> Prednisolone 40mg × 5일 — 회복 기간 단축, 재악화 감소</span></div>
+        <div class="step-row"><div class="step-num">5</div><span><span class="kw">항생제:</span> 화농성 객담 + 호흡곤란 악화 시 → Amoxicillin or Doxycycline 5–7일 (Anthonisen 기준)</span></div>
+        <div class="step-row"><div class="step-num">6</div><span><span class="kw">NIV (BiPAP):</span> pH&lt;7.35 + PaCO₂ 상승 → 삽관 예방 가장 효과적. LMIC에서 접근 제한적이나 우선 시도</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 안정기 관리 + 함정 -->
+  <div class="grid2">
+    <div class="card">
+      <div class="sec-label">안정기 관리 — WHO PEN & LMIC 현실</div>
+      <div class="row"><div class="dot d-purple"></div><span><span class="kw">금연/IAP 감소:</span> 유일하게 폐기능 감소 속도를 늦추는 개입 — 가장 중요</span></div>
+      <div class="row"><div class="dot d-purple"></div><span><span class="kw">흡입 기관지확장제:</span> LAMA (Tiotropium) 우선 — 악화 감소 효과 ↑. LMIC 접근성 문제</span></div>
+      <div class="row"><div class="dot d-teal"></div><span><span class="kw">Salbutamol MDI:</span> WHO EML 등재 — LMIC에서 현실적으로 가장 많이 쓰임</span></div>
+      <div class="row"><div class="dot d-teal"></div><span><span class="kw">폐 재활:</span> 비용 대비 효과 가장 높은 비약물 치료 — 호흡 근육 훈련</span></div>
+      <div class="row"><div class="dot d-amber"></div><span><span class="kw">예방접종:</span> 인플루엔자 (매년) + 폐렴구균 → AECOPD 예방 핵심</span></div>
+      <div class="row"><div class="dot d-blue"></div><span><span class="kw">LTOT:</span> PaO₂&lt;55mmHg or SpO₂≤88% → 하루 15시간 이상 — LMIC에서 산소 공급 불안정</span></div>
+      <div class="row"><div class="dot d-gray"></div><span><span class="kw">ICS:</span> 악화 빈번 + 호산구↑ or 천식-COPD 중복(ACO)에서만 추가</span></div>
+    </div>
+    <div class="card">
+      <div class="sec-label">LMIC 특수 상황 & 동반 질환</div>
+      <div class="row"><div class="dot d-red"></div><span><span class="kw">Post-TB COPD:</span> TB 치료 완료 후 기침·호흡곤란 지속 → 폐기능 검사. LMIC에서 미진단 흔함</span></div>
+      <div class="row"><div class="dot d-amber"></div><span><span class="kw">Cor pulmonale:</span> 우심부전 → 하지부종 + JVP 상승. 이뇨제 + 산소 치료</span></div>
+      <div class="row"><div class="dot d-amber"></div><span><span class="kw">폐고혈압:</span> COPD 진행 시 동반 — 저산소성 혈관수축</span></div>
+      <div class="row"><div class="dot d-purple"></div><span><span class="kw">영양불량:</span> LMIC COPD에서 흔함 → BMI&lt;21 → 사망률 ↑. 영양 지원 중요</span></div>
+      <div class="row"><div class="dot d-blue"></div><span><span class="kw">우울·불안:</span> COPD 환자 40%에서 동반 → 운동 회피 → 악화 악순환</span></div>
+      <div class="row"><div class="dot d-gray"></div><span><span class="kw">Spirometry 부재:</span> LMIC에서 진단 미흡 — 임상 진단 (흡연력/IAP + 증상 + 가역성 부재)로 대체</span></div>
+      <div class="row"><div class="dot d-teal"></div><span><span class="kw">완화 치료:</span> 말기 COPD — Opioid 소량 (호흡곤란 완화), 완화 케어 통합</span></div>
+    </div>
+  </div>
+
+  <!-- 시험 함정 -->
+  <div class="exam-card">
+    <div class="exam-label">시험 핵심 포인트 & 자주 나오는 함정</div>
+    <div class="grid2" style="margin-bottom:0">
+      <div>
+        <div class="trap-card">
+          <div class="trap-label">함정 ①  AECOPD 산소 목표</div>
+          <span>COPD 급성 악화에서 고농도 O₂ → CO₂ 저류 악화 → 호흡성 산증 → 의식저하. 목표 SpO₂는 반드시 88–92%. "SpO₂ 95% 이상 유지"는 COPD에서 오답.</span>
+        </div>
+        <div class="trap-card">
+          <div class="trap-label">함정 ②  비흡연 여성 COPD</div>
+          <span>LMIC 농촌 여성 + 비흡연 + 만성 기침·호흡곤란 → 실내 바이오매스 연소 노출 COPD. "흡연력 없으면 COPD 아니다"는 틀림. IAP가 핵심 위험인자.</span>
+        </div>
+      </div>
+      <div>
+        <div class="trap-card">
+          <div class="trap-label">함정 ③  Post-TB 폐질환</div>
+          <span>TB 치료 완료 후에도 기류 제한 지속 → Post-TB COPD 또는 기관지확장증. "TB 완치 = 폐기능 정상"은 틀림. LMIC 시나리오에서 자주 등장하는 복합 패턴.</span>
+        </div>
+        <div class="trap-card">
+          <div class="trap-label">함정 ④  ICS 단독 처방</div>
+          <span>COPD에서 ICS 단독 사용은 권고되지 않음 (천식과 달리). ICS는 LABA와 병용, 또는 ACO(천식-COPD 중복)에서만 우선 적용. "COPD에 ICS 단독"은 오답.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global health -->
+  <div class="card-full" style="margin-bottom:0">
+    <div class="sec-label">Global health 관점 핵심 메시지</div>
+    <div style="display:flex;flex-wrap:wrap;gap:4px;line-height:1.9">
+      <span class="pill p-purple">실내 공기오염(IAP) — LMIC 비흡연 여성 COPD의 주원인, 바이오매스 연소 개선이 핵심 예방</span>
+      <span class="pill p-red">Post-TB COPD — LMIC에서 결핵 후 폐기능 손상, 과소진단 심각</span>
+      <span class="pill p-amber">LMIC 90% 사망 집중 — Spirometry·치료 접근성 격차가 근본 원인</span>
+      <span class="pill p-teal">WHO PEN — 1차 의료 기반 COPD 관리, Salbutamol이 현실적 핵심 약제</span>
+      <span class="pill p-blue">청정 에너지 전환 — WHO 실내 공기오염 감소 글로벌 액션플랜</span>
+      <span class="pill p-gray">폐 재활 — 저비용 고효과, LMIC 커뮤니티 기반 프로그램으로 확대 가능</span>
+    </div>
+  </div>
+
+  <div class="footnote">
+    참고: GOLD 2024 Report · WHO Global Action Plan NCD · Oxford Handbook of Tropical Medicine 5e · WHO EML 2023 · DGH Blueprint NCD Level 3<br>
+    <button style="margin-top:5px;font-size:11px;padding:3px 10px" onclick="sendPrompt('DGH KBA COPD (AECOPD·GOLD 분류·LMIC) 관련 모의문제 5개 풀고 싶어. Best-of-5 SBA 형식으로 만들어줘')">COPD 모의문제 풀기 ↗</button>
+    <button style="margin-top:5px;font-size:11px;padding:3px 10px;margin-left:6px" onclick="sendPrompt('DGH KBA: Non-communicable disease > Cardiovascular disease 스터디 노트 A4 한 장 분량으로 만들어줘')">다음: CVD 노트 ↗</button>
+    <button style="margin-top:5px;font-size:11px;padding:3px 10px;margin-left:6px" onclick="sendPrompt('DGH KBA: Non-communicable disease > Cancer epidemiology 스터디 노트 A4 한 장 분량으로 만들어줘')">다음: Cancer Epi 노트 ↗</button>
+  </div>
+
+</div>

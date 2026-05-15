@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH | Paediatric Priorities</title>
+<style>
+  :root {
+    --primary: #993556;
+    --primary-dark: #7a2844;
+    --primary-light: #c4607e;
+    --bg: #f9eef3;
+    --card-bg: #ffffff;
+    --border: #e8c4d4;
+    --text: #2d1a22;
+    --text-muted: #7a5060;
+    --accent1: #e8c4d4;
+    --accent2: #f5dce8;
+    --trap-bg: #fff0f4;
+    --trap-border: #f4b8cc;
+    --stat-bg: #fdf5f8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); font-size: 13.5px; line-height: 1.55; }
+
+  .header { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%); color: white; padding: 18px 24px 14px; }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .tag { background: rgba(255,255,255,0.22); border: 1px solid rgba(255,255,255,0.4); border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; }
+  .header h1 { font-size: 22px; font-weight: 700; margin: 8px 0 3px; letter-spacing: -0.3px; }
+  .header p { font-size: 12.5px; opacity: 0.88; }
+
+  .stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; padding: 12px 16px; background: var(--stat-bg); border-bottom: 1px solid var(--border); }
+  .stat { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; text-align: center; }
+  .stat .num { font-size: 19px; font-weight: 700; color: var(--primary); line-height: 1; }
+  .stat .lbl { font-size: 10.5px; color: var(--text-muted); margin-top: 2px; }
+
+  .main { padding: 12px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
+  .card h3 { font-size: 12px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; border-bottom: 1.5px solid var(--accent1); padding-bottom: 5px; }
+  .full-width { grid-column: 1 / -1; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  th { background: var(--accent2); color: var(--primary-dark); font-weight: 700; padding: 5px 7px; text-align: left; font-size: 11.5px; }
+  td { padding: 5px 7px; border-bottom: 1px solid var(--accent1); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #fdf5f8; }
+
+  .danger { color: #c0392b; font-weight: 700; }
+  .warning { color: #e67e22; font-weight: 700; }
+  .ok { color: #27ae60; font-weight: 700; }
+
+  .step-list { list-style: none; }
+  .step-list li { display: flex; gap: 8px; margin-bottom: 6px; font-size: 12.5px; }
+  .step-num { background: var(--primary); color: white; border-radius: 50%; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  .bl { list-style: none; }
+  .bl li { padding: 3px 0 3px 14px; position: relative; font-size: 12.5px; border-bottom: 1px dotted var(--accent1); }
+  .bl li:last-child { border-bottom: none; }
+  .bl li::before { content: '▸'; position: absolute; left: 0; color: var(--primary-light); font-size: 10px; top: 5px; }
+
+  .trap-section { padding: 0 16px 10px; }
+  .trap-h { background: var(--primary); color: white; padding: 7px 14px; border-radius: 8px 8px 0 0; font-size: 12px; font-weight: 700; letter-spacing: 0.5px; }
+  .trap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; background: var(--trap-bg); border: 1px solid var(--trap-border); border-top: none; border-radius: 0 0 8px 8px; padding: 10px; }
+  .trap { background: white; border: 1px solid var(--trap-border); border-radius: 7px; padding: 9px 10px; }
+  .trap .t-head { font-size: 11px; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+  .trap p { font-size: 11.5px; color: var(--text); }
+
+  .pills { padding: 8px 16px 6px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .pill { background: var(--accent2); border: 1px solid var(--border); border-radius: 20px; padding: 3px 10px; font-size: 11px; color: var(--primary-dark); font-weight: 600; }
+
+  .footer { background: var(--primary-dark); color: rgba(255,255,255,0.85); padding: 9px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 11px; }
+  .footer-btn { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 12px; padding: 3px 10px; font-size: 10.5px; color: white; cursor: pointer; }
+
+  b { color: var(--primary-dark); }
+  .highlight { background: #fce4ec; border-radius: 3px; padding: 0 3px; font-weight: 600; }
+  .drug { background: #e8f5e9; border-radius: 3px; padding: 0 3px; font-weight: 600; color: #1b5e20; }
+  .box-info { background: #fce4ec; border-left: 3px solid var(--primary); border-radius: 0 6px 6px 0; padding: 7px 10px; margin-top: 8px; font-size: 12px; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-top">
+    <span class="tag">Women's & Child Health · Child Health</span>
+    <span class="tag">DGH KBA</span>
+  </div>
+  <h1>Paediatric Priorities — LMIC 소아과 핵심 우선순위</h1>
+  <p>5세 미만 사망 원인 · 감염 집중 · LMIC 소아 입원 처치 원칙</p>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat"><div class="num">5.0M</div><div class="lbl">연간 5세 미만 사망 (2022)</div></div>
+  <div class="stat"><div class="num">75%</div><div class="lbl">사망이 SSA·SA 집중</div></div>
+  <div class="stat"><div class="num">#1</div><div class="lbl">사망원인: 신생아 합병증</div></div>
+  <div class="stat"><div class="num">45%</div><div class="lbl">5세 미만 사망 — 신생아기</div></div>
+</div>
+
+<!-- MAIN GRID -->
+<div class="main">
+
+  <!-- 5세 미만 사망 원인 -->
+  <div class="card full-width">
+    <h3>5세 미만 주요 사망 원인 순위 & 처치 우선순위 (LMIC)</h3>
+    <table>
+      <tr><th>순위</th><th>원인</th><th>전체 비중</th><th>핵심 예방·처치</th><th>관련 intervention</th></tr>
+      <tr>
+        <td><b>1</b></td>
+        <td>신생아 합병증 (조산, 분만 질식, 패혈증)</td>
+        <td class="danger">~45%</td>
+        <td>ANC·숙련 조산사·신생아 蘇生</td>
+        <td>Kangaroo Care, CPAP</td>
+      </tr>
+      <tr>
+        <td><b>2</b></td>
+        <td>폐렴</td>
+        <td class="danger">~14%</td>
+        <td>Amoxicillin; PCV 백신</td>
+        <td>IMCI, iCCM</td>
+      </tr>
+      <tr>
+        <td><b>3</b></td>
+        <td>설사</td>
+        <td class="warning">~8%</td>
+        <td>ORS + Zinc; 로타바이러스 백신</td>
+        <td>WASH, iCCM</td>
+      </tr>
+      <tr>
+        <td><b>4</b></td>
+        <td>말라리아</td>
+        <td class="warning">~5%</td>
+        <td>ACT; LLIN; SMC</td>
+        <td>R21/RTS,S 백신</td>
+      </tr>
+      <tr>
+        <td><b>5</b></td>
+        <td>영양불량 (SAM — 직·간접 기여)</td>
+        <td class="warning">~45% 기여인자</td>
+        <td>RUTF; CMAM 프로그램</td>
+        <td>MUAC 스크리닝</td>
+      </tr>
+      <tr>
+        <td><b>6</b></td>
+        <td>HIV/AIDS 관련</td>
+        <td>~2%</td>
+        <td>PMTCT; 소아 ART</td>
+        <td>EID (조기 영아 진단)</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 소아 패혈증 처치 -->
+  <div class="card">
+    <h3>소아 중증 감염 — 입원 처치 원칙</h3>
+    <ul class="step-list">
+      <li><span class="step-num">1</span><div><b>기도·호흡 확보</b>: 산소 목표 SpO₂ ≥ 94%</div></li>
+      <li><span class="step-num">2</span><div><b>정맥로 확보 + 혈당 측정</b><br>저혈당 (&lt;2.5mmol/L) → 10% 포도당 5ml/kg bolus</div></li>
+      <li><span class="step-num">3</span><div><b>항생제</b>: Ampicillin + Gentamicin (1차)<br>뇌수막염 의심: Ceftriaxone 추가</div></li>
+      <li><span class="step-num">4</span><div><b>수액</b>: FEAST trial 근거 — 볼루스 신중<br>쇼크 없으면 maintenance만 권고</div></li>
+      <li><span class="step-num">5</span><div><b>말라리아 배제</b>: RDT 필수 (발열 모든 소아)</div></li>
+    </ul>
+    <div class="box-info">⚠️ FEAST trial: SSA 중증 소아에서 saline/albumin bolus가 오히려 <b>사망률 증가</b> → LMIC에서 공격적 수액 자제</div>
+  </div>
+
+  <!-- 소아 특이 질환 -->
+  <div class="card">
+    <h3>LMIC 소아 특이 질환 & 핵심 포인트</h3>
+    <table>
+      <tr><th>질환</th><th>핵심 포인트</th></tr>
+      <tr>
+        <td><b>중증 급성 영양불량<br>(SAM)</b></td>
+        <td>F-75(안정화)→F-100→RUTF 단계적 재영양. Refeeding syndrome 주의. Vitamin A + Folic acid 동시 투여</td>
+      </tr>
+      <tr>
+        <td><b>소아 결핵</b></td>
+        <td>성인과 달리 smear 음성 多. 임상 진단 중요. 접촉력+PPD+CXR. TST ≥5mm (HIV+ 소아)</td>
+      </tr>
+      <tr>
+        <td><b>소아 HIV</b></td>
+        <td>EID: DBS PCR (6주). 2세 미만 모든 소아 → 즉시 ART. WHO staging 적용</td>
+      </tr>
+      <tr>
+        <td><b>낫세포병(SCD)</b></td>
+        <td>SSA 소아 중요. Salmonella 골수염 多. 예방: Penicillin V + Pneumovax</td>
+      </tr>
+      <tr>
+        <td><b>열성 경련</b></td>
+        <td>단순형: 15분 미만·편측화 없음·재발 없음 → 항경련 불필요. 복합형: 뇌수막염 배제</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 소아 약물 용량 원칙 -->
+  <div class="card">
+    <h3>소아 약물 핵심 용량 (DGH 출제 多)</h3>
+    <table>
+      <tr><th>약제</th><th>용량</th><th>적응증</th></tr>
+      <tr><td><span class="drug">Amoxicillin</span></td><td>40mg/kg/day ÷ 2</td><td>비중증 폐렴, 중이염</td></tr>
+      <tr><td><span class="drug">Ampicillin</span></td><td>50mg/kg q6h IV</td><td>중증 폐렴, 패혈증</td></tr>
+      <tr><td><span class="drug">Gentamicin</span></td><td>7.5mg/kg once daily</td><td>신생아 패혈증, 중증 감염</td></tr>
+      <tr><td><span class="drug">Artesunate IV</span></td><td>2.4mg/kg (0·12·24h)</td><td>중증 말라리아</td></tr>
+      <tr><td><span class="drug">ORS + Zinc</span></td><td>Zinc 20mg/day × 14일</td><td>설사 (6개월 이상)</td></tr>
+      <tr><td><span class="drug">Vitamin A</span></td><td>6–11개월: 100,000 IU<br>12개월+: 200,000 IU</td><td>홍역, SAM, VAD 지역</td></tr>
+    </table>
+  </div>
+
+  <!-- 성장 모니터링 -->
+  <div class="card">
+    <h3>성장 모니터링 & 영양 지표</h3>
+    <table>
+      <tr><th>지표</th><th>SAM 기준</th><th>MAM 기준</th></tr>
+      <tr><td>MUAC</td><td class="danger">&lt;115mm</td><td class="warning">115–124mm</td></tr>
+      <tr><td>WHZ (Weight-for-Height Z)</td><td class="danger">&lt;-3</td><td class="warning">-3 ~ -2</td></tr>
+      <tr><td>부종</td><td class="danger">양측 발등 부종 = SAM</td><td>–</td></tr>
+      <tr><td>WAZ (Weight-for-Age Z)</td><td colspan="2">언더웨이트 참고용 (WHZ 우선)</td></tr>
+    </table>
+    <div class="box-info">💡 부종이 있으면 WHZ와 무관하게 SAM으로 분류 → F-75 시작</div>
+  </div>
+
+  <!-- 소아 예방접종 핵심 -->
+  <div class="card">
+    <h3>소아 감염 예방 핵심 개입</h3>
+    <ul class="bl">
+      <li><b>Vitamin A 보충</b>: 홍역 사망 50% 감소, 설사·폐렴 사망 감소</li>
+      <li><b>LLIN (살충 처리 모기장)</b>: 말라리아 사망 50% 이상 감소</li>
+      <li><b>PCV (폐렴구균 백신)</b>: 소아 폐렴 입원 30–40% 감소</li>
+      <li><b>로타바이러스 백신</b>: 중증 설사 입원 50–60% 감소</li>
+      <li><b>Hib 백신</b>: 세균성 뇌수막염·폐렴 예방</li>
+      <li><b>SMC</b>: 사하라 사막 이남 계절적 말라리아 예방</li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- TRAP SECTION -->
+<div class="trap-section">
+  <div class="trap-h">⚠️ 시험 함정 TRAPS — 자주 틀리는 포인트 4가지</div>
+  <div class="trap-grid">
+    <div class="trap">
+      <div class="t-head">🪤 Trap 1: FEAST trial — 볼루스 ✗</div>
+      <p>영국에서 배운 "쇼크 → 20ml/kg bolus"는 SSA에서 오답. FEAST 근거로 <b>수액 볼루스 → 사망 증가</b>. LMIC 중증 소아 쇼크: 유지수액 + 원인 치료가 정답.</p>
+    </div>
+    <div class="trap">
+      <div class="t-head">🪤 Trap 2: SAM — 고단백 식이 바로 ✗</div>
+      <p>SAM 초기에 <b>F-100이나 RUTF를 바로 주면 오답</b>. 불안정 단계(감염·부종)에는 F-75 먼저. Refeeding syndrome 예방이 핵심. 안정화 후 F-100 전환.</p>
+    </div>
+    <div class="trap">
+      <div class="t-head">🪤 Trap 3: 소아 HIV — 2세 미만은 즉시 ART</div>
+      <p>성인과 달리 <b>2세 미만은 CD4 수치와 무관하게 즉시 ART</b> 시작. CD4 기준을 물으면 오답. 면역계 미성숙 → 빠른 진행 위험.</p>
+    </div>
+    <div class="trap">
+      <div class="t-head">🪤 Trap 4: 열성경련 = 항경련 처방 ✗</div>
+      <p><b>단순 열성경련은 예방적 항경련제 불필요</b>. 복합형(15분+, 편측, 24시간내 재발)이면 뇌수막염 배제 후 재평가. Diazepam 예방 투여는 권고 안 됨.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PILLS -->
+<div class="pills">
+  <span class="pill">🌍 SSA 소아 사망 1위</span>
+  <span class="pill">FEAST trial</span>
+  <span class="pill">SAM F-75→RUTF</span>
+  <span class="pill">EID 소아 HIV</span>
+  <span class="pill">Vitamin A</span>
+  <span class="pill">SDG 3.2</span>
+  <span class="pill">Salmonella·SCD</span>
+  <span class="pill">LLIN·PCV·Rota</span>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div>
+    <span>📚 Oxford Handbook Tropical Medicine 5e · WHO Pocket Book Hospital Care Children · FEAST NEJM 2011</span>
+  </div>
+  <div style="display:flex; gap:6px;">
+    <span class="footer-btn">← IMCI</span>
+    <span class="footer-btn">Vaccination (Child) →</span>
+  </div>
+</div>
+
+</body>
+</html>

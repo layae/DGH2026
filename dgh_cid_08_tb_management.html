@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH CID 08 · TB: Management</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap');
+  :root { --hdr:#791F1F; --hdr2:#9B2C2C; --bg:#fdf4f4; --border:#e8c4c4; --accent:#f5dcdc; --accent2:#fce8e8; --text:#2d1515; --muted:#7a4040; --white:#ffffff; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Noto Sans KR',sans-serif; background:var(--bg); color:var(--text); font-size:11.5px; line-height:1.55; padding:18px; max-width:900px; margin:0 auto; }
+  .header { background:linear-gradient(135deg,var(--hdr) 0%,var(--hdr2) 60%,#7B2020 100%); color:var(--white); border-radius:10px 10px 0 0; padding:14px 20px 12px; display:flex; justify-content:space-between; align-items:flex-start; }
+  .header-left .tag { font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:2px; opacity:0.75; text-transform:uppercase; margin-bottom:4px; }
+  .header-left h1 { font-family:'Crimson Pro',serif; font-size:22px; font-weight:700; }
+  .header-left .subtitle { font-size:10.5px; opacity:0.8; margin-top:2px; }
+  .header-right { text-align:right; font-family:'JetBrains Mono',monospace; font-size:9px; opacity:0.7; line-height:1.6; }
+  .stats-bar { background:var(--hdr); display:grid; grid-template-columns:repeat(4,1fr); border-left:3px solid var(--hdr2); border-right:3px solid var(--hdr2); }
+  .stat { padding:8px 12px; color:var(--white); border-right:1px solid rgba(255,255,255,0.15); text-align:center; }
+  .stat:last-child { border-right:none; }
+  .stat-val { font-family:'Crimson Pro',serif; font-size:19px; font-weight:700; display:block; line-height:1.1; }
+  .stat-lbl { font-size:9px; opacity:0.78; letter-spacing:0.5px; }
+  .body-wrap { border:1.5px solid var(--border); border-top:none; border-radius:0 0 10px 10px; padding:14px 16px 12px; background:var(--white); }
+  .sec-title { font-family:'Crimson Pro',serif; font-size:13px; font-weight:700; color:var(--hdr); border-bottom:1.5px solid var(--border); padding-bottom:3px; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.8px; }
+  .g2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px; }
+  .g3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:10px; }
+  .card { background:var(--bg); border:1px solid var(--border); border-radius:7px; padding:9px 11px; }
+  .card-title { font-size:10px; font-weight:700; color:var(--hdr); text-transform:uppercase; letter-spacing:0.6px; margin-bottom:5px; padding-bottom:3px; border-bottom:1px solid var(--border); }
+  .card ul { padding-left:13px; }
+  .card li { margin-bottom:2px; font-size:11px; }
+  .card li strong { color:var(--hdr); }
+  table { width:100%; border-collapse:collapse; margin-bottom:10px; font-size:10.5px; }
+  th { background:var(--hdr); color:var(--white); padding:5px 8px; text-align:left; font-size:10px; font-weight:600; }
+  td { padding:4px 8px; border-bottom:1px solid var(--border); vertical-align:top; }
+  tr:nth-child(even) td { background:var(--accent2); }
+  .badge { display:inline-block; padding:1px 6px; border-radius:10px; font-size:9px; font-weight:700; font-family:'JetBrains Mono',monospace; }
+  .badge-red { background:#fee2e2; color:#991b1b; }
+  .badge-green { background:#d1fae5; color:#065f46; }
+  .badge-yellow { background:#fef3c7; color:#92400e; }
+  .trap-h { background:linear-gradient(90deg,var(--hdr) 0%,var(--hdr2) 100%); color:var(--white); padding:5px 12px; border-radius:5px 5px 0 0; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-top:10px; }
+  .trap-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; border:1.5px solid var(--border); border-top:none; border-radius:0 0 7px 7px; overflow:hidden; margin-bottom:10px; }
+  .trap { padding:8px 11px; border-right:1px solid var(--border); border-bottom:1px solid var(--border); background:var(--white); position:relative; }
+  .trap:nth-child(even) { border-right:none; }
+  .trap:nth-child(3),.trap:nth-child(4) { border-bottom:none; }
+  .trap-num { font-family:'Crimson Pro',serif; font-size:22px; font-weight:700; color:var(--accent); position:absolute; top:4px; right:8px; }
+  .trap-q { font-size:10px; font-weight:700; color:var(--hdr); margin-bottom:3px; padding-right:20px; }
+  .trap-a { font-size:10.5px; }
+  .trap-a strong { color:var(--hdr); }
+  .pills { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:10px; }
+  .pill { background:var(--accent); border:1px solid var(--border); color:var(--hdr); border-radius:20px; padding:3px 10px; font-size:10px; font-weight:600; }
+  .pill-dark { background:var(--hdr); color:var(--white); border-color:var(--hdr); }
+  .highlight { background:#fff3cd; padding:1px 4px; border-radius:3px; font-weight:700; }
+  .red { color:#991b1b; font-weight:700; }
+  .footer { background:var(--accent); border:1px solid var(--border); border-radius:6px; padding:7px 12px; display:flex; justify-content:space-between; align-items:center; margin-top:8px; flex-wrap:wrap; gap:5px; }
+  .footer-note { font-size:10px; color:var(--muted); }
+  .footer-btns { display:flex; gap:6px; }
+  .footer-btn { background:var(--hdr); color:var(--white); border:none; border-radius:4px; padding:4px 10px; font-size:9.5px; font-weight:700; cursor:pointer; font-family:'JetBrains Mono',monospace; }
+
+  /* Phase timeline */
+  .phase-bar { display:grid; grid-template-columns:1fr 2fr; gap:0; border-radius:8px; overflow:hidden; border:2px solid var(--hdr); margin-bottom:10px; }
+  .phase { padding:10px 12px; }
+  .phase-int { background:#fde8e8; border-right:2px solid var(--hdr); }
+  .phase-cont { background:#fef9e7; }
+  .phase-label { font-size:9px; font-weight:700; text-transform:uppercase; color:var(--hdr); letter-spacing:0.8px; margin-bottom:3px; }
+  .phase-drugs { font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700; color:var(--hdr); margin-bottom:3px; }
+  .phase-note { font-size:10px; }
+
+  /* Side effect table color coding */
+  .se-major { background:#fee2e2; }
+  .se-minor { background:#fef9e7; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <div class="tag">DGH KBA · CID-08 · Clinical Infectious Diseases · Tuberculosis</div>
+    <h1>TB: Management</h1>
+    <div class="subtitle">표준 단기 요법 · 부작용 · DOT · IRIS · LTBI 치료 | WHO 2022</div>
+  </div>
+  <div class="header-right">RCP Diploma in Global Health<br>Blueprint 40% — CID<br>Oxford HTM 5e · WHO 2022</div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat"><span class="stat-val">2HRZE</span><span class="stat-lbl">집중기 2개월 (4제)</span></div>
+  <div class="stat"><span class="stat-val">4HR</span><span class="stat-lbl">지속기 4개월 (2제)</span></div>
+  <div class="stat"><span class="stat-val">DOT</span><span class="stat-lbl">직접복약확인 — 준수의 핵심</span></div>
+  <div class="stat"><span class="stat-val">IRIS</span><span class="stat-lbl">ART 시작 후 역설적 악화</span></div>
+</div>
+
+<div class="body-wrap">
+
+  <!-- STANDARD REGIMEN -->
+  <div class="sec-title">💊 표준 단기 요법 (Drug-Susceptible TB)</div>
+  <div class="phase-bar">
+    <div class="phase phase-int">
+      <div class="phase-label">집중기 (Intensive Phase)</div>
+      <div class="phase-drugs">2HRZE</div>
+      <div class="phase-note">
+        <strong>H</strong>: Isoniazid<br>
+        <strong>R</strong>: Rifampicin<br>
+        <strong>Z</strong>: Pyrazinamide<br>
+        <strong>E</strong>: Ethambutol<br>
+        2개월 / 매일 복용
+      </div>
+    </div>
+    <div class="phase phase-cont">
+      <div class="phase-label">지속기 (Continuation Phase)</div>
+      <div class="phase-drugs">4HR</div>
+      <div class="phase-note">
+        <strong>H</strong>: Isoniazid + <strong>R</strong>: Rifampicin<br>
+        4개월 / 매일 복용 (WHO 권고)<br><br>
+        <strong>합계: 6개월</strong> — 중단 없이 완료 필수<br>
+        결핵성 수막염·골결핵: 9–12개월 고려
+      </div>
+    </div>
+  </div>
+
+  <!-- SIDE EFFECTS -->
+  <div class="sec-title">⚠️ 주요 약제 부작용 (시험 빈출)</div>
+  <table>
+    <tr><th>약제</th><th>주요 부작용</th><th>분류</th><th>대응</th></tr>
+    <tr class="se-major">
+      <td><strong>Isoniazid (H)</strong></td>
+      <td>말초신경병증, 간독성, 발작 (B6 결핍)</td>
+      <td><span class="badge badge-red">MAJOR</span></td>
+      <td>Pyridoxine (B6) 예방 투여; 간효소 모니터링</td>
+    </tr>
+    <tr class="se-major">
+      <td><strong>Rifampicin (R)</strong></td>
+      <td>간독성, 약물 상호작용 (CYP 유도), 체액 적갈색</td>
+      <td><span class="badge badge-red">MAJOR</span></td>
+      <td>OCP·ART 용량 조정; 소변 색 변화 사전 안내</td>
+    </tr>
+    <tr class="se-major">
+      <td><strong>Pyrazinamide (Z)</strong></td>
+      <td>간독성 (가장 강함), 관절통, 고요산혈증</td>
+      <td><span class="badge badge-red">MAJOR</span></td>
+      <td>간독성 → 중단 고려; 통풍 기왕력 주의</td>
+    </tr>
+    <tr class="se-minor">
+      <td><strong>Ethambutol (E)</strong></td>
+      <td>시신경염 (색각 이상, 시력↓)</td>
+      <td><span class="badge badge-yellow">OPTIC</span></td>
+      <td>월 1회 시력 검사; 신부전에서 용량↓</td>
+    </tr>
+  </table>
+
+  <!-- SPECIAL SITUATIONS -->
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">TB + HIV 동시치료 타이밍</div>
+      <ul>
+        <li>TB 치료 <strong>먼저 시작</strong> → ART는 이후</li>
+        <li><strong>CD4 &lt;50:</strong> TB 치료 후 <span class="highlight">2주 내</span> ART 시작</li>
+        <li><strong>CD4 50~200:</strong> TB 치료 후 <span class="highlight">8주 내</span> ART</li>
+        <li><strong>결핵성 수막염:</strong> ART 8주 지연 (IRIS 뇌부종 위험)</li>
+        <li>Rifampicin ↔ Efavirenz: Efavirenz 용량 유지 (600mg)</li>
+        <li>Rifampicin ↔ PI: 상호작용 심각 → Rifabutin 대체</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">IRIS (면역재구성 염증 증후군)</div>
+      <ul>
+        <li>ART 시작 후 면역 회복 → TB 병소 역설적 악화</li>
+        <li>발생 시기: ART 시작 후 <strong>수주 내 (대부분 3개월)</strong></li>
+        <li><strong>Paradoxical IRIS:</strong> 알려진 TB 악화</li>
+        <li><strong>Unmasking IRIS:</strong> 새로운 TB 현성화</li>
+        <li>경증 → TB·ART 중단 불필요</li>
+        <li>중증 → <strong>스테로이드 (Prednisolone)</strong> 4~8주</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- HEPATOTOXICITY PROTOCOL -->
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">TB 약제 간독성 프로토콜</div>
+      <ul>
+        <li>ALT &gt;3× ULN + 증상 → <strong>모든 TB 약 중단</strong></li>
+        <li>ALT &gt;5× ULN 증상 없어도 → 중단</li>
+        <li>간독성 순서: PZA &gt; INH &gt; RIF</li>
+        <li>회복 후 순차 재도입: R → H → E → Z</li>
+        <li>PZA는 재도입 안 하는 것이 원칙</li>
+        <li>간경변 환자: 전문가 상담 필수</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">LTBI 치료 레지먼</div>
+      <ul>
+        <li><strong>3HP:</strong> INH + Rifapentine 주 1회 × 12주 (WHO 선호)</li>
+        <li><strong>6H:</strong> INH 6개월 — 가장 널리 사용</li>
+        <li><strong>4R:</strong> Rifampicin 4개월</li>
+        <li><strong>1HP:</strong> INH + Rifapentine 1개월 — 최신 단기 요법</li>
+        <li>우선 대상: HIV+, 최근 접촉자, TNF-α 예정, 5세 미만</li>
+        <li>G6PD 검사 불필요 (INH/RIF)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- DOT & OUTCOMES -->
+  <div class="sec-title">📊 DOT·치료 결과 정의 (WHO)</div>
+  <table>
+    <tr><th>결과</th><th>정의</th><th>의미</th></tr>
+    <tr><td><strong>치료 성공 (Success)</strong></td><td>완치 + 치료 완료</td><td>목표 지표</td></tr>
+    <tr><td><strong>완치 (Cured)</strong></td><td>치료 완료 + 마지막 2개월 배양 음성</td><td>미생물학적 확인</td></tr>
+    <tr><td><strong>치료 완료</strong></td>
+      <td>6개월 완료, 배양 음성 미확인</td><td>임상적 완료</td></tr>
+    <tr><td><strong>치료 실패</strong></td><td>5개월 이후 도말/배양 양성</td><td><span class="badge badge-red">MDR-TB 의심</span></td></tr>
+    <tr><td><strong>Loss to follow-up</strong></td><td>2개월 이상 치료 중단</td><td>내성 선택 위험</td></tr>
+    <tr><td><strong>사망</strong></td><td>치료 중 어떤 원인이든 사망</td><td>TB·비TB 구분</td></tr>
+  </table>
+
+  <div class="trap-h">⚠️ 시험 함정 TRAP × 4</div>
+  <div class="trap-grid">
+    <div class="trap">
+      <div class="trap-num">01</div>
+      <div class="trap-q">TB+HIV → ART 즉시 동시 시작?</div>
+      <div class="trap-a"><strong>NO.</strong> TB 치료 먼저. ART 타이밍은 CD4에 따라 다름. <strong>결핵성 수막염</strong>은 ART 8주 지연 — IRIS로 인한 뇌 손상 위험. "동시 시작"은 수막염에서 해롭다.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-num">02</div>
+      <div class="trap-q">IRIS 발생 → ART·TB 약 중단?</div>
+      <div class="trap-a"><strong>대부분 NO.</strong> 경증 IRIS → 두 약 모두 <strong>유지</strong>. 중증에만 스테로이드 추가. ART 중단은 내성 선택·면역 악화 위험. "악화되면 끊는다"는 함정.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-num">03</div>
+      <div class="trap-q">Ethambutol 부작용 = 신독성?</div>
+      <div class="trap-a"><strong>NO.</strong> Ethambutol의 핵심 부작용은 <span class="red">시신경염</span> — 색각 이상·시력 저하. 신독성은 다른 약. 신부전 환자에서 용량 조정 필요하지만 신독성 아님.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-num">04</div>
+      <div class="trap-q">TB 약 간독성 → PZA부터 재투여?</div>
+      <div class="trap-a"><strong>NO.</strong> 간독성 회복 후 순차 재도입 순서: <strong>R → H → E</strong>. <strong>PZA는 재도입 않는 것이 원칙</strong> (간독성이 가장 강함). 거꾸로 알면 틀린다.</div>
+    </div>
+  </div>
+
+  <div class="sec-title">🌍 Global Health 관점</div>
+  <div class="pills">
+    <span class="pill pill-dark">DOT = DOTS 전략의 핵심 (WHO)</span>
+    <span class="pill">치료 성공률 목표 90% — 현실 85%</span>
+    <span class="pill">Loss to follow-up → MDR-TB 온상</span>
+    <span class="pill">IRIS — ART 도입 초기 주요 합병증</span>
+    <span class="pill">Rifampicin → OCP 효과↓ 환자 교육</span>
+    <span class="pill">3HP 단기 LTBI 치료 → 순응도↑</span>
+    <span class="pill">디지털 DOT (vDOT) — 원격 감시</span>
+  </div>
+
+  <div class="footer">
+    <div class="footer-note">📚 Oxford HTM 5e Ch.5 · WHO Consolidated Guidelines on TB 2022 · RCP DGH KBA Blueprint</div>
+    <div class="footer-btns">
+      <button class="footer-btn" onclick="window.print()">🖨 PRINT</button>
+      <button class="footer-btn" style="background:var(--hdr2)">→ CID-09: MDR-TB</button>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

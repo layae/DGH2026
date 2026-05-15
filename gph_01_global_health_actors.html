@@ -1,0 +1,163 @@
+<meta charset="UTF-8">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+.w{padding:1rem 0.5rem;max-width:700px;}
+.hdr{background:#27500A;border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;}
+.hdr-l .tag{font-size:11px;color:#97C459;letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px;}
+.hdr-l h1{font-size:18px;font-weight:500;color:#EAF3DE;line-height:1.3;}
+.hdr-r{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.bdg{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:500;}
+.bg1{background:#3B6D11;color:#EAF3DE;}
+.bg2{background:#173404;color:#C0DD97;}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:1rem;}
+.st{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.75rem .875rem;}
+.st-l{font-size:11px;color:var(--color-text-secondary);margin-bottom:4px;line-height:1.3;}
+.st-v{font-size:18px;font-weight:500;color:#3B6D11;}
+.st-s{font-size:11px;color:var(--color-text-secondary);margin-top:2px;}
+.card{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.125rem;margin-bottom:1rem;}
+.card h3{font-size:13px;font-weight:500;color:#27500A;margin-bottom:.5rem;display:flex;align-items:center;gap:6px;}
+.card h3 i{font-size:15px;}
+.card p{font-size:12.5px;color:var(--color-text-primary);line-height:1.6;}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:1rem;}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:.5rem 0;}
+.actor-box{border-radius:var(--border-radius-md);padding:.65rem .75rem;font-size:12px;line-height:1.5;}
+.a-un{background:#EAF3DE;border:.5px solid #C0DD97;color:#173404;}
+.a-wb{background:#E6F1FB;border:.5px solid #B5D4F4;color:#042C53;}
+.a-ngo{background:#FAEEDA;border:.5px solid #FAC775;color:#412402;}
+.a-bi{background:#EEEDFE;border:.5px solid #AFA9EC;color:#26215C;}
+.a-pp{background:#FAECE7;border:.5px solid #F0997B;color:#4A1B0C;}
+.a-ac{background:#F1EFE8;border:.5px solid #D3D1C7;color:#2C2C2A;}
+.aname{font-weight:500;font-size:12.5px;margin-bottom:3px;}
+.tw{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:12px;}
+thead th{background:#27500A;color:#EAF3DE;font-weight:500;padding:6px 8px;text-align:left;}
+tbody td{padding:5px 8px;border-bottom:.5px solid var(--color-border-tertiary);color:var(--color-text-primary);vertical-align:top;line-height:1.5;}
+tbody tr:last-child td{border-bottom:none;}
+.trap-h{font-size:13px;font-weight:500;color:#791F1F;margin-bottom:.5rem;display:flex;align-items:center;gap:5px;}
+.tg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:1rem;}
+.trap{background:#FCEBEB;border-left:3px solid #A32D2D;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:.6rem .75rem;}
+.trap-q{font-size:12px;font-weight:500;color:#791F1F;margin-bottom:3px;}
+.trap-a{font-size:11.5px;color:#501313;line-height:1.5;}
+.gbox{background:#EAF3DE;border:.5px solid #97C459;border-radius:var(--border-radius-md);padding:.6rem .875rem;margin-bottom:.75rem;}
+.gbox p{font-size:12px;color:#173404;line-height:1.6;}
+.gh-h{font-size:12px;font-weight:500;color:var(--color-text-secondary);margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em;}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:.75rem;}
+.pill{font-size:11.5px;padding:3px 10px;border-radius:20px;border:.5px solid var(--color-border-tertiary);color:var(--color-text-secondary);}
+.footer{display:flex;align-items:center;justify-content:space-between;margin-top:.5rem;}
+.fn{font-size:11px;color:var(--color-text-secondary);}
+.btn{font-size:12px;padding:5px 14px;cursor:pointer;border-radius:var(--border-radius-md);border:.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-primary);}
+.divider{border:none;border-top:.5px solid var(--color-border-tertiary);margin:.75rem 0;}
+</style>
+<div class="w">
+  <div class="hdr">
+    <div class="hdr-l">
+      <div class="tag">Global Public Health · Policy 1/5</div>
+      <h1>Global Health Actors<br><span style="font-size:14px;color:#97C459;">주요 행위자·역할·거버넌스 구조</span></h1>
+    </div>
+    <div class="hdr-r">
+      <span class="bdg bg1">Global Public Health</span>
+      <span class="bdg bg2">GPH 20%</span>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="st"><div class="st-l">WHO 회원국</div><div class="st-v">194개</div><div class="st-s">유일한 보편적 국제보건기구</div></div>
+    <div class="st"><div class="st-l">세계은행 보건 대출</div><div class="st-v">$15B+</div><div class="st-s">연간 (2020 기준)</div></div>
+    <div class="st"><div class="st-l">GAVI 지원 국가</div><div class="st-v">78개국</div><div class="st-s">저소득국 백신 지원</div></div>
+    <div class="st"><div class="st-l">빌게이츠재단 연간 지출</div><div class="st-v">$6B</div><div class="st-s">WHO 분담금의 약 2배</div></div>
+  </div>
+
+  <div class="card">
+    <h3><i class="ti ti-sitemap" aria-hidden="true"></i>6대 행위자 유형 — 역할·특징</h3>
+    <div class="g3">
+      <div class="actor-box a-un">
+        <div class="aname">UN 산하 기구</div>
+        WHO · UNICEF · UNFPA · UNHCR · WFP<br>
+        <span style="font-size:11px;">규범 설정·가이드라인·기술 지원. 국가 주권 존중 원칙.</span>
+      </div>
+      <div class="actor-box a-wb">
+        <div class="aname">다자개발은행</div>
+        세계은행 · 지역개발은행<br>
+        <span style="font-size:11px;">차관·무상원조. 보건시스템 강화 중점. 조건부 지원(conditionality) 논란.</span>
+      </div>
+      <div class="actor-box a-ngo">
+        <div class="aname">국제 NGO</div>
+        MSF · Save the Children · IRC<br>
+        <span style="font-size:11px;">인도주의 원칙 기반. 분쟁·재난 현장 직접 서비스. 독립성 강조.</span>
+      </div>
+      <div class="actor-box a-bi">
+        <div class="aname">양자 공여국 (Bilateral)</div>
+        USAID · DFID(FCDO) · JICA · GIZ<br>
+        <span style="font-size:11px;">국가 이익과 연계. ODA 자금. PEPFAR·PMI 같은 목적 지정 프로그램.</span>
+      </div>
+      <div class="actor-box a-pp">
+        <div class="aname">민관협력 (PPP)</div>
+        GAVI · Global Fund · CEPI<br>
+        <span style="font-size:11px;">민간+공공 혼합 거버넌스. 특정 질환 집중. 수직적 접근 비판도.</span>
+      </div>
+      <div class="actor-box a-ac">
+        <div class="aname">민간재단·학술</div>
+        BMGF · Wellcome Trust<br>
+        <span style="font-size:11px;">R&D 투자·어젠다 설정. 민주적 책무성 부재 비판. 대규모 영향력.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <h3><i class="ti ti-building" aria-hidden="true"></i>WHO 구조 및 거버넌스</h3>
+      <p>
+        <strong>3계층:</strong> 본부(제네바) → 지역사무소 6개 → 국가사무소<br>
+        <strong>최고 의결기구:</strong> World Health Assembly (WHA) — 연 1회<br>
+        <strong>집행이사회:</strong> 34개국, 연 2회<br>
+        <strong>사무총장:</strong> WHA 선출, 5년 임기<br><br>
+        <strong>재정 구조:</strong><br>
+        · 의무분담금(assessed) ~20% — 회원국 GDP 비례<br>
+        · 자발적 기여금(voluntary) ~80% — 목적 지정<br>
+        → 자발적 기여 편중 = 어젠다 왜곡 우려
+      </p>
+    </div>
+    <div class="card">
+      <h3><i class="ti ti-coins" aria-hidden="true"></i>핵심 글로벌 펀딩 메커니즘</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th>기구</th><th>집중 영역</th><th>특징</th></tr></thead>
+          <tbody>
+            <tr><td>Global Fund</td><td>HIV·TB·말라리아</td><td>공여국+수혜국+민간 이사회</td></tr>
+            <tr><td>GAVI</td><td>소아 백신</td><td>LMIC 가격 협상력</td></tr>
+            <tr><td>PEPFAR</td><td>HIV (미국 주도)</td><td>미 의회 직접 승인 예산</td></tr>
+            <tr><td>CEPI</td><td>전염병 대비 백신</td><td>COVID-19 계기 설립</td></tr>
+            <tr><td>PMI</td><td>말라리아 (미국)</td><td>PEPFAR와 유사 구조</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="gbox">
+    <p><strong>수직 vs 수평 접근 논쟁:</strong> GAVI·Global Fund 같은 질환별 수직 프로그램(vertical programs)은 특정 질환 성과 탁월하나 보건시스템 전반 약화 우려. 반면 수평 접근(horizontal/health systems strengthening)은 포괄적이나 성과 측정 어려움. DGH 시험에서 이 긴장관계 자주 출제.</p>
+  </div>
+
+  <div class="trap-h"><i class="ti ti-alert-triangle" aria-hidden="true"></i>시험 함정 4개</div>
+  <div class="tg">
+    <div class="trap"><div class="trap-q">WHO = 국제 보건 최고 의사결정 기구?</div><div class="trap-a">규범·기준 설정 권한은 있으나 집행 권한 없음. 강제력 없는 권고 기관. 국가 주권 우선. IHR(국제보건규칙)만 법적 구속력 일부 보유.</div></div>
+    <div class="trap"><div class="trap-q">빌게이츠재단 = WHO 산하 기관?</div><div class="trap-a">독립 민간재단. WHO의 최대 단일 자발적 기여자 중 하나이나 UN 체계 외부. 민주적 책무성 없이 글로벌 어젠다에 막대한 영향력 행사 비판.</div></div>
+    <div class="trap"><div class="trap-q">MSF = 수혜국 정부와 협력 원칙?</div><div class="trap-a">MSF는 중립·독립·공정 원칙. 정부와 협력하되 독립성 우선. 분쟁 상황에서 교전국 모두와 협상. 정치적 중립이 핵심 정체성.</div></div>
+    <div class="trap"><div class="trap-q">ODA = 모두 보건 분야?</div><div class="trap-a">공적개발원조(ODA)는 인프라·교육·농업 등 다부문. 보건 ODA는 전체의 약 10~15%. PEPFAR·PMI는 보건 목적 지정 예산으로 별도 분류.</div></div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="gh-h">Global Health 관점</div>
+  <div class="pills">
+    <span class="pill">수직 vs 수평 프로그램 긴장관계</span>
+    <span class="pill">WHO 재정 = 자발적 기여 80% → 어젠다 왜곡</span>
+    <span class="pill">민간재단의 글로벌 어젠다 영향력 증대</span>
+    <span class="pill">Global Fund = HIV·TB·말라리아 3대 질환</span>
+    <span class="pill">GAVI = 백신 가격 협상의 혁신</span>
+  </div>
+  <div class="footer">
+    <span class="fn">Source: WHO Constitution · Lancet Commission on Global Health · Textbook of Global Health 4e</span>
+    <button class="btn" onclick="sendPrompt('다음 Global Public Health 토픽 계속 만들어줘')">다음 토픽 →</button>
+  </div>
+</div>

@@ -1,0 +1,170 @@
+<meta charset="UTF-8">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+.w{padding:1rem 0.5rem;max-width:700px;}
+.hdr{background:#27500A;border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;}
+.hdr-l .tag{font-size:11px;color:#97C459;letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px;}
+.hdr-l h1{font-size:18px;font-weight:500;color:#EAF3DE;line-height:1.3;}
+.hdr-r{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.bdg{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:500;}
+.bg1{background:#3B6D11;color:#EAF3DE;}
+.bg2{background:#173404;color:#C0DD97;}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:1rem;}
+.st{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.75rem .875rem;}
+.st-l{font-size:11px;color:var(--color-text-secondary);margin-bottom:4px;line-height:1.3;}
+.st-v{font-size:18px;font-weight:500;color:#3B6D11;}
+.st-s{font-size:11px;color:var(--color-text-secondary);margin-top:2px;}
+.card{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.125rem;margin-bottom:1rem;}
+.card h3{font-size:13px;font-weight:500;color:#27500A;margin-bottom:.5rem;display:flex;align-items:center;gap:6px;}
+.card h3 i{font-size:15px;}
+.card p{font-size:12.5px;color:var(--color-text-primary);line-height:1.6;}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:1rem;}
+.tw{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:12px;}
+thead th{background:#27500A;color:#EAF3DE;font-weight:500;padding:6px 8px;text-align:left;}
+tbody td{padding:5px 8px;border-bottom:.5px solid var(--color-border-tertiary);color:var(--color-text-primary);vertical-align:top;line-height:1.5;}
+tbody tr:last-child td{border-bottom:none;}
+.trap-h{font-size:13px;font-weight:500;color:#791F1F;margin-bottom:.5rem;display:flex;align-items:center;gap:5px;}
+.tg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:1rem;}
+.trap{background:#FCEBEB;border-left:3px solid #A32D2D;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:.6rem .75rem;}
+.trap-q{font-size:12px;font-weight:500;color:#791F1F;margin-bottom:3px;}
+.trap-a{font-size:11.5px;color:#501313;line-height:1.5;}
+.gbox{background:#EAF3DE;border:.5px solid #97C459;border-radius:var(--border-radius-md);padding:.6rem .875rem;margin-bottom:.75rem;}
+.gbox p{font-size:12px;color:#173404;line-height:1.6;}
+.gh-h{font-size:12px;font-weight:500;color:var(--color-text-secondary);margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em;}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:.75rem;}
+.pill{font-size:11.5px;padding:3px 10px;border-radius:20px;border:.5px solid var(--color-border-tertiary);color:var(--color-text-secondary);}
+.footer{display:flex;align-items:center;justify-content:space-between;margin-top:.5rem;}
+.fn{font-size:11px;color:var(--color-text-secondary);}
+.btn{font-size:12px;padding:5px 14px;cursor:pointer;border-radius:var(--border-radius-md);border:.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-primary);}
+.divider{border:none;border-top:.5px solid var(--color-border-tertiary);margin:.75rem 0;}
+.pheic-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:.5rem 0;}
+.ph-box{border-radius:var(--border-radius-md);padding:.6rem .7rem;font-size:12px;line-height:1.5;}
+.ph1{background:#EAF3DE;border:.5px solid #C0DD97;color:#173404;}
+.ph2{background:#FAEEDA;border:.5px solid #FAC775;color:#412402;}
+.ph3{background:#FCEBEB;border:.5px solid #F09595;color:#501313;}
+.ph-t{font-weight:500;font-size:12.5px;margin-bottom:3px;}
+.core-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:.5rem 0;}
+.core-box{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.6rem .7rem;font-size:12px;color:var(--color-text-primary);line-height:1.5;}
+.core-box strong{color:#27500A;display:block;margin-bottom:2px;}
+</style>
+<div class="w">
+  <div class="hdr">
+    <div class="hdr-l">
+      <div class="tag">Global Public Health · Policy 2/5</div>
+      <h1>International Health Regulations (IHR 2005)<br><span style="font-size:14px;color:#97C459;">국제보건규칙 · PHEIC · 핵심 역량</span></h1>
+    </div>
+    <div class="hdr-r">
+      <span class="bdg bg1">Global Public Health</span>
+      <span class="bdg bg2">GPH 20%</span>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="st"><div class="st-l">IHR 채택 연도</div><div class="st-v">2005년</div><div class="st-s">발효: 2007년 6월</div></div>
+    <div class="st"><div class="st-l">IHR 당사국</div><div class="st-v">196개국</div><div class="st-s">WHO 회원국 + 2개</div></div>
+    <div class="st"><div class="st-l">PHEIC 선언 횟수</div><div class="st-v">7회</div><div class="st-s">2009~2023 (COVID 포함)</div></div>
+    <div class="st"><div class="st-l">핵심 역량 항목</div><div class="st-v">13개</div><div class="st-s">JEE 평가 기준</div></div>
+  </div>
+
+  <div class="gbox">
+    <p><strong>IHR 2005 핵심 목적:</strong> 국제 공중보건 위협의 예방·보호·통제 및 공중보건 대응을 보장하되, 국제 교역과 여행에 대한 불필요한 간섭을 최소화. 법적 구속력 있는 유일한 국제보건협약. <strong>IHR = 국제법이나 집행 수단 부재가 한계.</strong></p>
+  </div>
+
+  <div class="card">
+    <h3><i class="ti ti-alert-octagon" aria-hidden="true"></i>PHEIC — Public Health Emergency of International Concern</h3>
+    <div class="pheic-row">
+      <div class="ph-box ph1">
+        <div class="ph-t">선언 조건 (3가지 모두 충족)</div>
+        ① 비정상적·예상치 못한 사건<br>
+        ② 국제적 확산 가능성<br>
+        ③ 국제 조율된 대응 필요<br>
+        <span style="font-size:11px;">→ DG WHO가 IHR 긴급위원회 자문 후 최종 결정</span>
+      </div>
+      <div class="ph-box ph2">
+        <div class="ph-t">역대 PHEIC 선언 목록</div>
+        2009 신종플루 (H1N1)<br>
+        2014 소아마비<br>
+        2014 에볼라 (서아프리카)<br>
+        2016 지카바이러스<br>
+        2019 에볼라 (DRC)<br>
+        2020 COVID-19<br>
+        2022 원숭이두창(Mpox)
+      </div>
+      <div class="ph-box ph3">
+        <div class="ph-t">PHEIC 선언의 법적 효과</div>
+        · WHO, 임시 권고(TRs) 발령 가능<br>
+        · 회원국: 검역·여행 제한 보고 의무<br>
+        · 자원 동원·국제 협력 촉진<br>
+        · <span style="font-weight:500;">집행력 없음</span> — 권고 불이행 제재 없음<br>
+        · 경제적 낙인 효과 우려 → 과소 보고 유인
+      </div>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <h3><i class="ti ti-checklist" aria-hidden="true"></i>IHR 핵심 역량 (Core Capacities)</h3>
+      <div class="core-grid">
+        <div class="core-box"><strong>감시 (Surveillance)</strong>사건 탐지·보고 체계</div>
+        <div class="core-box"><strong>대응 (Response)</strong>신속 대응 역량</div>
+        <div class="core-box"><strong>실험실 (Laboratory)</strong>진단 확인 역량</div>
+        <div class="core-box"><strong>위험소통</strong>Risk communication</div>
+        <div class="core-box"><strong>입출국 관리</strong>POE (공항·항구)</div>
+        <div class="core-box"><strong>인수공통 (Zoonosis)</strong>One Health 연계</div>
+      </div>
+      <p style="font-size:11.5px;color:var(--color-text-secondary);margin-top:6px;">JEE (Joint External Evaluation): 자발적 국가 핵심 역량 평가 도구. IHR 이행 모니터링.</p>
+    </div>
+    <div class="card">
+      <h3><i class="ti ti-world" aria-hidden="true"></i>IHR 2005 보고 의무 — 핵심 사항</h3>
+      <p>
+        <strong>즉각 보고 대상 (무조건):</strong><br>
+        · 두창(Smallpox)<br>
+        · 야생형 폴리오<br>
+        · 인체감염 H5N1 인플루엔자<br>
+        · SARS<br><br>
+        <strong>알고리즘 판단 후 보고:</strong><br>
+        심각성·비정상성·국제 확산 위험·여행·무역 제한 여부 → 4가지 기준으로 판단<br><br>
+        <strong>보고 시한:</strong> 국가 당국 인지 후 24시간 이내 WHO 통보
+      </p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:1rem;">
+    <h3><i class="ti ti-scale" aria-hidden="true"></i>IHR 한계 및 개정 논의 (Post-COVID)</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>한계</th><th>내용</th><th>개정 방향</th></tr></thead>
+        <tbody>
+          <tr><td>집행력 부재</td><td>권고 불이행 제재 없음</td><td>순응 메커니즘 강화 논의</td></tr>
+          <tr><td>과소 보고 유인</td><td>PHEIC 선언 시 경제적 피해</td><td>보고 인센티브 제공</td></tr>
+          <tr><td>핵심 역량 불평등</td><td>LMIC 역량 격차 큼</td><td>역량 강화 재원 의무화</td></tr>
+          <tr><td>비국가 정보 활용 제한</td><td>공식 채널만 인정</td><td>PROMED·NGO 데이터 공식화</td></tr>
+          <tr><td>속도 지연</td><td>정치적 고려로 PHEIC 지연</td><td>독립적 기술위원회 권한 강화</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="trap-h"><i class="ti ti-alert-triangle" aria-hidden="true"></i>시험 함정 4개</div>
+  <div class="tg">
+    <div class="trap"><div class="trap-q">PHEIC = WHO가 강제 조치 가능?</div><div class="trap-a">불가. PHEIC는 권고 발령 권한만 부여. 실제 국경 통제·격리·여행 제한은 각 회원국 주권 사항. WHO는 집행 기관이 아님.</div></div>
+    <div class="trap"><div class="trap-q">IHR = WHO 회원국만 적용?</div><div class="trap-a">IHR 2005는 WHO 비회원국도 가입 가능. 현재 196개 당사국 — WHO 회원 194개국보다 많음 (바티칸·리히텐슈타인 포함).</div></div>
+    <div class="trap"><div class="trap-q">에볼라는 무조건 즉시 보고 의무?</div><div class="trap-a">에볼라는 '무조건' 목록(4개)에 미포함. 알고리즘 4기준으로 판단 후 보고. 단, 실제로는 대부분 즉시 보고에 해당. 무조건 보고 = 두창·야생형 폴리오·H5N1·SARS.</div></div>
+    <div class="trap"><div class="trap-q">PHEIC 선언 = 팬데믹 선언?</div><div class="trap-a">별개 개념. PHEIC는 IHR 법적 개념. 팬데믹(Pandemic)은 WHO DG의 기술적 선언으로 법적 구속력 없음. COVID-19는 PHEIC 선언(1월)과 팬데믹 선언(3월)이 별도로 이루어짐.</div></div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="gh-h">Global Health 관점</div>
+  <div class="pills">
+    <span class="pill">IHR = 유일한 법적 구속력 국제보건협약</span>
+    <span class="pill">PHEIC 집행력 부재 = COVID-19가 드러낸 핵심 한계</span>
+    <span class="pill">JEE = 자발적 핵심 역량 평가 (LMIC 격차 큼)</span>
+    <span class="pill">과소 보고 유인 해소 = IHR 개혁 핵심 과제</span>
+  </div>
+  <div class="footer">
+    <span class="fn">Source: IHR 2005 · WHO IHR Review Committee 2022</span>
+    <button class="btn" onclick="sendPrompt('다음 Global Public Health 토픽 계속 만들어줘')">다음 토픽 →</button>
+  </div>
+</div>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',sans-serif;}
+.w{padding:1rem 0.5rem;max-width:700px;}
+.hdr{background:#27500A;border-radius:12px;padding:1rem 1.25rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;}
+.hdr-l .tag{font-size:11px;color:#97C459;letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px;}
+.hdr-l h1{font-size:18px;font-weight:500;color:#EAF3DE;line-height:1.3;}
+.hdr-r{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.bdg{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:500;}
+.bg1{background:#3B6D11;color:#EAF3DE;}
+.bg2{background:#173404;color:#C0DD97;}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:1rem;}
+.st{background:#f4f7f1;border-radius:8px;padding:.75rem .875rem;}
+.st-l{font-size:11px;color:#555;margin-bottom:4px;line-height:1.3;}
+.st-v{font-size:16px;font-weight:600;color:#3B6D11;}
+.st-s{font-size:11px;color:#666;margin-top:2px;}
+.card{background:#fff;border:.5px solid #d0dfc8;border-radius:12px;padding:1rem 1.125rem;margin-bottom:1rem;}
+.card h3{font-size:13px;font-weight:500;color:#27500A;margin-bottom:.5rem;}
+.card p,.card li{font-size:12.5px;color:#1a2e1a;line-height:1.6;}
+.card ul{padding-left:14px;}
+.card li{margin-bottom:2px;}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:1rem;}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:1rem;}
+.tw{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:12px;}
+thead th{background:#27500A;color:#EAF3DE;font-weight:500;padding:6px 8px;text-align:left;}
+tbody td{padding:5px 8px;border-bottom:.5px solid #e0eae0;color:#1a2e1a;vertical-align:top;line-height:1.5;}
+tbody tr:last-child td{border-bottom:none;}
+em{color:#27500A;font-style:normal;font-weight:600;}
+.trap-h{font-size:13px;font-weight:500;color:#791F1F;margin-bottom:.5rem;}
+.tg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:1rem;}
+.trap{background:#FCEBEB;border-left:3px solid #A32D2D;border-radius:0 8px 8px 0;padding:.6rem .75rem;}
+.trap-q{font-size:12px;font-weight:500;color:#791F1F;margin-bottom:3px;}
+.trap-a{font-size:11.5px;color:#501313;line-height:1.5;}
+.gbox{background:#EAF3DE;border:.5px solid #97C459;border-radius:8px;padding:.6rem .875rem;margin-bottom:.75rem;}
+.gbox p{font-size:12px;color:#173404;line-height:1.6;}
+.gh-h{font-size:12px;font-weight:500;color:#555;margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em;}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:.75rem;}
+.pill{font-size:11.5px;padding:3px 10px;border-radius:20px;border:.5px solid #c8ddc8;color:#2a5a2a;}
+.footer{display:flex;align-items:center;justify-content:space-between;margin-top:.5rem;}
+.fn{font-size:11px;color:#666;}
+.btn{font-size:12px;padding:5px 14px;cursor:pointer;border-radius:8px;border:.5px solid #aac4aa;background:transparent;color:#27500A;}
+.divider{border:none;border-top:.5px solid #dde8dd;margin:.75rem 0;}
+.step{display:flex;gap:8px;margin-bottom:6px;align-items:flex-start;}
+.step-num{background:#27500A;color:white;border-radius:50%;width:20px;height:20px;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.step-txt{font-size:12.5px;color:#1a2e1a;line-height:1.5;}
+.b1{background:#FCEBEB;border:.5px solid #F09595;color:#501313;border-radius:8px;padding:.6rem .75rem;font-size:12px;line-height:1.5;}
+.b2{background:#FAEEDA;border:.5px solid #FAC775;color:#412402;border-radius:8px;padding:.6rem .75rem;font-size:12px;line-height:1.5;}
+.b3{background:#EEEDFE;border:.5px solid #AFA9EC;color:#26215C;border-radius:8px;padding:.6rem .75rem;font-size:12px;line-height:1.5;}
+.b-t{font-weight:600;font-size:12.5px;margin-bottom:3px;}
+</style>
+</head>
+<body>
+<div class="w">
+
+  <div class="hdr">
+    <div class="hdr-l">
+      <div class="tag">Global Public Health · Public Health 3/5</div>
+      <h1>Outbreaks<br><span style="font-size:14px;color:#97C459;">아웃브레이크 조사 · 역학 대응 · IHR 연계</span></h1>
+    </div>
+    <div class="hdr-r">
+      <span class="bdg bg1">Global Public Health</span>
+      <span class="bdg bg2">GPH 20%</span>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="st"><div class="st-l">아웃브레이크 정의</div><div class="st-v">≥2명</div><div class="st-s">시간·장소·사람 연관<br>기대 이상 발생</div></div>
+    <div class="st"><div class="st-l">PHEIC 선언 근거</div><div class="st-v">IHR 2005</div><div class="st-s">국제 공중보건<br>비상사태</div></div>
+    <div class="st"><div class="st-l">핵심 아웃브레이크 지표</div><div class="st-v">Attack Rate</div><div class="st-s">= 발병/노출인구<br>식품매개 조사 핵심</div></div>
+    <div class="st"><div class="st-l">대응 골든타임</div><div class="st-v">7일</div><div class="st-s">IHR — 잠재 PHEIC<br>WHO 통보 기한</div></div>
+  </div>
+
+  <!-- 10단계 조사 -->
+  <div class="card">
+    <h3>🔟 아웃브레이크 조사 10단계 (CDC/WHO 표준)</h3>
+    <div class="g2">
+      <div>
+        <div class="step"><div class="step-num">1</div><div class="step-txt"><em>아웃브레이크 준비 (Prepare)</em> — 팀 구성, 역할 분담, 안전 장비</div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-txt"><em>아웃브레이크 존재 확인</em> — 기준 기대치 초과 여부 (endemic baseline 비교)</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-txt"><em>증례 정의 수립</em> — Clinical/Confirmed/Probable/Suspected 단계별 정의</div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-txt"><em>증례 발견 및 등록</em> — 능동적 감시; 신고 독려</div></div>
+        <div class="step"><div class="step-num">5</div><div class="step-txt"><em>기술 역학 (Descriptive)</em> — 시간(유행곡선), 장소(점지도), 사람(위험요인)</div></div>
+      </div>
+      <div>
+        <div class="step"><div class="step-num">6</div><div class="step-txt"><em>가설 수립</em> — 노출원·전파 경로·위험 집단 가설</div></div>
+        <div class="step"><div class="step-num">7</div><div class="step-txt"><em>가설 검증 (Analytical)</em> — 코호트 or 환자-대조군 연구; OR/RR 산출</div></div>
+        <div class="step"><div class="step-num">8</div><div class="step-txt"><em>추가 연구</em> — 환경 조사, 실험실 검사 (병원체 동정)</div></div>
+        <div class="step"><div class="step-num">9</div><div class="step-txt"><em>통제 조치 실행</em> — 즉각적·장기적 대응 병행</div></div>
+        <div class="step"><div class="step-num">10</div><div class="step-txt"><em>결과 보고·전파</em> — WHO/보건부 통보, 교훈 공유</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 유행곡선 + 증례 정의 -->
+  <div class="g2">
+    <div class="card">
+      <h3>📈 유행곡선 (Epidemic Curve) 해석</h3>
+      <ul>
+        <li><em>Point source:</em> 단일 노출, 급격한 상승·하강. 잠복기 내 모든 증례 발생. (예: 연회 식중독)</li>
+        <li><em>Propagated:</em> 여러 봉우리, 각 봉우리 간격 = 잠복기. 사람→사람 전파. (예: 홍역)</li>
+        <li><em>Continuous source:</em> 지속적 완만한 상승. 오염 수원 지속. (예: 콜레라 오염 우물)</li>
+        <li><em>Mixed:</em> Point source 후 2차 전파. (예: Hep A 급식 → 가족 내 전파)</li>
+      </ul>
+      <p style="margin-top:.5rem;"><em>잠복기 추정:</em> 최단~최장 노출 간격으로 병원체 범위 좁힘.</p>
+    </div>
+    <div class="card">
+      <h3>📋 증례 정의 & Attack Rate</h3>
+      <p><em>증례 정의 구성요소:</em><br>
+      Clinical (증상·징후) + Laboratory (검사) + Epidemiological (시간·장소·사람) 기준<br><br>
+      초기: 민감도 높은 넓은 정의 → 이후 좁혀 가며 확인<br><br>
+      <em>Attack Rate (AR):</em><br>
+      = 발병자 수 / 위험 노출 인구 × 100<br><br>
+      <em>Food-specific AR:</em><br>
+      특정 음식 섭취자 AR − 미섭취자 AR = Attributable risk<br>
+      가장 높은 차이 → 원인 식품<br><br>
+      <em>Secondary Attack Rate:</em><br>
+      = 2차 감염자 / (접촉자 − 1차 감염자) × 100<br>
+      → 전파력 측정 지표</p>
+    </div>
+  </div>
+
+  <!-- 통제 전략 & 병원체별 -->
+  <div class="card">
+    <h3>🛑 통제 조치 전략 & 주요 아웃브레이크 병원체</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>병원체/질환</th><th>주요 전파경로</th><th>핵심 통제 조치</th><th>LMIC 고려</th></tr></thead>
+        <tbody>
+          <tr><td><em>콜레라</em></td><td>오염 물·식품 (분변-구강)</td><td>WASH 개선, OCV(경구백신), ORS 대량 공급</td><td>난민캠프·홍수 후 고위험</td></tr>
+          <tr><td><em>홍역</em></td><td>비말·공기 (R₀ 12~18)</td><td>긴급 SIA, 격리, MCV2 캐치업</td><td>저접종률 지역 클러스터</td></tr>
+          <tr><td><em>수막구균성 수막염</em></td><td>비말 (밀집 거주)</td><td>화학예방 (ciprofloxacin), MenACWY 접종</td><td>아프리카 수막염 벨트 건기</td></tr>
+          <tr><td><em>에볼라</em></td><td>직접 접촉 (체액)</td><td>IPC, 안전 매장, 접촉자 추적, 링 백신</td><td>DRC·서아프리카 반복 발생</td></tr>
+          <tr><td><em>장티푸스</em></td><td>오염 물·식품</td><td>WASH, TCV(접합백신), 항생제(azithromycin)</td><td>XDR typhoid 파키스탄 유행</td></tr>
+          <tr><td><em>식품매개 (Staph/Salmonella)</em></td><td>오염 식품 단일 노출</td><td>음식 회수, 주방 위생 감사</td><td>Point source 유행곡선</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- IHR 연계 -->
+  <div class="g2">
+    <div class="card">
+      <h3>🌐 IHR 2005 연계 & PHEIC</h3>
+      <ul>
+        <li><em>IHR 핵심 역량:</em> 감시·통보·대응·IPC·위험소통 등 8개 핵심 역량</li>
+        <li><em>PHEIC 조건 (2가지 이상):</em><br>
+          ① 공중보건 영향 심각<br>
+          ② 비정상·예상치 못한 사건<br>
+          ③ 국제 전파 위험<br>
+          ④ 국제 교역·여행 제한 위험</li>
+        <li><em>NFP (National Focal Point):</em> 각국 IHR 담당 창구. 잠재 PHEIC 사건 발생 시 24시간 내 WHO에 평가, 48시간 내 통보</li>
+        <li><em>JEE (Joint External Evaluation):</em> IHR 역량 독립 평가 도구</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🏕️ 인도주의 환경의 아웃브레이크</h3>
+      <ul>
+        <li><em>위험 증폭 요소:</em> 밀집, WASH 부재, 영양불량, 백신 접종률 저하, 의료 접근 불가</li>
+        <li><em>초기 경보:</em> Sentinel surveillance, EWARN (Early Warning, Alert and Response)</li>
+        <li><em>우선 예방접종:</em> 홍역 → 콜레라 → 수막구균 (Sphere 기준)</li>
+        <li><em>MSF/WHO 5% CFR 기준:</em> 콜레라 CFR &gt;1% → 대응 실패 신호. 목표 CFR &lt;1%</li>
+        <li><em>Rumour surveillance:</em> 지역사회 소문 모니터링 → 조기 발견</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="trap-h">⚠️ 시험 함정 4개</div>
+  <div class="tg">
+    <div class="trap">
+      <div class="trap-q">유행곡선 여러 봉우리 = 복수 노출원?</div>
+      <div class="trap-a">꼭 그렇지 않음. Propagated (사람→사람) 전파에서도 각 잠복기마다 봉우리 형성. 봉우리 간격이 병원체 잠복기와 일치하면 전파형. 복수 노출원 가설은 추가 역학 조사로 확인 필요.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-q">증례 정의 = 확진 기준?</div>
+      <div class="trap-a">아웃브레이크 초기 증례 정의는 민감도 우선 — 가능한 많은 증례 포착. 확진 기준이 아니라 역학적 분류 도구. 너무 좁은 정의 → 증례 과소 파악 → 아웃브레이크 규모 과소 추정.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-q">AR이 가장 높은 음식 = 원인 식품?</div>
+      <div class="trap-a">섭취자 AR이 아니라 섭취자 AR과 미섭취자 AR의 <strong>차이(attributable risk)</strong>가 가장 큰 음식이 원인. 모든 음식 섭취자 AR이 비슷하게 높다면 공통 오염원(물, 주방 환경) 의심.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-q">PHEIC 선언 = 자동 국경 통제?</div>
+      <div class="trap-a">IHR은 과도한 여행·교역 제한을 금지. PHEIC는 국제 공조 촉구이지 자동 봉쇄 명령이 아님. WHO DG 권고사항이며 강제력 없음. 국가별 과도한 제한 조치는 IHR 위반 소지.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="gbox">
+    <p><strong>실전 팁:</strong> 시험에서 아웃브레이크 시나리오가 나오면 ① 유행곡선 모양 → 전파 유형 파악, ② 잠복기 → 병원체 범위 좁히기, ③ Attack Rate 계산 → 원인 식품/노출원 특정, ④ 통제 조치는 원인 제거 + 취약자 보호 순서. 샘플 Q3 (CCHF, 가축 종사자)처럼 직업·동물 노출 배경이 핵심 역학 단서.</p>
+  </div>
+
+  <div class="gh-h">Global Health 관점</div>
+  <div class="pills">
+    <span class="pill">📊 유행곡선 형태 → 전파 유형 즉시 파악</span>
+    <span class="pill">🌊 콜레라 CFR 목표 &lt;1% (Sphere)</span>
+    <span class="pill">🔔 PHEIC ≠ 자동 국경 폐쇄</span>
+    <span class="pill">🏕️ 난민캠프 = 홍역·콜레라 고위험 환경</span>
+    <span class="pill">⚡ EWARN = 인도주의 환경 조기경보 시스템</span>
+  </div>
+
+  <div class="footer">
+    <span class="fn">Source: CDC Outbreak Investigation Steps · WHO IHR 2005 · Sphere Handbook 2018</span>
+    <button class="btn" onclick="sendPrompt('다음 Public Health 4번 Public Health Statistics 노트 만들어줘')">다음 토픽 →</button>
+  </div>
+
+</div>
+</body>
+</html>

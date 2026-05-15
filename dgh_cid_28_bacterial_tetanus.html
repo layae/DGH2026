@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH CID 28 | Tetanus</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Noto Sans KR',sans-serif;background:#fdf4f4;color:#2d1a1a;font-size:12.5px;line-height:1.55}
+  .page{max-width:900px;margin:0 auto;padding:18px}
+  .header{background:#791F1F;color:#fff;border-radius:8px 8px 0 0;padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+  .header-left .tag{font-size:10px;letter-spacing:2px;opacity:.7;text-transform:uppercase;font-family:'JetBrains Mono',monospace}
+  .header-left h1{font-size:20px;font-weight:700;margin-top:2px}
+  .header-right{text-align:right;font-size:10px;opacity:.75;font-family:'JetBrains Mono',monospace;line-height:1.8}
+  .stats-bar{background:#6b1a1a;padding:10px 20px;display:grid;grid-template-columns:repeat(4,1fr)}
+  .stat{text-align:center;color:#fff;padding:4px 8px;border-right:1px solid rgba(255,255,255,0.15)}
+  .stat:last-child{border-right:none}
+  .stat-num{font-size:17px;font-weight:700;color:#f5dcdc;font-family:'JetBrains Mono',monospace}
+  .stat-label{font-size:9.5px;opacity:.8;margin-top:1px;letter-spacing:.5px}
+  .body-wrap{background:#fff;border:1px solid #e8c4c4;border-top:none;border-radius:0 0 8px 8px;padding:16px 20px}
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+  .box{background:#fdf4f4;border:1px solid #e8c4c4;border-radius:6px;padding:12px}
+  .box-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#791F1F;margin-bottom:8px;border-bottom:1px solid #e8c4c4;padding-bottom:4px}
+  .box ul{list-style:none;padding:0}
+  .box ul li{padding:2px 0 2px 10px;position:relative;font-size:12px}
+  .box ul li::before{content:'›';position:absolute;left:0;color:#791F1F;font-weight:700}
+  strong{color:#791F1F;font-weight:700}
+  .section-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#791F1F;margin-bottom:7px}
+  table{width:100%;border-collapse:collapse;font-size:11.5px;margin-bottom:14px}
+  th{background:#791F1F;color:#fff;padding:6px 10px;text-align:left;font-weight:600;font-size:10.5px}
+  td{padding:5px 10px;border-bottom:1px solid #e8c4c4;vertical-align:top}
+  tr:nth-child(even) td{background:#fdf4f4}
+  tr:last-child td{border-bottom:none}
+  .steps{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+  .step{background:#f5dcdc;border:1px solid #e8c4c4;border-radius:6px;padding:8px 10px;flex:1;min-width:120px}
+  .step-num{font-size:9px;font-weight:700;color:#791F1F;text-transform:uppercase;letter-spacing:1px}
+  .step-content{font-size:11.5px;margin-top:3px;font-weight:600}
+  .trap-h{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fff;background:#791F1F;padding:5px 12px;border-radius:4px;display:inline-block;margin-bottom:8px}
+  .trap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:14px}
+  .trap{background:#fff;border:1.5px solid #791F1F;border-radius:6px;padding:10px}
+  .trap-icon{font-size:15px;margin-bottom:4px}
+  .trap-q{font-size:10.5px;font-weight:700;color:#791F1F;margin-bottom:3px}
+  .trap-a{font-size:11px;color:#2d1a1a;line-height:1.5}
+  .pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+  .pill{background:#f5dcdc;border:1px solid #e8c4c4;border-radius:20px;padding:3px 11px;font-size:10.5px;color:#791F1F;font-weight:600}
+  .pill-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#791F1F;margin-bottom:5px}
+  .footer{margin-top:10px;padding-top:8px;border-top:1px solid #e8c4c4;display:flex;justify-content:space-between;align-items:center}
+  .footer-note{font-size:10px;color:#888;font-family:'JetBrains Mono',monospace}
+  .nav-btn{background:#791F1F;color:#fff;border:none;border-radius:4px;padding:4px 12px;font-size:10.5px;font-weight:600;cursor:default;letter-spacing:.5px}
+  .highlight-box{background:#f5dcdc;border-left:3px solid #791F1F;padding:8px 12px;border-radius:0 6px 6px 0;margin-bottom:12px;font-size:11.5px}
+  .grade-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+  .grade{border-radius:6px;padding:9px 10px;border:1px solid #e8c4c4;text-align:center}
+  .grade-title{font-size:10px;font-weight:700;color:#791F1F;margin-bottom:3px;text-transform:uppercase}
+  .grade-body{font-size:11px;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <div class="header-left">
+    <div class="tag">DGH KBA · Clinical Infectious Diseases · CID-28</div>
+    <h1>Tetanus</h1>
+  </div>
+  <div class="header-right">
+    창 C · Bacterial Infections<br>
+    Blueprint 40% · Oxford Trop Med 5e<br>
+    WHO TT 전략 · EPI 연계
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">~57,000</div>
+    <div class="stat-label">연간 사망 추정 (2015)</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">30–50%</div>
+    <div class="stat-label">CFR (자원제한 환경)</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">34,000</div>
+    <div class="stat-label">신생아 파상풍 사망/년</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">10년</div>
+    <div class="stat-label">TT 추가접종 간격</div>
+  </div>
+</div>
+
+<div class="body-wrap">
+
+  <div class="g2">
+    <div class="box">
+      <div class="box-title">병태생리 — 독소 기전 핵심</div>
+      <ul>
+        <li><strong>Clostridium tetani:</strong> 토양 포자(아포) → 혐기성 상처에서 발아·증식</li>
+        <li><strong>Tetanospasmin:</strong> 말초신경 역행 수송 → 척수·뇌간 억제신경(글리신·GABA) 차단</li>
+        <li>결과: 억제 해제 → 지속적 근육 수축·경련</li>
+        <li>잠복기: <strong>3–21일</strong> (평균 8일) — 짧을수록 예후 나쁨</li>
+        <li><strong>잠복기 짧을수록 CFR 높음</strong> (독소량 반영)</li>
+        <li>독소는 혈액·항독소로 중화 가능하지만 신경 결합 후는 불가 → 조기 TIG 투여 핵심</li>
+      </ul>
+    </div>
+    <div class="box">
+      <div class="box-title">임상 유형별 특징</div>
+      <ul>
+        <li><strong>전신형 (Generalized):</strong> 가장 흔함. Trismus(개구장애)·risus sardonicus·opisthotonus·자율신경 불안정</li>
+        <li><strong>국소형 (Localized):</strong> 상처 인접 근육 경직 → 전신형으로 진행 가능</li>
+        <li><strong>두개부형 (Cephalic):</strong> 안면부 외상 후 → 뇌신경 마비 + trismus</li>
+        <li><strong>신생아형 (Neonatal):</strong> 비위생 탯줄 처치 → 생후 3–28일 발현, CFR 80–90%</li>
+        <li><strong>Trismus:</strong> 초기 증상의 75% — 개구장애 확인이 진단의 핵심</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SEVERITY -->
+  <div class="section-title">Ablett 중증도 분류 (치료 강도 결정)</div>
+  <div class="grade-bar">
+    <div class="grade" style="background:#fff9f9">
+      <div class="grade-title">Grade I (경증)</div>
+      <div class="grade-body">경도 trismus<br>전신 경직<br>경련 없음<br>→ 일반 병동 가능</div>
+    </div>
+    <div class="grade" style="background:#f5dcdc">
+      <div class="grade-title">Grade II (중등증)</div>
+      <div class="grade-body">중등도 trismus<br>단기 경련<br>호흡곤란 없음<br>→ HDU 필요</div>
+    </div>
+    <div class="grade" style="background:#e8c4c4">
+      <div class="grade-title">Grade III (중증)</div>
+      <div class="grade-body">심한 경련·반복<br>자율신경 불안정<br>호흡부전<br>→ ICU + 기계환기</div>
+    </div>
+  </div>
+
+  <!-- TREATMENT STEPS -->
+  <div class="section-title">치료 — 5대 축 (동시 진행)</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">① 독소 중화</div>
+      <div class="step-content">TIG (사람) 500–3000IU IM<br>OR TAT (말) 10,000IU IM<br><span style="font-size:10.5px;font-weight:400">가능한 빨리, 상처 반대편 부위</span></div>
+    </div>
+    <div class="step">
+      <div class="step-num">② 상처 처치</div>
+      <div class="step-content">TIG 투여 후 1–2h 뒤 데브리망<br>혐기성 환경 제거<br><span style="font-size:10.5px;font-weight:400">TIG 투여 전 데브리망 금지</span></div>
+    </div>
+    <div class="step">
+      <div class="step-num">③ 항생제</div>
+      <div class="step-content">Metronidazole 500mg IV q8h<br>OR Penicillin G 1MU q4h<br><span style="font-size:10.5px;font-weight:400">균 증식 억제, 독소량↓</span></div>
+    </div>
+    <div class="step">
+      <div class="step-num">④ 경련 조절</div>
+      <div class="step-content">Diazepam IV/PR (1차)<br>Magnesium sulfate (자율신경)<br>중증 → 기계환기+Vecuronium</div>
+    </div>
+    <div class="step">
+      <div class="step-num">⑤ 능동 면역</div>
+      <div class="step-content">회복 중 TT 접종 시작<br>(이환 후 자연면역 불완전)<br>3회 기초 접종 완료 목표</div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <strong>신생아 파상풍 예방 전략 (MNT 퇴치):</strong> 임신부 TT 2회 접종(TT2+) → 수동 면역 태반 전달. 청결 분만·탯줄 처치 보장. WHO MNT 퇴치 기준: 지역사회 신생아 파상풍 &lt;1/1,000 생존 출생. 2023년 기준 35개국 이상 퇴치 달성.
+  </div>
+
+  <!-- WOUND TABLE -->
+  <div class="section-title">상처 유형별 예방 처치 결정 (WHO 기준)</div>
+  <table>
+    <tr><th>접종 이력</th><th>청결 소상처</th><th>오염·깊은 상처·지연 처치</th></tr>
+    <tr><td>3회 이상 + 최근 5년 내 추가</td><td>TT 불필요</td><td>TT 불필요 (TIG도 불필요)</td></tr>
+    <tr><td>3회 이상 + 5–10년 경과</td><td>TT 불필요</td><td><strong>TT 1회</strong></td></tr>
+    <tr><td>3회 이상 + 10년↑ 경과</td><td><strong>TT 1회</strong></td><td><strong>TT 1회</strong></td></tr>
+    <tr><td>미접종 or 접종 불명</td><td><strong>TT 1회 + 추가접종 계획</strong></td><td><strong>TT + TIG 동시 (다른 부위)</strong></td></tr>
+  </table>
+
+  <!-- TRAP -->
+  <div class="trap-h">⚠ 시험 함정 4</div>
+  <div class="trap-grid">
+    <div class="trap">
+      <div class="trap-icon">💉</div>
+      <div class="trap-q">TIG와 데브리망 순서가 중요한가?</div>
+      <div class="trap-a"><strong>Yes. TIG 먼저, 1–2시간 후 데브리망.</strong> 데브리망 먼저 하면 추가 독소 혈류 유입 위험. TIG가 유리 독소를 중화한 후 상처 처치.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-icon">🦠</div>
+      <div class="trap-q">파상풍 이환 후 자연면역 획득되는가?</div>
+      <div class="trap-a"><strong>No. 독소량이 너무 소량 → 면역 미형성.</strong> 회복 후 반드시 능동 면역(TT 접종) 시작. 이환 후 재발 가능.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-icon">👶</div>
+      <div class="trap-q">신생아 파상풍 — 산모 접종 vs 신생아 접종?</div>
+      <div class="trap-a"><strong>산모 TT2+ 접종이 핵심.</strong> 신생아에게 직접 TIG 투여는 치료이지 예방이 아님. 예방은 임신부 접종 + 청결 분만 패키지.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-icon">💊</div>
+      <div class="trap-q">Penicillin G vs Metronidazole 항생제 선택?</div>
+      <div class="trap-a"><strong>Metronidazole 선호.</strong> Penicillin G는 GABA 길항 작용 → 경련 악화 가능성 (이론적). 실제 LMIC에서 Penicillin 사용 불가피 시 허용하나, WHO는 Metronidazole 권고.</div>
+    </div>
+  </div>
+
+  <div class="pill-title">🌐 Global Health 관점</div>
+  <div class="pills">
+    <span class="pill">MNT 퇴치 = 임신부 TT2+ + 청결 분만 패키지</span>
+    <span class="pill">DTP-포함 백신 = EPI 핵심 (Td 추가접종 10년마다)</span>
+    <span class="pill">TIG &gt; TAT (아나필락시스 위험 낮음)</span>
+    <span class="pill">자율신경 불안정 = Mg sulfate 효과적</span>
+    <span class="pill">잠복기 짧음 = 독소 다량 = 예후 불량</span>
+    <span class="pill">WHO: 35개국 이상 MNT 퇴치 달성 (2023)</span>
+  </div>
+
+  <div class="footer">
+    <div class="footer-note">CID-28 · Tetanus · Oxford Trop Med 5e · WHO Immunization in Practice 2015</div>
+    <div style="display:flex;gap:6px">
+      <span class="nav-btn">← CID-27 Cholera</span>
+      <span class="nav-btn">CID-29 Diphtheria →</span>
+    </div>
+  </div>
+
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH CID 30 | Brucellosis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Noto Sans KR',sans-serif;background:#fdf4f4;color:#2d1a1a;font-size:12.5px;line-height:1.55}
+  .page{max-width:900px;margin:0 auto;padding:18px}
+  .header{background:#791F1F;color:#fff;border-radius:8px 8px 0 0;padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+  .header-left .tag{font-size:10px;letter-spacing:2px;opacity:.7;text-transform:uppercase;font-family:'JetBrains Mono',monospace}
+  .header-left h1{font-size:20px;font-weight:700;margin-top:2px}
+  .header-right{text-align:right;font-size:10px;opacity:.75;font-family:'JetBrains Mono',monospace;line-height:1.8}
+  .stats-bar{background:#6b1a1a;padding:10px 20px;display:grid;grid-template-columns:repeat(4,1fr)}
+  .stat{text-align:center;color:#fff;padding:4px 8px;border-right:1px solid rgba(255,255,255,0.15)}
+  .stat:last-child{border-right:none}
+  .stat-num{font-size:17px;font-weight:700;color:#f5dcdc;font-family:'JetBrains Mono',monospace}
+  .stat-label{font-size:9.5px;opacity:.8;margin-top:1px;letter-spacing:.5px}
+  .body-wrap{background:#fff;border:1px solid #e8c4c4;border-top:none;border-radius:0 0 8px 8px;padding:16px 20px}
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+  .box{background:#fdf4f4;border:1px solid #e8c4c4;border-radius:6px;padding:12px}
+  .box-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#791F1F;margin-bottom:8px;border-bottom:1px solid #e8c4c4;padding-bottom:4px}
+  .box ul{list-style:none;padding:0}
+  .box ul li{padding:2px 0 2px 10px;position:relative;font-size:12px}
+  .box ul li::before{content:'›';position:absolute;left:0;color:#791F1F;font-weight:700}
+  strong{color:#791F1F;font-weight:700}
+  .section-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#791F1F;margin-bottom:7px}
+  table{width:100%;border-collapse:collapse;font-size:11.5px;margin-bottom:14px}
+  th{background:#791F1F;color:#fff;padding:6px 10px;text-align:left;font-weight:600;font-size:10.5px}
+  td{padding:5px 10px;border-bottom:1px solid #e8c4c4;vertical-align:top}
+  tr:nth-child(even) td{background:#fdf4f4}
+  tr:last-child td{border-bottom:none}
+  .steps{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+  .step{background:#f5dcdc;border:1px solid #e8c4c4;border-radius:6px;padding:8px 10px;flex:1;min-width:120px}
+  .step-num{font-size:9px;font-weight:700;color:#791F1F;text-transform:uppercase;letter-spacing:1px}
+  .step-content{font-size:11.5px;margin-top:3px;font-weight:600}
+  .trap-h{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fff;background:#791F1F;padding:5px 12px;border-radius:4px;display:inline-block;margin-bottom:8px}
+  .trap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:14px}
+  .trap{background:#fff;border:1.5px solid #791F1F;border-radius:6px;padding:10px}
+  .trap-icon{font-size:15px;margin-bottom:4px}
+  .trap-q{font-size:10.5px;font-weight:700;color:#791F1F;margin-bottom:3px}
+  .trap-a{font-size:11px;color:#2d1a1a;line-height:1.5}
+  .pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+  .pill{background:#f5dcdc;border:1px solid #e8c4c4;border-radius:20px;padding:3px 11px;font-size:10.5px;color:#791F1F;font-weight:600}
+  .pill-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#791F1F;margin-bottom:5px}
+  .footer{margin-top:10px;padding-top:8px;border-top:1px solid #e8c4c4;display:flex;justify-content:space-between;align-items:center}
+  .footer-note{font-size:10px;color:#888;font-family:'JetBrains Mono',monospace}
+  .nav-btn{background:#791F1F;color:#fff;border:none;border-radius:4px;padding:4px 12px;font-size:10.5px;font-weight:600;cursor:default;letter-spacing:.5px}
+  .highlight-box{background:#f5dcdc;border-left:3px solid #791F1F;padding:8px 12px;border-radius:0 6px 6px 0;margin-bottom:12px;font-size:11.5px}
+  .species-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:14px}
+  .species{background:#fdf4f4;border:1px solid #e8c4c4;border-radius:6px;padding:8px;text-align:center}
+  .sp-name{font-size:10px;font-weight:700;color:#791F1F;font-style:italic}
+  .sp-host{font-size:10px;margin-top:3px}
+  .sp-note{font-size:10px;color:#555;margin-top:2px}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <div class="header-left">
+    <div class="tag">DGH KBA · Clinical Infectious Diseases · CID-30</div>
+    <h1>Brucellosis</h1>
+  </div>
+  <div class="header-right">
+    창 C · Bacterial Infections<br>
+    Blueprint 40% · Oxford Trop Med 5e<br>
+    가장 흔한 인수공통감염 (전세계)
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">500,000</div>
+    <div class="stat-label">연간 신규 감염 추정</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">&lt;2%</div>
+    <div class="stat-label">CFR (치료 시)</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">6주</div>
+    <div class="stat-label">최소 치료 기간</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">중동·지중해</div>
+    <div class="stat-label">최고 유행지역 (B. melitensis)</div>
+  </div>
+</div>
+
+<div class="body-wrap">
+
+  <!-- SPECIES GRID -->
+  <div class="section-title">Brucella 종별 숙주 · 역학</div>
+  <div class="species-grid">
+    <div class="species">
+      <div class="sp-name">B. melitensis</div>
+      <div class="sp-host">🐑 양·염소</div>
+      <div class="sp-note">가장 독성 강함<br>중동·지중해·중앙아시아</div>
+    </div>
+    <div class="species">
+      <div class="sp-name">B. abortus</div>
+      <div class="sp-host">🐄 소</div>
+      <div class="sp-note">전 세계<br>상대적으로 경증</div>
+    </div>
+    <div class="species">
+      <div class="sp-name">B. suis</div>
+      <div class="sp-host">🐷 돼지</div>
+      <div class="sp-note">미주·동남아<br>화농성 합병증↑</div>
+    </div>
+    <div class="species">
+      <div class="sp-name">B. canis</div>
+      <div class="sp-host">🐕 개</div>
+      <div class="sp-note">드묾<br>주로 실험실 감염</div>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="box">
+      <div class="box-title">전파 경로 · 직업 노출</div>
+      <ul>
+        <li><strong>경구:</strong> 살균 안 된 유제품(생우유·치즈·버터), 날 고기</li>
+        <li><strong>직접 접촉:</strong> 감염 동물 태반·태아·정액 → 피부·결막 점막</li>
+        <li><strong>흡입:</strong> 에어로졸 (도축장·축사·실험실) — 생물테러 요원</li>
+        <li>직업군: 수의사·농부·도축업자·실험실 종사자</li>
+        <li>사람-사람 전파: 매우 드묾 (수혈·모유·성접촉 사례 있음)</li>
+        <li>샘플 Q2와 구분: B. melitensis = 양·염소, 소 아님</li>
+      </ul>
+    </div>
+    <div class="box">
+      <div class="box-title">임상 특징 — 위대한 흉내쟁이(Great Imitator)</div>
+      <ul>
+        <li><strong>급성기 (≤8주):</strong> 불규칙 발열(undulant fever)·발한·피로·근육통·관절통</li>
+        <li><strong>Undulant fever:</strong> 수일 고열 후 정상, 반복 — 말라리아·장티푸스 오진 주의</li>
+        <li><strong>특징적 소견:</strong> 간비장종대(70%), 림프절종대, 고환염(남성 20%)</li>
+        <li><strong>아급성/만성 (≥3개월):</strong> 관절염(천장골관절 25%)·척추염·신경브루셀라·심내막염</li>
+        <li>재발 10–30% (치료 불완전 시)</li>
+        <li>진단 지연 평균 3–6개월 (비특이적 증상)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- DIAGNOSIS TABLE -->
+  <div class="section-title">진단</div>
+  <table>
+    <tr><th>검사</th><th>민감도</th><th>특이도</th><th>비고</th></tr>
+    <tr><td><strong>혈액배양</strong></td><td>15–70% (급성기↑)</td><td>매우 높음</td><td>21일 이상 배양 필요, 생물안전 주의(BSL-3)</td></tr>
+    <tr><td>Rose Bengal test (RBT)</td><td>높음 (screening)</td><td>중간</td><td>LMIC 1차 선별, 신속 응집반응</td></tr>
+    <tr><td>Serum Agglutination Test (SAT)</td><td>높음</td><td>높음</td><td>역가 ≥1:160 진단적 의의<br>B. canis·B. abortus 교차반응 주의</td></tr>
+    <tr><td>ELISA (IgM/IgG)</td><td>높음</td><td>높음</td><td>만성·재발 진단에 유용</td></tr>
+    <tr><td>PCR</td><td>매우 높음</td><td>매우 높음</td><td>급성기·초기 항생제 사용 후에도 유용</td></tr>
+  </table>
+
+  <!-- TREATMENT STEPS -->
+  <div class="section-title">치료 — 병용요법 필수 (단독치료 = 재발 위험)</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">표준 (비합병)</div>
+      <div class="step-content">Doxycycline 100mg PO bid<br>+ Rifampicin 600–900mg PO qd<br>× <strong>6주</strong></div>
+    </div>
+    <div class="step">
+      <div class="step-num">대안 (WHO 권고)</div>
+      <div class="step-content">Doxycycline 100mg bid<br>+ Streptomycin 1g IM qd × 2–3주<br>(→ Gentamicin 대체 가능)</div>
+    </div>
+    <div class="step">
+      <div class="step-num">척추·관절염</div>
+      <div class="step-content">Doxy + Rifampicin<br>× <strong>12주 이상</strong><br>± 아미노글리코사이드 초기 2–3주</div>
+    </div>
+    <div class="step">
+      <div class="step-num">신경브루셀라·심내막염</div>
+      <div class="step-content">Doxy + Rifampicin + TMP-SMX<br>× 3–6개월<br>심내막염 → 외과 수술 고려</div>
+    </div>
+    <div class="step">
+      <div class="step-num">임신부 (<strong>Doxy 금기</strong>)</div>
+      <div class="step-content">TMP-SMX + Rifampicin<br>(1삼분기는 TMP-SMX 주의)<br>또는 전문가 자문</div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <strong>재발 vs 재감염 구분:</strong> 재발(relapse) — 치료 종료 후 3–6개월 내, 동일 균주. 치료 기간 불충분·복약 불이행이 주원인. 재감염 — 노출 지속 시. 두 경우 모두 처음부터 6주 이상 재치료.
+  </div>
+
+  <!-- TRAP CARDS -->
+  <div class="trap-h">⚠ 시험 함정 4</div>
+  <div class="trap-grid">
+    <div class="trap">
+      <div class="trap-icon">🌡️</div>
+      <div class="trap-q">Undulant fever = 말라리아 오진 위험?</div>
+      <div class="trap-a"><strong>Yes, 고위험 함정.</strong> 중동·지중해·아프리카에서 반복 발열 → 말라리아·장티푸스 먼저 떠올리기 쉬움. 가축 접촉력 + 미살균 유제품 섭취 이력 반드시 확인.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-icon">💊</div>
+      <div class="trap-q">Doxycycline 단독 6주 치료 가능?</div>
+      <div class="trap-a"><strong>No. 반드시 병용.</strong> 단독치료 → 재발률 30–40%. Rifampicin 또는 Streptomycin 병용 필수. 단, Rifampicin은 TB 치료 중인 경우 내성 유발 위험 → Streptomycin으로 대체.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-icon">🔬</div>
+      <div class="trap-q">실험실 위험 — 왜 BSL-3인가?</div>
+      <div class="trap-a">Brucella는 흡입 시 <strong>매우 낮은 감염량(10–100 organisms)</strong>으로 감염 가능. 배양 중 에어로졸 생성 위험. 생물테러 요원(Category B). 검사실 폭로 사고 시 예방적 Doxy+Rifampicin 6주.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-icon">🐄</div>
+      <div class="trap-q">B. melitensis vs B. abortus 숙주 혼동?</div>
+      <div class="trap-a"><strong>melitensis = 양·염소 (Maltese fever)</strong>, abortus = 소. melitensis가 가장 독성 강하고 임상적으로 중요. 샘플 Q2(소 관련 직업) → 브루셀라 오진 vs 살모넬라 정답 구분 논리.</div>
+    </div>
+  </div>
+
+  <div class="pill-title">🌐 Global Health 관점</div>
+  <div class="pills">
+    <span class="pill">전 세계 최다 인수공통감염 (연 500,000건↑)</span>
+    <span class="pill">중동·지중해·중앙아시아·라틴아메리카 고유행</span>
+    <span class="pill">동물 백신접종 + 살균 유제품 = 근본 예방</span>
+    <span class="pill">생물테러 Category B 요원</span>
+    <span class="pill">수의사·농부·도축업자 직업성 감염</span>
+    <span class="pill">TB 동반 시 Rifampicin 내성 주의 → Streptomycin 대체</span>
+  </div>
+
+  <div class="footer">
+    <div class="footer-note">CID-30 · Brucellosis · Oxford Trop Med 5e · WHO Brucellosis in Humans and Animals 2006</div>
+    <div style="display:flex;gap:6px">
+      <span class="nav-btn">← CID-29 Diphtheria</span>
+      <span class="nav-btn">CID-31 Rickettsial →</span>
+    </div>
+  </div>
+
+</div>
+</div>
+</body>
+</html>

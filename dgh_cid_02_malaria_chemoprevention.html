@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH CID 02 · Malaria: Chemoprevention</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+  :root {
+    --hdr: #791F1F;
+    --hdr2: #9B2C2C;
+    --bg: #fdf4f4;
+    --border: #e8c4c4;
+    --accent: #f5dcdc;
+    --accent2: #fce8e8;
+    --text: #2d1515;
+    --muted: #7a4040;
+    --white: #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 11.5px;
+    line-height: 1.55;
+    padding: 18px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .header {
+    background: linear-gradient(135deg, var(--hdr) 0%, var(--hdr2) 60%, #7B2020 100%);
+    color: var(--white);
+    border-radius: 10px 10px 0 0;
+    padding: 14px 20px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .header-left .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    opacity: 0.75;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .header-left h1 { font-family: 'Crimson Pro', serif; font-size: 22px; font-weight: 700; }
+  .header-left .subtitle { font-size: 10.5px; opacity: 0.8; margin-top: 2px; }
+  .header-right { text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 9px; opacity: 0.7; line-height: 1.6; }
+
+  .stats-bar {
+    background: var(--hdr);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-left: 3px solid var(--hdr2);
+    border-right: 3px solid var(--hdr2);
+  }
+  .stat { padding: 8px 12px; color: var(--white); border-right: 1px solid rgba(255,255,255,0.15); text-align: center; }
+  .stat:last-child { border-right: none; }
+  .stat-val { font-family: 'Crimson Pro', serif; font-size: 20px; font-weight: 700; display: block; line-height: 1.1; }
+  .stat-lbl { font-size: 9px; opacity: 0.78; letter-spacing: 0.5px; }
+
+  .body-wrap {
+    border: 1.5px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    padding: 14px 16px 12px;
+    background: var(--white);
+  }
+
+  .sec-title {
+    font-family: 'Crimson Pro', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--hdr);
+    border-bottom: 1.5px solid var(--border);
+    padding-bottom: 3px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+
+  .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+  .g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+
+  .card { background: var(--bg); border: 1px solid var(--border); border-radius: 7px; padding: 9px 11px; }
+  .card-title { font-size: 10px; font-weight: 700; color: var(--hdr); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 5px; padding-bottom: 3px; border-bottom: 1px solid var(--border); }
+  .card ul { padding-left: 13px; }
+  .card li { margin-bottom: 2px; font-size: 11px; }
+  .card li strong { color: var(--hdr); }
+
+  table { width: 100%; border-collapse: collapse; margin-bottom: 10px; font-size: 10.5px; }
+  th { background: var(--hdr); color: var(--white); padding: 5px 8px; text-align: left; font-size: 10px; font-weight: 600; letter-spacing: 0.4px; }
+  td { padding: 4px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--accent2); }
+
+  .badge { display: inline-block; padding: 1px 6px; border-radius: 10px; font-size: 9px; font-weight: 700; font-family: 'JetBrains Mono', monospace; }
+  .badge-red { background: #fee2e2; color: #991b1b; }
+  .badge-green { background: #d1fae5; color: #065f46; }
+  .badge-yellow { background: #fef3c7; color: #92400e; }
+
+  .trap-h { background: linear-gradient(90deg, var(--hdr) 0%, var(--hdr2) 100%); color: var(--white); padding: 5px 12px; border-radius: 5px 5px 0 0; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-top: 10px; }
+  .trap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1.5px solid var(--border); border-top: none; border-radius: 0 0 7px 7px; overflow: hidden; margin-bottom: 10px; }
+  .trap { padding: 8px 11px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--white); position: relative; }
+  .trap:nth-child(even) { border-right: none; }
+  .trap:nth-child(3), .trap:nth-child(4) { border-bottom: none; }
+  .trap-num { font-family: 'Crimson Pro', serif; font-size: 22px; font-weight: 700; color: var(--accent); position: absolute; top: 4px; right: 8px; line-height: 1; }
+  .trap-q { font-size: 10px; font-weight: 700; color: var(--hdr); margin-bottom: 3px; padding-right: 20px; }
+  .trap-a { font-size: 10.5px; color: var(--text); }
+  .trap-a strong { color: var(--hdr); }
+
+  .pills { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
+  .pill { background: var(--accent); border: 1px solid var(--border); color: var(--hdr); border-radius: 20px; padding: 3px 10px; font-size: 10px; font-weight: 600; }
+  .pill-dark { background: var(--hdr); color: var(--white); border-color: var(--hdr); }
+
+  .highlight { background: #fff3cd; padding: 1px 4px; border-radius: 3px; font-weight: 700; }
+  .red { color: #991b1b; font-weight: 700; }
+
+  /* TARGET GROUP BOXES */
+  .target-box {
+    border: 2px solid var(--hdr);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  .target-header {
+    background: var(--hdr);
+    color: var(--white);
+    padding: 5px 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .target-body {
+    padding: 8px 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+  }
+  .target-item { font-size: 10.5px; }
+  .target-item .t-label { font-weight: 700; color: var(--hdr); font-size: 10px; margin-bottom: 2px; }
+
+  .footer { background: var(--accent); border: 1px solid var(--border); border-radius: 6px; padding: 7px 12px; display: flex; justify-content: space-between; align-items: center; margin-top: 8px; flex-wrap: wrap; gap: 5px; }
+  .footer-note { font-size: 10px; color: var(--muted); }
+  .footer-btns { display: flex; gap: 6px; }
+  .footer-btn { background: var(--hdr); color: var(--white); border: none; border-radius: 4px; padding: 4px 10px; font-size: 9.5px; font-weight: 700; cursor: pointer; font-family: 'JetBrains Mono', monospace; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-left">
+    <div class="tag">DGH KBA · CID-02 · Clinical Infectious Diseases · Malaria</div>
+    <h1>Malaria: Chemoprevention</h1>
+    <div class="subtitle">IPTp · IPTi · SMC · MDA · Traveller prophylaxis | WHO 2023</div>
+  </div>
+  <div class="header-right">
+    RCP Diploma in Global Health<br>
+    Blueprint 40% — CID<br>
+    Oxford HTM 5e · WHO 2023
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat"><span class="stat-val">IPTp</span><span class="stat-lbl">임신부 간헐적 예방치료</span></div>
+  <div class="stat"><span class="stat-val">SMC</span><span class="stat-lbl">계절성 말라리아 화학예방</span></div>
+  <div class="stat"><span class="stat-val">SP</span><span class="stat-lbl">IPTp 핵심 약제 (Fansidar)</span></div>
+  <div class="stat"><span class="stat-val">LLIN</span><span class="stat-lbl">베드넷 — 예방의 주축</span></div>
+</div>
+
+<!-- BODY -->
+<div class="body-wrap">
+
+  <!-- OVERVIEW TABLE -->
+  <div class="sec-title">📋 화학예방 전략 총정리 (WHO)</div>
+  <table>
+    <tr>
+      <th>전략</th>
+      <th>대상</th>
+      <th>약제</th>
+      <th>일정</th>
+      <th>적용 지역</th>
+    </tr>
+    <tr>
+      <td><strong>IPTp</strong></td>
+      <td>임신부 (1분기 이후)</td>
+      <td>SP (Sulfadoxine-Pyrimethamine)</td>
+      <td>최소 3회, ANC 방문마다</td>
+      <td>아프리카 (moderate-high 전파)</td>
+    </tr>
+    <tr>
+      <td><strong>IPTi</strong></td>
+      <td>영아 (EPI 접종 시)</td>
+      <td>SP</td>
+      <td>DTP2, DTP3, measles 접종 시</td>
+      <td>아프리카 고위험지역</td>
+    </tr>
+    <tr>
+      <td><strong>SMC</strong></td>
+      <td>3–59개월 소아</td>
+      <td>SPAQ (SP + AQ)</td>
+      <td>우기 월 1회, 최대 4사이클</td>
+      <td>Sahel 지역 (우기 집중)</td>
+    </tr>
+    <tr>
+      <td><strong>PEP</strong></td>
+      <td>고위험 노출 후</td>
+      <td>ACT</td>
+      <td>노출 후 즉시</td>
+      <td>고위험 상황 (광부 등)</td>
+    </tr>
+    <tr>
+      <td><strong>MDA</strong></td>
+      <td>집단 전체</td>
+      <td>ACT (± Primaquine)</td>
+      <td>유행 통제 목적</td>
+      <td>박멸 대상 지역</td>
+    </tr>
+  </table>
+
+  <!-- IPTp DETAIL -->
+  <div class="sec-title">🤰 IPTp — 임신부 핵심 (시험 최빈출)</div>
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">IPTp-SP 프로토콜</div>
+      <ul>
+        <li><strong>시작:</strong> 13~16주 (2분기 시작) — 1분기는 금기</li>
+        <li><strong>횟수:</strong> 최소 3회 (매 ANC 방문마다, 4주 이상 간격)</li>
+        <li><strong>복용:</strong> <span class="highlight">DOT (직접 관찰 하)</span>로 투여</li>
+        <li>분만 직전까지 투여 가능 (분만 4주 전 제한 없음)</li>
+        <li>SP: 3정 단회 (Fansidar 500/25mg × 3)</li>
+        <li>HIV+ 여성 Cotrimoxazole 복용 중 → SP 금기 (엽산길항)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">IPTp 관련 WHO 2023 업데이트</div>
+      <ul>
+      <li>최소 <span class="highlight">3회 → 이상적으로 3회 이상</span></li>
+      <li>SP 저항성 높아도 비항말라리아 효과로 효용 유지</li>
+      <li>Dihydroartemisinin-Piperaquine (DP) 대안 연구 중</li>
+      <li>아프리카 일부: SP 저항 → DP IPTp 시범</li>
+      <li><strong>LMIC 현실:</strong> ANC 참석률 낮아 3회 달성 어려움</li>
+      <li>LLIN + IPTp 병용 시 시너지 효과</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SMC DETAIL -->
+  <div class="sec-title">👶 SMC (Seasonal Malaria Chemoprevention)</div>
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">SMC 핵심 사항</div>
+      <ul>
+        <li><strong>대상:</strong> 3–59개월 (5세 미만) 소아</li>
+        <li><strong>적응증:</strong> Sahel 지역 — 우기(7~11월) 말라리아 집중</li>
+        <li><strong>약제:</strong> SPAQ — SP 단회 + AQ 3일</li>
+        <li>매월 1사이클, 최대 4사이클/년</li>
+        <li>지역 보건원(CHW)이 가정 방문 투여</li>
+        <li>효과: 입원 말라리아 <span class="highlight">75% 감소</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">SMC 확장 (2022~)</div>
+      <ul>
+        <li>WHO 2022: 5–9세 소아까지 확장 권고</li>
+        <li>연중 전파 지역 → 적용 불가 (우기 집중 지역 한정)</li>
+        <li>East Africa: SMC 효과 ↓ (연중 전파, 우기 불명확)</li>
+        <li>AQ 저항: 일부 지역에서 발생 → 모니터링</li>
+        <li>복용 완료율 확보 → CHW 역량 핵심</li>
+        <li>GFATM · UNITAID 재원</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- TRAVELLER PROPHYLAXIS -->
+  <div class="sec-title">✈️ 여행자 예방약 (Traveller Prophylaxis)</div>
+  <table>
+    <tr>
+      <th>약제</th>
+      <th>용법</th>
+      <th>적응 지역</th>
+      <th>주의사항</th>
+    </tr>
+    <tr>
+      <td><strong>Atovaquone-Proguanil (Malarone)</strong></td>
+      <td>도착 1~2일 전 ~ 귀국 후 7일</td>
+      <td>모든 지역</td>
+      <td>신부전 주의, 비싸다</td>
+    </tr>
+    <tr>
+      <td><strong>Doxycycline</strong></td>
+      <td>도착 2일 전 ~ 귀국 후 28일</td>
+      <td>클로로킨 저항 지역</td>
+      <td>광과민, 임신·소아 금기</td>
+    </tr>
+    <tr>
+      <td><strong>Mefloquine (Lariam)</strong></td>
+      <td>도착 2~3주 전 ~ 귀국 후 4주</td>
+      <td>클로로킨 저항 지역</td>
+      <td>신경정신 부작용, 간질 금기</td>
+    </tr>
+    <tr>
+      <td><strong>Chloroquine</strong></td>
+      <td>도착 1주 전 ~ 귀국 후 4주</td>
+      <td>감수성 지역만 (중미 일부)</td>
+      <td>대부분 지역 저항 → 한계적</td>
+    </tr>
+    <tr>
+      <td><strong>Primaquine</strong></td>
+      <td>도착 1~2일 전 ~ 귀국 후 7일</td>
+      <td>Vivax 위험지역 (단기)</td>
+      <td>G6PD 먼저 확인 필수</td>
+    </tr>
+  </table>
+
+  <!-- TRAPS -->
+  <div class="trap-h">⚠️ 시험 함정 TRAP × 4</div>
+  <div class="trap-grid">
+    <div class="trap">
+      <div class="trap-num">01</div>
+      <div class="trap-q">IPTp → 임신 1분기부터 시작?</div>
+      <div class="trap-a"><strong>NO.</strong> SP는 1분기 금기 (엽산 길항 → 신경관 결손 위험). <strong>13주 이후</strong> 시작. 단, LLIN은 임신 전 기간 사용 가능.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-num">02</div>
+      <div class="trap-q">HIV+ 임신부도 IPTp-SP 사용?</div>
+      <div class="trap-a"><strong>NO.</strong> Cotrimoxazole 예방요법 중인 HIV+ 임신부는 SP <span class="red">금기</span> — 같은 엽산 길항 기전 중복. Cotrimoxazole 자체가 말라리아 예방 효과 있음.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-num">03</div>
+      <div class="trap-q">SMC = 전 아프리카 소아에 적용?</div>
+      <div class="trap-a"><strong>NO.</strong> Sahel 지역 (우기 집중 전파 패턴) 한정. 동아프리카처럼 연중 전파 지역은 SMC 비적응. 지역 전파 패턴 확인 필수.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-num">04</div>
+      <div class="trap-q">여행자 → Chloroquine이 표준 예방약?</div>
+      <div class="trap-a"><strong>구식 지식.</strong> 대부분 말라리아 유행 지역에서 클로로킨 저항. 현재 표준 = <strong>Atovaquone-Proguanil or Doxycycline.</strong> Chloroquine은 중미 일부 등 감수성 지역만.</div>
+    </div>
+  </div>
+
+  <!-- GLOBAL HEALTH PILLS -->
+  <div class="sec-title">🌍 Global Health 관점</div>
+  <div class="pills">
+    <span class="pill pill-dark">RBM (Roll Back Malaria) 파트너십</span>
+    <span class="pill">GFATM 재원 → SMC·LLIN·ACT</span>
+    <span class="pill">ANC 참석률 ↑ = IPTp 달성 관건</span>
+    <span class="pill">CHW 네트워크 — SMC 전달 핵심</span>
+    <span class="pill">기후변화 → 전파 계절성 변화</span>
+    <span class="pill">SP 저항 증가 → IPTp 재검토 중</span>
+    <span class="pill">벡터 통제 (IRS + LLIN) 병행</span>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-note">📚 Oxford HTM 5e Ch.3 · WHO Guidelines for Malaria 2023 · RCP DGH KBA Blueprint CID-Malaria</div>
+    <div class="footer-btns">
+      <button class="footer-btn" onclick="window.print()">🖨 PRINT</button>
+      <button class="footer-btn" style="background:var(--hdr2)">→ CID-03: Malaria in Pregnancy</button>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

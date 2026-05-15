@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH | PMTCT</title>
+<style>
+  :root {
+    --primary: #993556;
+    --primary-dark: #7a2844;
+    --primary-light: #c4607e;
+    --bg: #fdf4f7;
+    --card-bg: #ffffff;
+    --border: #e8c4d4;
+    --text: #2d1a22;
+    --text-muted: #7a5060;
+    --tag-bg: #f5e0e8;
+    --stat-bg: #fce9ef;
+    --trap-bg: #fff5f7;
+    --trap-border: #f0b8cc;
+    --green: #2e7d32;
+    --orange: #e65100;
+    --blue: #1565c0;
+    --red: #c62828;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.55;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+  .header {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%);
+    color: white;
+    padding: 18px 22px 14px;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .header-left h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.3px; }
+  .header-left .subtitle { font-size: 11.5px; opacity: 0.85; margin-top: 3px; }
+  .domain-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.22);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .weight-tag { display: block; font-size: 11px; opacity: 0.8; }
+  .stats-bar {
+    background: var(--stat-bg);
+    border: 1px solid var(--border);
+    border-top: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .stat-item { padding: 10px 12px; border-right: 1px solid var(--border); text-align: center; }
+  .stat-item:last-child { border-right: none; }
+  .stat-num { font-size: 18px; font-weight: 700; color: var(--primary); display: block; line-height: 1.2; }
+  .stat-label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.4px; }
+  .content { background: var(--card-bg); border: 1px solid var(--border); border-top: none; padding: 16px; }
+  .section-title {
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px;
+    color: var(--primary); border-bottom: 2px solid var(--border); padding-bottom: 4px;
+    margin-bottom: 10px; margin-top: 14px;
+  }
+  .section-title:first-child { margin-top: 0; }
+  .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+  .g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+  .card { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 10px 12px; }
+  .card-title { font-size: 11px; font-weight: 700; color: var(--primary-dark); margin-bottom: 6px; display: flex; align-items: center; gap: 5px; }
+  .card ul { padding-left: 14px; }
+  .card li { font-size: 12px; margin-bottom: 3px; }
+  .card p { font-size: 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 11.5px; margin-bottom: 10px; }
+  th { background: var(--primary); color: white; padding: 6px 8px; text-align: left; font-size: 10.5px; font-weight: 600; }
+  td { padding: 5px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--stat-bg); }
+  tr:last-child td { border-bottom: none; }
+  .badge { display: inline-block; border-radius: 3px; padding: 1px 5px; font-size: 10px; font-weight: 700; }
+  .b-green { background: #e8f5e9; color: var(--green); }
+  .b-orange { background: #fff3e0; color: var(--orange); }
+  .b-red { background: #ffebee; color: var(--red); }
+  .b-blue { background: #e3f2fd; color: var(--blue); }
+  .b-pink { background: var(--tag-bg); color: var(--primary-dark); }
+  .trap-header {
+    background: #6d1b35; color: white; padding: 7px 14px; font-size: 11px;
+    font-weight: 700; letter-spacing: 0.5px; border-radius: 5px 5px 0 0; margin-top: 14px;
+  }
+  .trap-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--trap-border); border-top: none; border-radius: 0 0 5px 5px; overflow: hidden;
+  }
+  .trap-card { background: var(--trap-bg); padding: 9px 12px; border-right: 1px solid var(--trap-border); border-bottom: 1px solid var(--trap-border); }
+  .trap-card:nth-child(even) { border-right: none; }
+  .trap-card:nth-child(3), .trap-card:nth-child(4) { border-bottom: none; }
+  .trap-q { font-size: 10.5px; font-weight: 700; color: #6d1b35; margin-bottom: 4px; }
+  .trap-a { font-size: 11.5px; color: var(--text); }
+  .trap-a strong { color: var(--primary-dark); }
+  .pills { display: flex; flex-wrap: wrap; gap: 5px; margin: 10px 0; }
+  .pill { background: var(--tag-bg); color: var(--primary-dark); border: 1px solid var(--border); border-radius: 20px; padding: 3px 10px; font-size: 10.5px; font-weight: 600; }
+  .pill.green { background: #e8f5e9; color: #1b5e20; border-color: #a5d6a7; }
+  .pill.blue { background: #e3f2fd; color: #0d47a1; border-color: #90caf9; }
+  .pill.orange { background: #fff3e0; color: #bf360c; border-color: #ffcc80; }
+  .footer {
+    background: var(--primary-dark); color: rgba(255,255,255,0.85); padding: 9px 16px;
+    font-size: 10.5px; border-radius: 0 0 10px 10px; display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer a { color: #f9d4e2; text-decoration: none; font-weight: 600; font-size: 10px; border: 1px solid rgba(249,212,226,0.4); padding: 2px 8px; border-radius: 3px; margin-left: 5px; }
+  .hl-pink { color: var(--primary); font-weight: 700; }
+  .hl-green { color: var(--green); font-weight: 700; }
+  .hl-orange { color: var(--orange); font-weight: 700; }
+  .hl-red { color: var(--red); font-weight: 700; }
+  .hl-blue { color: var(--blue); font-weight: 700; }
+  .note-box { background: #fff9e6; border-left: 3px solid #f9a825; padding: 7px 10px; font-size: 11.5px; margin: 8px 0; border-radius: 0 4px 4px 0; }
+  .info-box { background: #e8f5e9; border-left: 3px solid #43a047; padding: 7px 10px; font-size: 11.5px; margin: 8px 0; border-radius: 0 4px 4px 0; }
+
+  /* 타임라인 */
+  .timeline { position: relative; padding-left: 20px; margin-bottom: 10px; }
+  .timeline::before { content: ''; position: absolute; left: 6px; top: 4px; bottom: 4px; width: 2px; background: var(--border); }
+  .tl-item { position: relative; margin-bottom: 10px; }
+  .tl-dot { position: absolute; left: -17px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--primary); border: 2px solid white; box-shadow: 0 0 0 2px var(--primary); }
+  .tl-label { font-size: 10.5px; font-weight: 700; color: var(--primary-dark); }
+  .tl-body { font-size: 12px; color: var(--text); margin-top: 2px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <h1>🍼 PMTCT</h1>
+    <div class="subtitle">Prevention of Mother-to-Child Transmission of HIV — 모자 수직감염 차단</div>
+  </div>
+  <div class="header-right">
+    <span class="domain-tag">WOMEN'S & CHILD HEALTH</span>
+    <span class="weight-tag">KBA 20% 영역 · Women's Health</span>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat-item">
+    <span class="stat-num">~1.3M</span>
+    <span class="stat-label">임신 중 HIV 양성 여성 (연간, 전 세계)</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">&lt;5%</span>
+    <span class="stat-label">MTCT 목표율 (WHO 제거 기준)</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">45%</span>
+    <span class="stat-label">분만 시 전파 위험 (무처치 모유수유)</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">&lt;2%</span>
+    <span class="stat-num" style="font-size:12px">완전 PMTCT 달성 시</span>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- 전파 경로 & 위험도 -->
+  <div class="section-title">MTCT 전파 시점별 위험도</div>
+  <table>
+    <tr>
+      <th>전파 시점</th>
+      <th>기전</th>
+      <th>기여 비율</th>
+      <th>핵심 예방 개입</th>
+    </tr>
+    <tr>
+      <td><strong>임신 중</strong> (자궁내)</td>
+      <td>태반 경유 수직 전파</td>
+      <td>~5–10%</td>
+      <td>임산부 ART 조기 시작</td>
+    </tr>
+    <tr>
+      <td><strong>분만 시</strong> (intrapartum)</td>
+      <td>산도 혈액·분비물 노출</td>
+      <td>~10–20%</td>
+      <td>ART + 제왕절개 (VL 미억제 시)</td>
+    </tr>
+    <tr>
+      <td><strong>모유수유</strong> (postpartum)</td>
+      <td>모유 내 HIV 바이러스</td>
+      <td>~5–20% (수유 기간 의존)</td>
+      <td>ART 지속 또는 수유 대체</td>
+    </tr>
+    <tr>
+      <td colspan="2"><strong>무처치 전체 MTCT 위험</strong></td>
+      <td><span class="hl-red">15–45%</span></td>
+      <td>→ ART로 &lt;2%까지 감소 가능</td>
+    </tr>
+  </table>
+  <div class="note-box">💡 <strong>분만 방법:</strong> 모체 VL <span class="hl-red">&gt;1,000 copies/mL</span> 또는 VL 불명 → 제왕절개 권고. VL 억제(&lt;50 copies/mL) → 질식 분만 가능.</div>
+
+  <!-- WHO Option B+ -->
+  <div class="section-title">WHO PMTCT 전략 — Option B+ (현행 글로벌 표준)</div>
+  <div class="info-box">🟢 <strong>Option B+ 원칙:</strong> HIV 양성 임산부 <strong>전원</strong>에게 CD4 수치 무관하게 즉시 평생 ART 시작 → 본인 건강 보호 + MTCT 차단 동시 달성. 2013년 WHO 권고, 현재 글로벌 표준.</div>
+  <table>
+    <tr>
+      <th>단계</th>
+      <th>Option A (구식)</th>
+      <th>Option B (구식)</th>
+      <th><span class="b-green badge">Option B+ ✅ 현행</span></th>
+    </tr>
+    <tr>
+      <td>모체 ART</td>
+      <td>CD4 &lt;350만 치료</td>
+      <td>임신·수유 중만 트리플</td>
+      <td><strong>전원 즉시 평생 ART</strong></td>
+    </tr>
+    <tr>
+      <td>신생아 예방</td>
+      <td>NVP 6주</td>
+      <td>NVP 6주</td>
+      <td>NVP ± AZT 6주</td>
+    </tr>
+    <tr>
+      <td>수유</td>
+      <td>모유 대체 권고</td>
+      <td>수유 중 모체 ART</td>
+      <td>수유 중 모체 ART 지속 — 수유 허용</td>
+    </tr>
+    <tr>
+      <td>장점</td>
+      <td>-</td>
+      <td>-</td>
+      <td>단순, 내성↓, 미래 임신 보호, 파트너 전파↓</td>
+    </tr>
+  </table>
+
+  <!-- 임산부 ART 선택 -->
+  <div class="section-title">임산부 ART 레지멘 선택 — WHO 권고 (2021~)</div>
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">💊 1st Line 권고 레지멘</div>
+      <ul>
+        <li><strong>TDF + 3TC (or FTC) + DTG</strong> — 현행 글로벌 1차 선택</li>
+        <li>DTG (Dolutegravir): 임신 초기 신경관 결손 우려 → 2019년 이후 재평가, 위험 미미 → <strong>임신 전 기간 사용 가능</strong></li>
+        <li>EFV 기반: TDF+3TC+EFV — DTG 불가 시 대안</li>
+        <li>AZT 기반: 1st trimester 구토 심할 때 TDF 대신</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🚫 임신 중 금기 ARV</div>
+      <ul>
+        <li><strong>EFV 초기</strong> (이론적 기형 우려) — 현재는 전 임신 기간 허용으로 변경</li>
+        <li><strong>ddI + d4T</strong> — 유산산증, 간독성 위험</li>
+        <li><strong>Indinavir</strong> — 신생아 고빌리루빈혈증</li>
+        <li>NVP: CD4 &gt;250(여성) → 간독성 주의 (임산부 고위험)</li>
+        <li>PIs (lopinavir 등): 조기분만 연관 보고 있으나 사용 가능</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 신생아 예방 + 수유 -->
+  <div class="section-title">신생아 예방요법 + 수유 전략</div>
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">👶 신생아 PEP (예방요법)</div>
+      <ul>
+        <li><strong>저위험</strong> (모체 VL 억제): NVP 4주</li>
+        <li><strong>고위험</strong> (모체 미치료/VL 미억제): <span class="hl-red">NVP + AZT + 3TC 6주</span></li>
+        <li>출생 후 <strong>가능한 빨리 (6–12시간 이내)</strong> 투여 시작</li>
+        <li>신생아 HIV 검사: PCR (생후 4–6주) — 항체 검사는 모체 항체로 위양성</li>
+        <li>6주, 3개월, 최종 수유 종료 후 검사</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🤱 수유 — LMIC vs 고소득국</div>
+      <ul>
+        <li><strong>고소득국</strong>: 수유 대체(formula) 권고 — 안전한 물·분유 접근 가능</li>
+        <li><strong>LMIC</strong>: 모유수유 + 모체 ART 지속 — 설사·영양실조 위험이 HIV 전파 위험보다 클 수 있음</li>
+        <li>WHO: 모체 ART 하에 <strong>배타적 모유수유 6개월</strong> 지지 (LMIC)</li>
+        <li>혼합 수유 (모유 + 분유 동시): <span class="hl-red">MTCT 위험 ↑↑ — 금지</span></li>
+        <li>수유 종료 후 1개월 뒤 아기 HIV 검사</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 4 pillars -->
+  <div class="section-title">PMTCT 4대 기둥 (WHO) — 시험 출제 프레임</div>
+  <div class="g2">
+    <div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-label">Pillar 1 — 1차 예방</div>
+          <div class="tl-body">가임기 여성의 HIV 감염 자체 예방 (콘돔, VMMC, PrEP)</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-label">Pillar 2 — 원치 않는 임신 예방</div>
+          <div class="tl-body">HIV 양성 여성의 가족계획 지원 — 피임법 접근</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-label">Pillar 3 — MTCT 차단</div>
+          <div class="tl-body">임산부 ART (Option B+), 신생아 PEP, 분만 관리</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-label">Pillar 4 — 모자 치료·지지</div>
+          <div class="tl-body">HIV 양성 모자 장기 ART 유지, 영양·정신건강 지원</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">📊 MTCT 제거 기준 (WHO)</div>
+      <ul>
+        <li>MTCT 발생률 <strong>&lt;5%</strong> (수유 집단) 또는 &lt;2% (비수유)</li>
+        <li>신규 소아 HIV 감염 <strong>&lt;50명/10만 출생</strong></li>
+        <li>임산부 ART 적용률 <strong>&gt;95%</strong></li>
+        <li>HIV 양성 임산부 매독 감염률 &lt;50/10만</li>
+        <li>→ "Dual elimination": HIV + 선천성 매독 동시 제거 목표</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- VL 모니터링 -->
+  <div class="section-title">임신 중 바이러스 부하(VL) 모니터링</div>
+  <table>
+    <tr>
+      <th>시점</th>
+      <th>권고 조치</th>
+      <th>임상 의미</th>
+    </tr>
+    <tr>
+      <td>초진 (임신 확인 시)</td>
+      <td>HIV 검사 + CD4 + VL 측정</td>
+      <td>기저치 파악, ART 즉시 시작</td>
+    </tr>
+    <tr>
+      <td>임신 34–36주</td>
+      <td>VL 재측정</td>
+      <td>분만 방법 결정 (VL &gt;1,000 → CS)</td>
+    </tr>
+    <tr>
+      <td>VL <span class="hl-green">&lt;50 copies</span></td>
+      <td>질식 분만 가능</td>
+      <td>MTCT 위험 &lt;0.1%</td>
+    </tr>
+    <tr>
+      <td>VL <span class="hl-red">&gt;1,000 copies</span></td>
+      <td>제왕절개 + 신생아 고위험 PEP</td>
+      <td>분만 중 전파 위험 의미 있게 상승</td>
+    </tr>
+    <tr>
+      <td>분만 시 ART 미복용</td>
+      <td>IV ZDV (Zidovudine) 분만 중 투여 고려</td>
+      <td>응급 상황 최소화 전략</td>
+    </tr>
+  </table>
+
+  <!-- TRAPS -->
+  <div class="trap-header">⚠️ 시험 함정 4개 — 오답 패턴 주의</div>
+  <div class="trap-grid">
+    <div class="trap-card">
+      <div class="trap-q">🪤 함정 1: HIV 양성 임산부 — CD4 &gt;350이면 ART 연기</div>
+      <div class="trap-a">Option B+ = <strong>CD4 무관, 전원 즉시 ART</strong>. CD4 기준으로 치료 미루는 것은 Option A 시대 (구식). 현행 WHO는 전 임산부 즉시 평생 ART.</div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-q">🪤 함정 2: LMIC HIV 양성 산모 → 분유 수유 권고</div>
+      <div class="trap-a">LMIC에서는 안전한 물·분유 접근 불가 → 설사·영양실조 위험이 HIV 전파보다 클 수 있음. WHO: <strong>모체 ART 하에 배타적 모유수유 지지</strong>. 혼합수유가 오히려 최악.</div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-q">🪤 함정 3: 신생아 HIV → 항체 검사로 확인</div>
+      <div class="trap-a">신생아는 모체 항체가 최대 18개월까지 지속 → 항체 검사 <span class="hl-red">위양성</span>. <strong>반드시 DNA PCR</strong> 사용 (생후 4–6주). 18개월 이후라면 항체 검사 유효.</div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-q">🪤 함정 4: DTG는 임신 초기 금기</div>
+      <div class="trap-a">2018년 보츠와나 초기 데이터에서 신경관 결손 우려 제기. 그러나 이후 대규모 연구에서 위험 미미 확인. <strong>현재 WHO: 임신 전 기간 DTG 사용 권고</strong>. 금기 아님.</div>
+    </div>
+  </div>
+
+  <div class="section-title">Global Health 관점</div>
+  <div class="pills">
+    <span class="pill">Option B+ — 전원 즉시 평생 ART</span>
+    <span class="pill green">MTCT 제거 &lt;5% 목표</span>
+    <span class="pill blue">4 Pillars of PMTCT</span>
+    <span class="pill">Dual Elimination (HIV + 매독)</span>
+    <span class="pill orange">LMIC — 모유수유 + ART</span>
+    <span class="pill green">VL 억제 = 분만 방법 결정 기준</span>
+    <span class="pill blue">DNA PCR — 신생아 진단</span>
+    <span class="pill">PMTCT 적용률 &gt;95% = 제거 기준</span>
+  </div>
+
+</div>
+
+<div class="footer">
+  <span>📚 Ref: WHO PMTCT Guidelines 2021 · WHO Consolidated HIV Guidelines 2021</span>
+  <div>
+    <a href="#">← Maternal Mortality</a>
+    <a href="#">Obstetric Emergencies →</a>
+  </div>
+</div>
+
+</body>
+</html>

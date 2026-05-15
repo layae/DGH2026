@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',sans-serif;}
+.w{padding:1rem 0.5rem;max-width:700px;}
+.hdr{background:#27500A;border-radius:12px;padding:1rem 1.25rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;}
+.hdr-l .tag{font-size:11px;color:#97C459;letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px;}
+.hdr-l h1{font-size:18px;font-weight:500;color:#EAF3DE;line-height:1.3;}
+.hdr-r{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.bdg{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:500;}
+.bg1{background:#3B6D11;color:#EAF3DE;}
+.bg2{background:#173404;color:#C0DD97;}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:1rem;}
+.st{background:#f4f7f1;border-radius:8px;padding:.75rem .875rem;}
+.st-l{font-size:11px;color:#555;margin-bottom:4px;line-height:1.3;}
+.st-v{font-size:16px;font-weight:600;color:#3B6D11;}
+.st-s{font-size:11px;color:#666;margin-top:2px;}
+.card{background:#fff;border:.5px solid #d0dfc8;border-radius:12px;padding:1rem 1.125rem;margin-bottom:1rem;}
+.card h3{font-size:13px;font-weight:500;color:#27500A;margin-bottom:.5rem;}
+.card p,.card li{font-size:12.5px;color:#1a2e1a;line-height:1.6;}
+.card ul{padding-left:14px;}
+.card li{margin-bottom:2px;}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:1rem;}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:1rem;}
+.tw{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:12px;}
+thead th{background:#27500A;color:#EAF3DE;font-weight:500;padding:6px 8px;text-align:left;}
+tbody td{padding:5px 8px;border-bottom:.5px solid #e0eae0;color:#1a2e1a;vertical-align:top;line-height:1.5;}
+tbody tr:last-child td{border-bottom:none;}
+em{color:#27500A;font-style:normal;font-weight:600;}
+.trap-h{font-size:13px;font-weight:500;color:#791F1F;margin-bottom:.5rem;}
+.tg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:1rem;}
+.trap{background:#FCEBEB;border-left:3px solid #A32D2D;border-radius:0 8px 8px 0;padding:.6rem .75rem;}
+.trap-q{font-size:12px;font-weight:500;color:#791F1F;margin-bottom:3px;}
+.trap-a{font-size:11.5px;color:#501313;line-height:1.5;}
+.gbox{background:#EAF3DE;border:.5px solid #97C459;border-radius:8px;padding:.6rem .875rem;margin-bottom:.75rem;}
+.gbox p{font-size:12px;color:#173404;line-height:1.6;}
+.gh-h{font-size:12px;font-weight:500;color:#555;margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em;}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:.75rem;}
+.pill{font-size:11.5px;padding:3px 10px;border-radius:20px;border:.5px solid #c8ddc8;color:#2a5a2a;}
+.footer{display:flex;align-items:center;justify-content:space-between;margin-top:.5rem;}
+.fn{font-size:11px;color:#666;}
+.btn{font-size:12px;padding:5px 14px;cursor:pointer;border-radius:8px;border:.5px solid #aac4aa;background:transparent;color:#27500A;}
+.divider{border:none;border-top:.5px solid #dde8dd;margin:.75rem 0;}
+.b1{background:#FCEBEB;border:.5px solid #F09595;color:#501313;border-radius:8px;padding:.6rem .75rem;font-size:12px;line-height:1.5;}
+.b2{background:#FAEEDA;border:.5px solid #FAC775;color:#412402;border-radius:8px;padding:.6rem .75rem;font-size:12px;line-height:1.5;}
+.b3{background:#EEEDFE;border:.5px solid #AFA9EC;color:#26215C;border-radius:8px;padding:.6rem .75rem;font-size:12px;line-height:1.5;}
+.b-t{font-weight:600;font-size:12.5px;margin-bottom:3px;}
+.ladder{display:flex;flex-direction:column;gap:4px;}
+.rung{display:flex;align-items:center;gap:8px;padding:4px 8px;border-radius:6px;font-size:12px;}
+.rung-num{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;flex-shrink:0;}
+</style>
+</head>
+<body>
+<div class="w">
+
+  <div class="hdr">
+    <div class="hdr-l">
+      <div class="tag">Global Public Health · Public Health 5/5</div>
+      <h1>Water, Sanitation &amp; Hygiene (WASH)<br><span style="font-size:14px;color:#97C459;">안전한 물 · 위생 · 손씻기 · Sphere 기준</span></h1>
+    </div>
+    <div class="hdr-r">
+      <span class="bdg bg1">Global Public Health</span>
+      <span class="bdg bg2">GPH 20%</span>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="st"><div class="st-l">안전한 식수 미접근</div><div class="st-v">22억 명</div><div class="st-s">안전 식수 없이 생활<br>(WHO/UNICEF 2023)</div></div>
+    <div class="st"><div class="st-l">기본 위생 미접근</div><div class="st-v">36억 명</div><div class="st-s">기본 화장실 없음<br>노상배변 포함</div></div>
+    <div class="st"><div class="st-l">Sphere 물 기준</div><div class="st-v">15 L/인/일</div><div class="st-s">긴급 초기 최소량<br>목표 20 L/인/일</div></div>
+    <div class="st"><div class="st-l">설사질환 예방 분율</div><div class="st-v">~50%</div><div class="st-s">손씻기만으로<br>설사 예방 가능</div></div>
+  </div>
+
+  <!-- JMP 사다리 -->
+  <div class="card">
+    <h3>🪜 JMP 서비스 사다리 (WHO/UNICEF Joint Monitoring Programme)</h3>
+    <div class="g2">
+      <div>
+        <p style="font-weight:600;color:#27500A;margin-bottom:.4rem;">💧 식수 서비스 사다리</p>
+        <div class="ladder">
+          <div class="rung" style="background:#173404;color:white;"><div class="rung-num" style="background:#97C459;color:#173404;">5</div><strong>안전 관리 (Safely managed):</strong> 구내·필요 시 이용 가능·오염 없음</div>
+          <div class="rung" style="background:#2a5c0e;color:white;"><div class="rung-num" style="background:#b8d98b;color:#173404;">4</div><strong>기본 (Basic):</strong> 개선 수원, 30분 미만 왕복</div>
+          <div class="rung" style="background:#4a7a2a;color:white;"><div class="rung-num" style="background:#d0eab0;color:#173404;">3</div>제한적 (Limited): 개선 수원, 30분 초과</div>
+          <div class="rung" style="background:#FAEEDA;color:#412402;"><div class="rung-num" style="background:#FAC775;color:#412402;">2</div>비개선 (Unimproved): 오염 우물·수레 등</div>
+          <div class="rung" style="background:#FCEBEB;color:#501313;"><div class="rung-num" style="background:#F09595;color:#501313;">1</div>노상 식수 (Surface water): 강·호수·웅덩이</div>
+        </div>
+      </div>
+      <div>
+        <p style="font-weight:600;color:#27500A;margin-bottom:.4rem;">🚽 위생 서비스 사다리</p>
+        <div class="ladder">
+          <div class="rung" style="background:#173404;color:white;"><div class="rung-num" style="background:#97C459;color:#173404;">5</div><strong>안전 관리:</strong> 개선 시설 + 배설물 안전 처리</div>
+          <div class="rung" style="background:#2a5c0e;color:white;"><div class="rung-num" style="background:#b8d98b;color:#173404;">4</div><strong>기본:</strong> 개선 시설, 가구 전용 또는 공유 안 함</div>
+          <div class="rung" style="background:#4a7a2a;color:white;"><div class="rung-num" style="background:#d0eab0;color:#173404;">3</div>제한적: 개선 시설이지만 공유</div>
+          <div class="rung" style="background:#FAEEDA;color:#412402;"><div class="rung-num" style="background:#FAC775;color:#412402;">2</div>비개선: 구덩이 화장실 (슬래브 없음 등)</div>
+          <div class="rung" style="background:#FCEBEB;color:#501313;"><div class="rung-num" style="background:#F09595;color:#501313;">1</div>노상 배변 (Open defecation): ODF 캠페인 대상</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 물 처리 & 수질 기준 -->
+  <div class="g2">
+    <div class="card">
+      <h3>🧪 수질 처리 & 검사</h3>
+      <p><em>주요 오염 지표:</em><br>
+      · <em>E. coli / 대장균군:</em> 분변 오염 지표. 음용수 = 0 CFU/100mL<br>
+      · 탁도 (Turbidity): &lt;1 NTU (이상적); 고탁도 → 소독 효과 감소<br><br>
+      <em>현장 수질 처리 방법:</em></p>
+      <div class="tw" style="margin-top:.4rem;">
+        <table>
+          <thead><tr><th>방법</th><th>장점</th><th>한계</th></tr></thead>
+          <tbody>
+            <tr><td><em>염소 소독</em></td><td>저비용·간편·잔류효과</td><td>탁도 높으면 효과↓; 부산물</td></tr>
+            <tr><td><em>끓이기</em></td><td>가장 확실한 살균</td><td>연료 필요; 재오염 위험</td></tr>
+            <tr><td><em>SODIS</em></td><td>무비용 (태양 자외선)</td><td>탁도·날씨 의존; 시간 소요</td></tr>
+            <tr><td><em>필터 (세라믹)</em></td><td>부유물·세균 제거</td><td>바이러스 제거 불완전</td></tr>
+            <tr><td><em>Flocculation</em></td><td>탁도 감소 후 소독 병행</td><td>화학약품 필요</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <h3>🏕️ Sphere 핵심 기준 (긴급 인도주의)</h3>
+      <ul>
+        <li><em>물 최소량:</em> 15L/인/일 (초기 비상); 목표 20L</li>
+        <li><em>물 접근 거리:</em> 500m 이내, 30분 이내 왕복</li>
+        <li><em>화장실 비율:</em> 20명당 1개 (초기); 50명당 1개 (최소)</li>
+        <li><em>성별 분리:</em> 여성용 화장실 별도 필수 (안전·프라이버시)</li>
+        <li><em>잔류 염소:</em> 배급 지점 0.2–0.5 mg/L; 수원 &gt;1 mg/L</li>
+        <li><em>손씻기 시설:</em> 화장실 옆 물·비누 구비</li>
+        <li><em>콜레라 아웃브레이크 시:</em> 오염 통제 구역 설정, OCV 투여, ORS 보급</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- WASH & 질환 연계 -->
+  <div class="card">
+    <h3>🦠 WASH 관련 주요 질환 & 전파 경로</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>질환</th><th>전파 경로 (F-diagram)</th><th>핵심 WASH 중재</th><th>LMIC 부담</th></tr></thead>
+        <tbody>
+          <tr><td><em>콜레라</em></td><td>오염 물·식품 (분변→물)</td><td>안전한 물, 염소 소독, OCV</td><td>예멘·아이티·DRC 반복 유행</td></tr>
+          <tr><td><em>장티푸스</em></td><td>오염 물·식품</td><td>안전한 물, TCV 접종</td><td>XDR typhoid 파키스탄</td></tr>
+          <tr><td><em>설사질환</em></td><td>분변-구강 (5F: Fluids·Fingers·Flies·Fields·Food)</td><td>손씻기 (비누+물), ODF</td><td>5세 미만 U5 사망 2위</td></tr>
+          <tr><td><em>기생충 (STH)</em></td><td>오염 토양 (경피·경구)</td><td>신발 착용, ODF, MDA</td><td>10억 명 이상 감염</td></tr>
+          <tr><td><em>주혈흡충증</em></td><td>오염 담수 접촉</td><td>안전한 물 공급, MDA (praziquantel)</td><td>Sub-Saharan Africa 집중</td></tr>
+          <tr><td><em>트라코마</em></td><td>직접 접촉·파리 (SAFE 전략)</td><td>세면 시설·눈 청결 (SAFE-F)</td><td>사하라 이남 아프리카</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:.5rem;font-size:11.5px;color:#444;"><em>F-diagram:</em> Faeces → Fluids·Fingers·Flies·Fields·Food → new Host. 각 경로 차단이 WASH 중재 원리.</p>
+  </div>
+
+  <!-- 손씻기 + ODF + CLTS -->
+  <div class="g3">
+    <div class="b1">
+      <div class="b-t">🙌 손씻기 (Hand Hygiene)</div>
+      5대 핵심 시점 (WHO):<br>
+      ① 음식 조리 전<br>
+      ② 식사 전<br>
+      ③ 배변 후<br>
+      ④ 기저귀 교환 후<br>
+      ⑤ 동물 접촉 후<br><br>
+      비누+물 &gt; 물만 > 무세척<br>
+      설사 47% 감소 효과
+    </div>
+    <div class="b2">
+      <div class="b-t">🚫 ODF & CLTS</div>
+      <strong>ODF (Open Defecation Free):</strong><br>
+      노상 배변 없는 지역 인증<br><br>
+      <strong>CLTS (Community-Led Total Sanitation):</strong><br>
+      하향식 보조금 아닌<br>지역사회 주도 행동 변화<br>트리거 접근법 → 혐오감·수치<br>활용해 행동 변화 유도<br>
+      지속가능성 높음
+    </div>
+    <div class="b3">
+      <div class="b-t">💊 NTDs & WASH</div>
+      WASH 개선 = NTD 예방의<br>핵심 보완 전략:<br><br>
+      · 기니벌레: 필터 음용수<br>· STH: ODF + 신발<br>· 주혈흡충: 담수 접촉 차단<br>· 트라코마: SAFE 전략 F<br><br>
+      MDA 단독보다<br>WASH 병행 시 재감염률 ↓
+    </div>
+  </div>
+
+  <div class="trap-h">⚠️ 시험 함정 4개</div>
+  <div class="tg">
+    <div class="trap">
+      <div class="trap-q">Sphere 기준 = 법적 의무?</div>
+      <div class="trap-a">Sphere 기준은 법적 구속력 없는 인도주의 최소 기준. 하지만 NGO·UN 기관의 실질적 기준으로 작동. "법적 의무" → 오답. 단, 책임성(accountability) 프레임에서 준수 여부를 평가받음.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-q">끓이기 = 모든 오염 제거?</div>
+      <div class="trap-a">끓이기는 병원성 미생물(세균·바이러스·기생충) 제거에 효과적이지만, 중금속(납·비소)·화학적 오염물 제거 불가. 비소 오염 지하수(방글라데시)에서 끓이기 = 효과 없음. 화학적 오염이 의심될 때는 필터링 또는 다른 수원 필요.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-q">공유 화장실 = JMP 기본 서비스 수준?</div>
+      <div class="trap-a">JMP 사다리에서 공유 화장실(이웃과 공유)은 '제한적(Limited)' 수준. '기본(Basic)' 이상이 되려면 가구 전용 또는 특정 가구만 사용해야 함. 공유 = 기본 서비스 아님. 시험에서 자주 혼동.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-q">잔류 염소 높을수록 좋다?</div>
+      <div class="trap-a">과잉 염소 → 소독 부산물(THM 등) 생성 위험, 맛 불량으로 기피 → 오히려 안전하지 않은 수원 이용. Sphere 기준: 배급 지점 0.2~0.5 mg/L 유지가 목표. 너무 낮으면(0.2 미만) 재오염, 너무 높으면 부산물 위험.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="gbox">
+    <p><strong>Public Health 5개 토픽 완료!</strong> Epidemiology → Immunisation → Outbreaks → PH Statistics → WASH. 다음은 <strong>Planetary Health 3개 (One Health · AMR · Climate Change)</strong>로 이어집니다. Planetary Health는 DGH에서 비교적 새롭게 강조되는 영역으로, AMR이 시험 출제 빈도가 특히 높습니다.</p>
+  </div>
+
+  <div class="gh-h">Global Health 관점</div>
+  <div class="pills">
+    <span class="pill">💧 Sphere 15L/인/일 최소 (목표 20L)</span>
+    <span class="pill">🚽 JMP 공유 화장실 = Limited (Basic 아님)</span>
+    <span class="pill">🙌 손씻기 = 설사 47% 감소</span>
+    <span class="pill">🌊 F-diagram = WASH 중재 이론적 근거</span>
+    <span class="pill">🌿 CLTS = 지역사회 주도 지속가능 위생</span>
+  </div>
+
+  <div class="footer">
+    <span class="fn">Source: WHO/UNICEF JMP 2023 · Sphere Handbook 2018 · WHO WASH Guidelines</span>
+    <button class="btn" onclick="sendPrompt('Planetary Health 3개 토픽 만들어줘')">다음: Planetary Health →</button>
+  </div>
+
+</div>
+</body>
+</html>

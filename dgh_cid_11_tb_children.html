@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH CID-11 | TB in Children</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&family=Roboto+Mono:wght@400;600&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Noto Sans KR',sans-serif;background:#fdf4f4;color:#2c1010;font-size:12.5px;line-height:1.55;}
+  .page{max-width:900px;margin:0 auto;padding:18px;}
+  .header{background:#791F1F;color:#fff;border-radius:10px 10px 0 0;padding:14px 20px 12px;display:flex;align-items:center;justify-content:space-between;}
+  .header-left .tag{font-family:'Roboto Mono',monospace;font-size:10px;background:rgba(255,255,255,0.18);padding:2px 8px;border-radius:20px;letter-spacing:1px;margin-bottom:5px;display:inline-block;}
+  .header-left h1{font-size:20px;font-weight:700;letter-spacing:-0.5px;}
+  .header-left h1 span{color:#f5a0a0;}
+  .header-right{text-align:right;font-size:10.5px;opacity:0.85;line-height:1.6;}
+  .stats-bar{background:#791F1F;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,0.15);}
+  .stat{padding:9px 12px;text-align:center;border-right:1px solid rgba(255,255,255,0.15);color:#fff;}
+  .stat:last-child{border-right:none;}
+  .stat-val{font-family:'Roboto Mono',monospace;font-size:16px;font-weight:700;color:#ffcece;display:block;}
+  .stat-lbl{font-size:9.5px;opacity:0.8;margin-top:1px;}
+  .body{background:#fff;border:1px solid #e8c4c4;border-top:none;border-radius:0 0 10px 10px;padding:16px;}
+  .sec{font-size:11px;font-weight:700;color:#791F1F;letter-spacing:0.5px;text-transform:uppercase;border-left:3px solid #791F1F;padding-left:7px;margin:14px 0 8px;}
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;}
+  .card{background:#fdf4f4;border:1px solid #e8c4c4;border-radius:7px;padding:10px 12px;}
+  .card h4{font-size:11px;font-weight:700;color:#791F1F;margin-bottom:6px;}
+  .card ul{padding-left:14px;}
+  .card li{font-size:11.5px;margin-bottom:3px;}
+  .card li b{color:#791F1F;}
+  table{width:100%;border-collapse:collapse;font-size:11px;margin-bottom:10px;}
+  th{background:#791F1F;color:#fff;padding:6px 8px;text-align:left;font-weight:600;}
+  td{padding:5px 8px;border-bottom:1px solid #e8c4c4;vertical-align:top;}
+  tr:nth-child(even) td{background:#fdf4f4;}
+  td b{color:#791F1F;}
+  .steps{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap;}
+  .step{flex:1;min-width:130px;background:#f5dcdc;border:1px solid #e8c4c4;border-radius:7px;padding:8px 10px;}
+  .step-num{font-family:'Roboto Mono',monospace;font-size:9px;font-weight:700;color:#791F1F;background:rgba(121,31,31,0.12);display:inline-block;padding:1px 6px;border-radius:10px;margin-bottom:4px;}
+  .step h4{font-size:11px;font-weight:700;color:#791F1F;margin-bottom:3px;}
+  .step p{font-size:11px;color:#3a1515;}
+  .trap-h{background:#791F1F;color:#fff;font-size:11px;font-weight:700;padding:6px 12px;border-radius:6px 6px 0 0;letter-spacing:0.5px;}
+  .trap-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid #e8c4c4;border-radius:0 0 6px 6px;overflow:hidden;margin-bottom:10px;}
+  .trap{background:#fff;padding:9px 11px;border-right:1px solid #e8c4c4;border-bottom:1px solid #e8c4c4;}
+  .trap:nth-child(even){border-right:none;}
+  .trap:nth-last-child(-n+2){border-bottom:none;}
+  .trap-label{font-size:9.5px;font-weight:700;color:#791F1F;background:#f5dcdc;display:inline-block;padding:1px 7px;border-radius:10px;margin-bottom:4px;}
+  .trap p{font-size:11px;color:#2c1010;}
+  .trap em{color:#791F1F;font-style:normal;font-weight:700;}
+  .pills{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px;}
+  .pill{font-size:10.5px;background:#f5dcdc;border:1px solid #e8c4c4;color:#791F1F;padding:3px 10px;border-radius:20px;font-weight:600;}
+  .footer{margin-top:10px;padding-top:8px;border-top:1px solid #e8c4c4;display:flex;align-items:center;justify-content:space-between;font-size:10px;color:#7a4040;}
+  .footer-ref{font-style:italic;}
+  .footer-nav{display:flex;gap:6px;}
+  .btn{font-size:10px;background:#791F1F;color:#fff;border:none;padding:3px 11px;border-radius:12px;cursor:pointer;font-family:inherit;}
+  .highlight{background:#f5dcdc;border-left:3px solid #791F1F;padding:7px 10px;border-radius:0 5px 5px 0;margin-bottom:8px;font-size:11.5px;}
+  .highlight b{color:#791F1F;}
+  .age-box{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px;}
+  .age-card{background:#fdf4f4;border:1px solid #e8c4c4;border-radius:7px;padding:8px 10px;text-align:center;}
+  .age-card .age{font-family:'Roboto Mono',monospace;font-size:14px;font-weight:700;color:#791F1F;}
+  .age-card .feature{font-size:10.5px;margin-top:3px;color:#3a1515;}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="header-left">
+      <div class="tag">CID-11 · TUBERCULOSIS</div>
+      <h1>Tuberculosis in <span>Children</span></h1>
+    </div>
+    <div class="header-right">
+      DGH KBA Blueprint 40%<br>
+      Oxford HTM 5e · WHO TB Children Guidelines 2022<br>
+      내과의에게 생소한 소아 특이 사항 집중
+    </div>
+  </div>
+  <div class="stats-bar">
+    <div class="stat"><span class="stat-val">1.25M</span><span class="stat-lbl">연간 소아 TB (2022년)</span></div>
+    <div class="stat"><span class="stat-val">5세↓</span><span class="stat-lbl">진행 위험 가장 높은 연령</span></div>
+    <div class="stat"><span class="stat-val">40%</span><span class="stat-lbl">소아 TB: 세균학적 확진 미달</span></div>
+    <div class="stat"><span class="stat-val">BCG</span><span class="stat-lbl">중증 TB 75–85% 예방효과</span></div>
+  </div>
+  <div class="body">
+
+    <div class="sec">소아 TB의 특수성 — 성인과 결정적 차이</div>
+    <div class="g2">
+      <div class="card">
+        <h4>왜 소아는 다른가?</h4>
+        <ul>
+          <li><b>5세↓:</b> 원발성 감염 → 진행(primary progressive TB) 위험 高</li>
+          <li>Smear 음성 多 (균량 적음) → 세균학적 확진 어려움</li>
+          <li><b>Extrapulmonary 多:</b> miliary TB, TB 수막염, 골관절 TB</li>
+          <li>TST 해석 주의: BCG 접종 위음성/위양성</li>
+          <li>접촉력(성인 색인 환자)이 핵심 진단 단서</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>연령별 위험도</h4>
+        <ul>
+          <li><b>&lt;1세:</b> 중증 전파 위험 최고 → disseminated, meningeal</li>
+          <li><b>1–4세:</b> 진행 위험 高, 치료 지연 시 치명적</li>
+          <li><b>5–10세:</b> 상대적 저위험 ("school-age safe zone")</li>
+          <li><b>청소년(10–14세):</b> 성인형 TB 패턴 재출현 (공동형, 전파 가능)</li>
+          <li>HIV 동반 시 모든 연령에서 위험 급증</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sec">진단 알고리즘 (WHO 소아 권고)</div>
+    <div class="highlight">
+      <b>소아 TB 진단의 3대 축:</b> ① 임상 증상/징후 ② 접촉력(색인 환자 확인) ③ 보조검사 (TST/IGRA, CXR, Xpert)
+    </div>
+    <table>
+      <tr><th>검사</th><th>소아 특이 사항</th><th>비고</th></tr>
+      <tr><td><b>Xpert MTB/RIF</b></td><td>객담 대신 위세척액(gastric aspirate), 유도 객담 사용</td><td>5세↓ 객담 채취 불가 → 위세척 아침 공복 3일 연속</td></tr>
+      <tr><td><b>TST</b></td><td>≥10mm (면역정상) / ≥5mm (HIV+, 중증영양실조)</td><td>BCG 접종 후 위양성 가능. 음성이라도 배제 불가</td></tr>
+      <tr><td><b>IGRA</b></td><td>5세↓ 감수성 낮음 → TST 병용 권고</td><td>LMIC에서 비용 문제</td></tr>
+      <tr><td><b>Chest X-ray</b></td><td>Hilar lymphadenopathy, miliary pattern 소아 특이 소견</td><td>공동(cavity) 형성은 청소년에서 드물지 않음</td></tr>
+      <tr><td><b>Urine LF-LAM</b></td><td>HIV+ 소아 또는 중증 소아 (CD4↓)</td><td>≥2세 이상에서 유용</td></tr>
+    </table>
+
+    <div class="sec">치료 — 소아 용량 및 기간</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">약제 선택</div>
+        <h4>성인과 동일 4제</h4>
+        <p>HRZE (INH, RIF, PZA, EMB)<br>단, 소아 용량/kg 다름 (성인보다 mg/kg 高)</p>
+      </div>
+      <div class="step">
+        <div class="step-num">비중증 TB</div>
+        <h4>2HRZ / 4HR</h4>
+        <p>폐결핵, 말초 림프절 결핵<br>EMB 생략 가능 (안구독성 관찰 어려움)</p>
+      </div>
+      <div class="step">
+        <div class="step-num">중증 TB</div>
+        <h4>2HRZE / 10HR</h4>
+        <p>TB 수막염: 총 12개월<br>Miliary TB, 골관절 TB: 9–12개월</p>
+      </div>
+      <div class="step">
+        <div class="step-num">소아 MDR-TB</div>
+        <h4>BPaL 권고</h4>
+        <p>2022 WHO: BDQ + PRT + LZD 성인 기준 → 소아 데이터 제한적. 전문가 자문 필요</p>
+      </div>
+    </div>
+
+    <div class="sec">소아 용량표 (WHO 2022 권고)</div>
+    <table>
+      <tr><th>약제</th><th>소아 용량 (mg/kg/day)</th><th>성인 비교</th><th>주요 부작용</th></tr>
+      <tr><td><b>Isoniazid (H)</b></td><td>10 (7–15)</td><td>5mg/kg</td><td>간독성, 말초신경병증 (B6 보충)</td></tr>
+      <tr><td><b>Rifampicin (R)</b></td><td>15 (10–20)</td><td>10mg/kg</td><td>간독성, 체액 오렌지색 착색</td></tr>
+      <tr><td><b>Pyrazinamide (Z)</b></td><td>35 (30–40)</td><td>25mg/kg</td><td>고요산혈증, 간독성</td></tr>
+      <tr><td><b>Ethambutol (E)</b></td><td>20 (15–25)</td><td>15mg/kg</td><td>시신경염 (소아 모니터링 어려워 주의)</td></tr>
+    </table>
+
+    <div class="sec">접촉자 관리 — 소아 IPT</div>
+    <div class="g2">
+      <div class="card">
+        <h4>WHO 권고 (예방적 치료)</h4>
+        <ul>
+          <li><b>5세↓:</b> 전파성 TB 성인과 접촉 → 활동성 TB 배제 후 <em>INH 6개월</em></li>
+          <li><b>5세↑ HIV+:</b> 동일 원칙 적용</li>
+          <li><b>TST 음성도</b> 고위험 접촉(5세↓)이면 IPT 시작</li>
+          <li>BCG 미접종 영아 → 가능한 빨리 접종</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>BCG 역할과 한계</h4>
+        <ul>
+          <li>TB 수막염, Miliary TB: 75–85% 예방효과</li>
+          <li>폐결핵(성인형): 예방효과 제한적 (0–80% 지역 편차)</li>
+          <li>WHO: 생후 가능한 빨리 1회 접종 (출생 시)</li>
+          <li>HIV+ 신생아: 면역저하 정도에 따라 접종 결정</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TRAP -->
+    <div class="trap-h">⚠ 시험 함정 4 (TB in Children)</div>
+    <div class="trap-grid">
+      <div class="trap">
+        <div class="trap-label">함정 1 — EMB 소아 사용</div>
+        <p>성인에서 일상적으로 사용하는 EMB → 소아에서 <em>시신경독성 모니터링 불가 → 비중증 소아 TB에서 생략</em>. "4제 필수" 선지는 함정.</p>
+      </div>
+      <div class="trap">
+        <div class="trap-label">함정 2 — TST 음성 = TB 배제</div>
+        <p>5세↓ 고위험 접촉자에서 TST 음성이어도 IPT 필요. <em>면역미성숙·영양실조·HIV → 위음성 흔함</em>. "TST 음성이면 치료 불필요" = 오답.</p>
+      </div>
+      <div class="trap">
+        <div class="trap-label">함정 3 — 소아 용량 = 성인과 동일</div>
+        <p>소아는 mg/kg 용량이 성인보다 높음 (INH 10 vs 5, RIF 15 vs 10). <em>"성인 용량 그대로 적용" = 치료 실패 원인</em>. 체중 기준 용량 항상 확인.</p>
+      </div>
+      <div class="trap">
+        <div class="trap-label">함정 4 — TB 수막염 치료기간</div>
+        <p>TB 수막염: <em>최소 12개월 치료</em>. "6개월이면 충분" = 오답. Corticosteroid(덱사메타손)도 초기 병용 권고 — 사망률 감소.</p>
+      </div>
+    </div>
+
+    <div class="sec">Global Health 관점</div>
+    <div class="pills">
+      <span class="pill">🌍 소아 TB: 전체 TB의 11%, 사망 16% → 심각한 과소 진단</span>
+      <span class="pill">💊 분쇄 가능한 소아 FDC 제형: 2019년 WHO 도입 (맛, 복약 순응도 개선)</span>
+      <span class="pill">🧪 위세척액 Xpert: 농촌 LMIC에서 진단율 획기적 향상</span>
+      <span class="pill">📊 색인 환자 추적: 소아 TB 발견의 가장 효율적 방법</span>
+      <span class="pill">🏥 BCG 접종률 유지: EPI 핵심 — 중증 소아 TB 예방의 기본</span>
+    </div>
+
+    <div class="footer">
+      <div class="footer-ref">Ref: WHO TB Guidelines 2022 (Children) | Oxford HTM 5e | DGH Blueprint CID</div>
+      <div class="footer-nav">
+        <button class="btn">← CID-10 TB/HIV</button>
+        <button class="btn">창 B: CID-12 HIV →</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

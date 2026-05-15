@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH CID 07 · TB: Diagnosis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap');
+  :root { --hdr:#791F1F; --hdr2:#9B2C2C; --bg:#fdf4f4; --border:#e8c4c4; --accent:#f5dcdc; --accent2:#fce8e8; --text:#2d1515; --muted:#7a4040; --white:#ffffff; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Noto Sans KR',sans-serif; background:var(--bg); color:var(--text); font-size:11.5px; line-height:1.55; padding:18px; max-width:900px; margin:0 auto; }
+  .header { background:linear-gradient(135deg,var(--hdr) 0%,var(--hdr2) 60%,#7B2020 100%); color:var(--white); border-radius:10px 10px 0 0; padding:14px 20px 12px; display:flex; justify-content:space-between; align-items:flex-start; }
+  .header-left .tag { font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:2px; opacity:0.75; text-transform:uppercase; margin-bottom:4px; }
+  .header-left h1 { font-family:'Crimson Pro',serif; font-size:22px; font-weight:700; }
+  .header-left .subtitle { font-size:10.5px; opacity:0.8; margin-top:2px; }
+  .header-right { text-align:right; font-family:'JetBrains Mono',monospace; font-size:9px; opacity:0.7; line-height:1.6; }
+  .stats-bar { background:var(--hdr); display:grid; grid-template-columns:repeat(4,1fr); border-left:3px solid var(--hdr2); border-right:3px solid var(--hdr2); }
+  .stat { padding:8px 12px; color:var(--white); border-right:1px solid rgba(255,255,255,0.15); text-align:center; }
+  .stat:last-child { border-right:none; }
+  .stat-val { font-family:'Crimson Pro',serif; font-size:19px; font-weight:700; display:block; line-height:1.1; }
+  .stat-lbl { font-size:9px; opacity:0.78; letter-spacing:0.5px; }
+  .body-wrap { border:1.5px solid var(--border); border-top:none; border-radius:0 0 10px 10px; padding:14px 16px 12px; background:var(--white); }
+  .sec-title { font-family:'Crimson Pro',serif; font-size:13px; font-weight:700; color:var(--hdr); border-bottom:1.5px solid var(--border); padding-bottom:3px; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.8px; }
+  .g2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px; }
+  .g3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:10px; }
+  .card { background:var(--bg); border:1px solid var(--border); border-radius:7px; padding:9px 11px; }
+  .card-title { font-size:10px; font-weight:700; color:var(--hdr); text-transform:uppercase; letter-spacing:0.6px; margin-bottom:5px; padding-bottom:3px; border-bottom:1px solid var(--border); }
+  .card ul { padding-left:13px; }
+  .card li { margin-bottom:2px; font-size:11px; }
+  .card li strong { color:var(--hdr); }
+  table { width:100%; border-collapse:collapse; margin-bottom:10px; font-size:10.5px; }
+  th { background:var(--hdr); color:var(--white); padding:5px 8px; text-align:left; font-size:10px; font-weight:600; }
+  td { padding:4px 8px; border-bottom:1px solid var(--border); vertical-align:top; }
+  tr:nth-child(even) td { background:var(--accent2); }
+  .badge { display:inline-block; padding:1px 6px; border-radius:10px; font-size:9px; font-weight:700; font-family:'JetBrains Mono',monospace; }
+  .badge-red { background:#fee2e2; color:#991b1b; }
+  .badge-green { background:#d1fae5; color:#065f46; }
+  .badge-yellow { background:#fef3c7; color:#92400e; }
+  .badge-blue { background:#dbeafe; color:#1e40af; }
+  .trap-h { background:linear-gradient(90deg,var(--hdr) 0%,var(--hdr2) 100%); color:var(--white); padding:5px 12px; border-radius:5px 5px 0 0; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-top:10px; }
+  .trap-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; border:1.5px solid var(--border); border-top:none; border-radius:0 0 7px 7px; overflow:hidden; margin-bottom:10px; }
+  .trap { padding:8px 11px; border-right:1px solid var(--border); border-bottom:1px solid var(--border); background:var(--white); position:relative; }
+  .trap:nth-child(even) { border-right:none; }
+  .trap:nth-child(3),.trap:nth-child(4) { border-bottom:none; }
+  .trap-num { font-family:'Crimson Pro',serif; font-size:22px; font-weight:700; color:var(--accent); position:absolute; top:4px; right:8px; }
+  .trap-q { font-size:10px; font-weight:700; color:var(--hdr); margin-bottom:3px; padding-right:20px; }
+  .trap-a { font-size:10.5px; }
+  .trap-a strong { color:var(--hdr); }
+  .pills { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:10px; }
+  .pill { background:var(--accent); border:1px solid var(--border); color:var(--hdr); border-radius:20px; padding:3px 10px; font-size:10px; font-weight:600; }
+  .pill-dark { background:var(--hdr); color:var(--white); border-color:var(--hdr); }
+  .highlight { background:#fff3cd; padding:1px 4px; border-radius:3px; font-weight:700; }
+  .red { color:#991b1b; font-weight:700; }
+  .footer { background:var(--accent); border:1px solid var(--border); border-radius:6px; padding:7px 12px; display:flex; justify-content:space-between; align-items:center; margin-top:8px; flex-wrap:wrap; gap:5px; }
+  .footer-note { font-size:10px; color:var(--muted); }
+  .footer-btns { display:flex; gap:6px; }
+  .footer-btn { background:var(--hdr); color:var(--white); border:none; border-radius:4px; padding:4px 10px; font-size:9.5px; font-weight:700; cursor:pointer; font-family:'JetBrains Mono',monospace; }
+
+  .algo-flow { display:flex; flex-direction:column; gap:3px; margin-bottom:10px; }
+  .algo-row { display:flex; align-items:stretch; gap:8px; }
+  .algo-num { width:22px; height:22px; border-radius:50%; background:var(--hdr); color:var(--white); font-family:'Crimson Pro',serif; font-size:13px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:4px; }
+  .algo-box { flex:1; padding:6px 10px; border-radius:6px; border:1.5px solid var(--border); font-size:10.5px; }
+  .algo-box.s1 { background:#fde8e8; border-color:var(--hdr); }
+  .algo-box.s2 { background:#fef9e7; border-color:#b45309; }
+  .algo-box.s3 { background:#edf7ed; border-color:#166534; }
+  .algo-box.s4 { background:#eef2ff; border-color:#3730a3; }
+  .algo-arrow { text-align:left; padding-left:30px; font-size:11px; color:var(--muted); line-height:1; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <div class="tag">DGH KBA · CID-07 · Clinical Infectious Diseases · Tuberculosis</div>
+    <h1>TB: Diagnosis</h1>
+    <div class="subtitle">Smear · Xpert MTB/RIF · Culture · TST · IGRA · LF-LAM · WHO 알고리즘</div>
+  </div>
+  <div class="header-right">RCP Diploma in Global Health<br>Blueprint 40% — CID<br>Oxford HTM 5e · WHO 2022</div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat"><span class="stat-val">Xpert</span><span class="stat-lbl">WHO 1st line 분자진단</span></div>
+  <div class="stat"><span class="stat-val">60%</span><span class="stat-lbl">도말 민감도 (폐 TB)</span></div>
+  <div class="stat"><span class="stat-val">95%</span><span class="stat-lbl">Xpert 민감도 (도말양성)</span></div>
+  <div class="stat"><span class="stat-val">LF-LAM</span><span class="stat-lbl">HIV+CD4&lt;100 소변진단</span></div>
+</div>
+
+<div class="body-wrap">
+
+  <div class="sec-title">🔬 진단법 비교</div>
+  <table>
+    <tr><th>검사</th><th>민감도</th><th>특이도</th><th>소요 시간</th><th>핵심 특징</th></tr>
+    <tr>
+      <td><strong>AFB 도말</strong></td>
+      <td>45–60%</td><td>98%</td><td>1–2일</td>
+      <td>저렴·빠름 / HIV+에서 민감도↓↓</td>
+    </tr>
+    <tr>
+      <td><strong>Xpert MTB/RIF</strong></td>
+      <td>도말양성 95% / 음성 70%</td><td>99%</td><td>2시간</td>
+      <td>RIF 내성 동시 검출 — WHO 1st line</td>
+    </tr>
+    <tr>
+      <td><strong>Xpert Ultra</strong></td>
+      <td>도말음성 TB에서 우수</td><td>약간↓</td><td>2시간</td>
+      <td>낮은 균량 감지 / trace 양성 위양성 주의</td>
+    </tr>
+    <tr>
+      <td><strong>배양 (MGIT)</strong></td>
+      <td>~90%</td><td>99%</td><td>2–6주</td>
+      <td>Gold standard + DST 가능 / 느림</td>
+    </tr>
+    <tr>
+      <td><strong>TST (Mantoux)</strong></td>
+      <td>60–80%</td><td>낮음</td><td>48–72h 판독</td>
+      <td>BCG·NTM 위양성 / LMIC 저렴</td>
+    </tr>
+    <tr>
+      <td><strong>IGRA</strong></td>
+      <td>~80%</td><td>높음</td><td>1–2일</td>
+      <td>BCG 영향 없음 / HIV+에서 indeterminate↑</td>
+    </tr>
+    <tr>
+      <td><strong>LF-LAM (소변)</strong></td>
+      <td>HIV+CD4&lt;100: ~70%</td><td>높음</td><td>25분</td>
+      <td>LMIC 침상진단 / 면역저하에서만 유효</td>
+    </tr>
+  </table>
+
+  <div class="sec-title">📋 WHO 진단 알고리즘 (LMIC 맥락)</div>
+  <div class="algo-flow">
+    <div class="algo-row">
+      <div class="algo-num">1</div>
+      <div class="algo-box s1"><strong>증상 스크리닝:</strong> 기침 ≥2주, 혈담, 야간발한, 체중감소 → 하나라도 해당 시 진단 진행</div>
+    </div>
+    <div class="algo-arrow">↓</div>
+    <div class="algo-row">
+      <div class="algo-num">2</div>
+      <div class="algo-box s2"><strong>Xpert MTB/RIF (WHO 1st line):</strong> 객담 1개 — TB 확진 + RIF 내성 동시. 자원 부족 시 AFB 도말 병용</div>
+    </div>
+    <div class="algo-arrow">↓</div>
+    <div class="algo-row">
+      <div class="algo-num">3</div>
+      <div class="algo-box s3"><strong>Xpert 음성 + 임상 강한 의심:</strong> CXR + 임상 판단 → 경험적 치료 고려 (특히 HIV+)</div>
+    </div>
+    <div class="algo-arrow">↓</div>
+    <div class="algo-row">
+      <div class="algo-num">4</div>
+      <div class="algo-box s4"><strong>RIF 내성 확인:</strong> Line Probe Assay or 표현형 배양 DST → MDR-TB 치료 선택</div>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">HIV+ 환자 TB 진단 특수사항</div>
+      <ul>
+        <li>도말 민감도 <strong>크게 감소</strong> (균량 낮음)</li>
+        <li>비전형 CXR: 하엽 침범, 폐문 림프절 비대</li>
+        <li>폐외 TB 빈도 ↑↑ (림프절, 복막, 수막)</li>
+        <li><strong>LF-LAM:</strong> CD4 &lt;100 → 1st line 추가 권고</li>
+        <li>IGRA/TST → 면역저하 위음성 빈번 → 비추천</li>
+        <li><span class="highlight">임상 의심 높으면 경험적 치료</span> WHO 권고</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">결핵 유형별 진단 접근</div>
+      <ul>
+        <li><strong>폐 TB:</strong> Xpert (객담 2개 이상) + CXR</li>
+        <li><strong>결핵성 수막염:</strong> CSF Xpert (민감도 60~80%) + ADA</li>
+        <li><strong>복막 TB:</strong> 복수 ADA &gt;35 U/L</li>
+        <li><strong>림프절 TB:</strong> FNA → Xpert or 조직 배양</li>
+        <li><strong>척추 TB (Pott's):</strong> MRI + 조직 Xpert</li>
+        <li><strong>소아:</strong> 객담 채취 어려움 → 위액, 유도객담, NPA</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec-title">🧪 TST vs IGRA — LTBI 진단 비교</div>
+  <table>
+    <tr><th>항목</th><th>TST (Mantoux)</th><th>IGRA (QuantiFERON/T-SPOT)</th></tr>
+    <tr><td><strong>BCG 영향</strong></td><td><span class="badge badge-red">위양성 가능</span></td><td><span class="badge badge-green">영향 없음</span></td></tr>
+    <tr><td><strong>NTM 교차반응</strong></td><td><span class="badge badge-red">있음</span></td><td><span class="badge badge-green">없음 (대부분)</span></td></tr>
+    <tr><td><strong>HIV+ 결과</strong></td><td>무반응증 → 위음성↑</td><td>Indeterminate 증가</td></tr>
+    <tr><td><strong>비용</strong></td><td>낮음 (LMIC 적합)</td><td>높음 (HIC 주로 사용)</td></tr>
+    <tr><td><strong>양성 판독 기준</strong></td><td>≥10mm (일반) / ≥5mm (HIV+·면역억제)</td><td>≥0.35 IU/mL</td></tr>
+    <tr><td><strong>방문 횟수</strong></td><td>2회 (접종 + 48~72h 판독)</td><td>1회 (채혈)</td></tr>
+  </table>
+
+  <div class="trap-h">⚠️ 시험 함정 TRAP × 4</div>
+  <div class="trap-grid">
+    <div class="trap">
+      <div class="trap-num">01</div>
+      <div class="trap-q">Xpert 음성 = TB 없음 → 치료 불필요?</div>
+      <div class="trap-a"><strong>NO.</strong> 민감도 70~95% — 완벽하지 않음. <strong>임상 강한 의심 + Xpert 음성 → 경험적 치료 고려</strong> (WHO). HIV+에서 특히 중요. "음성이면 안심" 함정.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-num">02</div>
+      <div class="trap-q">TST 양성 = 활동성 TB 확진?</div>
+      <div class="trap-a"><strong>NO.</strong> TST는 <strong>LTBI 지표</strong>. BCG 접종·NTM 감염에서도 양성. 활동성 TB 확진 = Xpert or 배양 + 임상 + CXR. TST는 확진 도구 아님.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-num">03</div>
+      <div class="trap-q">HIV+ 환자 → IGRA로 LTBI 선별?</div>
+      <div class="trap-a"><strong>권고 약함.</strong> HIV+에서 IGRA는 <span class="red">Indeterminate 증가</span>, TST는 무반응증으로 위음성. 둘 다 신뢰도 ↓. CD4 수치와 상관없이 LTBI 치료 결정에 임상 판단 중요.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-num">04</div>
+      <div class="trap-q">LF-LAM = 모든 TB 의심 환자에 사용?</div>
+      <div class="trap-a"><strong>NO.</strong> LF-LAM은 <strong>HIV+ + CD4 &lt;100 (또는 중증 질환)</strong>에서만 유효. 면역 정상 환자에서 민감도 매우 낮음. 대상 아닌 환자에 사용 → 위음성으로 오진.</div>
+    </div>
+  </div>
+
+  <div class="sec-title">🌍 Global Health 관점</div>
+  <div class="pills">
+    <span class="pill pill-dark">Xpert = LMIC 게임체인저 (GFATM 보급)</span>
+    <span class="pill">Universal DST → WHO End TB 핵심</span>
+    <span class="pill">AI-CXR 스크리닝 — 자원 부족 지역 확장</span>
+    <span class="pill">LF-LAM 보급 → HIV+TB 동시진단</span>
+    <span class="pill">진단 공백 = 미발견 TB → 전파 지속</span>
+    <span class="pill">소아 TB 진단 — 객담 채취 장벽</span>
+  </div>
+
+  <div class="footer">
+    <div class="footer-note">📚 Oxford HTM 5e Ch.5 · WHO Consolidated Guidelines on TB 2022 · RCP DGH KBA Blueprint</div>
+    <div class="footer-btns">
+      <button class="footer-btn" onclick="window.print()">🖨 PRINT</button>
+      <button class="footer-btn" style="background:var(--hdr2)">→ CID-08: TB Management</button>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

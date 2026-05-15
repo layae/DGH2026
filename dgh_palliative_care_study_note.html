@@ -1,0 +1,149 @@
+<meta charset="UTF-8">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.page{width:100%;font-family:var(--font-sans);font-size:12.5px;line-height:1.55;color:var(--color-text-primary);padding:1.1rem 1.2rem 1.4rem}
+.page-header{display:flex;align-items:flex-start;justify-content:space-between;border-bottom:2px solid #4A5568;padding-bottom:8px;margin-bottom:10px}
+.topic-tag{font-size:10px;font-weight:500;background:#EDF2F7;color:#2D3748;padding:3px 9px;border-radius:999px;margin-bottom:4px;display:inline-block}
+.title{font-size:20px;font-weight:500;line-height:1.2}
+.subtitle{font-size:11px;color:var(--color-text-secondary);margin-top:2px}
+.badge-group{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.badge{font-size:10px;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.b-gray{background:#EDF2F7;color:#2D3748}.b-red{background:#FCEBEB;color:#791F1F}.b-teal{background:#E1F5EE;color:#085041}
+.stat-row{display:flex;gap:6px;margin-bottom:8px}
+.stat{flex:1;background:#EDF2F7;border-radius:var(--border-radius-md);padding:6px 8px;text-align:center}
+.stat-num{font-size:16px;font-weight:500;color:#2D3748;display:block}
+.stat-lbl{font-size:10px;color:#4A5568}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 10px}
+.card-full{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 10px;margin-bottom:8px}
+.sec-label{font-size:10px;font-weight:500;letter-spacing:.04em;color:var(--color-text-secondary);margin-bottom:5px}
+.row{display:flex;gap:5px;align-items:baseline;margin-bottom:3px}
+.dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.d-gray{background:#718096}.d-red{background:#E24B4A}.d-amber{background:#BA7517}.d-teal{background:#1D9E75}.d-blue{background:#378ADD}.d-purple{background:#7F77DD}.d-coral{background:#D85A30}
+.kw{font-weight:500}
+.tbl{width:100%;border-collapse:collapse;font-size:11px}
+.tbl th{background:#EDF2F7;color:#2D3748;font-weight:500;padding:4px 6px;text-align:left;font-size:10px}
+.tbl td{padding:3.5px 6px;border-bottom:0.5px solid var(--color-border-tertiary);vertical-align:top;line-height:1.4}
+.tbl tr:last-child td{border-bottom:none}
+.pill{display:inline-block;padding:1px 7px;border-radius:999px;font-size:10px;margin:1px 2px 1px 0}
+.p-gray{background:#EDF2F7;color:#2D3748}.p-red{background:#FCEBEB;color:#791F1F}.p-amber{background:#FAEEDA;color:#633806}.p-teal{background:#E1F5EE;color:#085041}.p-blue{background:#E6F1FB;color:#0C447C}.p-purple{background:#EEEDFE;color:#26215C}.p-coral{background:#FAECE7;color:#712B13}
+.who-ladder{display:flex;flex-direction:column;gap:4px;margin-bottom:0}
+.ladder-step{display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:var(--border-radius-md);font-size:11.5px}
+.ls-3{background:#FCEBEB;border-left:3px solid #E24B4A}
+.ls-2{background:#FAEEDA;border-left:3px solid #BA7517}
+.ls-1{background:#E1F5EE;border-left:3px solid #1D9E75}
+.ls-num{font-size:10px;font-weight:500;min-width:50px}
+.exam-card{background:#FCEBEB;border:0.5px solid #F09595;border-radius:var(--border-radius-md);padding:8px 10px;margin-bottom:8px}
+.exam-label{font-size:10px;font-weight:500;color:#791F1F;margin-bottom:4px}
+.trap-card{background:#FAEEDA;border:0.5px solid #EF9F27;border-radius:var(--border-radius-md);padding:7px 10px;margin-bottom:4px}
+.trap-label{font-size:10px;font-weight:500;color:#633806;margin-bottom:2px}
+.footnote{font-size:10px;color:var(--color-text-tertiary);margin-top:8px;border-top:0.5px solid var(--color-border-tertiary);padding-top:5px}
+</style>
+<div class="page">
+  <div class="page-header">
+    <div>
+      <div class="topic-tag">NCD · 10% of KBA</div>
+      <div class="title">Palliative Care — 완화 치료</div>
+      <div class="subtitle">글로벌 완화 케어 격차 · WHO 통증 사다리 · LMIC 모르핀 접근 · 완화 치료 원칙 — WHO · IAHPC · Oxford Handbook</div>
+    </div>
+    <div class="badge-group">
+      <span class="badge b-gray">DGH KBA</span>
+      <span class="badge b-red">모르핀 접근성 = LMIC 핵심 이슈</span>
+      <span class="badge b-teal">시험 출제빈도 ★★☆</span>
+    </div>
+  </div>
+  <div class="stat-row">
+    <div class="stat"><span class="stat-num">56M</span><span class="stat-lbl">연간 완화 치료 필요 인구</span></div>
+    <div class="stat"><span class="stat-num">78%</span><span class="stat-lbl">LMIC에 집중</span></div>
+    <div class="stat"><span class="stat-num">14%</span><span class="stat-lbl">실제 완화 치료 접근율</span></div>
+    <div class="stat"><span class="stat-num">80%</span><span class="stat-lbl">전 세계 모르핀 소비 — 선진 6개국</span></div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="sec-label">완화 치료의 정의 & 원칙 (WHO 2002)</div>
+      <div class="row"><div class="dot d-gray"></div><span><span class="kw">정의:</span> 생명을 위협하는 질환을 가진 환자와 가족의 삶의 질 향상 — 통증·신체·심리·영적 문제의 조기 발견·예방·치료</span></div>
+      <div class="row"><div class="dot d-gray"></div><span><span class="kw">핵심 원칙:</span> 죽음을 앞당기거나 늦추지 않음. 통증·증상 완화. 심리·사회·영적 지원 통합</span></div>
+      <div class="row"><div class="dot d-blue"></div><span><span class="kw">완화 치료 대상:</span> 암 (40%), HIV/AIDS (34%), 심혈관 질환, COPD, 당뇨, 신부전</span></div>
+      <div class="row"><div class="dot d-blue"></div><span><span class="kw">조기 통합:</span> 진단 시점부터 완화 치료 병행 → 삶의 질↑, 생존 기간도 연장 가능 (NEJM 2010)</span></div>
+      <div class="row"><div class="dot d-teal"></div><span><span class="kw">WHO EML:</span> Morphine·Codeine·Amitriptyline·Dexamethasone·Haloperidol — 필수의약품 등재</span></div>
+      <div class="row"><div class="dot d-red"></div><span><span class="kw">LMIC 현실:</span> 모르핀 처방 규제 과도 → 통증 치료 극히 제한. 약사·의사 면허 문제</span></div>
+    </div>
+    <div class="card">
+      <div class="sec-label">WHO 통증 사다리 (3단계) — 필수 암기</div>
+      <div class="who-ladder">
+        <div class="ladder-step ls-3">
+          <span class="ls-num" style="color:#791F1F">3단계<br>중증 통증</span>
+          <span><span class="kw">강력 오피오이드</span> (Morphine·Oxycodone·Fentanyl) ± 비오피오이드 ± 보조 진통제. Morphine 경구: 4시간마다, 돌발통 대비</span>
+        </div>
+        <div class="ladder-step ls-2">
+          <span class="ls-num" style="color:#633806">2단계<br>중등도 통증</span>
+          <span><span class="kw">약한 오피오이드</span> (Codeine·Tramadol) ± 비오피오이드 ± 보조 진통제</span>
+        </div>
+        <div class="ladder-step ls-1">
+          <span class="ls-num" style="color:#085041">1단계<br>경증 통증</span>
+          <span><span class="kw">비오피오이드</span> (Paracetamol·Ibuprofen·Aspirin) ± 보조 진통제 (Amitriptyline·Dexamethasone·Anticonvulsant)</span>
+        </div>
+      </div>
+      <div style="margin-top:6px">
+        <div class="row"><div class="dot d-amber"></div><span><span class="kw">원칙:</span> 경구 우선 · 시간 따라 규칙적 투여 · 사다리 따라 · 개인화</span></div>
+        <div class="row"><div class="dot d-amber"></div><span><span class="kw">돌발 통증:</span> 24시간 총 용량의 1/6을 PRN으로 추가</span></div>
+        <div class="row"><div class="dot d-red"></div><span><span class="kw">오피오이드 부작용:</span> 변비(반드시 예방적 완하제), 오심(초기), 졸음</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-full">
+    <div class="sec-label">LMIC 완화 치료 핵심 이슈 & 증상 조절</div>
+    <table class="tbl">
+      <thead><tr><th>증상</th><th>1차 치료</th><th>LMIC 대안/주의</th></tr></thead>
+      <tbody>
+        <tr><td><span class="pill p-red">암성 통증</span></td><td>Morphine 경구 (4mg~시작, 적정) + 규칙적 투여</td><td>Morphine 정제 분쇄 가능. 주사 → 경구로 전환 (경구:주사 = 3:1). 변비 예방 필수</td></tr>
+        <tr><td><span class="pill p-amber">호흡곤란</span></td><td>Morphine 소량 (통증 용량의 25–50%), 산소, 선풍기 바람</td><td>산소 없어도 선풍기·환기만으로 증상 완화 가능. 불안 동반 시 Midazolam</td></tr>
+        <tr><td><span class="pill p-blue">오심·구토</span></td><td>Haloperidol 1.5mg PO/SC, Metoclopramide</td><td>Haloperidol = WHO EML 등재, LMIC 접근 양호</td></tr>
+        <tr><td><span class="pill p-purple">섬망·불안</span></td><td>Haloperidol (저용량), Midazolam (말기 진정)</td><td>원인 교정 먼저 (감염·대사·약물). 말기 섬망: 완화 진정 고려</td></tr>
+        <tr><td><span class="pill p-teal">신경병증통증</span></td><td>Amitriptyline 25mg 취침 전, Gabapentin</td><td>Amitriptyline = WHO EML, 저렴. HIV 신경병증·암 관련 통증에 효과</td></tr>
+        <tr><td><span class="pill p-coral">뼈 전이 통증</span></td><td>NSAID + 오피오이드 + Dexamethasone + 방사선</td><td>LMIC 방사선 접근 제한 → 약물 조합이 핵심. Bisphosphonate 접근 어려움</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="exam-card">
+    <div class="exam-label">시험 핵심 포인트 &amp; 자주 나오는 함정</div>
+    <div class="grid2" style="margin-bottom:0">
+      <div>
+        <div class="trap-card">
+          <div class="trap-label">함정 1 — 오피오이드 변비</div>
+          <span>모르핀 시작 시 변비는 내성이 생기지 않음 → 반드시 예방적 완하제(Lactulose·Senna) 동시 처방. "필요 시 완하제"는 오답 — 처음부터 예방적으로.</span>
+        </div>
+        <div class="trap-card">
+          <div class="trap-label">함정 2 — 완화 치료 ≠ 죽음 앞당김</div>
+          <span>완화 치료는 죽음을 앞당기거나 늦추지 않음. 적절한 진통제 투여(Double effect 원칙)는 윤리적으로 허용. "모르핀 투여 = 안락사"는 완전히 틀림.</span>
+        </div>
+      </div>
+      <div>
+        <div class="trap-card">
+          <div class="trap-label">함정 3 — 돌발 통증 용량</div>
+          <span>돌발 통증(breakthrough pain) → 24시간 총 모르핀 용량의 1/6을 PRN으로 추가. "정규 용량과 같은 양"이나 "고정 5mg"은 오답. 총량 기반 계산.</span>
+        </div>
+        <div class="trap-card">
+          <div class="trap-label">함정 4 — LMIC 완화 치료 장벽</div>
+          <span>LMIC 완화 치료 최대 장벽 = 모르핀 처방 규제(법적·문화적)와 공급 부족. "비용"이나 "인식 부족"도 있지만, DGH에서는 정책·접근성이 핵심 답안.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-full" style="margin-bottom:0">
+    <div class="sec-label">Global health 관점 핵심 메시지</div>
+    <div style="display:flex;flex-wrap:wrap;gap:4px;line-height:1.9">
+      <span class="pill p-gray">완화 치료 필요 인구 78%가 LMIC — 그러나 실제 접근율 14%의 극심한 격차</span>
+      <span class="pill p-red">모르핀 소비 80%가 6개국 — LMIC 암·HIV 환자 대부분 통증 속 사망</span>
+      <span class="pill p-teal">WHO 필수의약품 — Morphine·Amitriptyline·Haloperidol EML 등재, 접근성 개선 촉구</span>
+      <span class="pill p-amber">커뮤니티 기반 완화 치료 — LMIC 가정 방문 완화 케어, 가족 돌봄자 훈련</span>
+      <span class="pill p-blue">조기 완화 치료 통합 — 진단 시부터 병행 시 QoL↑, 생존 기간도 연장 가능</span>
+    </div>
+  </div>
+  <div class="footnote">참고: WHO Palliative Care Fact Sheet 2020 · WHO Pain Ladder · Oxford Handbook of Tropical Medicine 5e · DGH Blueprint NCD Level 3</div>
+</div>

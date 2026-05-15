@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>DGH 2026 Study App</title>
+<style>
+/* ── Reset & Variables ─────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{
+  --app-bg:#F8F9FA;
+  --card-bg:#FFFFFF;
+  --border:#E2E8F0;
+  --text:#1A202C;
+  --muted:#718096;
+  --accent:#2B6CB0;
+  --header-h:64px;
+  --tab-h:52px;
+  --search-h:52px;
+  --radius:12px;
+  --shadow:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.04);
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --app-bg:#0D1117;
+    --card-bg:#161B22;
+    --border:#30363D;
+    --text:#E6EDF3;
+    --muted:#8B949E;
+    --accent:#58A6FF;
+    --shadow:0 1px 3px rgba(0,0,0,.4);
+  }
+}
+html{height:100%;height:-webkit-fill-available;}
+body{
+  font-family:-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;
+  background:var(--app-bg);
+  color:var(--text);
+  font-size:15px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  height:100dvh;
+  display:flex;flex-direction:column;overflow:hidden;
+}
+
+/* ── Header ────────────────────────────────────────────────────── */
+.header{
+  position:-webkit-sticky;position:sticky;top:0;z-index:100;
+  height:var(--header-h);
+  background:var(--card-bg);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 20px;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
+.header-title{
+  font-size:17px;font-weight:700;letter-spacing:-.3px;
+  color:var(--text);
+}
+.header-title span{color:var(--accent);}
+.header-stats{font-size:12px;color:var(--muted);text-align:right;line-height:1.3;}
+
+/* ── Search ─────────────────────────────────────────────────────── */
+.search-wrap{
+  padding:10px 16px;
+  background:var(--card-bg);
+  border-bottom:1px solid var(--border);
+}
+.search-inner{position:relative;}
+.search-icon{
+  position:absolute;left:12px;top:50%;transform:translateY(-50%);
+  color:var(--muted);font-size:16px;pointer-events:none;
+}
+#searchInput{
+  width:100%;
+  height:40px;
+  padding:0 12px 0 38px;
+  background:var(--app-bg);
+  border:1px solid var(--border);
+  border-radius:10px;
+  font-size:15px;
+  color:var(--text);
+  outline:none;
+  font-family:inherit;
+  -webkit-appearance:none;
+}
+#searchInput:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(43,108,176,.15);}
+#searchInput::placeholder{color:var(--muted);}
+.search-clear{
+  position:absolute;right:10px;top:50%;transform:translateY(-50%);
+  background:none;border:none;color:var(--muted);font-size:18px;
+  cursor:pointer;padding:4px;display:none;min-width:44px;min-height:44px;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* ── Category Tabs ──────────────────────────────────────────────── */
+.tabs-wrap{
+  background:var(--card-bg);
+  border-bottom:1px solid var(--border);
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.tabs-wrap::-webkit-scrollbar{display:none;}
+.tabs{display:flex;padding:8px 12px;gap:8px;width:max-content;min-width:100%;}
+.tab{
+  flex-shrink:0;
+  display:flex;align-items:center;gap:6px;
+  padding:8px 14px;
+  border-radius:20px;
+  border:1.5px solid transparent;
+  background:var(--app-bg);
+  color:var(--muted);
+  font-size:13px;font-weight:500;
+  cursor:pointer;
+  min-height:44px;
+  transition:all .15s;
+  font-family:inherit;
+}
+.tab.active{
+  background:var(--bg);
+  color:var(--c);
+  border-color:var(--c);
+  font-weight:600;
+}
+.tab-label{white-space:nowrap;}
+.tab-count{
+  background:rgba(0,0,0,.08);
+  color:inherit;
+  font-size:11px;font-weight:600;
+  padding:1px 6px;border-radius:10px;
+  min-width:22px;text-align:center;
+}
+.tab.active .tab-count{background:var(--c);color:#fff;}
+@media(prefers-color-scheme:dark){
+  .tab{background:var(--card-bg);}
+  .tab.active{background:color-mix(in srgb,var(--bg) 20%,transparent);}
+  .tab-count{background:rgba(255,255,255,.1);}
+}
+
+/* ── Main Scroll Container ──────────────────────────────────────── */
+.main{
+  flex:1;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  padding:12px 16px 24px;
+  scroll-behavior:smooth;
+  min-height:0;
+}
+
+/* ── Progress Bar ───────────────────────────────────────────────── */
+.progress-bar-wrap{
+  padding:8px 16px;
+  background:var(--card-bg);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:10px;
+}
+.progress-track{
+  flex:1;height:6px;background:var(--border);border-radius:3px;overflow:hidden;
+}
+.progress-fill{
+  height:100%;background:var(--accent);border-radius:3px;
+  transition:width .4s ease;
+}
+.progress-text{font-size:12px;color:var(--muted);white-space:nowrap;}
+
+/* ── Subcat Sections ────────────────────────────────────────────── */
+.subcat-section{margin-bottom:20px;}
+.subcat-label{
+  font-size:11px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted);
+  padding:8px 4px 6px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.subcat-label span{font-weight:400;font-size:11px;}
+
+/* ── Chapter Cards ──────────────────────────────────────────────── */
+.chapter-list{display:flex;flex-direction:column;gap:8px;}
+.chapter-card{
+  display:flex;align-items:center;gap:12px;
+  background:var(--card-bg);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:12px 14px;
+  cursor:pointer;
+  text-decoration:none;
+  color:inherit;
+  box-shadow:var(--shadow);
+  transition:border-color .12s,box-shadow .12s;
+  min-height:56px;
+}
+.chapter-card:hover{
+  border-color:var(--accent);
+  box-shadow:0 2px 8px rgba(43,108,176,.12);
+}
+.chapter-card.done{
+  opacity:.65;
+  background:var(--app-bg);
+}
+.chapter-card.done .card-title{text-decoration:line-through;color:var(--muted);}
+.card-check{
+  flex-shrink:0;width:22px;height:22px;
+  border:2px solid var(--border);border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;transition:all .15s;
+  min-width:44px;min-height:44px;
+  margin:-11px -11px -11px -11px;
+  padding:11px;
+}
+.chapter-card.done .card-check{
+  border-color:var(--accent);
+  color:var(--accent);
+}
+.card-body{flex:1;min-width:0;}
+.card-title{font-size:14px;font-weight:500;line-height:1.35;}
+.card-sub{font-size:11px;color:var(--muted);margin-top:2px;}
+.card-arrow{
+  flex-shrink:0;color:var(--muted);font-size:14px;
+  padding:0 4px;
+}
+
+/* ── Empty State ────────────────────────────────────────────────── */
+.empty{
+  text-align:center;padding:60px 20px;color:var(--muted);
+}
+.empty-icon{font-size:48px;margin-bottom:12px;}
+.empty-text{font-size:16px;font-weight:500;}
+.empty-sub{font-size:13px;margin-top:6px;}
+
+/* ── Search result banner ───────────────────────────────────────── */
+.search-result-banner{
+  font-size:12px;color:var(--muted);
+  padding:4px 4px 8px;
+}
+
+/* ── Hidden ─────────────────────────────────────────────────────── */
+.hidden{display:none!important;}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-title">DGH <span>2026</span></div>
+  <div class="header-stats" id="headerStats">100 chapters</div>
+</header>
+
+<div class="search-wrap">
+  <div class="search-inner">
+    <span class="search-icon">&#128269;</span>
+    <input id="searchInput" type="search" placeholder="Search chapters… (한글 가능)" autocomplete="off" autocorrect="off" spellcheck="false">
+    <button class="search-clear" id="searchClear" onclick="clearSearch()" aria-label="Clear search">&#x2715;</button>
+  </div>
+</div>
+
+<div class="tabs-wrap">
+  <div class="tabs" id="tabs">
+    <button class="tab active" data-cat="all" style="--c:#2B6CB0;--bg:#EBF8FF">
+      <span class="tab-label">All</span>
+      <span class="tab-count">100</span>
+    </button>
+    <button class="tab" data-cat="ncd" style="--c:#0C447C;--bg:#E6F1FB">
+      <span class="tab-label">NCD & Mental Health</span>
+      <span class="tab-count">16</span>
+    </button>
+    <button class="tab" data-cat="gph" style="--c:#27500A;--bg:#EAF3DE">
+      <span class="tab-label">Global Public Health</span>
+      <span class="tab-count">16</span>
+    </button>
+    <button class="tab" data-cat="cid" style="--c:#791F1F;--bg:#FCEBEB">
+      <span class="tab-label">Clinical Infectious Diseases</span>
+      <span class="tab-count">49</span>
+    </button>
+    <button class="tab" data-cat="hum" style="--c:#92400E;--bg:#FEF3C7">
+      <span class="tab-label">Humanitarian Medicine</span>
+      <span class="tab-count">4</span>
+    </button>
+    <button class="tab" data-cat="wch" style="--c:#6B21A8;--bg:#F3E8FF">
+      <span class="tab-label">Women's & Child Health</span>
+      <span class="tab-count">15</span>
+    </button>
+    
+  </div>
+</div>
+
+<div class="progress-bar-wrap">
+  <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+  <div class="progress-text" id="progressText">0 / 100 done</div>
+</div>
+
+<main class="main" id="main"></main>
+
+<script>
+const CHAPTERS = [
+  {f:"dgh_global_burden_ncd_study_note.html",t:"Global Burden of NCDs",c:"ncd",s:"NCD Overview"},
+  {f:"dgh_ncd_response_management_study_note.html",t:"NCD Response & Management",c:"ncd",s:"NCD Overview"},
+  {f:"dgh_cvd_study_note.html",t:"Cardiovascular Disease",c:"ncd",s:"NCD Topics"},
+  {f:"dgh_diabetes_study_note.html",t:"Diabetes Mellitus",c:"ncd",s:"NCD Topics"},
+  {f:"dgh_copd_study_note.html",t:"COPD",c:"ncd",s:"NCD Topics"},
+  {f:"dgh_asthma_study_note.html",t:"Asthma",c:"ncd",s:"NCD Topics"},
+  {f:"dgh_cancer_epidemiology_study_note.html",t:"Cancer Epidemiology",c:"ncd",s:"NCD Topics"},
+  {f:"dgh_dermatology_study_note.html",t:"Dermatology (Tropical Skin)",c:"ncd",s:"NCD Topics"},
+  {f:"dgh_ophthalmology_study_note.html",t:"Ophthalmology (Global Blindness)",c:"ncd",s:"NCD Topics"},
+  {f:"dgh_palliative_care_study_note.html",t:"Palliative Care",c:"ncd",s:"NCD Topics"},
+  {f:"mental_health_01_common_disorders.html",t:"MH01: Common Mental Disorders",c:"ncd",s:"Mental Health"},
+  {f:"mental_health_02_seizure_epilepsy.html",t:"MH02: Seizures & Epilepsy",c:"ncd",s:"Mental Health"},
+  {f:"mental_health_03_mhgap.html",t:"MH03: mhGAP Programme",c:"ncd",s:"Mental Health"},
+  {f:"mental_health_04_psychological_first_aid.html",t:"MH04: Psychological First Aid",c:"ncd",s:"Mental Health"},
+  {f:"mental_health_05_standards_community.html",t:"MH05: Standards & Community Care",c:"ncd",s:"Mental Health"},
+  {f:"mental_health_06_mns_care.html",t:"MH06: MNS Care in Emergencies",c:"ncd",s:"Mental Health"},
+  {f:"DGH_Epidemiology.html",t:"Epidemiology",c:"gph",s:"Foundations"},
+  {f:"DGH_PublicHealthStatistics.html",t:"Public Health Statistics",c:"gph",s:"Foundations"},
+  {f:"DGH_StepwisePriority.html",t:"Stepwise Priority Setting",c:"gph",s:"Foundations"},
+  {f:"DGH_DeliveringHealthcare.html",t:"Delivering Healthcare",c:"gph",s:"Foundations"},
+  {f:"DGH_WASH.html",t:"WASH (Water, Sanitation, Hygiene)",c:"gph",s:"Determinants"},
+  {f:"DGH_ClimateChange.html",t:"Climate Change & Health",c:"gph",s:"Determinants"},
+  {f:"DGH_OneHealth.html",t:"One Health",c:"gph",s:"Determinants"},
+  {f:"DGH_Immunisation_Programmes.html",t:"Immunisation Programmes",c:"gph",s:"Programmes"},
+  {f:"DGH_Outbreaks.html",t:"Outbreaks",c:"gph",s:"Programmes"},
+  {f:"DGH_OutbreakResponse.html",t:"Outbreak Response",c:"gph",s:"Programmes"},
+  {f:"gph_01_global_health_actors.html",t:"GPH01: Global Health Actors",c:"gph",s:"GPH Series"},
+  {f:"gph_02_international_health_regulations.html",t:"GPH02: International Health Regulations",c:"gph",s:"GPH Series"},
+  {f:"gph_03_access_diagnostics_medicines.html",t:"GPH03: Access to Diagnostics & Medicines",c:"gph",s:"GPH Series"},
+  {f:"gph_04_differentiated_service_delivery.html",t:"GPH04: Differentiated Service Delivery",c:"gph",s:"GPH Series"},
+  {f:"gph_05_who_essential_medicines_list.html",t:"GPH05: WHO Essential Medicines List",c:"gph",s:"GPH Series"},
+  {f:"dgh_level3_study_roadmap.html",t:"Level 3 Study Roadmap (Overview)",c:"gph",s:"Foundations"},
+  {f:"dgh_cid_01_malaria_diagnostics_treatment.html",t:"CID01: Malaria – Diagnostics & Treatment",c:"cid",s:"Malaria"},
+  {f:"dgh_cid_02_malaria_chemoprevention.html",t:"CID02: Malaria – Chemoprevention",c:"cid",s:"Malaria"},
+  {f:"dgh_cid_03_malaria_pregnancy.html",t:"CID03: Malaria in Pregnancy",c:"cid",s:"Malaria"},
+  {f:"dgh_cid_04_malaria_resistance.html",t:"CID04: Malaria – Drug Resistance",c:"cid",s:"Malaria"},
+  {f:"dgh_cid_05_malaria_vaccination.html",t:"CID05: Malaria Vaccination",c:"cid",s:"Malaria"},
+  {f:"dgh_cid_06_tb_epidemiology.html",t:"CID06: TB Epidemiology",c:"cid",s:"Tuberculosis"},
+  {f:"dgh_cid_07_tb_diagnosis.html",t:"CID07: TB Diagnosis",c:"cid",s:"Tuberculosis"},
+  {f:"dgh_cid_08_tb_management.html",t:"CID08: TB Management",c:"cid",s:"Tuberculosis"},
+  {f:"dgh_cid_09_tb_mdr.html",t:"CID09: MDR-TB",c:"cid",s:"Tuberculosis"},
+  {f:"dgh_cid_10_tb_hiv_coinfection.html",t:"CID10: TB/HIV Co-infection",c:"cid",s:"Tuberculosis"},
+  {f:"dgh_cid_11_tb_children.html",t:"CID11: TB in Children",c:"cid",s:"Tuberculosis"},
+  {f:"dgh_cid_12_hiv_natural_history_pathogenesis.html",t:"CID12: HIV Natural History & Pathogenesis",c:"cid",s:"HIV"},
+  {f:"dgh_cid_13_hiv_epidemics_responses.html",t:"CID13: HIV Epidemics & Responses",c:"cid",s:"HIV"},
+  {f:"dgh_cid_14_hiv_clinical_case_management.html",t:"CID14: HIV Clinical Case Management",c:"cid",s:"HIV"},
+  {f:"dgh_cid_15_hiv_treatment_prevention.html",t:"CID15: HIV Treatment & Prevention",c:"cid",s:"HIV"},
+  {f:"dgh_cid_16_hiv_advanced.html",t:"CID16: Advanced HIV Disease",c:"cid",s:"HIV"},
+  {f:"dgh_cid_17_hiv_children.html",t:"CID17: HIV in Children",c:"cid",s:"HIV"},
+  {f:"dgh_cid_18_viral_dengue_zika_chikungunya.html",t:"CID18: Dengue, Zika & Chikungunya",c:"cid",s:"Viral Infections"},
+  {f:"dgh_cid_19_viral_ebola.html",t:"CID19: Ebola",c:"cid",s:"Viral Infections"},
+  {f:"dgh_cid_20_viral_hepatitis.html",t:"CID20: Viral Hepatitis",c:"cid",s:"Viral Infections"},
+  {f:"dgh_cid_21_viral_haemorrhagic_fevers.html",t:"CID21: Viral Haemorrhagic Fevers",c:"cid",s:"Viral Infections"},
+  {f:"dgh_cid_22_viral_yellow_fever.html",t:"CID22: Yellow Fever",c:"cid",s:"Viral Infections"},
+  {f:"dgh_cid_23_viral_rabies.html",t:"CID23: Rabies",c:"cid",s:"Viral Infections"},
+  {f:"dgh_cid_24_viral_polio.html",t:"CID24: Polio",c:"cid",s:"Viral Infections"},
+  {f:"dgh_cid_25_bacterial_meningitis.html",t:"CID25: Bacterial Meningitis",c:"cid",s:"Bacterial Infections"},
+  {f:"dgh_cid_26_bacterial_typhoid.html",t:"CID26: Typhoid Fever",c:"cid",s:"Bacterial Infections"},
+  {f:"dgh_cid_27_bacterial_cholera.html",t:"CID27: Cholera",c:"cid",s:"Bacterial Infections"},
+  {f:"dgh_cid_28_bacterial_tetanus.html",t:"CID28: Tetanus",c:"cid",s:"Bacterial Infections"},
+  {f:"dgh_cid_29_bacterial_diphtheria.html",t:"CID29: Diphtheria",c:"cid",s:"Bacterial Infections"},
+  {f:"dgh_cid_30_bacterial_brucellosis.html",t:"CID30: Brucellosis",c:"cid",s:"Bacterial Infections"},
+  {f:"dgh_cid_31_bacterial_rickettsial.html",t:"CID31: Rickettsial Diseases",c:"cid",s:"Bacterial Infections"},
+  {f:"dgh_cid_32_bacterial_rheumatic_fever.html",t:"CID32: Rheumatic Fever & RHD",c:"cid",s:"Bacterial Infections"},
+  {f:"dgh_cid_33_bacterial_leprosy.html",t:"CID33: Leprosy",c:"cid",s:"Bacterial Infections"},
+  {f:"dgh_cid_34_bacterial_buruli_ulcer.html",t:"CID34: Buruli Ulcer",c:"cid",s:"Bacterial Infections"},
+  {f:"dgh_cid_35_bacterial_melioidosis.html",t:"CID35: Melioidosis",c:"cid",s:"Bacterial Infections"},
+  {f:"dgh_cid_36_bacterial_noma.html",t:"CID36: Noma",c:"cid",s:"Bacterial Infections"},
+  {f:"dgh_cid_37_bacterial_syphilis.html",t:"CID37: Syphilis",c:"cid",s:"Bacterial Infections"},
+  {f:"dgh_cid_38_bacterial_sti_men.html",t:"CID38: STIs in Men",c:"cid",s:"Bacterial Infections"},
+  {f:"dgh_cid_39_bacterial_tropical_spirochaetes.html",t:"CID39: Tropical Spirochaetes",c:"cid",s:"Bacterial Infections"},
+  {f:"dgh_cid_40_fungal_superficial.html",t:"CID40: Superficial Fungal Infections",c:"cid",s:"Parasitic & Fungal"},
+  {f:"dgh_cid_41_fungal_systemic.html",t:"CID41: Systemic Fungal Infections",c:"cid",s:"Parasitic & Fungal"},
+  {f:"dgh_cid_42_parasitic_visceral_leishmaniasis.html",t:"CID42: Visceral Leishmaniasis (Kala-azar)",c:"cid",s:"Parasitic & Fungal"},
+  {f:"dgh_cid_43_parasitic_cutaneous_leishmaniasis.html",t:"CID43: Cutaneous Leishmaniasis",c:"cid",s:"Parasitic & Fungal"},
+  {f:"dgh_cid_44_parasitic_trypanosomiasis.html",t:"CID44: Trypanosomiasis",c:"cid",s:"Parasitic & Fungal"},
+  {f:"dgh_cid_45_parasitic_schistosomiasis.html",t:"CID45: Schistosomiasis",c:"cid",s:"Parasitic & Fungal"},
+  {f:"dgh_cid_46_parasitic_soil_helminths_strongyloides.html",t:"CID46: STH & Strongyloides",c:"cid",s:"Parasitic & Fungal"},
+  {f:"dgh_cid_47_parasitic_blood_tissue_helminths.html",t:"CID47: Blood & Tissue Helminths",c:"cid",s:"Parasitic & Fungal"},
+  {f:"dgh_cid_48-52_parasitic_final.html",t:"CID48-52: Cestodes, Protozoa, Foodborne, Entomology",c:"cid",s:"Parasitic & Fungal"},
+  {f:"DGH_AMR.html",t:"Antimicrobial Resistance (AMR)",c:"cid",s:"AMR"},
+  {f:"DGH_CHE.html",t:"Complex Humanitarian Emergencies",c:"hum",s:"Field Medicine"},
+  {f:"dgh_bites_study_note.html",t:"Animal Bites",c:"hum",s:"Field Medicine"},
+  {f:"dgh_stings_study_note.html",t:"Stings & Envenomation",c:"hum",s:"Field Medicine"},
+  {f:"dgh_poisonings_study_note.html",t:"Poisonings & Toxicology",c:"hum",s:"Field Medicine"},
+  {f:"dgh_cervical_cancer_study_note.html",t:"Cervical Cancer",c:"wch",s:"Women\'s Health"},
+  {f:"dgh_wch_02_family_planning.html",t:"WCH02: Family Planning",c:"wch",s:"Women\'s Health"},
+  {f:"dgh_wch_03_maternal_mortality.html",t:"WCH03: Maternal Mortality",c:"wch",s:"Women\'s Health"},
+  {f:"dgh_wch_04_pmtct.html",t:"WCH04: PMTCT",c:"wch",s:"Women\'s Health"},
+  {f:"dgh_wch_05_obstetric_emergencies_vvf.html",t:"WCH05: Obstetric Emergencies & VVF",c:"wch",s:"Women\'s Health"},
+  {f:"dgh_wch_06_maternal_mental_health.html",t:"WCH06: Maternal Mental Health",c:"wch",s:"Women\'s Health"},
+  {f:"dgh_wch_07_population_reproductive_health.html",t:"WCH07: Population & Reproductive Health",c:"wch",s:"Women\'s Health"},
+  {f:"dgh_wch_08_sti_women.html",t:"WCH08: STIs in Women",c:"wch",s:"Women\'s Health"},
+  {f:"dgh_wch_09_female_genital_schistosomiasis.html",t:"WCH09: Female Genital Schistosomiasis",c:"wch",s:"Women\'s Health"},
+  {f:"dgh_ch_01_diarrhoea.html",t:"CH01: Diarrhoea in Children",c:"wch",s:"Child Health"},
+  {f:"dgh_ch_02_neonatal_priorities.html",t:"CH02: Neonatal Priorities",c:"wch",s:"Child Health"},
+  {f:"dgh_ch_03_nutrition.html",t:"CH03: Nutrition in Children",c:"wch",s:"Child Health"},
+  {f:"dgh_wch_10_imci.html",t:"WCH10: IMCI",c:"wch",s:"Child Health"},
+  {f:"dgh_wch_11_paediatric_priorities.html",t:"WCH11: Paediatric Priorities",c:"wch",s:"Child Health"},
+  {f:"dgh_wch_12_vaccination_child.html",t:"WCH12: Vaccination (Child Health)",c:"wch",s:"Child Health"}
+];
+
+const CATS = {
+  all: {label:"All",           color:"#2B6CB0"},
+  ncd: {label:"NCD & Mental Health",          color:"#0C447C"},
+  gph: {label:"Global Public Health",         color:"#27500A"},
+  cid: {label:"Clinical Infectious Diseases", color:"#791F1F"},
+  hum: {label:"Humanitarian Medicine",        color:"#92400E"},
+  wch: {label:"Women's & Child Health",       color:"#6B21A8"},
+};
+
+let activeCat = 'all';
+let searchQ = '';
+
+// ── localStorage helpers ────────────────────────────────────────────
+const LS_KEY = 'dgh2026_done';
+function getDone() {
+  try { return JSON.parse(localStorage.getItem(LS_KEY) || '{}'); }
+  catch { return {}; }
+}
+function setDone(d) { localStorage.setItem(LS_KEY, JSON.stringify(d)); }
+function toggleDone(fname, e) {
+  e.preventDefault(); e.stopPropagation();
+  const d = getDone();
+  d[fname] = !d[fname];
+  setDone(d);
+  render();
+}
+
+// ── Progress ────────────────────────────────────────────────────────
+function updateProgress() {
+  const d = getDone();
+  const total = CHAPTERS.length;
+  const done = Object.values(d).filter(Boolean).length;
+  const pct = Math.round(done / total * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressText').textContent = done + ' / ' + total + ' done (' + pct + '%)';
+  document.getElementById('headerStats').textContent = done + '/' + total + ' done';
+}
+
+// ── Filter ──────────────────────────────────────────────────────────
+function getVisible() {
+  const q = searchQ.toLowerCase().replace(/\s+/g,' ').trim();
+  return CHAPTERS.filter(ch => {
+    const catMatch = activeCat === 'all' || ch.c === activeCat;
+    if (!catMatch) return false;
+    if (!q) return true;
+    return ch.t.toLowerCase().includes(q) || ch.s.toLowerCase().includes(q) || ch.f.toLowerCase().includes(q);
+  });
+}
+
+// ── Render ──────────────────────────────────────────────────────────
+function render() {
+  const done = getDone();
+  const visible = getVisible();
+  const main = document.getElementById('main');
+
+  if (!visible.length) {
+    main.innerHTML = `<div class="empty">
+      <div class="empty-icon">&#128269;</div>
+      <div class="empty-text">No chapters found</div>
+      <div class="empty-sub">Try a different search term</div>
+    </div>`;
+    updateProgress();
+    return;
+  }
+
+  // Group by subcategory
+  const groups = {};
+  const groupOrder = [];
+  visible.forEach(ch => {
+    if (!groups[ch.s]) { groups[ch.s] = []; groupOrder.push(ch.s); }
+    groups[ch.s].push(ch);
+  });
+
+  let html = '';
+  if (searchQ) {
+    html += `<div class="search-result-banner">${visible.length} result${visible.length!==1?'s':''} for "<strong>${escHtml(searchQ)}</strong>"</div>`;
+  }
+
+  groupOrder.forEach(sub => {
+    const items = groups[sub];
+    const doneCount = items.filter(ch => done[ch.f]).length;
+    html += `<div class="subcat-section">
+      <div class="subcat-label">
+        ${escHtml(sub)}
+        <span>${doneCount}/${items.length}</span>
+      </div>
+      <div class="chapter-list">`;
+
+    items.forEach(ch => {
+      const isDone = !!done[ch.f];
+      html += `<a class="chapter-card${isDone?' done':''}" href="${ch.f}" onclick="markVisited('${ch.f}')">
+        <div class="card-check" onclick="toggleDone('${ch.f}',event)" title="${isDone?'Mark undone':'Mark done'}">
+          ${isDone ? '&#10003;' : ''}
+        </div>
+        <div class="card-body">
+          <div class="card-title">${escHtml(ch.t)}</div>
+          <div class="card-sub">${escHtml(ch.s)}</div>
+        </div>
+        <div class="card-arrow">&#8250;</div>
+      </a>`;
+    });
+
+    html += `</div></div>`;
+  });
+
+  main.innerHTML = html;
+  updateProgress();
+}
+
+function markVisited(fname) {
+  // Auto-mark as done when opened (optional: remove to keep manual-only)
+  // const d = getDone(); d[fname] = true; setDone(d);
+}
+
+function escHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Tab switch ──────────────────────────────────────────────────────
+document.getElementById('tabs').addEventListener('click', e => {
+  const btn = e.target.closest('.tab');
+  if (!btn) return;
+  activeCat = btn.dataset.cat;
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t === btn));
+  render();
+});
+
+// ── Search ──────────────────────────────────────────────────────────
+const searchInput = document.getElementById('searchInput');
+const searchClear = document.getElementById('searchClear');
+
+searchInput.addEventListener('input', () => {
+  searchQ = searchInput.value;
+  searchClear.style.display = searchQ ? 'flex' : 'none';
+  // Switch to All when searching
+  if (searchQ && activeCat !== 'all') {
+    activeCat = 'all';
+    document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.cat === 'all'));
+  }
+  render();
+});
+
+function clearSearch() {
+  searchInput.value = '';
+  searchQ = '';
+  searchClear.style.display = 'none';
+  searchInput.focus();
+  render();
+}
+
+// ── Init ────────────────────────────────────────────────────────────
+render();
+</script>
+</body>
+</html>

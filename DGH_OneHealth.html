@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',sans-serif;}
+.w{padding:1rem 0.5rem;max-width:700px;}
+.hdr{background:linear-gradient(135deg,#27500A 0%,#1a3d08 100%);border-radius:12px;padding:1rem 1.25rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;}
+.hdr-l .tag{font-size:11px;color:#97C459;letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px;}
+.hdr-l h1{font-size:18px;font-weight:500;color:#EAF3DE;line-height:1.3;}
+.hdr-r{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.bdg{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:500;}
+.bg1{background:#3B6D11;color:#EAF3DE;}
+.bg2{background:#173404;color:#C0DD97;}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:1rem;}
+.st{background:#f4f7f1;border-radius:8px;padding:.75rem .875rem;}
+.st-l{font-size:11px;color:#555;margin-bottom:4px;line-height:1.3;}
+.st-v{font-size:16px;font-weight:600;color:#3B6D11;}
+.st-s{font-size:11px;color:#666;margin-top:2px;}
+.card{background:#fff;border:.5px solid #d0dfc8;border-radius:12px;padding:1rem 1.125rem;margin-bottom:1rem;}
+.card h3{font-size:13px;font-weight:500;color:#27500A;margin-bottom:.5rem;}
+.card p,.card li{font-size:12.5px;color:#1a2e1a;line-height:1.6;}
+.card ul{padding-left:14px;}
+.card li{margin-bottom:2px;}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:1rem;}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:1rem;}
+.tw{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:12px;}
+thead th{background:#27500A;color:#EAF3DE;font-weight:500;padding:6px 8px;text-align:left;}
+tbody td{padding:5px 8px;border-bottom:.5px solid #e0eae0;color:#1a2e1a;vertical-align:top;line-height:1.5;}
+tbody tr:last-child td{border-bottom:none;}
+em{color:#27500A;font-style:normal;font-weight:600;}
+.trap-h{font-size:13px;font-weight:500;color:#791F1F;margin-bottom:.5rem;}
+.tg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:1rem;}
+.trap{background:#FCEBEB;border-left:3px solid #A32D2D;border-radius:0 8px 8px 0;padding:.6rem .75rem;}
+.trap-q{font-size:12px;font-weight:500;color:#791F1F;margin-bottom:3px;}
+.trap-a{font-size:11.5px;color:#501313;line-height:1.5;}
+.gbox{background:#EAF3DE;border:.5px solid #97C459;border-radius:8px;padding:.6rem .875rem;margin-bottom:.75rem;}
+.gbox p{font-size:12px;color:#173404;line-height:1.6;}
+.gh-h{font-size:12px;font-weight:500;color:#555;margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em;}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:.75rem;}
+.pill{font-size:11.5px;padding:3px 10px;border-radius:20px;border:.5px solid #c8ddc8;color:#2a5a2a;}
+.footer{display:flex;align-items:center;justify-content:space-between;margin-top:.5rem;}
+.fn{font-size:11px;color:#666;}
+.btn{font-size:12px;padding:5px 14px;cursor:pointer;border-radius:8px;border:.5px solid #aac4aa;background:transparent;color:#27500A;}
+.divider{border:none;border-top:.5px solid #dde8dd;margin:.75rem 0;}
+.b1{background:#e8f5e8;border:.5px solid #97C459;color:#173404;border-radius:8px;padding:.6rem .75rem;font-size:12px;line-height:1.6;}
+.b2{background:#e8f0fb;border:.5px solid #9ab8e8;color:#1a2a50;border-radius:8px;padding:.6rem .75rem;font-size:12px;line-height:1.6;}
+.b3{background:#fef6e8;border:.5px solid #f5c842;color:#3d2a00;border-radius:8px;padding:.6rem .75rem;font-size:12px;line-height:1.6;}
+.b-t{font-weight:600;font-size:12.5px;margin-bottom:4px;}
+/* Venn-like circles */
+.venn{display:flex;justify-content:center;gap:0;margin:.5rem 0 .75rem;}
+.vcircle{width:130px;height:130px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;font-size:11.5px;font-weight:600;line-height:1.4;margin:-20px;}
+.vc1{background:rgba(39,80,10,0.75);color:#EAF3DE;z-index:1;}
+.vc2{background:rgba(26,58,126,0.75);color:#e8f0ff;z-index:2;}
+.vc3{background:rgba(139,90,10,0.75);color:#fff3e0;z-index:1;}
+.venn-label{text-align:center;font-size:11px;color:#555;margin-top:.25rem;}
+</style>
+</head>
+<body>
+<div class="w">
+
+  <div class="hdr">
+    <div class="hdr-l">
+      <div class="tag">Global Public Health · Planetary Health 1/3</div>
+      <h1>One Health<br><span style="font-size:14px;color:#97C459;">동물·인간·환경 건강의 통합 접근</span></h1>
+    </div>
+    <div class="hdr-r">
+      <span class="bdg bg1">Planetary Health</span>
+      <span class="bdg bg2">GPH 20%</span>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="st"><div class="st-l">신종 감염병 기원</div><div class="st-v">75%</div><div class="st-s">인수공통감염병 기원<br>(zoonotic origin)</div></div>
+    <div class="st"><div class="st-l">인수공통감염병 수</div><div class="st-v">>200종</div><div class="st-s">동물↔인간 전파 가능<br>확인된 병원체</div></div>
+    <div class="st"><div class="st-l">One Health 채택</div><div class="st-v">2004년</div><div class="st-s">Manhattan Principles<br>최초 공식화</div></div>
+    <div class="st"><div class="st-l">OHHLEP 정의</div><div class="st-v">2021년</div><div class="st-s">WHO·FAO·WOAH·UNEP<br>4개 기관 공동 정의</div></div>
+  </div>
+
+  <!-- Venn + 개념 -->
+  <div class="card">
+    <h3>🔵 One Health 개념 — 3개 영역의 교차</h3>
+    <div class="g2" style="align-items:center;">
+      <div>
+        <div class="venn">
+          <div class="vcircle vc1">🌿<br>환경<br>건강</div>
+          <div class="vcircle vc2">👤<br>인간<br>건강</div>
+          <div class="vcircle vc3">🐾<br>동물<br>건강</div>
+        </div>
+        <div class="venn-label">세 영역의 교차점 = One Health 핵심 문제<br>(인수공통감염병, AMR, 식품 안전, 기후-질병)</div>
+      </div>
+      <div>
+        <p><em>WHO·FAO·WOAH·UNEP 공동 정의 (2021):</em><br>
+        "사람·동물·식물·환경의 건강이 긴밀히 연결되어 있음을 인정하고, 이를 균형 있게 최적화하는 통합적·통일적 접근법"<br><br>
+        <em>핵심 기관:</em><br>
+        · <em>WHO</em> — 인간 건강<br>
+        · <em>FAO</em> — 식품·농업·동물 건강<br>
+        · <em>WOAH (구 OIE)</em> — 동물 질병 국제기구<br>
+        · <em>UNEP</em> — 환경 (2021년 추가)<br>
+        → "Quadripartite" 체계</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 인수공통감염병 주요 사례 -->
+  <div class="card">
+    <h3>🦠 주요 인수공통감염병 & One Health 연계</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>질환</th><th>병원소(Reservoir)</th><th>전파 경로</th><th>One Health 대응</th></tr></thead>
+        <tbody>
+          <tr><td><em>에볼라</em></td><td>과일박쥐 (추정)</td><td>야생동물 접촉·육류 소비</td><td>야생동물 거래 감시, 수렵 규제</td></tr>
+          <tr><td><em>CCHF</em></td><td>진드기·가축</td><td>진드기 교상, 도축 시 혈액</td><td>수의학+인체의학 공동 감시</td></tr>
+          <tr><td><em>광견병</em></td><td>개·야생동물</td><td>교상</td><td>개 백신 접종이 인체 예방 핵심</td></tr>
+          <tr><td><em>조류인플루엔자</em></td><td>조류 (H5N1 등)</td><td>감염 조류 접촉</td><td>농장 감시·도살 결정 수의+공중보건</td></tr>
+          <tr><td><em>브루셀라증</em></td><td>소·양·염소</td><td>살균 안 된 유제품, 도축</td><td>축산 위생·저온살균 의무화</td></tr>
+          <tr><td><em>렙토스피라증</em></td><td>쥐·가축</td><td>오염 물·토양 (경피)</td><td>홍수 후 고위험; WASH + 농업 관리</td></tr>
+          <tr><td><em>COVID-19</em></td><td>박쥐 추정 (중간 숙주 미확인)</td><td>비말·공기</td><td>야생동물 시장 규제, 팬데믹 조기 경보</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 생태계 파괴 + 스필오버 -->
+  <div class="g2">
+    <div class="card">
+      <h3>🌳 생태계 파괴 → Spillover 위험</h3>
+      <div class="b1">
+        <div class="b-t">Spillover 메커니즘</div>
+        삼림 벌채 → 야생동물 서식지 감소<br>
+        → 인간-동물 접촉 증가<br>
+        → 신종 병원체 인체 전파 위험 ↑
+      </div>
+      <ul style="margin-top:.5rem;">
+        <li><em>삼림 벌채:</em> 말레이시아 Nipah (1998), 아마존 말라리아</li>
+        <li><em>야생동물 거래:</em> SARS, COVID-19 잠재 연관</li>
+        <li><em>기후변화:</em> 매개체 분포 변화 → 새 지역 감염 가능</li>
+        <li><em>집약적 축산:</em> 밀집 사육 → AIV·ASF 증폭</li>
+        <li><em>도시화:</em> 열대 생태계 내 거주 → 렙토스피라·말라리아</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🍖 식품 안전 & One Health</h3>
+      <div class="b2">
+        <div class="b-t">Farm-to-Fork 오염 경로</div>
+        농장 AMR 사용<br>
+        → 축산물 내 내성균 잔류<br>
+        → 식품 섭취로 인체 전달
+      </div>
+      <ul style="margin-top:.5rem;">
+        <li><em>살모넬라증:</em> 가금류·달걀; 비가열 섭취 위험</li>
+        <li><em>캄필로박터:</em> 닭고기; 선진국 설사 1위 원인</li>
+        <li><em>E. coli O157:</em> 소고기·새싹채소; HUS 합병증</li>
+        <li><em>Listeria:</em> 냉장 가공육·연성 치즈; 임산부 고위험</li>
+        <li><em>규제:</em> Codex Alimentarius — 국제 식품 안전 기준 (FAO/WHO)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="trap-h">⚠️ 시험 함정 4개</div>
+  <div class="tg">
+    <div class="trap">
+      <div class="trap-q">One Health = 수의학 분야만?</div>
+      <div class="trap-a">인간·동물·환경 세 영역의 동등한 통합 접근. 2021년 UNEP 참여로 환경이 공식 포함 (Quadripartite). 수의학만의 개념이 아니며, 인체 의학·생태학·농업·환경 과학이 모두 포함.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-q">광견병 예방 = 인체 백신 접종이 핵심?</div>
+      <div class="trap-a">One Health 관점에서 개 백신 접종이 가장 효과적이고 비용-효과적인 광견병 예방 전략. 인체 PEP는 노출 후 대응. WHO 목표는 2030년까지 개 매개 광견병 사망 0 — 개 집단 면역 달성으로.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-q">CCHF는 모기 매개?</div>
+      <div class="trap-a">샘플 Q3 직접 연계. CCHF는 Hyalomma 진드기 매개 (모기 아님). 가축(소·양)에서 무증상 감염 후 진드기→인간 전파. 도축 시 혈액·조직 직접 접촉으로도 전파. 병원 내 전파도 가능 (IPC 필수).</div>
+    </div>
+    <div class="trap">
+      <div class="trap-q">삼림 벌채 = 말라리아 감소?</div>
+      <div class="trap-a">직관과 반대. 일부 지역에서 삼림 벌채 → 햇빛 노출 증가 → Anopheles 번식지 확대 → 말라리아 증가. 특히 아마존·동남아 연구에서 확인. "숲이 없어지면 모기 서식지 감소"는 오개념.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="gbox">
+    <p><strong>PREDICT 프로젝트 (USAID, 2009–2020):</strong> 야생동물에서 신종 바이러스 탐지 프로그램. 아시아·아프리카에서 1,000종 이상 신종 바이러스 동정. One Health 기반 팬데믹 조기 경보의 실제 사례. COVID-19 이후 후속 프로그램(STOP Spillover) 시작.</p>
+  </div>
+
+  <div class="gh-h">Global Health 관점</div>
+  <div class="pills">
+    <span class="pill">🌍 신종 감염병 75% = 인수공통 기원</span>
+    <span class="pill">🤝 Quadripartite: WHO·FAO·WOAH·UNEP</span>
+    <span class="pill">🐕 광견병: 개 백신 접종 = 핵심 예방</span>
+    <span class="pill">🌳 삼림 벌채 → Spillover 위험 증가</span>
+    <span class="pill">🥩 Farm-to-Fork: AMR 확산 경로</span>
+  </div>
+
+  <div class="footer">
+    <span class="fn">Source: WHO·FAO·WOAH·UNEP One Health Joint Plan I (2022) · PREDICT Project</span>
+    <button class="btn" onclick="sendPrompt('Planetary Health 2번 AMR 노트 만들어줘')">다음: AMR →</button>
+  </div>
+
+</div>
+</body>
+</html>

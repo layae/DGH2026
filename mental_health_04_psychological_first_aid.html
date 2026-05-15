@@ -1,0 +1,199 @@
+<meta charset="UTF-8">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+.wrap{padding:1rem 0.5rem;max-width:700px;}
+.header{background:#3C3489;border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;}
+.header-left .tag{font-size:11px;color:#AFA9EC;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:4px;}
+.header-left h1{font-size:18px;font-weight:500;color:#EEEDFE;line-height:1.3;}
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.badge{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:500;}
+.badge-purple{background:#534AB7;color:#EEEDFE;}
+.badge-pct{background:#26215C;color:#CECBF6;}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:1rem;}
+.stat{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:0.75rem 0.875rem;}
+.stat-label{font-size:11px;color:var(--color-text-secondary);margin-bottom:4px;line-height:1.3;}
+.stat-value{font-size:18px;font-weight:500;color:#534AB7;}
+.stat-sub{font-size:11px;color:var(--color-text-secondary);margin-top:2px;}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.125rem;margin-bottom:1rem;}
+.card h3{font-size:13px;font-weight:500;color:#534AB7;margin-bottom:0.5rem;display:flex;align-items:center;gap:6px;}
+.card h3 i{font-size:15px;}
+.card p{font-size:12.5px;color:var(--color-text-primary);line-height:1.6;}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:1rem;}
+.trap-section h3{font-size:13px;font-weight:500;color:#791F1F;margin-bottom:0.5rem;display:flex;align-items:center;gap:5px;}
+.trap-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:1rem;}
+.trap{background:#FCEBEB;border-left:3px solid #A32D2D;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:0.6rem 0.75rem;}
+.trap-q{font-size:12px;font-weight:500;color:#791F1F;margin-bottom:3px;}
+.trap-a{font-size:11.5px;color:#501313;line-height:1.5;}
+.who-box{background:#EEEDFE;border:0.5px solid #AFA9EC;border-radius:var(--border-radius-md);padding:0.6rem 0.875rem;margin-bottom:0.75rem;}
+.who-box p{font-size:12px;color:#26215C;line-height:1.6;}
+.gh-section h3{font-size:12px;font-weight:500;color:var(--color-text-secondary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.04em;}
+.gh-pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:0.75rem;}
+.gh-pill{font-size:11.5px;padding:3px 10px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-secondary);}
+.footer{display:flex;align-items:center;justify-content:space-between;margin-top:0.5rem;}
+.footer-note{font-size:11px;color:var(--color-text-secondary);}
+.btn-next{font-size:12px;padding:5px 14px;cursor:pointer;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-primary);}
+.divider{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:0.75rem 0;}
+.pfa-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:0.5rem 0;}
+.pfa-box{border-radius:var(--border-radius-md);padding:0.65rem 0.75rem;font-size:12px;line-height:1.5;}
+.pfa-look{background:#EAF3DE;border:0.5px solid #C0DD97;}
+.pfa-listen{background:#EEEDFE;border:0.5px solid #AFA9EC;}
+.pfa-link{background:#E6F1FB;border:0.5px solid #B5D4F4;}
+.pfa-title{font-weight:500;font-size:13px;margin-bottom:4px;}
+.pfa-look .pfa-title{color:#27500A;}
+.pfa-listen .pfa-title{color:#3C3489;}
+.pfa-link .pfa-title{color:#0C447C;}
+.pfa-look p{color:#173404;}
+.pfa-listen p{color:#26215C;}
+.pfa-link p{color:#042C53;}
+.donot-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:0.5rem 0;}
+.donot-box{background:#FAEEDA;border-left:3px solid #854F0B;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:0.55rem 0.7rem;font-size:12px;color:#412402;line-height:1.5;}
+.donot-box strong{color:#633806;display:block;margin-bottom:2px;}
+.timeline-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin:0.5rem 0;}
+.tl-box{border-radius:var(--border-radius-md);padding:0.55rem 0.65rem;font-size:11.5px;text-align:center;line-height:1.4;}
+.tl1{background:#EAF3DE;border:0.5px solid #C0DD97;color:#173404;}
+.tl2{background:#EEEDFE;border:0.5px solid #AFA9EC;color:#26215C;}
+.tl3{background:#FCEBEB;border:0.5px solid #F09595;color:#501313;}
+.tl4{background:#FAEEDA;border:0.5px solid #FAC775;color:#412402;}
+.tl-time{font-weight:500;font-size:12px;margin-bottom:3px;}
+</style>
+<div class="wrap">
+  <div class="header">
+    <div class="header-left">
+      <div class="tag">Mental Health · Topic 4/6</div>
+      <h1>Psychological First Aid (PFA)<br><span style="font-size:14px;color:#AFA9EC;">재난·인도주의 상황의 심리적 응급처치</span></h1>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-purple">Mental Health</span>
+      <span class="badge badge-pct">NCD+MH 10%</span>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-label">PFA 대상</div>
+      <div class="stat-value">전 연령</div>
+      <div class="stat-sub">재난 직후 생존자 모두</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">제공자</div>
+      <div class="stat-value">비전문가</div>
+      <div class="stat-sub">훈련된 일반인·보건요원</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">목표 시기</div>
+      <div class="stat-value">초기 72시간</div>
+      <div class="stat-sub">재난 직후 급성기</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">핵심 원칙 수</div>
+      <div class="stat-value">3</div>
+      <div class="stat-sub">Look · Listen · Link</div>
+    </div>
+  </div>
+
+  <div class="who-box">
+    <p><strong>PFA 정의 (WHO):</strong> 극심한 스트레스를 겪고 있는 사람에게 인도적·지지적으로 반응하는 일련의 행동. 심리치료나 위기 상담이 아님. <strong>PTSD 예방 = 주 목적이 아님</strong> — 즉각적 고통 경감과 기본 필요 연결이 목적.</p>
+  </div>
+
+  <div class="card">
+    <h3><i class="ti ti-heart-handshake" aria-hidden="true"></i>PFA 3대 핵심 원칙 (Look · Listen · Link)</h3>
+    <div class="pfa-grid">
+      <div class="pfa-box pfa-look">
+        <div class="pfa-title">Look — 관찰</div>
+        <p>· 안전 확인 (본인·대상자)<br>· 즉각적 도움이 필요한 사람 파악<br>· 가장 취약한 집단 확인<br>(아동·노인·장애인·임산부)</p>
+      </div>
+      <div class="pfa-box pfa-listen">
+        <div class="pfa-title">Listen — 경청</div>
+        <p>· 접근, 자기소개<br>· 필요와 우려 경청<br>· 감정 인정, 판단 금지<br>· 강요 없이 진행<br>· 침착하고 안심시키기</p>
+      </div>
+      <div class="pfa-box pfa-link">
+        <div class="pfa-title">Link — 연결</div>
+        <p>· 기본 필요 해결 도움<br>· 정보 접근 지원<br>· 지역사회·가족 연결<br>· 추가 서비스 의뢰<br>· 지속적 지지 연계</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3><i class="ti ti-clock" aria-hidden="true"></i>시간 경과에 따른 반응 구분</h3>
+      <div class="timeline-row">
+        <div class="tl-box tl1">
+          <div class="tl-time">0–72시간</div>
+          급성 스트레스 반응<br>PFA 적용<br>정상 반응
+        </div>
+        <div class="tl-box tl2">
+          <div class="tl-time">2일~4주</div>
+          Acute Stress Disorder<br>증상 지속 시<br>전문가 상담
+        </div>
+        <div class="tl-box tl3">
+          <div class="tl-time">4주 이후</div>
+          PTSD 진단 가능<br>전문 치료 필요<br>CBT / EMDR
+        </div>
+        <div class="tl-box tl4">
+          <div class="tl-time">지속</div>
+          복합 PTSD<br>장기 트라우마<br>전문 입원
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3><i class="ti ti-users" aria-hidden="true"></i>특수 취약 집단 접근</h3>
+      <p>
+        <strong>아동:</strong> 연령에 맞는 설명, 부모와 함께, 놀이 활용<br>
+        <strong>노인:</strong> 천천히·명확하게, 인지 상태 평가<br>
+        <strong>장애인:</strong> 접근성 고려, 보호자 포함<br>
+        <strong>임산부:</strong> 신체적 안전 우선<br>
+        <strong>자살 위험:</strong> 직접 질문 가능 ("자해 생각이 있나요?") — 자살 생각을 물어보는 것이 자살을 유발하지 않음<br>
+        <strong>문화적 고려:</strong> 성별·종교·문화 존중
+      </p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><i class="ti ti-ban" aria-hidden="true"></i>PFA에서 하지 말아야 할 것 (Do NOT)</h3>
+    <div class="donot-grid">
+      <div class="donot-box"><strong>강제로 이야기 유도 금지</strong>사건에 대해 말하도록 강요하지 말 것. 준비된 경우에만.</div>
+      <div class="donot-box"><strong>Debriefing (디브리핑) 금지</strong>체계적 사건 재구성(CISD)은 PTSD 예방 효과 없음, 오히려 해로울 수 있음.</div>
+      <div class="donot-box"><strong>진단·분류 금지</strong>PFA는 심리 평가가 아님. "당신은 PTSD입니다" 식의 진단 불가.</div>
+      <div class="donot-box"><strong>약속 남발 금지</strong>"다 잘 될 거예요" 식의 근거 없는 안심 금지. 현실적 지지.</div>
+    </div>
+  </div>
+
+  <div class="trap-section">
+    <h3><i class="ti ti-alert-triangle" aria-hidden="true"></i>시험 함정 4개</h3>
+    <div class="trap-grid">
+      <div class="trap">
+        <div class="trap-q">PFA = PTSD 예방 프로그램?</div>
+        <div class="trap-a">오답. PFA의 목적은 즉각적 고통 경감과 기본 필요 충족. PTSD 예방 효과는 증거 불충분. PTSD 예방 주장은 근거 없음.</div>
+      </div>
+      <div class="trap">
+        <div class="trap-q">Critical Incident Stress Debriefing(CISD) = 효과적?</div>
+        <div class="trap-a">오히려 해롭다는 증거. 사건 후 48~72시간 내 강제적 집단 재구성은 PTSD 발생 증가. WHO/IASC에서 권고하지 않음.</div>
+      </div>
+      <div class="trap">
+        <div class="trap-q">PFA 제공자 = 정신건강 전문의?</div>
+        <div class="trap-a">비전문가(CHW, 교사, 봉사자 등)가 단기 훈련 후 제공 가능. 재난 현장에서 정신건강 전문의 대기는 비현실적.</div>
+      </div>
+      <div class="trap">
+        <div class="trap-q">자살 위험 질문 → 자살 유발?</div>
+        <div class="trap-a">근거 없는 오해. 직접적 자살 질문은 오히려 안전. 숨기거나 우회적 접근이 더 위험. 컬럼비아 프로토콜(C-SSRS) 활용.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div class="gh-section">
+    <h3>Global Health 관점</h3>
+    <div class="gh-pills">
+      <span class="gh-pill">인도주의 상황 MHPSS의 1차 도구</span>
+      <span class="gh-pill">비전문가 task-shifting의 대표 사례</span>
+      <span class="gh-pill">문화적 적응(cultural adaptation) 필수</span>
+      <span class="gh-pill">CISD는 더 이상 권고되지 않음</span>
+      <span class="gh-pill">WHO·UNHCR 공동 가이드라인 기반</span>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="footer-note">Source: WHO PFA Field Guide · IASC MHPSS Guidelines 2007</span>
+    <button class="btn-next" onclick="sendPrompt('다음 Mental Health 토픽 계속 만들어줘')">다음 토픽 →</button>
+  </div>
+</div>

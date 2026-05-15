@@ -1,0 +1,171 @@
+<meta charset="UTF-8">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+.w{padding:1rem 0.5rem;max-width:700px;}
+.hdr{background:#27500A;border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;}
+.hdr-l .tag{font-size:11px;color:#97C459;letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px;}
+.hdr-l h1{font-size:18px;font-weight:500;color:#EAF3DE;line-height:1.3;}
+.hdr-r{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.bdg{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:500;}
+.bg1{background:#3B6D11;color:#EAF3DE;}
+.bg2{background:#173404;color:#C0DD97;}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:1rem;}
+.st{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.75rem .875rem;}
+.st-l{font-size:11px;color:var(--color-text-secondary);margin-bottom:4px;line-height:1.3;}
+.st-v{font-size:18px;font-weight:500;color:#3B6D11;}
+.st-s{font-size:11px;color:var(--color-text-secondary);margin-top:2px;}
+.card{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.125rem;margin-bottom:1rem;}
+.card h3{font-size:13px;font-weight:500;color:#27500A;margin-bottom:.5rem;display:flex;align-items:center;gap:6px;}
+.card h3 i{font-size:15px;}
+.card p{font-size:12.5px;color:var(--color-text-primary);line-height:1.6;}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:1rem;}
+.tw{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:12px;}
+thead th{background:#27500A;color:#EAF3DE;font-weight:500;padding:6px 8px;text-align:left;}
+tbody td{padding:5px 8px;border-bottom:.5px solid var(--color-border-tertiary);color:var(--color-text-primary);vertical-align:top;line-height:1.5;}
+tbody tr:last-child td{border-bottom:none;}
+.trap-h{font-size:13px;font-weight:500;color:#791F1F;margin-bottom:.5rem;display:flex;align-items:center;gap:5px;}
+.tg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:1rem;}
+.trap{background:#FCEBEB;border-left:3px solid #A32D2D;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:.6rem .75rem;}
+.trap-q{font-size:12px;font-weight:500;color:#791F1F;margin-bottom:3px;}
+.trap-a{font-size:11.5px;color:#501313;line-height:1.5;}
+.gbox{background:#EAF3DE;border:.5px solid #97C459;border-radius:var(--border-radius-md);padding:.6rem .875rem;margin-bottom:.75rem;}
+.gbox p{font-size:12px;color:#173404;line-height:1.6;}
+.gh-h{font-size:12px;font-weight:500;color:var(--color-text-secondary);margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em;}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:.75rem;}
+.pill{font-size:11.5px;padding:3px 10px;border-radius:20px;border:.5px solid var(--color-border-tertiary);color:var(--color-text-secondary);}
+.footer{display:flex;align-items:center;justify-content:space-between;margin-top:.5rem;}
+.fn{font-size:11px;color:var(--color-text-secondary);}
+.btn{font-size:12px;padding:5px 14px;cursor:pointer;border-radius:var(--border-radius-md);border:.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-primary);}
+.divider{border:none;border-top:.5px solid var(--color-border-tertiary);margin:.75rem 0;}
+.eml-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:.5rem 0;}
+.eml-box{border-radius:var(--border-radius-md);padding:.6rem .7rem;font-size:12px;line-height:1.6;}
+.e1{background:#EAF3DE;border:.5px solid #C0DD97;color:#173404;}
+.e2{background:#E6F1FB;border:.5px solid #B5D4F4;color:#042C53;}
+.e3{background:#FAEEDA;border:.5px solid #FAC775;color:#412402;}
+.e-t{font-weight:500;font-size:12.5px;margin-bottom:3px;}
+.complete-banner{background:#27500A;border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;}
+.complete-banner p{color:#EAF3DE;font-size:13px;font-weight:500;}
+.complete-banner span{font-size:11px;color:#97C459;}
+.btn-next-w{font-size:12px;padding:5px 14px;cursor:pointer;border-radius:var(--border-radius-md);border:.5px solid rgba(255,255,255,.3);background:rgba(255,255,255,.15);color:#EAF3DE;}
+</style>
+<div class="w">
+  <div class="hdr">
+    <div class="hdr-l">
+      <div class="tag">Global Public Health · Policy 5/5</div>
+      <h1>WHO Essential Medicines List (EML)<br><span style="font-size:14px;color:#97C459;">필수의약품 목록 · 선정 기준 · 임상 적용</span></h1>
+    </div>
+    <div class="hdr-r">
+      <span class="bdg bg1">Global Public Health</span>
+      <span class="bdg bg2">GPH 20%</span>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="st"><div class="st-l">EML 최초 발표</div><div class="st-v">1977년</div><div class="st-s">현재 제23판 (2023)</div></div>
+    <div class="st"><div class="st-l">등재 약물 수</div><div class="st-v">502개</div><div class="st-s">성인 EML 기준</div></div>
+    <div class="st"><div class="st-l">소아 EML (EMLc)</div><div class="st-v">361개</div><div class="st-s">2007년 별도 목록 발표</div></div>
+    <div class="st"><div class="st-l">갱신 주기</div><div class="st-v">2년</div><div class="st-s">Expert Committee 검토</div></div>
+  </div>
+
+  <div class="gbox">
+    <p><strong>EML 핵심 원칙:</strong> 보건 시스템의 우선순위 필요를 충족하는 약물로, 근거 기반 효능·안전성·비용-효과를 갖추고 언제든지 적절한 용량으로 이용 가능해야 함. EML은 구매 의무가 아닌 <strong>우선순위 가이드</strong>. 국가마다 자체 National EML 수립의 기준이 됨.</p>
+  </div>
+
+  <div class="card">
+    <h3><i class="ti ti-filter" aria-hidden="true"></i>EML 선정 4대 기준</h3>
+    <div class="eml-row">
+      <div class="eml-box e1">
+        <div class="e-t">효능 (Efficacy)</div>
+        임상 시험 근거 필요<br>
+        비교 효능(comparative) 중요<br>
+        체계적 문헌고찰 우선
+      </div>
+      <div class="eml-box e2">
+        <div class="e-t">안전성 (Safety)</div>
+        부작용 프로파일<br>
+        약물 상호작용<br>
+        특수 집단 안전성
+      </div>
+      <div class="eml-box e3">
+        <div class="e-t">비용-효과 (Cost-effectiveness)</div>
+        비용-효용 분석<br>
+        제네릭 가용성<br>
+        구매 가능성 고려
+      </div>
+    </div>
+    <p style="font-size:11.5px;color:var(--color-text-secondary);margin-top:6px;">+ <strong>보건 시스템 적합성:</strong> 보관·관리·투여 가능성, 냉장 불필요 여부 (LMIC 맥락)</p>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <h3><i class="ti ti-pill" aria-hidden="true"></i>DGH 시험 필수 EML 약물 — 영역별</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th>영역</th><th>핵심 EML 약물</th></tr></thead>
+          <tbody>
+            <tr><td>말라리아</td><td>Artemether-lumefantrine, Artesunate IV, Chloroquine, Primaquine, SP (IPTp)</td></tr>
+            <tr><td>HIV/ART</td><td>TDF+3TC+DTG (1st line), Zidovudine, Efavirenz, Lopinavir/r</td></tr>
+            <tr><td>결핵</td><td>HRZE (DOTS), Bedaquiline (MDR), Pretomanid, Linezolid</td></tr>
+            <tr><td>뇌전증</td><td>Phenobarbital, Phenytoin, Valproate, Carbamazepine, Diazepam</td></tr>
+            <tr><td>정신건강</td><td>Haloperidol, Chlorpromazine, Fluoxetine, Amitriptyline</td></tr>
+            <tr><td>산과</td><td>Oxytocin, Misoprostol, MgSO4, Tranexamic acid</td></tr>
+            <tr><td>항생제</td><td>Amoxicillin, Benzylpenicillin, Cotrimoxazole, Metronidazole</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <h3><i class="ti ti-star" aria-hidden="true"></i>AWaRe 항생제 분류 (EML 내)</h3>
+      <p>
+        <strong>Access (1st line, 광범위 사용 가능):</strong><br>
+        Amoxicillin, Ampicillin, Benzylpenicillin, Cotrimoxazole, Metronidazole, Doxycycline<br><br>
+        <strong>Watch (중등도 내성 위험, 모니터링 필요):</strong><br>
+        Ciprofloxacin, Azithromycin, Cephalosporins (3세대), Carbapenems<br><br>
+        <strong>Reserve (최후 수단 — 제한적 사용):</strong><br>
+        Colistin, Linezolid, Ceftazidime-avibactam<br><br>
+        <span style="font-size:11.5px;color:var(--color-text-secondary);">목표: Access 항생제 ≥60% 사용 → AMR 억제</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:1rem;">
+    <h3><i class="ti ti-baby" aria-hidden="true"></i>소아 EML (EMLc) 특이사항</h3>
+    <p style="font-size:12.5px;color:var(--color-text-primary);line-height:1.6;">
+      <strong>2007년 별도 목록 발표 배경:</strong> 소아는 성인의 작은 버전이 아님. 용량·제형·약동학이 다름.<br>
+      <strong>소아 전용 제형 부재 문제:</strong> 많은 LMIC에서 정제를 쪼개거나 녹여 투여 → 용량 오류·독성 위험.<br>
+      <strong>EMLc 핵심 원칙:</strong> 소아 적합 제형(시럽·분산정·과립) 우선. 맛·안정성·보관 고려.<br>
+      <strong>특히 중요:</strong> 소아 ARV (Lopinavir/r 시럽), 소아 항결핵제, Artemether (소아 말라리아)
+    </p>
+  </div>
+
+  <div class="trap-h"><i class="ti ti-alert-triangle" aria-hidden="true"></i>시험 함정 4개</div>
+  <div class="tg">
+    <div class="trap"><div class="trap-q">EML 등재 = 모든 국가 의무 구매?</div><div class="trap-a">의무 아님. EML은 우선순위 가이드. 국가마다 자체 National EML 수립. 단, 조달·보험 정책·국제 지원의 기준이 되므로 실질적 영향력 큼.</div></div>
+    <div class="trap"><div class="trap-q">AWaRe Watch 항생제 = 사용 금지?</div><div class="trap-a">금지 아님. 특정 적응증에서는 Watch 항생제가 1st line (예: 비정형폐렴에 Azithromycin). 단, 광범위 무분별 사용은 제한. Reserve는 MDR균 감염 시에만 사용.</div></div>
+    <div class="trap"><div class="trap-q">최신 EML에 Bedaquiline 없음?</div><div class="trap-a">2019년 EML에 추가됨. MDR-TB 치료의 핵심 약물. BPaLM 레지멘(Bedaquiline+Pretomanid+Linezolid±Moxifloxacin)의 구성 약물 모두 EML 등재.</div></div>
+    <div class="trap"><div class="trap-q">EML = 제네릭만 포함?</div><div class="trap-a">오리지널·제네릭 구분 없음. EML은 성분명(INN, International Nonproprietary Name)으로 등재. 제네릭 사용을 장려하나 오리지널을 배제하지 않음.</div></div>
+  </div>
+
+  <div class="complete-banner">
+    <div>
+      <p>Global health actors &amp; policy 5개 완료!</p>
+      <span>다음: Public health 5개 — 역학·예방접종·아웃브레이크·WASH</span>
+    </div>
+    <button class="btn-next-w" onclick="sendPrompt('Global Public Health 두 번째 파트: Public health 5개 토픽 시작해줘. Epidemiology부터')">Public health 파트 시작 →</button>
+  </div>
+
+  <div class="divider"></div>
+  <div class="gh-h">Global Health 관점</div>
+  <div class="pills">
+    <span class="pill">EML = 국가 조달·보험의 실질적 기준</span>
+    <span class="pill">AWaRe = AMR 대응 항생제 스튜어드십 도구</span>
+    <span class="pill">소아 EMLc = 2007년 별도 목록 (제형 중요)</span>
+    <span class="pill">2년마다 갱신 — 최신판 확인 필수</span>
+    <span class="pill">INN(성분명) 기반 등재</span>
+  </div>
+  <div class="footer">
+    <span class="fn">Source: WHO EML 23rd Edition 2023 · WHO AWaRe Classification 2021</span>
+  </div>
+</div>

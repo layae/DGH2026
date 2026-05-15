@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH CID 29 | Diphtheria</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Noto Sans KR',sans-serif;background:#fdf4f4;color:#2d1a1a;font-size:12.5px;line-height:1.55}
+  .page{max-width:900px;margin:0 auto;padding:18px}
+  .header{background:#791F1F;color:#fff;border-radius:8px 8px 0 0;padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+  .header-left .tag{font-size:10px;letter-spacing:2px;opacity:.7;text-transform:uppercase;font-family:'JetBrains Mono',monospace}
+  .header-left h1{font-size:20px;font-weight:700;margin-top:2px}
+  .header-right{text-align:right;font-size:10px;opacity:.75;font-family:'JetBrains Mono',monospace;line-height:1.8}
+  .stats-bar{background:#6b1a1a;padding:10px 20px;display:grid;grid-template-columns:repeat(4,1fr)}
+  .stat{text-align:center;color:#fff;padding:4px 8px;border-right:1px solid rgba(255,255,255,0.15)}
+  .stat:last-child{border-right:none}
+  .stat-num{font-size:17px;font-weight:700;color:#f5dcdc;font-family:'JetBrains Mono',monospace}
+  .stat-label{font-size:9.5px;opacity:.8;margin-top:1px;letter-spacing:.5px}
+  .body-wrap{background:#fff;border:1px solid #e8c4c4;border-top:none;border-radius:0 0 8px 8px;padding:16px 20px}
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+  .box{background:#fdf4f4;border:1px solid #e8c4c4;border-radius:6px;padding:12px}
+  .box-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#791F1F;margin-bottom:8px;border-bottom:1px solid #e8c4c4;padding-bottom:4px}
+  .box ul{list-style:none;padding:0}
+  .box ul li{padding:2px 0 2px 10px;position:relative;font-size:12px}
+  .box ul li::before{content:'›';position:absolute;left:0;color:#791F1F;font-weight:700}
+  strong{color:#791F1F;font-weight:700}
+  .section-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#791F1F;margin-bottom:7px}
+  table{width:100%;border-collapse:collapse;font-size:11.5px;margin-bottom:14px}
+  th{background:#791F1F;color:#fff;padding:6px 10px;text-align:left;font-weight:600;font-size:10.5px}
+  td{padding:5px 10px;border-bottom:1px solid #e8c4c4;vertical-align:top}
+  tr:nth-child(even) td{background:#fdf4f4}
+  tr:last-child td{border-bottom:none}
+  .steps{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+  .step{background:#f5dcdc;border:1px solid #e8c4c4;border-radius:6px;padding:8px 10px;flex:1;min-width:120px}
+  .step-num{font-size:9px;font-weight:700;color:#791F1F;text-transform:uppercase;letter-spacing:1px}
+  .step-content{font-size:11.5px;margin-top:3px;font-weight:600}
+  .trap-h{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fff;background:#791F1F;padding:5px 12px;border-radius:4px;display:inline-block;margin-bottom:8px}
+  .trap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:14px}
+  .trap{background:#fff;border:1.5px solid #791F1F;border-radius:6px;padding:10px}
+  .trap-icon{font-size:15px;margin-bottom:4px}
+  .trap-q{font-size:10.5px;font-weight:700;color:#791F1F;margin-bottom:3px}
+  .trap-a{font-size:11px;color:#2d1a1a;line-height:1.5}
+  .pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+  .pill{background:#f5dcdc;border:1px solid #e8c4c4;border-radius:20px;padding:3px 11px;font-size:10.5px;color:#791F1F;font-weight:600}
+  .pill-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#791F1F;margin-bottom:5px}
+  .footer{margin-top:10px;padding-top:8px;border-top:1px solid #e8c4c4;display:flex;justify-content:space-between;align-items:center}
+  .footer-note{font-size:10px;color:#888;font-family:'JetBrains Mono',monospace}
+  .nav-btn{background:#791F1F;color:#fff;border:none;border-radius:4px;padding:4px 12px;font-size:10.5px;font-weight:600;cursor:default;letter-spacing:.5px}
+  .highlight-box{background:#f5dcdc;border-left:3px solid #791F1F;padding:8px 12px;border-radius:0 6px 6px 0;margin-bottom:12px;font-size:11.5px}
+  .complication-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+  .comp{background:#fdf4f4;border:1px solid #e8c4c4;border-radius:6px;padding:9px;text-align:center}
+  .comp-title{font-size:10px;font-weight:700;color:#791F1F;margin-bottom:4px;text-transform:uppercase}
+  .comp-body{font-size:11px;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <div class="header-left">
+    <div class="tag">DGH KBA · Clinical Infectious Diseases · CID-29</div>
+    <h1>Diphtheria</h1>
+  </div>
+  <div class="header-right">
+    창 C · Bacterial Infections<br>
+    Blueprint 40% · Oxford Trop Med 5e<br>
+    EPI 백신 실패 = 재출현 패턴
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">5–10%</div>
+    <div class="stat-label">CFR (치료 시)</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">20%</div>
+    <div class="stat-label">CFR (미치료 시)</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">2–5일</div>
+    <div class="stat-label">잠복기</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1990s</div>
+    <div class="stat-label">구소련 대유행 — 백신 실패 교훈</div>
+  </div>
+</div>
+
+<div class="body-wrap">
+
+  <div class="g2">
+    <div class="box">
+      <div class="box-title">병원체 · 독소 기전</div>
+      <ul>
+        <li><strong>Corynebacterium diphtheriae:</strong> 그람양성 간균, tox+ (용원성 파지 β 필요)</li>
+        <li><strong>독소 기전:</strong> ADP-ribosylation of EF-2 → 단백합성 억제 → 세포 괴사</li>
+        <li>심근·신경·신장에 친화성 (심근염·신경병증 주요 합병증)</li>
+        <li>국소 병변: <strong>회색 위막(pseudomembrane)</strong> — 편도·인두·후두 피복, 출혈성 기저부 (억지로 떼면 출혈)</li>
+        <li>독소 비생성 균주 → 위막 형성은 가능하나 전신 합병증 없음</li>
+        <li>C. ulcerans (동물 접촉) / C. pseudotuberculosis도 독소 생성 가능</li>
+      </ul>
+    </div>
+    <div class="box">
+      <div class="box-title">임상 유형 · 역학 맥락</div>
+      <ul>
+        <li><strong>인두·편도형 (80%):</strong> 인후통·저열·위막·"불쾌한 썩은 냄새(foetor)"·경부 림프절 → bull neck (경부 부종)</li>
+        <li><strong>후두형:</strong> 쉰소리·흡기 천명·기도폐색 위험</li>
+        <li><strong>피부 디프테리아:</strong> 열대 저소득국 성인, 만성 궤양 (비전형적)</li>
+        <li><strong>비디프테리아:</strong> 혈성 비루, 경미한 임상</li>
+        <li><strong>재출현 패턴:</strong> 구소련 1990s(백신 프로그램 붕괴), 인도네시아 2017~, 예멘·방글라데시 최근</li>
+        <li>난민 캠프·예방접종 공백 집단에서 집단발생</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- COMPLICATIONS -->
+  <div class="section-title">주요 합병증 — 발생 시기별</div>
+  <div class="complication-grid">
+    <div class="comp">
+      <div class="comp-title">조기 (1–2주)</div>
+      <div class="comp-body">기도폐색 (위막 탈락)<br>심근염 (심블록·부정맥)<br>→ 사망의 주원인</div>
+    </div>
+    <div class="comp">
+      <div class="comp-title">중기 (2–5주)</div>
+      <div class="comp-body">구개마비 (비음·연하장애)<br>안근마비 (복시·수용조절↓)<br>말초신경병증</div>
+    </div>
+    <div class="comp">
+      <div class="comp-title">후기 (5주↑)</div>
+      <div class="comp-body">원위부 운동신경병증<br>심근병증 (지속성)<br>자율신경 이상</div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <strong>심전도 모니터링 필수:</strong> 디프테리아 심근염 → 1도 AVB → 완전 블록 → 급사 가능. 입원 후 매일 ECG. QT 연장·LBBB·완전 블록 = 즉각 대응. 심박동기 준비.
+  </div>
+
+  <!-- TREATMENT -->
+  <div class="section-title">치료 — 신속성이 생사 결정</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">① DAT (핵심)</div>
+      <div class="step-content">Diphtheria Antitoxin<br>20,000–120,000IU IV/IM<br><span style="font-size:10.5px;font-weight:400">임상 진단 즉시 투여<br>배양 결과 기다리지 말것</span></div>
+    </div>
+    <div class="step">
+      <div class="step-num">② 항생제</div>
+      <div class="step-content">Penicillin G 12–18일<br>OR Erythromycin<br><span style="font-size:10.5px;font-weight:400">균 제거 목적 (독소 ≠ 항생제로 중화)</span></div>
+    </div>
+    <div class="step">
+      <div class="step-num">③ 기도 확보</div>
+      <div class="step-content">후두형 → 기관삽관/절개 대기<br>위막 탈락 시 즉각 기도 확보<br><span style="font-size:10.5px;font-weight:400">ECG 모니터링 병행</span></div>
+    </div>
+    <div class="step">
+      <div class="step-num">④ 격리·접촉자</div>
+      <div class="step-content">비말격리 (위막 제거 확인 후 해제)<br>접촉자: 배양 + Erythromycin 예방<br>미접종자 → TT 즉시</div>
+    </div>
+  </div>
+
+  <!-- DIAGNOSIS TABLE -->
+  <div class="section-title">진단 — LMIC 현장 접근</div>
+  <table>
+    <tr><th>검사</th><th>방법/특징</th><th>LMIC 현실</th></tr>
+    <tr><td>인후 도말 배양</td><td>위막 하부·경계 채취 → Tellurite 배지</td><td>결과 24–48h → 치료 지연 금지</td></tr>
+    <tr><td>Elek test</td><td>독소 생성 확인 (in vitro)</td><td>참고기관 의뢰 필요</td></tr>
+    <tr><td>PCR (tox 유전자)</td><td>민감도·특이도 높음</td><td>고자원 환경</td></tr>
+    <tr><td><strong>임상 진단</strong></td><td>회색위막 + bull neck + 특유 악취 + 역학</td><td><strong>DAT는 임상 진단으로 즉시 투여</strong></td></tr>
+  </table>
+
+  <!-- TRAP CARDS -->
+  <div class="trap-h">⚠ 시험 함정 4</div>
+  <div class="trap-grid">
+    <div class="trap">
+      <div class="trap-icon">💉</div>
+      <div class="trap-q">DAT 투여 전 배양 결과 필요한가?</div>
+      <div class="trap-a"><strong>절대 No.</strong> DAT는 임상 진단 즉시 투여. 혈중 유리 독소만 중화 가능 — 이미 세포 결합한 독소는 무효. 지연 = 심근염·신경병증 위험↑.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-icon">💊</div>
+      <div class="trap-q">항생제로 독소를 중화할 수 있는가?</div>
+      <div class="trap-a"><strong>No.</strong> 항생제는 균 제거 목적. 독소는 DAT만 중화. 항생제 단독 치료 = 균은 사멸하지만 이미 생성·분비된 독소 → 합병증 진행.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-icon">🫀</div>
+      <div class="trap-q">심근염 발생 시기와 임상 주의점?</div>
+      <div class="trap-a">발병 <strong>1–2주</strong>차 위험 최고. 증상 호전(위막 소실)과 무관하게 심근염 진행 가능. 회복기 환자도 ECG 계속 모니터링. 완전 AVB → 급사.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-icon">🌍</div>
+      <div class="trap-q">백신 접종 완료자도 디프테리아 걸리나?</div>
+      <div class="trap-a"><strong>Yes.</strong> 백신은 독소에 대한 면역 → 전신 합병증 예방. 그러나 균 자체에 대한 면역은 불완전 → 보균·경한 국소 감염 가능. 추가접종(Td booster) 필요.</div>
+    </div>
+  </div>
+
+  <div class="pill-title">🌐 Global Health 관점</div>
+  <div class="pills">
+    <span class="pill">DTP 접종률 &lt;80% → 집단 면역 붕괴 → 재출현</span>
+    <span class="pill">구소련 1990s = 백신 프로그램 붕괴 교훈</span>
+    <span class="pill">피부 디프테리아 = 열대 성인, 지역사회 전파 저수지</span>
+    <span class="pill">DAT 가용성 = LMIC 핵심 의약품 접근 이슈</span>
+    <span class="pill">접촉자 Erythromycin 예방 + 백신 접종</span>
+    <span class="pill">C. ulcerans (동물 접촉) → 선진국 재출현 원인</span>
+  </div>
+
+  <div class="footer">
+    <div class="footer-note">CID-29 · Diphtheria · Oxford Trop Med 5e · WHO Diphtheria vaccine position paper 2017</div>
+    <div style="display:flex;gap:6px">
+      <span class="nav-btn">← CID-28 Tetanus</span>
+      <span class="nav-btn">CID-30 Brucellosis →</span>
+    </div>
+  </div>
+
+</div>
+</div>
+</body>
+</html>

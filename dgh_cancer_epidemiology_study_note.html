@@ -1,0 +1,315 @@
+<meta charset="UTF-8">
+
+<h2 class="sr-only">DGH KBA - NCD: Cancer Epidemiology 스터디 노트</h2>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.page{width:100%;font-family:var(--font-sans);font-size:12.5px;line-height:1.55;color:var(--color-text-primary);padding:1.1rem 1.2rem 1.4rem}
+.page-header{display:flex;align-items:flex-start;justify-content:space-between;border-bottom:2px solid #7B1C1C;padding-bottom:8px;margin-bottom:10px}
+.topic-tag{font-size:10px;font-weight:500;background:#FCEBEB;color:#791F1F;padding:3px 9px;border-radius:999px;margin-bottom:4px;display:inline-block}
+.title{font-size:20px;font-weight:500;color:var(--color-text-primary);line-height:1.2}
+.subtitle{font-size:11px;color:var(--color-text-secondary);margin-top:2px}
+.badge-group{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.badge{font-size:10px;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.b-red{background:#FCEBEB;color:#791F1F}
+.b-amber{background:#FAEEDA;color:#633806}
+.b-teal{background:#E1F5EE;color:#085041}
+
+.stat-row{display:flex;gap:6px;margin-bottom:8px}
+.stat{flex:1;background:#FCEBEB;border-radius:var(--border-radius-md);padding:6px 8px;text-align:center}
+.stat-num{font-size:16px;font-weight:500;color:#791F1F;display:block}
+.stat-lbl{font-size:10px;color:#A32D2D}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 10px}
+.card-full{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 10px;margin-bottom:8px}
+.sec-label{font-size:10px;font-weight:500;letter-spacing:.04em;color:var(--color-text-secondary);margin-bottom:5px;display:flex;align-items:center;gap:5px}
+
+.row{display:flex;gap:5px;align-items:baseline;margin-bottom:3px}
+.dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.d-red{background:#E24B4A}.d-amber{background:#BA7517}.d-teal{background:#1D9E75}
+.d-blue{background:#378ADD}.d-gray{background:#888780}.d-coral{background:#D85A30}
+.d-purple{background:#7F77DD}.d-green{background:#3B6D11}
+.kw{font-weight:500}
+
+.tbl{width:100%;border-collapse:collapse;font-size:11px}
+.tbl th{background:#FCEBEB;color:#791F1F;font-weight:500;padding:4px 6px;text-align:left;font-size:10px}
+.tbl td{padding:3.5px 6px;border-bottom:0.5px solid var(--color-border-tertiary);vertical-align:top;line-height:1.4}
+.tbl tr:last-child td{border-bottom:none}
+
+.pill{display:inline-block;padding:1px 7px;border-radius:999px;font-size:10px;margin:1px 2px 1px 0}
+.p-red{background:#FCEBEB;color:#791F1F}
+.p-amber{background:#FAEEDA;color:#633806}
+.p-teal{background:#E1F5EE;color:#085041}
+.p-blue{background:#E6F1FB;color:#0C447C}
+.p-gray{background:#F1EFE8;color:#444441}
+.p-coral{background:#FAECE7;color:#712B13}
+.p-purple{background:#EEEDFE;color:#26215C}
+.p-green{background:#EAF3DE;color:#27500A}
+
+/* cancer type cards */
+.cancer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:8px}
+.cc{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:7px 9px;background:var(--color-background-primary)}
+.cc-name{font-size:11px;font-weight:500;margin-bottom:4px}
+.rank-badge{display:inline-block;font-size:9px;padding:1px 5px;border-radius:999px;margin-left:4px;vertical-align:middle}
+.rb-world{background:#FCEBEB;color:#791F1F}
+.rb-lmic{background:#FAEEDA;color:#633806}
+.rb-infect{background:#E1F5EE;color:#085041}
+
+/* prevention pyramid */
+.prev-box{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 10px;margin-bottom:8px}
+.prev-level{display:flex;align-items:center;gap:8px;padding:4px 6px;border-radius:var(--border-radius-sm);margin-bottom:3px;font-size:11.5px}
+.pl-1{background:#E1F5EE}.pl-2{background:#EAF3DE}.pl-3{background:#FAEEDA}.pl-4{background:#FCEBEB}
+.pl-label{font-size:9px;font-weight:500;min-width:42px;text-align:center;padding:2px 4px;border-radius:999px}
+.pll-1{background:#1D9E75;color:#fff}.pll-2{background:#3B6D11;color:#fff}
+.pll-3{background:#BA7517;color:#fff}.pll-4{background:#E24B4A;color:#fff}
+
+.exam-card{background:#FCEBEB;border:0.5px solid #F09595;border-radius:var(--border-radius-md);padding:8px 10px;margin-bottom:8px}
+.exam-label{font-size:10px;font-weight:500;color:#791F1F;margin-bottom:4px;display:flex;align-items:center;gap:5px}
+.trap-card{background:#FAEEDA;border:0.5px solid #EF9F27;border-radius:var(--border-radius-md);padding:7px 10px;margin-bottom:4px}
+.trap-label{font-size:10px;font-weight:500;color:#633806;margin-bottom:2px}
+
+.footnote{font-size:10px;color:var(--color-text-tertiary);margin-top:8px;border-top:0.5px solid var(--color-border-tertiary);padding-top:5px}
+</style>
+
+<div class="page">
+
+  <div class="page-header">
+    <div>
+      <div class="topic-tag">NCD · 10% of KBA</div>
+      <div class="title">Cancer Epidemiology — 암 역학</div>
+      <div class="subtitle">글로벌 암 부담 · 감염 관련 암 · LMIC 패턴 · 예방 전략 — GLOBOCAN 2022 · IARC · WHO · Oxford Handbook Tropical Medicine 5e</div>
+    </div>
+    <div class="badge-group">
+      <span class="badge b-red">DGH KBA</span>
+      <span class="badge b-amber">감염 관련 암 = LMIC 핵심</span>
+      <span class="badge b-teal">시험 출제빈도 ★★★</span>
+    </div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat"><span class="stat-num">20M</span><span class="stat-lbl">신규 암 발생 (2022, GLOBOCAN)</span></div>
+    <div class="stat"><span class="stat-num">9.7M</span><span class="stat-lbl">암 사망 (2022)</span></div>
+    <div class="stat"><span class="stat-num">70%</span><span class="stat-lbl">암 사망의 LMIC 집중</span></div>
+    <div class="stat"><span class="stat-num">~20%</span><span class="stat-lbl">감염 원인 암 — LMIC에서 더 높음</span></div>
+  </div>
+
+  <!-- 주요 암 유형 — LMIC vs HIC 비교 핵심 -->
+  <div class="card-full">
+    <div class="sec-label">LMIC에서 중요한 암 — 감염 관련 암이 시험 핵심</div>
+    <div class="cancer-grid">
+
+      <div class="cc" style="border-top:2px solid #E24B4A">
+        <div class="cc-name" style="color:#791F1F">
+          자궁경부암 (Cervical)
+          <span class="rank-badge rb-lmic">LMIC 여성 2위</span>
+        </div>
+        <div class="row"><div class="dot d-red"></div><span><span class="kw">원인:</span> HPV 16·18 (전체의 70%)</span></div>
+        <div class="row"><div class="dot d-red"></div><span><span class="kw">보조 인자:</span> HIV → 위험 6배↑, 면역 저하</span></div>
+        <div class="row"><div class="dot d-teal"></div><span><span class="kw">예방:</span> HPV 백신 + VIA 스크리닝 (저자원)</span></div>
+        <div class="row"><div class="dot d-teal"></div><span><span class="kw">WHO 목표:</span> 90-70-90 전략 (2030)</span></div>
+      </div>
+
+      <div class="cc" style="border-top:2px solid #D85A30">
+        <div class="cc-name" style="color:#712B13">
+          간암 (Hepatocellular)
+          <span class="rank-badge rb-lmic">LMIC 高빈도</span>
+        </div>
+        <div class="row"><div class="dot d-coral"></div><span><span class="kw">원인:</span> HBV (50–55%), HCV (25–30%), Aflatoxin, 알코올</span></div>
+        <div class="row"><div class="dot d-coral"></div><span><span class="kw">지역:</span> 사하라이남 아프리카·동아시아 고발생</span></div>
+        <div class="row"><div class="dot d-teal"></div><span><span class="kw">예방:</span> HBV 백신 (출생 시 접종), Aflatoxin 노출 감소</span></div>
+        <div class="row"><div class="dot d-amber"></div><span><span class="kw">LMIC 문제:</span> HCC 진단 시 이미 말기 → 예후 극히 불량</span></div>
+      </div>
+
+      <div class="cc" style="border-top:2px solid #BA7517">
+        <div class="cc-name" style="color:#633806">
+          위암 (Gastric)
+          <span class="rank-badge rb-lmic">LMIC 高빈도</span>
+        </div>
+        <div class="row"><div class="dot d-amber"></div><span><span class="kw">원인:</span> H. pylori (IARC Group 1 발암물질)</span></div>
+        <div class="row"><div class="dot d-amber"></div><span><span class="kw">위험인자:</span> 고염식, 흡연, 신선 채소 부족</span></div>
+        <div class="row"><div class="dot d-amber"></div><span><span class="kw">지역:</span> 동아시아·동유럽·라틴아메리카 高</span></div>
+        <div class="row"><div class="dot d-teal"></div><span><span class="kw">예방:</span> H. pylori 치료 → 위암 위험 35%↓</span></div>
+      </div>
+
+      <div class="cc" style="border-top:2px solid #7F77DD">
+        <div class="cc-name" style="color:#26215C">
+          카포시 육종 (Kaposi's)
+          <span class="rank-badge rb-infect">HIV 관련</span>
+        </div>
+        <div class="row"><div class="dot d-purple"></div><span><span class="kw">원인:</span> HHV-8 (KSHV) — HIV 면역저하 시 발현</span></div>
+        <div class="row"><div class="dot d-purple"></div><span><span class="kw">지역:</span> 사하라이남 아프리카 — 가장 흔한 AIDS 정의 암</span></div>
+        <div class="row"><div class="dot d-teal"></div><span><span class="kw">치료:</span> ART 시작이 핵심 (면역 회복 → 자연 퇴행 가능)</span></div>
+        <div class="row"><div class="dot d-purple"></div><span><span class="kw">진행 시:</span> Paclitaxel or Liposomal doxorubicin</span></div>
+      </div>
+
+      <div class="cc" style="border-top:2px solid #378ADD">
+        <div class="cc-name" style="color:#0C447C">
+          방광암 (Bladder — Schistosomiasis)
+          <span class="rank-badge rb-infect">기생충 관련</span>
+        </div>
+        <div class="row"><div class="dot d-blue"></div><span><span class="kw">원인:</span> S. haematobium → 만성 방광 자극 → 편평상피암</span></div>
+        <div class="row"><div class="dot d-blue"></div><span><span class="kw">지역:</span> 아프리카·중동 (이집트 高발생)</span></div>
+        <div class="row"><div class="dot d-blue"></div><span><span class="kw">증상:</span> 무통성 혈뇨 (Schistosomiasis 혈뇨와 구별 필요)</span></div>
+        <div class="row"><div class="dot d-teal"></div><span><span class="kw">예방:</span> Praziquantel (schistosomiasis 치료)</span></div>
+      </div>
+
+      <div class="cc" style="border-top:2px solid #1D9E75">
+        <div class="cc-name" style="color:#085041">
+          담관암 (Cholangiocarcinoma)
+          <span class="rank-badge rb-infect">흡충 관련</span>
+        </div>
+        <div class="row"><div class="dot d-teal"></div><span><span class="kw">원인:</span> Opisthorchis viverrini, Clonorchis sinensis (간흡충)</span></div>
+        <div class="row"><div class="dot d-teal"></div><span><span class="kw">지역:</span> 동남아시아 (태국·라오스·베트남 高)</span></div>
+        <div class="row"><div class="dot d-teal"></div><span><span class="kw">경로:</span> 민물고기 생식 → 흡충 감염 → 만성 담관 염증</span></div>
+        <div class="row"><div class="dot d-teal"></div><span><span class="kw">예방:</span> 생선 완전 조리, Praziquantel</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 감염 원인 발암물질 총정리 -->
+  <div class="card-full">
+    <div class="sec-label">감염 원인 발암물질 — IARC Group 1 (시험 직결)</div>
+    <table class="tbl">
+      <thead>
+        <tr><th>감염원</th><th>관련 암</th><th>지역 부담</th><th>예방 핵심</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="pill p-red">HPV 16·18</span></td>
+          <td>자궁경부암, 구인두암, 항문암, 외음부암</td>
+          <td>LMIC 여성 2대 암 원인</td>
+          <td>HPV 백신 (9–14세), VIA 스크리닝</td>
+        </tr>
+        <tr>
+          <td><span class="pill p-coral">HBV</span></td>
+          <td>간세포암 (HCC)</td>
+          <td>아프리카·동아시아 高</td>
+          <td>출생 시 HBV 백신, PMTCT</td>
+        </tr>
+        <tr>
+          <td><span class="pill p-coral">HCV</span></td>
+          <td>간세포암 (HCC), 간경변</td>
+          <td>전 세계 분포, DAA 치료로 예방 가능</td>
+          <td>주사기 공유 금지, DAA 치료</td>
+        </tr>
+        <tr>
+          <td><span class="pill p-amber">H. pylori</span></td>
+          <td>위암, MALT 림프종</td>
+          <td>동아시아·동유럽·라틴아메리카</td>
+          <td>제균 치료 (Triple therapy)</td>
+        </tr>
+        <tr>
+          <td><span class="pill p-purple">HHV-8 (KSHV)</span></td>
+          <td>카포시 육종, PEL</td>
+          <td>사하라이남 아프리카, HIV 환자</td>
+          <td>ART — 면역 회복이 핵심</td>
+        </tr>
+        <tr>
+          <td><span class="pill p-blue">S. haematobium</span></td>
+          <td>방광 편평상피암</td>
+          <td>아프리카·중동</td>
+          <td>Praziquantel 대량투약</td>
+        </tr>
+        <tr>
+          <td><span class="pill p-teal">Opisthorchis/Clonorchis</span></td>
+          <td>담관암 (CCA)</td>
+          <td>동남아시아</td>
+          <td>생선 완전 조리, Praziquantel</td>
+        </tr>
+        <tr>
+          <td><span class="pill p-green">EBV</span></td>
+          <td>버킷 림프종, 비인두암, Hodgkin 림프종</td>
+          <td>버킷: 아프리카, 말라리아 보조인자</td>
+          <td>말라리아 예방 → 버킷 위험↓</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 예방 전략 + 함정 -->
+  <div class="grid2">
+    <div class="card">
+      <div class="sec-label">WHO 암 예방 4단계 전략 (LMIC 적용)</div>
+      <div class="prev-level pl-1">
+        <span class="pl-label pll-1">1차 예방</span>
+        <span>위험인자 제거 — 금연, HPV·HBV 백신, H. pylori 치료, Aflatoxin 감소, 식이 개선</span>
+      </div>
+      <div class="prev-level pl-2">
+        <span class="pl-label pll-2">2차 예방</span>
+        <span>조기 발견 — VIA (자궁경부), AFP+초음파 (HCC), 대변잠혈 (대장), 임상 유방검사</span>
+      </div>
+      <div class="prev-level pl-3">
+        <span class="pl-label pll-3">3차 예방</span>
+        <span>치료·재발 방지 — 수술·방사선·항암화학요법. LMIC에서 접근성 극도로 제한적</span>
+      </div>
+      <div class="prev-level pl-4" style="margin-bottom:0">
+        <span class="pl-label pll-4">완화 치료</span>
+        <span>통증 조절 (경구 Morphine — WHO EML), 증상 완화. LMIC 마약성 진통제 접근 부족</span>
+      </div>
+      <div style="margin-top:7px">
+        <div class="row"><div class="dot d-teal"></div><span><span class="kw">VIA (식초산 육안검사):</span> 자원 제한 환경 자궁경부암 스크리닝 — 도구 불필요, 즉각 처치 가능</span></div>
+        <div class="row"><div class="dot d-teal"></div><span><span class="kw">WHO 90-70-90:</span> 자궁경부암 퇴치 전략 — HPV 백신 90%, 스크리닝 70%, 치료 90%</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="sec-label">LMIC 암 부담 특성 & 격차</div>
+      <div class="row"><div class="dot d-red"></div><span><span class="kw">진단 지연:</span> 대부분 말기 진단 → 5년 생존율 HIC 대비 현저히 낮음</span></div>
+      <div class="row"><div class="dot d-red"></div><span><span class="kw">방사선 치료 접근:</span> 아프리카 54개국 中 방사선 치료기 보유 29개국 — 암 사망의 주요 원인</span></div>
+      <div class="row"><div class="dot d-amber"></div><span><span class="kw">감염 관련 암 비중:</span> LMIC 25–30% (HIC 7%) — 예방 백신·치료로 직접 개입 가능</span></div>
+      <div class="row"><div class="dot d-amber"></div><span><span class="kw">Aflatoxin:</span> 곰팡이 오염 곡물(옥수수·땅콩) → HCC 위험↑. 아프리카·아시아 곡물 저장 문제</span></div>
+      <div class="row"><div class="dot d-purple"></div><span><span class="kw">버킷 림프종:</span> 소아 — EBV + 말라리아 보조인자. 아프리카 소아 가장 흔한 림프종. Cyclophosphamide 반응 좋음</span></div>
+      <div class="row"><div class="dot d-blue"></div><span><span class="kw">비인두암:</span> EBV + 유전적 감수성 + 절인 생선. 동남아시아·북아프리카 高</span></div>
+      <div class="row"><div class="dot d-teal"></div><span><span class="kw">오피오이드 접근 부족:</span> LMIC 암 환자 80%가 적절한 통증 조절 못 받음 → WHO 필수의약품 개선 촉구</span></div>
+      <div class="row"><div class="dot d-gray"></div><span><span class="kw">암 등록 부재:</span> LMIC 대부분 national cancer registry 없음 → 실제 부담 과소 추정</span></div>
+    </div>
+  </div>
+
+  <div class="exam-card">
+    <div class="exam-label">시험 핵심 포인트 & 자주 나오는 함정</div>
+    <div class="grid2" style="margin-bottom:0">
+      <div>
+        <div class="trap-card">
+          <div class="trap-label">함정 ①  VIA vs Pap smear</div>
+          <span>자원 제한 환경 자궁경부암 스크리닝 → VIA (식초산 육안검사)가 정답. Pap smear는 현미경·병리과 필요 → LMIC 1차 의료에서 비현실적. "Pap smear 시행"은 LMIC 시나리오에서 오답.</span>
+        </div>
+        <div class="trap-card">
+          <div class="trap-label">함정 ②  버킷 림프종 보조인자</div>
+          <span>아프리카 소아 버킷 림프종 = EBV + 말라리아 (보조 발암인자). "EBV만"은 불완전 답. 말라리아 예방이 버킷 림프종 예방에도 기여한다는 글로벌헬스 연계 포인트.</span>
+        </div>
+      </div>
+      <div>
+        <div class="trap-card">
+          <div class="trap-label">함정 ③  Aflatoxin → HCC</div>
+          <span>HCC 원인으로 HBV·HCV만 생각하면 오답. LMIC에서 Aflatoxin B1 (곰팡이 독소, IARC Group 1) → HBV와 상승 작용으로 HCC 위험 극대화. 아프리카·아시아 곡물 저장 문제.</span>
+        </div>
+        <div class="trap-card">
+          <div class="trap-label">함정 ④  카포시 육종 치료 우선</div>
+          <span>HIV 관련 카포시 육종 → 항암제가 아닌 ART 시작이 1차. 면역 회복만으로 병변 퇴행 가능. "즉각 항암화학요법"은 오답 — ART 먼저, 진행 시에만 항암 추가.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-full" style="margin-bottom:0">
+    <div class="sec-label">Global health 관점 핵심 메시지</div>
+    <div style="display:flex;flex-wrap:wrap;gap:4px;line-height:1.9">
+      <span class="pill p-red">LMIC 암 사망 70% 집중 — 진단 지연·치료 접근성이 근본 원인</span>
+      <span class="pill p-teal">감염 관련 암 25–30% → 백신·치료로 예방 가능한 암이 LMIC에서 더 많음</span>
+      <span class="pill p-amber">WHO 90-70-90 — 자궁경부암 퇴치 글로벌 전략, HPV 백신+VIA 핵심</span>
+      <span class="pill p-purple">카포시 육종 — 사하라이남 아프리카 ART 확대로 감소 추세</span>
+      <span class="pill p-blue">Schistosoma → 방광암 / 간흡충 → 담관암 — 기생충 치료가 암 예방</span>
+      <span class="pill p-coral">오피오이드 접근성 — LMIC 암 완화 치료 최대 미충족 수요</span>
+      <span class="pill p-green">Aflatoxin 감소 — 적절한 곡물 저장·건조가 HCC 예방의 공중보건 개입</span>
+    </div>
+  </div>
+
+  <div class="footnote">
+    참고: GLOBOCAN 2022 (IARC) · WHO Global Cancer Report 2022 · Oxford Handbook of Tropical Medicine 5e · WHO EML 2023 · DGH Blueprint NCD Level 3<br>
+    <button style="margin-top:5px;font-size:11px;padding:3px 10px" onclick="sendPrompt('DGH KBA Cancer Epidemiology 관련 모의문제 5개 풀고 싶어. Best-of-5 SBA 형식으로 만들어줘')">Cancer Epi 모의문제 풀기 ↗</button>
+    <button style="margin-top:5px;font-size:11px;padding:3px 10px;margin-left:6px" onclick="sendPrompt('DGH KBA: Non-communicable disease > Cardiovascular disease 스터디 노트 A4 한 장 분량으로 만들어줘')">다음: CVD 노트 ↗</button>
+    <button style="margin-top:5px;font-size:11px;padding:3px 10px;margin-left:6px" onclick="sendPrompt('DGH KBA: Women\'s health > Cervical cancer 스터디 노트 A4 한 장 분량으로 만들어줘')">연계: 자궁경부암 노트 ↗</button>
+  </div>
+
+</div>

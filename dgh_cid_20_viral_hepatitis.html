@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH CID 20 | Viral Hepatitis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#fdf4f4;font-family:'Crimson Pro',serif;color:#2d1a1a;font-size:14px;line-height:1.5;}
+  .page{max-width:900px;margin:0 auto;padding:18px;}
+  .header{background:#791F1F;color:#fff;border-radius:10px 10px 0 0;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;}
+  .header-left .tag{font-family:'JetBrains Mono',monospace;font-size:10px;background:rgba(255,255,255,0.2);padding:2px 8px;border-radius:20px;letter-spacing:1px;}
+  .header-left h1{font-size:20px;font-weight:700;margin-top:4px;}
+  .header-left h1 span{font-size:12px;font-weight:400;opacity:0.8;margin-left:8px;}
+  .header-right{font-family:'JetBrains Mono',monospace;font-size:10px;text-align:right;opacity:0.8;}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);border:1.5px solid #e8c4c4;border-top:none;}
+  .stat{background:#f5dcdc;padding:10px 12px;text-align:center;border-right:1px solid #e8c4c4;}
+  .stat:last-child{border-right:none;}
+  .stat-val{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:700;color:#791F1F;}
+  .stat-lab{font-size:10px;color:#5a2a2a;margin-top:1px;}
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;}
+  .card{background:#fff;border:1.5px solid #e8c4c4;border-radius:8px;padding:12px;}
+  .card h3{font-size:12px;font-weight:700;color:#791F1F;text-transform:uppercase;letter-spacing:0.8px;border-bottom:1px solid #f5dcdc;padding-bottom:5px;margin-bottom:8px;}
+  .card li{font-size:12.5px;color:#3a1a1a;line-height:1.65;margin-bottom:2px;}
+  .card ul{padding-left:14px;}
+  .tbl-wrap{margin-top:10px;}
+  table{width:100%;border-collapse:collapse;font-size:11px;}
+  thead th{background:#791F1F;color:#fff;padding:6px 8px;text-align:left;font-weight:600;}
+  tbody tr:nth-child(odd){background:#fdf4f4;}
+  tbody tr:nth-child(even){background:#f5dcdc;}
+  tbody td{padding:5px 8px;border-bottom:1px solid #e8c4c4;vertical-align:top;}
+  td strong{color:#791F1F;}
+  .trap-h{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:#791F1F;letter-spacing:1px;margin:12px 0 6px;padding:4px 10px;background:#f5dcdc;border-left:4px solid #791F1F;border-radius:0 4px 4px 0;}
+  .trap-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .trap{background:#fff;border:1.5px solid #e8c4c4;border-radius:6px;padding:9px 11px 9px 28px;font-size:12px;position:relative;}
+  .trap::before{content:"⚠";position:absolute;left:9px;top:8px;font-size:13px;color:#791F1F;}
+  .pills{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;}
+  .pill{background:#791F1F;color:#fff;font-size:10px;padding:3px 10px;border-radius:20px;font-family:'JetBrains Mono',monospace;}
+  .pill.light{background:#f5dcdc;color:#791F1F;}
+  .footer{margin-top:10px;padding:8px 12px;background:#f5dcdc;border:1px solid #e8c4c4;border-radius:6px;font-size:11px;color:#5a2a2a;display:flex;justify-content:space-between;align-items:center;}
+  .btn{font-size:10px;padding:3px 10px;border-radius:20px;border:1.5px solid #791F1F;color:#791F1F;background:#fff;font-family:'JetBrains Mono',monospace;}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="header-left">
+      <div class="tag">CID · 20/34 · Viral</div>
+      <h1>Viral Hepatitis <span>A·B·C·D·E — 글로벌 부담 & 치료</span></h1>
+    </div>
+    <div class="header-right">DGH KBA · 창 B<br>Blueprint 40%</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-val">296M</div><div class="stat-lab">만성 HBV 감염자</div></div>
+    <div class="stat"><div class="stat-val">58M</div><div class="stat-lab">만성 HCV 감염자</div></div>
+    <div class="stat"><div class="stat-val">&gt;95%</div><div class="stat-lab">HCV 치료율 (DAA)</div></div>
+    <div class="stat"><div class="stat-val">HEV</div><div class="stat-lab">임산부 치명률 20~25%</div></div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <h3>HBV — 만성화·치료</h3>
+      <ul>
+        <li><strong>전파</strong>: 혈액·성접촉·수직감염 (주산기 = 만성화 위험 90%)</li>
+        <li><strong>만성화율</strong>: 영아 90% vs 성인 5~10%</li>
+        <li><strong>혈청 마커 해석</strong>:</li>
+        <li>HBsAg(+), HBeAg(+), HBV DNA↑ → 활성 복제, 고전염성</li>
+        <li>HBsAb(+), HBcAb(+) → 자연회복</li>
+        <li>HBsAb(+), HBcAb(-) → 백신 접종</li>
+        <li>HBcAb(+) 단독 → 과거감염 or 창기간 감염</li>
+        <li><strong>치료 적응증</strong>: HBV DNA↑ + ALT 상승 or 간경화·고위험</li>
+        <li><strong>1차 치료</strong>: TDF or TAF (내성 장벽 높음); Entecavir</li>
+        <li>Lamivudine: 내성 높아 더 이상 1차 권고 안 함</li>
+        <li><strong>PMTCT</strong>: 분만 후 12h 내 HBIg + HBV 백신; 母 TDF (HBV DNA↑)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>HCV·HEV·HDV — 글로벌 관점</h3>
+      <ul>
+        <li><strong>HCV</strong>:</li>
+        <li>전파: 혈액(PWID, 오염 주사기), 성접촉(낮음)</li>
+        <li>만성화: 75~85%; 무증상 경과 많음</li>
+        <li><strong>DAA(직접작용항바이러스제)</strong>: Sofosbuvir + Daclatasvir/Ledipasvir 등; 8~12주; SVR &gt;95%</li>
+        <li>LMIC: Generic DAA 접근성↑ (2015~ 특허 우회)</li>
+        <li>스크리닝: PWID, 혈액 수혈 기왕력자</li>
+        <li>—</li>
+        <li><strong>HDV</strong>: HBV 동시 또는 중복 감염만 가능</li>
+        <li>HBsAg(+) 상태에서만 복제 가능; 가장 심한 간 손상</li>
+        <li>예방: HBV 백신 → HDV도 예방</li>
+        <li>—</li>
+        <li><strong>HEV</strong>: 분변-경구 전파; 자기한정성</li>
+        <li><strong>임산부 예외</strong>: 치명률 20~25% (3분기) — 절대 무시 불가</li>
+        <li>유행: 아시아·아프리카·중동 위생 불량 지역</li>
+        <li>HEV 백신(HEV 239): 중국 허가, 글로벌 미승인</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>형</th><th>전파</th><th>만성화</th><th>백신</th><th>치료</th><th>LMIC 핵심</th></tr></thead>
+      <tbody>
+        <tr><td><strong>HAV</strong></td><td>분변-경구</td><td>없음</td><td>있음(2회)</td><td>지지</td><td>위생 개선이 근본</td></tr>
+        <tr><td><strong>HBV</strong></td><td>혈액·성·수직</td><td>5~90%</td><td>있음(3회)</td><td>TDF/TAF/ETV</td><td>출생 시 백신이 가장 중요</td></tr>
+        <tr><td><strong>HCV</strong></td><td>혈액(주로)</td><td>75~85%</td><td>없음</td><td>DAA &gt;95%</td><td>Generic SOF+DCV 접근성</td></tr>
+        <tr><td><strong>HDV</strong></td><td>혈액(HBV와 동반)</td><td>높음</td><td>HBV 백신으로</td><td>Peg-IFN (제한적)</td><td>HBV 예방 = HDV 예방</td></tr>
+        <tr><td><strong>HEV</strong></td><td>분변-경구</td><td>드묾*</td><td>중국만</td><td>지지(Ribavirin 면역억제)</td><td>임산부 치명률 20~25%</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:10px;color:#791F1F;margin-top:4px;">*HEV 만성화: 면역억제 환자(장기이식 등)에서 가능</p>
+  </div>
+
+  <div class="trap-h">⚠ EXAM TRAPS × 4</div>
+  <div class="trap-grid">
+    <div class="trap"><strong>HBcAb 단독 양성</strong> 해석: 자연회복(HBsAg 소실 후) 또는 만성 잠복 감염 가능. 면역억제 시 재활성화 위험 → 항암화학요법·생물학적제제 시작 전 반드시 확인. "과거 노출"로만 해석하면 재활성화 놓침.</div>
+    <div class="trap"><strong>HEV = 임산부 위험</strong>: 일반적으로 자기한정성이지만 임산부(특히 3분기)에서 전격성 간부전·치명률 20~25%. LMIC 홍수·위생 불량 지역 임산부 발열·황달 = HEV 반드시 고려.</div>
+    <div class="trap"><strong>Lamivudine은 구시대</strong>: HBV 1차 치료로 내성 발현율 높아(1년 20%, 5년 70%) 더 이상 권고 안 함. TDF/TAF/ETV가 표준. 시험에서 Lamivudine을 답으로 유도하는 선지 주의.</div>
+    <div class="trap"><strong>HDV는 HBV 없이 복제 불가</strong>: HBsAg이 HDV 외피 역할. HCV와 HDV 동시 감염 = 불가능. HBV+HDV 중복감염 시 가장 빠른 간경화 진행. "HDV 단독 감염" = 생물학적으로 불가.</div>
+  </div>
+
+  <div class="pills">
+    <span class="pill">HBV 수직감염 = 만성화 90%</span>
+    <span class="pill">HCV DAA = 치료율 95%↑</span>
+    <span class="pill light">HEV 임산부 CFR 20~25%</span>
+    <span class="pill light">HDV = HBV 없이 불가</span>
+    <span class="pill">Lamivudine 단독 = 구시대</span>
+    <span class="pill">HBcAb 단독 = 재활성화 주의</span>
+  </div>
+
+  <div class="footer">
+    <span>📚 WHO Global Hepatitis Report 2024 · WHO HBV/HCV Guidelines · Oxford TropMed 5e</span>
+    <div class="footer-nav">
+      <span class="btn">← 19 Ebola</span>
+      <span class="btn">21 VHF →</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

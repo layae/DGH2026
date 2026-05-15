@@ -1,0 +1,145 @@
+<meta charset="UTF-8">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.page{width:100%;font-family:var(--font-sans);font-size:12.5px;line-height:1.55;color:var(--color-text-primary);padding:1.1rem 1.2rem 1.4rem}
+.page-header{display:flex;align-items:flex-start;justify-content:space-between;border-bottom:2px solid #7B5C1A;padding-bottom:8px;margin-bottom:10px}
+.topic-tag{font-size:10px;font-weight:500;background:#F5EDD8;color:#5A3E0A;padding:3px 9px;border-radius:999px;margin-bottom:4px;display:inline-block}
+.title{font-size:20px;font-weight:500;line-height:1.2}
+.subtitle{font-size:11px;color:var(--color-text-secondary);margin-top:2px}
+.badge-group{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.badge{font-size:10px;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.b-tan{background:#F5EDD8;color:#5A3E0A}.b-red{background:#FCEBEB;color:#791F1F}.b-teal{background:#E1F5EE;color:#085041}
+.stat-row{display:flex;gap:6px;margin-bottom:8px}
+.stat{flex:1;background:#F5EDD8;border-radius:var(--border-radius-md);padding:6px 8px;text-align:center}
+.stat-num{font-size:16px;font-weight:500;color:#5A3E0A;display:block}
+.stat-lbl{font-size:10px;color:#7B5C1A}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+.derm-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:8px}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 10px}
+.card-full{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 10px;margin-bottom:8px}
+.dc{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:7px 9px;background:var(--color-background-primary)}
+.sec-label{font-size:10px;font-weight:500;letter-spacing:.04em;color:var(--color-text-secondary);margin-bottom:5px}
+.row{display:flex;gap:5px;align-items:baseline;margin-bottom:3px}
+.dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.d-tan{background:#BA8830}.d-red{background:#E24B4A}.d-teal{background:#1D9E75}.d-blue{background:#378ADD}.d-gray{background:#888780}.d-purple{background:#7F77DD}.d-coral{background:#D85A30}
+.kw{font-weight:500}
+.pill{display:inline-block;padding:1px 7px;border-radius:999px;font-size:10px;margin:1px 2px 1px 0}
+.p-tan{background:#F5EDD8;color:#5A3E0A}.p-red{background:#FCEBEB;color:#791F1F}.p-teal{background:#E1F5EE;color:#085041}.p-blue{background:#E6F1FB;color:#0C447C}.p-gray{background:#F1EFE8;color:#444441}.p-purple{background:#EEEDFE;color:#26215C}.p-amber{background:#FAEEDA;color:#633806}
+.dc-name{font-size:11px;font-weight:500;margin-bottom:4px}
+.exam-card{background:#FCEBEB;border:0.5px solid #F09595;border-radius:var(--border-radius-md);padding:8px 10px;margin-bottom:8px}
+.exam-label{font-size:10px;font-weight:500;color:#791F1F;margin-bottom:4px}
+.trap-card{background:#FAEEDA;border:0.5px solid #EF9F27;border-radius:var(--border-radius-md);padding:7px 10px;margin-bottom:4px}
+.trap-label{font-size:10px;font-weight:500;color:#633806;margin-bottom:2px}
+.footnote{font-size:10px;color:var(--color-text-tertiary);margin-top:8px;border-top:0.5px solid var(--color-border-tertiary);padding-top:5px}
+</style>
+<div class="page">
+  <div class="page-header">
+    <div>
+      <div class="topic-tag">NCD · 10% of KBA</div>
+      <div class="title">Dermatology — 열대 피부질환</div>
+      <div class="subtitle">LMIC 피부 감염 · HIV 피부 소견 · 영양결핍 피부 징후 — Oxford Handbook Tropical Medicine 5e · WHO NTD</div>
+    </div>
+    <div class="badge-group">
+      <span class="badge b-tan">DGH KBA</span>
+      <span class="badge b-red">HIV 피부 소견 최빈출</span>
+      <span class="badge b-teal">시험 출제빈도 ★★☆</span>
+    </div>
+  </div>
+  <div class="stat-row">
+    <div class="stat"><span class="stat-num">1위</span><span class="stat-lbl">LMIC 1차 의료 방문 원인</span></div>
+    <div class="stat"><span class="stat-num">~50%</span><span class="stat-lbl">LMIC 피부 질환 중 감염성</span></div>
+    <div class="stat"><span class="stat-num">~1B</span><span class="stat-lbl">전 세계 진균 피부 감염 유병</span></div>
+    <div class="stat"><span class="stat-num">3개</span><span class="stat-lbl">피부 NTD: 나병·버룰리·사상충</span></div>
+  </div>
+
+  <div class="card-full">
+    <div class="sec-label">LMIC 주요 피부 질환 — 범주별 핵심</div>
+    <div class="derm-grid">
+      <div class="dc" style="border-top:2px solid #E24B4A">
+        <div class="dc-name" style="color:#791F1F">HIV 관련 피부 소견</div>
+        <div class="row"><div class="dot d-red"></div><span><span class="kw">지루성 피부염:</span> HIV 초기·진행 — 얼굴·두피, 재발성</span></div>
+        <div class="row"><div class="dot d-red"></div><span><span class="kw">Molluscum:</span> 다발성·거대형 → CD4 저하 지표</span></div>
+        <div class="row"><div class="dot d-red"></div><span><span class="kw">Kaposi sarcoma:</span> HHV-8 → 자주색 결절·반점</span></div>
+        <div class="row"><div class="dot d-red"></div><span><span class="kw">PPE:</span> Pruritic papular eruption — HIV 특이 구진</span></div>
+        <div class="row"><div class="dot d-red"></div><span><span class="kw">대상포진:</span> 젊은 성인 다발·재발 → HIV 의심</span></div>
+        <div class="row"><div class="dot d-red"></div><span><span class="kw">IRIS:</span> ART 후 기존 감염 피부 악화</span></div>
+      </div>
+      <div class="dc" style="border-top:2px solid #BA8830">
+        <div class="dc-name" style="color:#5A3E0A">세균성 피부 감염</div>
+        <div class="row"><div class="dot d-tan"></div><span><span class="kw">농가진:</span> S.aureus/GAS → 꿀색 딱지 → Amoxicillin</span></div>
+        <div class="row"><div class="dot d-tan"></div><span><span class="kw">봉와직염:</span> GAS/S.aureus → Benzylpenicillin</span></div>
+        <div class="row"><div class="dot d-tan"></div><span><span class="kw">버룰리 궤양:</span> M.ulcerans → 무통 괴사 궤양 → Rifampicin+Clarithromycin 8주</span></div>
+        <div class="row"><div class="dot d-tan"></div><span><span class="kw">나병:</span> M.leprae → 저색소 마취성 반점 + 신경 비후</span></div>
+      </div>
+      <div class="dc" style="border-top:2px solid #7F77DD">
+        <div class="dc-name" style="color:#26215C">진균 피부 감염</div>
+        <div class="row"><div class="dot d-purple"></div><span><span class="kw">Tinea capitis:</span> 두부 백선 → Griseofulvin (경구 필수)</span></div>
+        <div class="row"><div class="dot d-purple"></div><span><span class="kw">Tinea versicolor:</span> Malassezia → 저/과색소 반 → Ketoconazole</span></div>
+        <div class="row"><div class="dot d-purple"></div><span><span class="kw">Candida:</span> 피부 주름부 → HIV·당뇨에서 광범위</span></div>
+        <div class="row"><div class="dot d-purple"></div><span><span class="kw">Mycetoma:</span> 발 진균종 → 만성 부종·누공·알갱이</span></div>
+      </div>
+      <div class="dc" style="border-top:2px solid #1D9E75">
+        <div class="dc-name" style="color:#085041">기생충 피부 질환</div>
+        <div class="row"><div class="dot d-teal"></div><span><span class="kw">옴 (Scabies):</span> 야간 소양증·손가락 사이 → Permethrin or Ivermectin</span></div>
+        <div class="row"><div class="dot d-teal"></div><span><span class="kw">CLM:</span> 사행성 소양성 선(해변) → Ivermectin</span></div>
+        <div class="row"><div class="dot d-teal"></div><span><span class="kw">피부 리슈만편모충:</span> 자기치유 궤양 (별도 토픽)</span></div>
+        <div class="row"><div class="dot d-teal"></div><span><span class="kw">Onchocerciasis:</span> 소양증·Leopard skin·실명</span></div>
+      </div>
+      <div class="dc" style="border-top:2px solid #378ADD">
+        <div class="dc-name" style="color:#0C447C">약물 발진 (ART 관련)</div>
+        <div class="row"><div class="dot d-blue"></div><span><span class="kw">Nevirapine 발진:</span> 시작 4–6주 → 경증: 지속, 중증(점막·발열): 즉각 중단</span></div>
+        <div class="row"><div class="dot d-blue"></div><span><span class="kw">Cotrimoxazole:</span> HIV 예방 중 발진 → 경증: 항히스타민 병용</span></div>
+        <div class="row"><div class="dot d-blue"></div><span><span class="kw">SJS/TEN:</span> 체표 10%이상 표피 박리 → 원인약 즉각 중단, ICU</span></div>
+        <div class="row"><div class="dot d-blue"></div><span><span class="kw">DRESS:</span> 발진+발열+장기침범 → 원인약 중단 + 스테로이드</span></div>
+      </div>
+      <div class="dc" style="border-top:2px solid #D85A30">
+        <div class="dc-name" style="color:#712B13">영양결핍 피부 소견</div>
+        <div class="row"><div class="dot d-coral"></div><span><span class="kw">Kwashiorkor:</span> 박리성 피부염 '갈라진 페인트' — 단백질 결핍</span></div>
+        <div class="row"><div class="dot d-coral"></div><span><span class="kw">Pellagra (Niacin B3 결핍):</span> 햇빛 노출 부위 대칭 색소침착·각화 → 4D: Dermatitis·Diarrhoea·Dementia·Death → Niacin 보충</span></div>
+        <div class="row"><div class="dot d-coral"></div><span><span class="kw">알비니즘:</span> 아프리카 → SCC 위험↑, 자외선 차단 필수</span></div>
+        <div class="row"><div class="dot d-coral"></div><span><span class="kw">아연 결핍:</span> Acrodermatitis enteropathica → 구공·항문 주위 피부염</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="exam-card">
+    <div class="exam-label">시험 핵심 포인트 &amp; 자주 나오는 함정</div>
+    <div class="grid2" style="margin-bottom:0">
+      <div>
+        <div class="trap-card">
+          <div class="trap-label">함정 1 — 성인 다발성 Molluscum</div>
+          <span>소아 단발성 molluscum은 자기한정적. 성인 다발성·거대형 → HIV 면역저하 지표. "단순 바이러스 감염 치료"가 아닌 CD4 평가·HIV 검사가 정답.</span>
+        </div>
+        <div class="trap-card">
+          <div class="trap-label">함정 2 — Pellagra 원인 식품</div>
+          <span>옥수수 주식 지역에서 多 — 옥수수의 Niacin은 결합형으로 흡수 안 됨. 알코올 중독·Isoniazid 복용(B6·Niacin 길항) → 위험↑. 치료: Nicotinamide/Niacin 경구.</span>
+        </div>
+      </div>
+      <div>
+        <div class="trap-card">
+          <div class="trap-label">함정 3 — 옴 접촉자 동시 치료</div>
+          <span>옴 치료 시 환자만 치료하면 재감염 → 반드시 동거 가족·성 파트너 동시 치료. 난민캠프·과밀시설 → Ivermectin 경구 집단 투약이 가장 효과적.</span>
+        </div>
+        <div class="trap-card">
+          <div class="trap-label">함정 4 — Tinea capitis 치료</div>
+          <span>두부 백선(Tinea capitis)은 외용 항진균제만으로 치료 불가 — 모낭 깊이 침투하므로 반드시 경구 Griseofulvin. "외용 크림만 처방"은 오답.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-full" style="margin-bottom:0">
+    <div class="sec-label">Global health 관점 핵심 메시지</div>
+    <div style="display:flex;flex-wrap:wrap;gap:4px;line-height:1.9">
+      <span class="pill p-red">HIV 피부 소견 → 병기·CD4 추정 단서, 전신 면역 상태 반영</span>
+      <span class="pill p-amber">Pellagra·Kwashiorkor → 영양결핍 피부 징후, 기근·난민 상황 지표</span>
+      <span class="pill p-teal">옴·Onchocerciasis → 과밀·빈곤 환경 집단 발생, Ivermectin 대량 투약</span>
+      <span class="pill p-blue">알비니즘 → 아프리카 피부암 취약집단, 사회적 낙인·자외선 차단 접근성</span>
+      <span class="pill p-purple">IRIS 피부 발현 → ART 시작 후 악화처럼 보여도 ART 지속이 원칙</span>
+    </div>
+  </div>
+  <div class="footnote">참고: Oxford Handbook of Tropical Medicine 5e · WHO NTD Programme · DGH Blueprint NCD Level 3
+    <br><button style="margin-top:5px;font-size:11px;padding:3px 10px" onclick="sendPrompt('DGH KBA: Non-communicable disease > Ophthalmology 스터디 노트 A4 한 장 분량으로 만들어줘')">다음: Ophthalmology ↗</button>
+  </div>
+</div>

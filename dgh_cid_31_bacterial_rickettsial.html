@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH CID 31 | Rickettsial Diseases</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Noto Sans KR',sans-serif;background:#fdf4f4;color:#2d1a1a;font-size:12.5px;line-height:1.55}
+  .page{max-width:900px;margin:0 auto;padding:18px}
+  .header{background:#791F1F;color:#fff;border-radius:8px 8px 0 0;padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+  .header-left .tag{font-size:10px;letter-spacing:2px;opacity:.7;text-transform:uppercase;font-family:'JetBrains Mono',monospace}
+  .header-left h1{font-size:20px;font-weight:700;margin-top:2px}
+  .header-right{text-align:right;font-size:10px;opacity:.75;font-family:'JetBrains Mono',monospace;line-height:1.8}
+  .stats-bar{background:#6b1a1a;padding:10px 20px;display:grid;grid-template-columns:repeat(4,1fr)}
+  .stat{text-align:center;color:#fff;padding:4px 8px;border-right:1px solid rgba(255,255,255,0.15)}
+  .stat:last-child{border-right:none}
+  .stat-num{font-size:17px;font-weight:700;color:#f5dcdc;font-family:'JetBrains Mono',monospace}
+  .stat-label{font-size:9.5px;opacity:.8;margin-top:1px;letter-spacing:.5px}
+  .body-wrap{background:#fff;border:1px solid #e8c4c4;border-top:none;border-radius:0 0 8px 8px;padding:16px 20px}
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+  .box{background:#fdf4f4;border:1px solid #e8c4c4;border-radius:6px;padding:12px}
+  .box-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#791F1F;margin-bottom:8px;border-bottom:1px solid #e8c4c4;padding-bottom:4px}
+  .box ul{list-style:none;padding:0}
+  .box ul li{padding:2px 0 2px 10px;position:relative;font-size:12px}
+  .box ul li::before{content:'›';position:absolute;left:0;color:#791F1F;font-weight:700}
+  strong{color:#791F1F;font-weight:700}
+  .section-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#791F1F;margin-bottom:7px}
+  table{width:100%;border-collapse:collapse;font-size:11px;margin-bottom:14px}
+  th{background:#791F1F;color:#fff;padding:6px 8px;text-align:left;font-weight:600;font-size:10px}
+  td{padding:5px 8px;border-bottom:1px solid #e8c4c4;vertical-align:top;font-size:11px}
+  tr:nth-child(even) td{background:#fdf4f4}
+  tr:last-child td{border-bottom:none}
+  .steps{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+  .step{background:#f5dcdc;border:1px solid #e8c4c4;border-radius:6px;padding:8px 10px;flex:1;min-width:120px}
+  .step-num{font-size:9px;font-weight:700;color:#791F1F;text-transform:uppercase;letter-spacing:1px}
+  .step-content{font-size:11.5px;margin-top:3px;font-weight:600}
+  .trap-h{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fff;background:#791F1F;padding:5px 12px;border-radius:4px;display:inline-block;margin-bottom:8px}
+  .trap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:14px}
+  .trap{background:#fff;border:1.5px solid #791F1F;border-radius:6px;padding:10px}
+  .trap-icon{font-size:15px;margin-bottom:4px}
+  .trap-q{font-size:10.5px;font-weight:700;color:#791F1F;margin-bottom:3px}
+  .trap-a{font-size:11px;color:#2d1a1a;line-height:1.5}
+  .pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+  .pill{background:#f5dcdc;border:1px solid #e8c4c4;border-radius:20px;padding:3px 11px;font-size:10.5px;color:#791F1F;font-weight:600}
+  .pill-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#791F1F;margin-bottom:5px}
+  .footer{margin-top:10px;padding-top:8px;border-top:1px solid #e8c4c4;display:flex;justify-content:space-between;align-items:center}
+  .footer-note{font-size:10px;color:#888;font-family:'JetBrains Mono',monospace}
+  .nav-btn{background:#791F1F;color:#fff;border:none;border-radius:4px;padding:4px 12px;font-size:10.5px;font-weight:600;cursor:default;letter-spacing:.5px}
+  .highlight-box{background:#f5dcdc;border-left:3px solid #791F1F;padding:8px 12px;border-radius:0 6px 6px 0;margin-bottom:12px;font-size:11.5px}
+  .eschar-box{background:#791F1F;color:#fff;border-radius:6px;padding:10px 14px;margin-bottom:12px;font-size:12px;line-height:1.7}
+  .eschar-box strong{color:#f5dcdc}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <div class="header-left">
+    <div class="tag">DGH KBA · Clinical Infectious Diseases · CID-31</div>
+    <h1>Rickettsial Diseases</h1>
+  </div>
+  <div class="header-right">
+    창 C · Bacterial Infections<br>
+    Blueprint 40% · Oxford Trop Med 5e<br>
+    절지동물 매개 · Doxy 단독 = 정답
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">20–25%</div>
+    <div class="stat-label">RMSF 미치료 CFR</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">&lt;5%</div>
+    <div class="stat-label">Spotted fever 치료 시 CFR</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1–2주</div>
+    <div class="stat-label">잠복기 (대부분)</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">Doxy 7일</div>
+    <div class="stat-label">대부분 질환 치료 기간</div>
+  </div>
+</div>
+
+<div class="body-wrap">
+
+  <!-- MASTER TABLE -->
+  <div class="section-title">리케차 주요 질환 — 한눈에 비교표</div>
+  <table>
+    <tr>
+      <th>질환</th>
+      <th>원인균</th>
+      <th>매개체</th>
+      <th>지역</th>
+      <th>특징 소견</th>
+      <th>Eschar</th>
+    </tr>
+    <tr>
+      <td><strong>Epidemic typhus</strong></td>
+      <td>R. prowazekii</td>
+      <td>이(louse)</td>
+      <td>아프리카·중남미·난민캠프</td>
+      <td>고열·두통·발진(체간→사지), 섬망</td>
+      <td>없음</td>
+    </tr>
+    <tr>
+      <td><strong>Murine typhus</strong></td>
+      <td>R. typhi</td>
+      <td>벼룩(rat flea)</td>
+      <td>전 세계(열대·아열대)</td>
+      <td>경증, 자기한정, 발진 50%</td>
+      <td>없음</td>
+    </tr>
+    <tr>
+      <td><strong>Scrub typhus</strong></td>
+      <td>O. tsutsugamushi</td>
+      <td>털진드기(chigger)</td>
+      <td><strong>아시아-태평양 삼각지</strong></td>
+      <td>고열·발진·림프절·<strong>eschar 50–80%</strong></td>
+      <td><strong>있음 ✓</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Spotted fever (RMSF)</strong></td>
+      <td>R. rickettsii</td>
+      <td>참진드기(tick)</td>
+      <td>미주(특히 북·중남미)</td>
+      <td>발열·두통·<strong>손발바닥 발진</strong>, 빠른 악화</td>
+      <td>드묾</td>
+    </tr>
+    <tr>
+      <td><strong>African tick bite fever</strong></td>
+      <td>R. africae</td>
+      <td>참진드기</td>
+      <td>사하라 이남 아프리카</td>
+      <td>경증, 다발성 eschar, 림프절</td>
+      <td><strong>있음 (다발) ✓</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Q fever</strong></td>
+      <td>Coxiella burnetii</td>
+      <td>흡입(에어로졸), 진드기</td>
+      <td>전 세계</td>
+      <td>폐렴·간염, 만성=심내막염</td>
+      <td>없음</td>
+    </tr>
+  </table>
+
+  <div class="eschar-box">
+    <strong>🎯 Eschar (가피) = 시험 핵심 단서:</strong> 털진드기/진드기 교상 부위 → 괴사성 가피 형성. Scrub typhus(50–80%)와 African tick bite fever(다발성)에서 특징적. 겨드랑이·서혜부·귀 뒤 등 은닉 부위 검색 필수. Eschar 발견 = 즉시 Doxycycline 시작.
+  </div>
+
+  <div class="g2">
+    <div class="box">
+      <div class="box-title">병태생리 — 혈관내피 침범</div>
+      <ul>
+        <li>리케차 = 절대세포내 기생 → <strong>혈관내피세포 침범</strong></li>
+        <li>혈관염 → 모세혈관 누출 → 발진·부종·저혈압</li>
+        <li>심한 경우: 폐부종·뇌부종·급성 신부전·DIC</li>
+        <li><strong>Epidemic typhus:</strong> 인이(body louse) 배설물 → 피부찰과상 통해 감염</li>
+        <li><strong>Scrub typhus:</strong> Orientia (구 Rickettsia)로 분류 변경 — 유전적 다양성 높음</li>
+        <li><strong>Q fever 만성화:</strong> 심내막염(인공판막·심장병 기저) — 1–2년 치료 필요</li>
+      </ul>
+    </div>
+    <div class="box">
+      <div class="box-title">진단 — 현장 접근 전략</div>
+      <ul>
+        <li><strong>임상 진단 + 역학 = 치료 시작 기준</strong> (검사 결과 기다리지 않음)</li>
+        <li>Weil-Felix test: 저렴하나 민감도·특이도 낮음 — LMIC 선별에만 사용</li>
+        <li>IFA (간접형광항체): 표준 혈청검사 — 급성기·회복기 쌍혈청</li>
+        <li>PCR (혈액·eschar 조직): 가장 신속·정확, 항생제 전 시행</li>
+        <li>Eschar 생검: PCR + 조직학 — Scrub typhus 확진에 유용</li>
+        <li>혈액검사: 혈소판감소·간수치 상승·저나트륨혈증 → 리케차 시사</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- TREATMENT -->
+  <div class="section-title">치료 — Doxycycline이 모든 리케차의 답</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">모든 리케차 1차</div>
+      <div class="step-content">Doxycycline<br>100mg PO/IV bid<br>× 7일 (발열 소실 후 3일 이상)</div>
+    </div>
+    <div class="step">
+      <div class="step-num">RMSF (중증)</div>
+      <div class="step-content">Doxy IV 즉시<br>지연 시 CFR 급증<br><span style="font-size:10.5px;font-weight:400">소아도 Doxy 우선 (뼈 착색보다 생명)</span></div>
+    </div>
+    <div class="step">
+      <div class="step-num">Q fever 급성</div>
+      <div class="step-content">Doxy 100mg bid × 2–3주<br>(폐렴·간염)</div>
+    </div>
+    <div class="step">
+      <div class="step-num">Q fever 만성 (심내막염)</div>
+      <div class="step-content">Doxy + Hydroxychloroquine<br>× 18개월 이상<br><span style="font-size:10.5px;font-weight:400">인공판막 환자 → 수술 병행 고려</span></div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <strong>Epidemic Typhus — 인도주의 위기 맥락:</strong> 체이(body louse) 만연 환경 = 과밀 난민캠프·전쟁·기근 상황. Brill–Zinsser disease: 과거 감염 후 수십 년 뒤 재활성화(스트레스·면역저하). 대유행 예방 = DDT·퍼메트린 살충제 + 의류 소독. 르완다 대학살 난민캠프에서 집단발생(1997) 교훈.
+  </div>
+
+  <!-- TRAP -->
+  <div class="trap-h">⚠ 시험 함정 4</div>
+  <div class="trap-grid">
+    <div class="trap">
+      <div class="trap-icon">🔴</div>
+      <div class="trap-q">RMSF 발진 — 손발바닥 포함 여부가 왜 중요?</div>
+      <div class="trap-a">RMSF는 <strong>손발바닥에 발진이 생기는 드문 질환</strong>. 초기에는 체간 시작 후 원심성으로 퍼짐 → 손발바닥 도달. 점상출혈·자반으로 진행 시 중증 신호. 뇌막구균혈증과 감별 필요.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-icon">🌿</div>
+      <div class="trap-q">Scrub typhus — 아시아 여행자 발열 감별?</div>
+      <div class="trap-a">아시아·태평양 여행 후 발열+eschar → <strong>Scrub typhus 1순위</strong>. Eschar 없어도 배제 불가(50%는 없음). 말라리아 음성 + 혈소판감소 + eschar 흔적 → Doxy 경험적 치료 시작.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-icon">👶</div>
+      <div class="trap-q">소아 RMSF에서 Doxycycline 사용 가능한가?</div>
+      <div class="trap-a"><strong>Yes, 8세 미만도 사용 가능.</strong> RMSF는 치료 지연 시 CFR 20–25% → 뼈 착색 위험보다 생명이 우선. CDC·WHO 모두 소아 리케차에서 Doxy 권고. Chloramphenicol은 회색아증후군 위험으로 비선호.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-icon">❤️</div>
+      <div class="trap-q">Q fever 완치 후 추적이 필요한가?</div>
+      <div class="trap-a"><strong>Yes.</strong> 급성 Q fever 환자 중 심장판막 이상·임신부·면역저하 → 만성화(심내막염) 고위험. 항체 역가 추적 (Phase I IgG &gt;1:800 = 만성 기준). 고위험군 예방 연장 치료 검토.</div>
+    </div>
+  </div>
+
+  <div class="pill-title">🌐 Global Health 관점</div>
+  <div class="pills">
+    <span class="pill">Epidemic typhus = 인도주의 위기 지표 감염병</span>
+    <span class="pill">Scrub typhus = 아시아-태평양 여행 발열 1위 원인 중 하나</span>
+    <span class="pill">Doxycycline = 모든 리케차의 단일 해답</span>
+    <span class="pill">Eschar 발견 → 즉각 치료 (검사 전 시작)</span>
+    <span class="pill">Q fever 심내막염 = 18개월↑ 치료</span>
+    <span class="pill">Weil-Felix = LMIC 선별 only (진단적 가치 낮음)</span>
+  </div>
+
+  <div class="footer">
+    <div class="footer-note">CID-31 · Rickettsial · Oxford Trop Med 5e · Lancet Infect Dis Rickettsia Review 2017</div>
+    <div style="display:flex;gap:6px">
+      <span class="nav-btn">← CID-30 Brucellosis</span>
+      <span class="nav-btn">CID-32 Rheumatic Fever →</span>
+    </div>
+  </div>
+
+</div>
+</div>
+</body>
+</html>

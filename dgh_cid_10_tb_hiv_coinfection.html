@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH CID-10 | TB/HIV Coinfection</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&family=Roboto+Mono:wght@400;600&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Noto Sans KR',sans-serif;background:#fdf4f4;color:#2c1010;font-size:12.5px;line-height:1.55;}
+  .page{max-width:900px;margin:0 auto;padding:18px;}
+  .header{background:#791F1F;color:#fff;border-radius:10px 10px 0 0;padding:14px 20px 12px;display:flex;align-items:center;justify-content:space-between;}
+  .header-left .tag{font-family:'Roboto Mono',monospace;font-size:10px;background:rgba(255,255,255,0.18);padding:2px 8px;border-radius:20px;letter-spacing:1px;margin-bottom:5px;display:inline-block;}
+  .header-left h1{font-size:20px;font-weight:700;letter-spacing:-0.5px;}
+  .header-left h1 span{color:#f5a0a0;}
+  .header-right{text-align:right;font-size:10.5px;opacity:0.85;line-height:1.6;}
+  .stats-bar{background:#791F1F;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,0.15);}
+  .stat{padding:9px 12px;text-align:center;border-right:1px solid rgba(255,255,255,0.15);color:#fff;}
+  .stat:last-child{border-right:none;}
+  .stat-val{font-family:'Roboto Mono',monospace;font-size:16px;font-weight:700;color:#ffcece;display:block;}
+  .stat-lbl{font-size:9.5px;opacity:0.8;margin-top:1px;}
+  .body{background:#fff;border:1px solid #e8c4c4;border-top:none;border-radius:0 0 10px 10px;padding:16px;}
+  .sec{font-size:11px;font-weight:700;color:#791F1F;letter-spacing:0.5px;text-transform:uppercase;border-left:3px solid #791F1F;padding-left:7px;margin:14px 0 8px;}
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;}
+  .card{background:#fdf4f4;border:1px solid #e8c4c4;border-radius:7px;padding:10px 12px;}
+  .card h4{font-size:11px;font-weight:700;color:#791F1F;margin-bottom:6px;}
+  .card ul{padding-left:14px;}
+  .card li{font-size:11.5px;margin-bottom:3px;}
+  .card li b{color:#791F1F;}
+  table{width:100%;border-collapse:collapse;font-size:11px;margin-bottom:10px;}
+  th{background:#791F1F;color:#fff;padding:6px 8px;text-align:left;font-weight:600;}
+  td{padding:5px 8px;border-bottom:1px solid #e8c4c4;vertical-align:top;}
+  tr:nth-child(even) td{background:#fdf4f4;}
+  td b{color:#791F1F;}
+  .steps{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap;}
+  .step{flex:1;min-width:130px;background:#f5dcdc;border:1px solid #e8c4c4;border-radius:7px;padding:8px 10px;}
+  .step-num{font-family:'Roboto Mono',monospace;font-size:9px;font-weight:700;color:#791F1F;background:rgba(121,31,31,0.12);display:inline-block;padding:1px 6px;border-radius:10px;margin-bottom:4px;}
+  .step h4{font-size:11px;font-weight:700;color:#791F1F;margin-bottom:3px;}
+  .step p{font-size:11px;color:#3a1515;}
+  .trap-h{background:#791F1F;color:#fff;font-size:11px;font-weight:700;padding:6px 12px;border-radius:6px 6px 0 0;letter-spacing:0.5px;}
+  .trap-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid #e8c4c4;border-radius:0 0 6px 6px;overflow:hidden;margin-bottom:10px;}
+  .trap{background:#fff;padding:9px 11px;border-right:1px solid #e8c4c4;border-bottom:1px solid #e8c4c4;}
+  .trap:nth-child(even){border-right:none;}
+  .trap:nth-last-child(-n+2){border-bottom:none;}
+  .trap-label{font-size:9.5px;font-weight:700;color:#791F1F;background:#f5dcdc;display:inline-block;padding:1px 7px;border-radius:10px;margin-bottom:4px;}
+  .trap p{font-size:11px;color:#2c1010;}
+  .trap em{color:#791F1F;font-style:normal;font-weight:700;}
+  .pills{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px;}
+  .pill{font-size:10.5px;background:#f5dcdc;border:1px solid #e8c4c4;color:#791F1F;padding:3px 10px;border-radius:20px;font-weight:600;}
+  .footer{margin-top:10px;padding-top:8px;border-top:1px solid #e8c4c4;display:flex;align-items:center;justify-content:space-between;font-size:10px;color:#7a4040;}
+  .footer-ref{font-style:italic;}
+  .footer-nav{display:flex;gap:6px;}
+  .btn{font-size:10px;background:#791F1F;color:#fff;border:none;padding:3px 11px;border-radius:12px;cursor:pointer;font-family:inherit;}
+  .highlight{background:#f5dcdc;border-left:3px solid #791F1F;padding:7px 10px;border-radius:0 5px 5px 0;margin-bottom:8px;font-size:11.5px;}
+  .highlight b{color:#791F1F;}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="header-left">
+      <div class="tag">CID-10 · TUBERCULOSIS</div>
+      <h1>TB / <span>HIV Coinfection</span></h1>
+    </div>
+    <div class="header-right">
+      DGH KBA Blueprint 40%<br>
+      Oxford HTM 5e · WHO TB+HIV Guidelines<br>
+      Sample Q1, Q9 직결
+    </div>
+  </div>
+  <div class="stats-bar">
+    <div class="stat"><span class="stat-val">167K</span><span class="stat-lbl">TB 연관 HIV 사망 (2022)</span></div>
+    <div class="stat"><span class="stat-val">8%</span><span class="stat-lbl">전체 TB 환자 중 HIV 양성률</span></div>
+    <div class="stat"><span class="stat-val">26배</span><span class="stat-lbl">HIV+ 시 TB 발생 위험 증가</span></div>
+    <div class="stat"><span class="stat-val">8주</span><span class="stat-lbl">TB 치료 후 ART 시작 원칙</span></div>
+  </div>
+  <div class="body">
+
+    <div class="sec">왜 TB/HIV는 치명적인가</div>
+    <div class="g2">
+      <div class="card">
+        <h4>면역 상호작용</h4>
+        <ul>
+          <li>HIV → CD4 감소 → TB 재활성화 · 일차감염 용이</li>
+          <li>TB → HIV 복제 가속(TNF-α, IL-6 증가)</li>
+          <li>CD4 &lt;200: disseminated/extrapulmonary TB ↑↑</li>
+          <li>AFB smear 음성률 높음 → 진단 지연 위험</li>
+          <li>Cavitation 적고, 하엽 침범, lymphadenopathy 흔함</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>임상 특징 (HIV+ TB)</h4>
+        <ul>
+          <li><b>Smear-negative pulmonary TB</b> 흔함 → Xpert 필수</li>
+          <li><b>Extrapulmonary TB:</b> lymph node, pleural, meningeal, peritoneal</li>
+          <li>Sample Q9: Extrapulmonary TB = Advanced HIV 지표 (정답 B)</li>
+          <li>Miliary pattern: CD4 &lt;100에서 빈발</li>
+          <li>Tuberculin test(TST) 위음성 흔함 (CD4 &lt;200)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sec">진단 알고리즘 (LMIC)</div>
+    <div class="highlight">
+      <b>WHO 권고 진단 순서:</b> ① Xpert MTB/RIF Ultra (1차) → ② LF-LAM (CD4≤200 또는 중증) → ③ Chest X-ray → ④ Culture/DST (RIF 내성 시)
+    </div>
+    <table>
+      <tr><th>검사</th><th>적응증</th><th>주의사항</th></tr>
+      <tr><td><b>Xpert Ultra</b></td><td>모든 HIV+ 호흡기 증상 환자</td><td>Trace 결과 → 임상 판단 필요</td></tr>
+      <tr><td><b>LF-LAM (lateral flow)</b></td><td>CD4 ≤200 or 중증, 입원 환자</td><td>소변 검사, 신속, 저비용 — LMIC 핵심</td></tr>
+      <tr><td><b>TST/IGRA</b></td><td>잠복결핵(LTBI) 스크리닝</td><td>CD4 &lt;200: TST 위음성. IGRA 선호</td></tr>
+      <tr><td><b>Chest X-ray</b></td><td>보조 진단</td><td>HIV+에서 비전형적 소견 흔함</td></tr>
+    </table>
+
+    <div class="sec">치료 순서 — ART 시작 타이밍 (핵심!)</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">Step 1</div>
+        <h4>TB 치료 즉시 시작</h4>
+        <p>HIV 상태 무관하게 TB 확진 즉시 표준요법(2HRZE/4HR) 시작</p>
+      </div>
+      <div class="step">
+        <div class="step-num">Step 2</div>
+        <h4>ART 시작 타이밍</h4>
+        <p><b>CD4 &lt;50:</b> TB 치료 후 <em>2주 이내</em> ART<br><b>CD4 ≥50:</b> TB 치료 후 <em>8주 이내</em> ART</p>
+      </div>
+      <div class="step">
+        <div class="step-num">Step 3</div>
+        <h4>IRIS 예측·관리</h4>
+        <p>Paradoxical IRIS: ART 시작 후 3개월 내 TB 악화. 중단 말고 스테로이드 고려</p>
+      </div>
+      <div class="step">
+        <div class="step-num">Step 4</div>
+        <h4>약물 상호작용</h4>
+        <p>Rifampicin → CYP3A4 유도 → PI, NNRTI 농도↓. <em>EFV 기반 ART 선호</em> (DTG도 RIF와 병용 시 용량 증가)</p>
+      </div>
+    </div>
+
+    <div class="sec">약물 상호작용 (Rifampicin vs ART)</div>
+    <table>
+      <tr><th>ART 계열</th><th>RIF와 병용</th><th>권고</th></tr>
+      <tr><td><b>EFV (NNRTI)</b></td><td>EFV 노출 25% 감소</td><td>600mg 유지 — 1차 선택</td></tr>
+      <tr><td><b>DTG (INSTI)</b></td><td>DTG 노출 75% 감소</td><td>DTG 50mg BID로 증량 필요</td></tr>
+      <tr><td><b>NVP (NNRTI)</b></td><td>NVP 노출 37–58% 감소</td><td>가급적 회피</td></tr>
+      <tr><td><b>PI/r (부스팅 PI)</b></td><td>AUC 75–90% 감소</td><td>TB 치료 중 사용 금기</td></tr>
+      <tr><td><b>3TC/FTC</b></td><td>상호작용 없음</td><td>backbone으로 안전</td></tr>
+    </table>
+
+    <div class="sec">예방 — IPT (Isoniazid Preventive Therapy)</div>
+    <div class="g2">
+      <div class="card">
+        <h4>WHO IPT 권고 (2020)</h4>
+        <ul>
+          <li>모든 HIV+ 환자: 활동성 TB 배제 후 <b>INH 6개월</b></li>
+          <li>고부담 국가: <b>INH 36개월</b> or 지속 투여</li>
+          <li>3HP (INH+RPT 주 1회 × 12주) = 6개월 INH 동등</li>
+          <li>ART 중이어도 IPT 병행 시 추가 효과</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>IPT 시작 전 배제 항목</h4>
+        <ul>
+          <li>기침 2주↑, 발열, 야간 발한, 체중 감소 → 활동성 TB 배제</li>
+          <li>WHO 4-symptom screen: 1개라도 → Xpert 먼저</li>
+          <li>간독성 위험군(음주, B형간염): ALT 확인</li>
+          <li>INH 내성 지역: 대안 검토(3HP 등)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TRAP -->
+    <div class="trap-h">⚠ 시험 함정 4 (TB/HIV)</div>
+    <div class="trap-grid">
+      <div class="trap">
+        <div class="trap-label">함정 1 — ART 타이밍 혼동</div>
+        <p>CD4 무관하게 "항상 8주 후" → 오답. <em>CD4 &lt;50은 2주 이내, CD4 ≥50은 8주 이내</em>. TB 수막염 예외: CD4 무관 8주 이후 (IRIS 위험↑).</p>
+      </div>
+      <div class="trap">
+        <div class="trap-label">함정 2 — IRIS vs 치료 실패</div>
+        <p>ART 시작 후 TB 증상 악화 = IRIS 가능성. <em>ART 중단 말고 스테로이드 투여</em>. "ART 실패로 보고 교체" 선지는 함정.</p>
+      </div>
+      <div class="trap">
+        <div class="trap-label">함정 3 — PI/r + Rifampicin</div>
+        <p>PI(부스팅) + RIF 병용은 PI 농도 75~90% 감소 → <em>TB 치료 중 PI 기반 regimen 사용 금기</em>. EFV or DTG(증량) 선택.</p>
+      </div>
+      <div class="trap">
+        <div class="trap-label">함정 4 — Sample Q1 해설</div>
+        <p>우간다 폐렴 환자 → 항생제 반응 불충분. 정답 C: <em>먼저 AAFB smear 검사</em>. E(HIV 검사 후 즉시 ART)는 오답: TB 진단 우선.</p>
+      </div>
+    </div>
+
+    <div class="sec">Global Health 관점</div>
+    <div class="pills">
+      <span class="pill">🌍 사하라 이남 아프리카: HIV+ TB 환자 비율 세계 최고</span>
+      <span class="pill">🧪 LF-LAM: LMIC 현장 진단 게임체인저 (소변, 저비용)</span>
+      <span class="pill">💊 3HP regimen: 단기 IPT로 순응도 향상</span>
+      <span class="pill">📊 WHO 2035 목표: TB 사망 95% 감소 (HIV 코인펙션 해결 없이 불가)</span>
+      <span class="pill">🏥 통합 HIV-TB 클리닉: One-stop shop 모델 권고</span>
+    </div>
+
+    <div class="footer">
+      <div class="footer-ref">Ref: WHO TB/HIV Guidelines 2022 | Oxford HTM 5e | Sample Q1, Q9</div>
+      <div class="footer-nav">
+        <button class="btn">← CID-09 MDR-TB</button>
+        <button class="btn">CID-11 TB Children →</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

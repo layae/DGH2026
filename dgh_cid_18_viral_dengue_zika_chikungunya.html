@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH CID 18 | Dengue, Zika & Chikungunya</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#fdf4f4;font-family:'Crimson Pro',serif;color:#2d1a1a;font-size:14px;line-height:1.5;}
+  .page{max-width:900px;margin:0 auto;padding:18px;}
+  .header{background:#791F1F;color:#fff;border-radius:10px 10px 0 0;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;}
+  .header-left .tag{font-family:'JetBrains Mono',monospace;font-size:10px;background:rgba(255,255,255,0.2);padding:2px 8px;border-radius:20px;letter-spacing:1px;}
+  .header-left h1{font-size:20px;font-weight:700;margin-top:4px;}
+  .header-left h1 span{font-size:12px;font-weight:400;opacity:0.8;margin-left:8px;}
+  .header-right{font-family:'JetBrains Mono',monospace;font-size:10px;text-align:right;opacity:0.8;}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);border:1.5px solid #e8c4c4;border-top:none;}
+  .stat{background:#f5dcdc;padding:10px 12px;text-align:center;border-right:1px solid #e8c4c4;}
+  .stat:last-child{border-right:none;}
+  .stat-val{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:700;color:#791F1F;}
+  .stat-lab{font-size:10px;color:#5a2a2a;margin-top:1px;}
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;}
+  .card{background:#fff;border:1.5px solid #e8c4c4;border-radius:8px;padding:12px;}
+  .card h3{font-size:12px;font-weight:700;color:#791F1F;text-transform:uppercase;letter-spacing:0.8px;border-bottom:1px solid #f5dcdc;padding-bottom:5px;margin-bottom:8px;}
+  .card li{font-size:12.5px;color:#3a1a1a;line-height:1.65;margin-bottom:2px;}
+  .card ul{padding-left:14px;}
+  .tbl-wrap{margin-top:10px;}
+  table{width:100%;border-collapse:collapse;font-size:11.5px;}
+  thead th{background:#791F1F;color:#fff;padding:7px 10px;text-align:left;font-weight:600;}
+  tbody tr:nth-child(odd){background:#fdf4f4;}
+  tbody tr:nth-child(even){background:#f5dcdc;}
+  tbody td{padding:5px 9px;border-bottom:1px solid #e8c4c4;vertical-align:top;}
+  td strong{color:#791F1F;}
+  .trap-h{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:#791F1F;letter-spacing:1px;margin:12px 0 6px;padding:4px 10px;background:#f5dcdc;border-left:4px solid #791F1F;border-radius:0 4px 4px 0;}
+  .trap-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .trap{background:#fff;border:1.5px solid #e8c4c4;border-radius:6px;padding:9px 11px 9px 28px;font-size:12px;position:relative;}
+  .trap::before{content:"⚠";position:absolute;left:9px;top:8px;font-size:13px;color:#791F1F;}
+  .pills{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;}
+  .pill{background:#791F1F;color:#fff;font-size:10px;padding:3px 10px;border-radius:20px;font-family:'JetBrains Mono',monospace;}
+  .pill.light{background:#f5dcdc;color:#791F1F;}
+  .footer{margin-top:10px;padding:8px 12px;background:#f5dcdc;border:1px solid #e8c4c4;border-radius:6px;font-size:11px;color:#5a2a2a;display:flex;justify-content:space-between;align-items:center;}
+  .btn{font-size:10px;padding:3px 10px;border-radius:20px;border:1.5px solid #791F1F;color:#791F1F;background:#fff;font-family:'JetBrains Mono',monospace;}
+  .warn{background:#791F1F;color:#fff;font-size:11px;padding:4px 10px;border-radius:4px;display:inline-block;margin-bottom:4px;font-family:'JetBrains Mono',monospace;}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="header-left">
+      <div class="tag">CID · 18/34 · Viral</div>
+      <h1>Dengue · Zika · Chikungunya <span>Aedes 매개 아보바이러스</span></h1>
+    </div>
+    <div class="header-right">DGH KBA · 창 B<br>Blueprint 40%</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-val">400M</div><div class="stat-lab">뎅기 연간 감염 추정</div></div>
+    <div class="stat"><div class="stat-val">Aedes</div><div class="stat-lab">세 질환 공통 매개체</div></div>
+    <div class="stat"><div class="stat-val">DENV 1~4</div><div class="stat-lab">뎅기 혈청형 4종</div></div>
+    <div class="stat"><div class="stat-val">Microcephaly</div><div class="stat-lab">Zika 선천성 합병증</div></div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <h3>뎅기열 — 임상 & 관리</h3>
+      <ul>
+        <li><strong>매개</strong>: Aedes aegypti (주간 흡혈), A. albopictus</li>
+        <li><strong>혈청형</strong>: DENV 1~4; 이형 재감염 시 중증 위험↑ (ADE)</li>
+        <li><strong>임상 3단계</strong>:</li>
+        <li>① 발열기(1~3일): 고열·두통·관절통·안와후통·조기 출혈</li>
+        <li>② 위험기(4~6일): 해열 후 혈장 누출 → 쇼크·출혈 위험 ← <em>가장 위험</em></li>
+        <li>③ 회복기(7일~): 서맥·발진 재출현·다뇨</li>
+        <li><strong>중증 징후 (경고 신호)</strong>: 복통·지속 구토·급속 출혈·간비대·혈소판&lt;100K·HCT↑</li>
+        <li><strong>치료</strong>: 지지요법. 수액(등장성). <span class="warn">NSAIDs·Aspirin 금기</span></li>
+        <li>NS1 Ag: 발열 1~5일; IgM Ab: 5일 이후</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Zika & Chikungunya 비교</h3>
+      <ul>
+        <li><strong>Zika</strong>:</li>
+        <li>80% 무증상; 경증 발열·발진·결막염·관절통</li>
+        <li><strong>선천성 Zika</strong>: 소두증·피질 기형·눈 이상·관절구축; 임산부 감염 시</li>
+        <li>Guillain-Barré 증후군 합병증</li>
+        <li>성적 전파 가능 (남성 정액 수개월 잔존)</li>
+        <li>진단: RT-PCR (급성기), IgM (뎅기 교차반응 주의)</li>
+        <li>치료: 지지요법만</li>
+        <li>—</li>
+        <li><strong>Chikungunya</strong>:</li>
+        <li>고열 + <em>심한 다발 관절통</em> (수주~수개월 지속)</li>
+        <li>관절통이 뎅기보다 훨씬 심하고 오래감</li>
+        <li>출혈·혈장누출 없음 (뎅기와 구별)</li>
+        <li>만성 관절염 이행 가능 (수년)</li>
+        <li>치료: NSAIDs (뎅기와 달리 사용 가능), 지지요법</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>특징</th><th>뎅기</th><th>Zika</th><th>Chikungunya</th></tr></thead>
+      <tbody>
+        <tr><td><strong>발열</strong></td><td>고열(39~40°C)</td><td>경도</td><td>고열(급격)</td></tr>
+        <tr><td><strong>관절통</strong></td><td>경도~중등</td><td>경도</td><td>극심 (진단적)</td></tr>
+        <tr><td><strong>발진</strong></td><td>회복기 재출현</td><td>소양감 있는 구진</td><td>반구진성</td></tr>
+        <tr><td><strong>출혈/쇼크</strong></td><td>중증 시 가능</td><td>없음</td><td>없음</td></tr>
+        <tr><td><strong>선천성</strong></td><td>드묾</td><td>소두증·신경기형</td><td>신생아 감염 가능</td></tr>
+        <tr><td><strong>성적 전파</strong></td><td>없음</td><td>가능(정액)</td><td>없음</td></tr>
+        <tr><td><strong>NSAIDs</strong></td><td>금기</td><td>지지요법만</td><td>사용 가능</td></tr>
+        <tr><td><strong>백신</strong></td><td>Dengvaxia (혈청형 양성자)</td><td>없음(개발중)</td><td>없음(개발중)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="trap-h">⚠ EXAM TRAPS × 4</div>
+  <div class="trap-grid">
+    <div class="trap"><strong>뎅기 위험기 = 해열 후</strong>. 열이 떨어지는 시점(4~6일)이 실제로 가장 위험한 혈장 누출기. "해열 = 호전"으로 오인하고 퇴원시키면 쇼크 발생. 이 시점에 HCT↑, 혈소판↓ 모니터링 필수.</div>
+    <div class="trap"><strong>뎅기에 NSAIDs·Aspirin 절대 금기</strong>. 혈소판 기능 저하 + 출혈 위험. Chikungunya에는 반대로 NSAIDs 사용 가능 — 두 질환 치료 원칙이 반대임을 시험에서 반드시 구별.</div>
+    <div class="trap"><strong>Dengvaxia 백신 함정</strong>: 혈청 음성자(미감염자)에게 접종 시 오히려 중증 뎅기 위험 증가. 반드시 이전 감염 확인 후 접종 권고. "모든 뎅기 유행지 거주자에게 접종" = 오답.</div>
+    <div class="trap"><strong>Zika IgM과 뎅기 교차반응</strong>: 같은 Flavivirus 계열 → IgM 교차반응으로 위양성 가능. RT-PCR이 확진 기준. 임산부 Zika 의심 시 PCR 필수; 혈청검사만으론 불충분.</div>
+  </div>
+
+  <div class="pills">
+    <span class="pill">뎅기 위험기 = 해열 후 4~6일</span>
+    <span class="pill">Chikungunya NSAIDs 가능</span>
+    <span class="pill light">뎅기 NSAIDs 금기</span>
+    <span class="pill light">Zika 소두증 = 임산부 위험</span>
+    <span class="pill">Dengvaxia = 혈청양성자만</span>
+    <span class="pill">Zika 성적전파 가능</span>
+  </div>
+
+  <div class="footer">
+    <span>📚 WHO Dengue Guidelines 2024 · Oxford TropMed 5e Ch.6 · PAHO Zika Guidance</span>
+    <div class="footer-nav">
+      <span class="btn">← 17 HIV Children</span>
+      <span class="btn">19 Ebola →</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

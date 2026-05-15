@@ -1,0 +1,318 @@
+<meta charset="UTF-8">
+
+<h2 class="sr-only">DGH KBA Level 3 토픽별 스터디 노트 로드맵 - 전체 71개 토픽 개요</h2>
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-sans); }
+  .section { margin-bottom: 1.5rem; }
+  .section-header {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 14px; border-radius: var(--border-radius-md);
+    margin-bottom: 8px;
+  }
+  .section-pct {
+    font-size: 11px; font-weight: 500; padding: 2px 8px;
+    border-radius: 999px; margin-left: auto; white-space: nowrap;
+  }
+  .section-title { font-size: 14px; font-weight: 500; }
+  .topics-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 6px; padding-left: 4px;
+  }
+  .topic-btn {
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 7px 10px;
+    font-size: 12.5px;
+    color: var(--color-text-primary);
+    text-align: left; cursor: pointer;
+    transition: all 0.15s;
+    line-height: 1.35;
+  }
+  .topic-btn:hover {
+    background: var(--color-background-secondary);
+    border-color: var(--color-border-secondary);
+  }
+  .top-meta {
+    display: flex; gap: 12px; margin-bottom: 1.5rem; flex-wrap: wrap;
+  }
+  .meta-card {
+    background: var(--color-background-secondary);
+    border-radius: var(--border-radius-md);
+    padding: 10px 16px; flex: 1; min-width: 120px;
+  }
+  .meta-label { font-size: 11px; color: var(--color-text-secondary); margin-bottom: 2px; }
+  .meta-val { font-size: 20px; font-weight: 500; }
+  .l2-label { font-size: 11px; color: var(--color-text-tertiary); margin-top: 1px; }
+
+  /* color themes per L1 */
+  .h-ncd  { background: #E6F1FB; color: #0C447C; }
+  .h-ncd .section-pct { background: #185FA5; color: #E6F1FB; }
+  .h-gph  { background: #EAF3DE; color: #27500A; }
+  .h-gph .section-pct { background: #3B6D11; color: #EAF3DE; }
+  .h-cid  { background: #FCEBEB; color: #791F1F; }
+  .h-cid .section-pct { background: #A32D2D; color: #FCEBEB; }
+  .h-hum  { background: #FAEEDA; color: #633806; }
+  .h-hum .section-pct { background: #854F0B; color: #FAEEDA; }
+  .h-wch  { background: #FBEAF0; color: #72243E; }
+  .h-wch .section-pct { background: #993556; color: #FBEAF0; }
+
+  .dot {
+    width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+  }
+  .d-ncd { background: #185FA5; }
+  .d-gph { background: #3B6D11; }
+  .d-cid { background: #A32D2D; }
+  .d-hum { background: #854F0B; }
+  .d-wch { background: #993556; }
+</style>
+
+<div style="padding: 1rem 0 0;">
+
+<div class="top-meta">
+  <div class="meta-card">
+    <div class="meta-label">총 Level 3 토픽 수</div>
+    <div class="meta-val">71</div>
+  </div>
+  <div class="meta-card">
+    <div class="meta-label">시험 문항</div>
+    <div class="meta-val">200문항</div>
+  </div>
+  <div class="meta-card">
+    <div class="meta-label">형식</div>
+    <div class="meta-val" style="font-size:14px; padding-top:4px;">Best-of-5 SBA</div>
+  </div>
+  <div class="meta-card">
+    <div class="meta-label">시험 시간</div>
+    <div class="meta-val" style="font-size:14px; padding-top:4px;">3h × 2 papers</div>
+  </div>
+</div>
+
+<!-- NCD & Mental Health -->
+<div class="section">
+  <div class="section-header h-ncd">
+    <div class="dot d-ncd"></div>
+    <span class="section-title">Non-communicable Disease &amp; Mental Health</span>
+    <span class="section-pct">10%</span>
+  </div>
+  <div class="topics-grid">
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Non-communicable disease > Asthma 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      Asthma<div class="l2-label">NCD</div>
+    </div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Non-communicable disease > Bites 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      Bites<div class="l2-label">NCD</div>
+    </div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Non-communicable disease > Cancer epidemiology 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      Cancer epidemiology<div class="l2-label">NCD</div>
+    </div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Non-communicable disease > Cardiovascular disease 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      Cardiovascular disease<div class="l2-label">NCD</div>
+    </div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Non-communicable disease > COPD 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      COPD<div class="l2-label">NCD</div>
+    </div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Non-communicable disease > Dermatology 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      Dermatology<div class="l2-label">NCD</div>
+    </div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Non-communicable disease > Diabetes 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      Diabetes<div class="l2-label">NCD</div>
+    </div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Global burden of non-communicable diseases 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      Global burden of NCDs<div class="l2-label">NCD</div>
+    </div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Non-communicable disease > Ophthalmology 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      Ophthalmology<div class="l2-label">NCD</div>
+    </div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Non-communicable disease > Palliative care 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      Palliative care<div class="l2-label">NCD</div>
+    </div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Non-communicable disease > Poisonings 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      Poisonings<div class="l2-label">NCD</div>
+    </div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Response to/management of NCDs 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      Response/management of NCDs<div class="l2-label">NCD</div>
+    </div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Non-communicable disease > Stings 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      Stings<div class="l2-label">NCD</div>
+    </div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Mental Health > Care of mental, neurological, and substance use conditions 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      Care of MNS conditions<div class="l2-label">Mental Health</div>
+    </div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Mental Health > Common mental health disorders (Depression, Psychoses, Epilepsy) 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      Common MH disorders<div class="l2-label">Mental Health</div>
+    </div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: mhGAP and its use in humanitarian intervention settings 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      mhGAP<div class="l2-label">Mental Health</div>
+    </div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Psychological first aid 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      Psychological first aid<div class="l2-label">Mental Health</div>
+    </div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Seizure presentations and epilepsy 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      Seizure &amp; epilepsy<div class="l2-label">Mental Health</div>
+    </div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Standards of mental health services and community psychosocial support 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      MH services standards<div class="l2-label">Mental Health</div>
+    </div>
+  </div>
+</div>
+
+<!-- Global Public Health -->
+<div class="section">
+  <div class="section-header h-gph">
+    <div class="dot d-gph"></div>
+    <span class="section-title">Global Public Health</span>
+    <span class="section-pct">20%</span>
+  </div>
+  <div class="topics-grid">
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Access to diagnostics and medicines 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      Access to diagnostics &amp; medicines<div class="l2-label">Global health actors &amp; policy</div>
+    </div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Differentiated service delivery 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      Differentiated service delivery<div class="l2-label">Global health actors &amp; policy</div>
+    </div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Global health actors 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      Global health actors<div class="l2-label">Global health actors &amp; policy</div>
+    </div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: International health regulations 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      International health regulations<div class="l2-label">Global health actors &amp; policy</div>
+    </div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: WHO essential medicines list 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      WHO essential medicines list<div class="l2-label">Global health actors &amp; policy</div>
+    </div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Public health > Epidemiology 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      Epidemiology<div class="l2-label">Public health</div>
+    </div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Immunisation programmes 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      Immunisation programmes<div class="l2-label">Public health</div>
+    </div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Public health > Outbreaks 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      Outbreaks<div class="l2-label">Public health</div>
+    </div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Public health statistics 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      Public health statistics<div class="l2-label">Public health</div>
+    </div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Water, sanitation and hygiene (WASH) 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      WASH<div class="l2-label">Public health</div>
+    </div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Animal health, human health and the environment (One Health) 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      One Health / animal-human-env<div class="l2-label">Planetary health</div>
+    </div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Anti-microbial resistance 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      Antimicrobial resistance<div class="l2-label">Planetary health</div>
+    </div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Planetary health > Climate change 스터디 노트 A4 한 장 분량으로 만들어줘')">
+      Climate change<div class="l2-label">Planetary health</div>
+    </div>
+  </div>
+</div>
+
+<!-- Clinical Infectious Diseases -->
+<div class="section">
+  <div class="section-header h-cid">
+    <div class="dot d-cid"></div>
+    <span class="section-title">Clinical Infectious Diseases</span>
+    <span class="section-pct">40%</span>
+  </div>
+  <div class="topics-grid">
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Bacterial infections > Brucellosis 스터디 노트 A4 한 장 분량으로 만들어줘')">Brucellosis<div class="l2-label">Bacterial</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Bacterial infections > Buruli ulcer 스터디 노트 A4 한 장 분량으로 만들어줘')">Buruli ulcer<div class="l2-label">Bacterial</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Bacterial infections > Cholera 스터디 노트 A4 한 장 분량으로 만들어줘')">Cholera<div class="l2-label">Bacterial</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Bacterial infections > Diphtheria 스터디 노트 A4 한 장 분량으로 만들어줘')">Diphtheria<div class="l2-label">Bacterial</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Bacterial infections > Leprosy 스터디 노트 A4 한 장 분량으로 만들어줘')">Leprosy<div class="l2-label">Bacterial</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Bacterial infections > Melioidosis 스터디 노트 A4 한 장 분량으로 만들어줘')">Melioidosis<div class="l2-label">Bacterial</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Bacterial infections > Meningitis 스터디 노트 A4 한 장 분량으로 만들어줘')">Meningitis<div class="l2-label">Bacterial</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Bacterial infections > Noma 스터디 노트 A4 한 장 분량으로 만들어줘')">Noma<div class="l2-label">Bacterial</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Bacterial infections > Rheumatic fever 스터디 노트 A4 한 장 분량으로 만들어줘')">Rheumatic fever<div class="l2-label">Bacterial</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Bacterial infections > Rickettsial diseases 스터디 노트 A4 한 장 분량으로 만들어줘')">Rickettsial<div class="l2-label">Bacterial</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Sexually transmitted infections in men 스터디 노트 A4 한 장 분량으로 만들어줘')">STI in men<div class="l2-label">Bacterial</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Bacterial infections > Syphilis 스터디 노트 A4 한 장 분량으로 만들어줘')">Syphilis<div class="l2-label">Bacterial</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Bacterial infections > Tetanus 스터디 노트 A4 한 장 분량으로 만들어줘')">Tetanus<div class="l2-label">Bacterial</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Tropical spirochaetes 스터디 노트 A4 한 장 분량으로 만들어줘')">Tropical spirochaetes<div class="l2-label">Bacterial</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Bacterial infections > Typhoid fever 스터디 노트 A4 한 장 분량으로 만들어줘')">Typhoid fever<div class="l2-label">Bacterial</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Tuberculosis > Diagnosis 스터디 노트 A4 한 장 분량으로 만들어줘')">TB - Diagnosis<div class="l2-label">TB</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: HIV/tuberculosis coinfection 스터디 노트 A4 한 장 분량으로 만들어줘')">HIV/TB coinfection<div class="l2-label">TB</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Tuberculosis > Management 스터디 노트 A4 한 장 분량으로 만들어줘')">TB - Management<div class="l2-label">TB</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Multidrug-resistant tuberculosis 스터디 노트 A4 한 장 분량으로 만들어줘')">MDR-TB<div class="l2-label">TB</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Tuberculosis epidemiology 스터디 노트 A4 한 장 분량으로 만들어줘')">TB epidemiology<div class="l2-label">TB</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Tuberculosis in children 스터디 노트 A4 한 장 분량으로 만들어줘')">TB in children<div class="l2-label">TB</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Viral infections > Dengue, Zika & Chikungunya 스터디 노트 A4 한 장 분량으로 만들어줘')">Dengue/Zika/Chikungunya<div class="l2-label">Viral</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Viral infections > Ebola 스터디 노트 A4 한 장 분량으로 만들어줘')">Ebola<div class="l2-label">Viral</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Viral infections > Polio 스터디 노트 A4 한 장 분량으로 만들어줘')">Polio<div class="l2-label">Viral</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Viral infections > Rabies 스터디 노트 A4 한 장 분량으로 만들어줘')">Rabies<div class="l2-label">Viral</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Viral haemorrhagic fevers 스터디 노트 A4 한 장 분량으로 만들어줘')">Viral haemorrhagic fevers<div class="l2-label">Viral</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Viral hepatitis 스터디 노트 A4 한 장 분량으로 만들어줘')">Viral hepatitis<div class="l2-label">Viral</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Viral infections > Yellow fever 스터디 노트 A4 한 장 분량으로 만들어줘')">Yellow fever<div class="l2-label">Viral</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: HIV > Advanced HIV 스터디 노트 A4 한 장 분량으로 만들어줘')">Advanced HIV<div class="l2-label">HIV</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: HIV > Clinical case management 스터디 노트 A4 한 장 분량으로 만들어줘')">HIV clinical case management<div class="l2-label">HIV</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: HIV epidemics and responses 스터디 노트 A4 한 장 분량으로 만들어줘')">HIV epidemics &amp; responses<div class="l2-label">HIV</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: HIV in children 스터디 노트 A4 한 장 분량으로 만들어줘')">HIV in children<div class="l2-label">HIV</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: HIV natural history and pathogenesis 스터디 노트 A4 한 장 분량으로 만들어줘')">HIV natural history &amp; pathogenesis<div class="l2-label">HIV</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: HIV treatment and prevention 스터디 노트 A4 한 장 분량으로 만들어줘')">HIV treatment &amp; prevention<div class="l2-label">HIV</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Parasitic infections > Blood and tissue helminths 스터디 노트 A4 한 장 분량으로 만들어줘')">Blood &amp; tissue helminths<div class="l2-label">Parasitic</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Parasitic infections > Cestodes 스터디 노트 A4 한 장 분량으로 만들어줘')">Cestodes<div class="l2-label">Parasitic</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Cutaneous leishmaniasis 스터디 노트 A4 한 장 분량으로 만들어줘')">Cutaneous leishmaniasis<div class="l2-label">Parasitic</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Entomology / ectoparasites 스터디 노트 A4 한 장 분량으로 만들어줘')">Entomology / ectoparasites<div class="l2-label">Parasitic</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Foodborne trematodes 스터디 노트 A4 한 장 분량으로 만들어줘')">Foodborne trematodes<div class="l2-label">Parasitic</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Nematodes and amoebae 스터디 노트 A4 한 장 분량으로 만들어줘')">Nematodes &amp; amoebae<div class="l2-label">Parasitic</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Protozoa (non-malarial) 스터디 노트 A4 한 장 분량으로 만들어줘')">Protozoa<div class="l2-label">Parasitic</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Schistosomiasis 스터디 노트 A4 한 장 분량으로 만들어줘')">Schistosomiasis<div class="l2-label">Parasitic</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Soil-transmitted helminths & Strongyloides 스터디 노트 A4 한 장 분량으로 만들어줘')">Soil-transmitted helminths &amp; Strongyloides<div class="l2-label">Parasitic</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Trypanosomiasis 스터디 노트 A4 한 장 분량으로 만들어줘')">Trypanosomiasis<div class="l2-label">Parasitic</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Visceral leishmaniasis 스터디 노트 A4 한 장 분량으로 만들어줘')">Visceral leishmaniasis<div class="l2-label">Parasitic</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Fungal infections > Superficial fungal infections 스터디 노트 A4 한 장 분량으로 만들어줘')">Superficial fungal infections<div class="l2-label">Fungal</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Fungal infections > Systemic fungal infections 스터디 노트 A4 한 장 분량으로 만들어줘')">Systemic fungal infections<div class="l2-label">Fungal</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Malaria > Chemoprevention 스터디 노트 A4 한 장 분량으로 만들어줘')">Malaria - Chemoprevention<div class="l2-label">Malaria</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Malaria > Diagnostics and treatment 스터디 노트 A4 한 장 분량으로 만들어줘')">Malaria - Diagnostics &amp; treatment<div class="l2-label">Malaria</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Malaria in pregnancy 스터디 노트 A4 한 장 분량으로 만들어줘')">Malaria in pregnancy<div class="l2-label">Malaria</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Malaria resistance 스터디 노트 A4 한 장 분량으로 만들어줘')">Malaria resistance<div class="l2-label">Malaria</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Malaria > Vaccination 스터디 노트 A4 한 장 분량으로 만들어줘')">Malaria vaccination<div class="l2-label">Malaria</div></div>
+  </div>
+</div>
+
+<!-- Humanitarian Medicine -->
+<div class="section">
+  <div class="section-header h-hum">
+    <div class="dot d-hum"></div>
+    <span class="section-title">Humanitarian Medicine</span>
+    <span class="section-pct">10%</span>
+  </div>
+  <div class="topics-grid">
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Complex humanitarian emergencies 스터디 노트 A4 한 장 분량으로 만들어줘')">Complex humanitarian emergencies<div class="l2-label">Healthcare services</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Delivering healthcare in humanitarian intervention settings 스터디 노트 A4 한 장 분량으로 만들어줘')">Delivering healthcare in humanitarian settings<div class="l2-label">Healthcare services</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Epidemiological principles in outbreak investigation and response 스터디 노트 A4 한 장 분량으로 만들어줘')">Epi principles in outbreak response<div class="l2-label">Healthcare services</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Stepwise approach to priority setting in humanitarian interventions 스터디 노트 A4 한 장 분량으로 만들어줘')">Stepwise priority setting<div class="l2-label">Healthcare services</div></div>
+  </div>
+</div>
+
+<!-- Women's & Child Health -->
+<div class="section">
+  <div class="section-header h-wch">
+    <div class="dot d-wch"></div>
+    <span class="section-title">Women's and Child Health</span>
+    <span class="section-pct">20%</span>
+  </div>
+  <div class="topics-grid">
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Women\'s health > Cervical cancer 스터디 노트 A4 한 장 분량으로 만들어줘')">Cervical cancer<div class="l2-label">Women's health</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Family planning 스터디 노트 A4 한 장 분량으로 만들어줘')">Family planning<div class="l2-label">Women's health</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Female genital schistosomiasis 스터디 노트 A4 한 장 분량으로 만들어줘')">Female genital schistosomiasis<div class="l2-label">Women's health</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Maternal mental health 스터디 노트 A4 한 장 분량으로 만들어줘')">Maternal mental health<div class="l2-label">Women's health</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Maternal mortality 스터디 노트 A4 한 장 분량으로 만들어줘')">Maternal mortality<div class="l2-label">Women's health</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Obstetric emergencies, complications and management (including VVF) 스터디 노트 A4 한 장 분량으로 만들어줘')">Obstetric emergencies &amp; VVF<div class="l2-label">Women's health</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Population and reproductive health 스터디 노트 A4 한 장 분량으로 만들어줘')">Population &amp; reproductive health<div class="l2-label">Women's health</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Prevention of mother to child transmission (PMTCT) 스터디 노트 A4 한 장 분량으로 만들어줘')">PMTCT<div class="l2-label">Women's health</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Women\'s health > Sexually transmitted infections 스터디 노트 A4 한 장 분량으로 만들어줘')">STI (women's health)<div class="l2-label">Women's health</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Child health > Diarrhoea 스터디 노트 A4 한 장 분량으로 만들어줘')">Diarrhoea<div class="l2-label">Child health</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Integrated management of childhood illness (IMCI) 스터디 노트 A4 한 장 분량으로 만들어줘')">IMCI<div class="l2-label">Child health</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Neonatal priorities 스터디 노트 A4 한 장 분량으로 만들어줘')">Neonatal priorities<div class="l2-label">Child health</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Child health > Nutrition 스터디 노트 A4 한 장 분량으로 만들어줘')">Nutrition<div class="l2-label">Child health</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Paediatric priorities 스터디 노트 A4 한 장 분량으로 만들어줘')">Paediatric priorities<div class="l2-label">Child health</div></div>
+    <div class="topic-btn" onclick="sendPrompt('DGH KBA: Child health > Vaccination 스터디 노트 A4 한 장 분량으로 만들어줘')">Vaccination (child)<div class="l2-label">Child health</div></div>
+  </div>
+</div>
+
+<p style="font-size: 12px; color: var(--color-text-tertiary); margin-top: 0.5rem; text-align: center;">
+  토픽 버튼을 클릭하면 해당 주제의 A4 스터디 노트가 바로 생성됩니다
+</p>
+</div>

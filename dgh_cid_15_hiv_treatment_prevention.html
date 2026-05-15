@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH CID 15 | HIV Treatment & Prevention</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#fdf4f4;font-family:'Crimson Pro',serif;color:#2d1a1a;font-size:14px;line-height:1.5;}
+  .page{max-width:900px;margin:0 auto;padding:18px;}
+  .header{background:#791F1F;color:#fff;border-radius:10px 10px 0 0;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;}
+  .header-left .tag{font-family:'JetBrains Mono',monospace;font-size:10px;background:rgba(255,255,255,0.2);padding:2px 8px;border-radius:20px;letter-spacing:1px;}
+  .header-left h1{font-size:20px;font-weight:700;margin-top:4px;}
+  .header-left h1 span{font-size:12px;font-weight:400;opacity:0.8;margin-left:8px;}
+  .header-right{font-family:'JetBrains Mono',monospace;font-size:10px;text-align:right;opacity:0.8;}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);border:1.5px solid #e8c4c4;border-top:none;}
+  .stat{background:#f5dcdc;padding:10px 12px;text-align:center;border-right:1px solid #e8c4c4;}
+  .stat:last-child{border-right:none;}
+  .stat-val{font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:700;color:#791F1F;}
+  .stat-lab{font-size:10px;color:#5a2a2a;margin-top:1px;}
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;}
+  .card{background:#fff;border:1.5px solid #e8c4c4;border-radius:8px;padding:12px;}
+  .card h3{font-size:12px;font-weight:700;color:#791F1F;text-transform:uppercase;letter-spacing:0.8px;border-bottom:1px solid #f5dcdc;padding-bottom:5px;margin-bottom:8px;}
+  .card li{font-size:12.5px;color:#3a1a1a;line-height:1.65;margin-bottom:2px;}
+  .card ul{padding-left:14px;}
+  .tbl-wrap{margin-top:10px;}
+  table{width:100%;border-collapse:collapse;font-size:11.5px;}
+  thead th{background:#791F1F;color:#fff;padding:7px 10px;text-align:left;font-weight:600;}
+  tbody tr:nth-child(odd){background:#fdf4f4;}
+  tbody tr:nth-child(even){background:#f5dcdc;}
+  tbody td{padding:5px 9px;border-bottom:1px solid #e8c4c4;vertical-align:top;}
+  td strong{color:#791F1F;}
+  .trap-h{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:#791F1F;letter-spacing:1px;margin:12px 0 6px;padding:4px 10px;background:#f5dcdc;border-left:4px solid #791F1F;border-radius:0 4px 4px 0;}
+  .trap-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .trap{background:#fff;border:1.5px solid #e8c4c4;border-radius:6px;padding:9px 11px 9px 28px;font-size:12px;position:relative;}
+  .trap::before{content:"⚠";position:absolute;left:9px;top:8px;font-size:13px;color:#791F1F;}
+  .pills{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;}
+  .pill{background:#791F1F;color:#fff;font-size:10px;padding:3px 10px;border-radius:20px;font-family:'JetBrains Mono',monospace;}
+  .pill.light{background:#f5dcdc;color:#791F1F;}
+  .footer{margin-top:10px;padding:8px 12px;background:#f5dcdc;border:1px solid #e8c4c4;border-radius:6px;font-size:11px;color:#5a2a2a;display:flex;justify-content:space-between;align-items:center;}
+  .btn{font-size:10px;padding:3px 10px;border-radius:20px;border:1.5px solid #791F1F;color:#791F1F;background:#fff;font-family:'JetBrains Mono',monospace;}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="header-left">
+      <div class="tag">CID · 15/34 · HIV</div>
+      <h1>Treatment & Prevention <span>ART 전략 · 예방</span></h1>
+    </div>
+    <div class="header-right">DGH KBA · 창 B<br>Blueprint 40%</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-val">TDF/3TC/DTG</div><div class="stat-lab">WHO 1차 권고 regimen</div></div>
+    <div class="stat"><div class="stat-val">즉시</div><div class="stat-lab">ART 시작 시점 (CD4 무관)</div></div>
+    <div class="stat"><div class="stat-val">72hr</div><div class="stat-lab">PEP 시작 최대 허용 시간</div></div>
+    <div class="stat"><div class="stat-val">&lt;1%</div><div class="stat-lab">MTCT (Option B+)</div></div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <h3>ART 약제 분류 & 기전</h3>
+      <ul>
+        <li><strong>NRTI</strong>: 역전사효소 경쟁적 억제 (TDF, 3TC, ABC, AZT, FTC)</li>
+        <li><strong>NNRTI</strong>: 역전사효소 비경쟁적 (EFV, NVP, RPV, DOR) — HIV-2에 자연내성</li>
+        <li><strong>PI</strong>: Protease 억제 (LPV/r, DRV/r, ATV/r) — 부스팅 필요</li>
+        <li><strong>INSTI</strong>: Integrase 억제 (DTG, BIC, RAL, EVG/c) — 현재 1차 선호</li>
+        <li><strong>CCR5 길항제</strong>: Maraviroc — tropism assay 후 사용</li>
+        <li><strong>Fusion inhibitor</strong>: Enfuvirtide (T-20) — 구제요법</li>
+        <li>표준 regimen = 2 NRTI backbone + 1 3rd agent (INSTI 선호)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>WHO 권고 Regimen (2021)</h3>
+      <ul>
+        <li><strong>성인 1차:</strong> TDF + 3TC + DTG (Dolutegravir 선호)</li>
+        <li>대안: TDF + 3TC + EFV (400mg) — 임산부 1분기 대안</li>
+        <li><strong>임산부:</strong> TDF + 3TC + DTG 전 임신기 가능 (신경관 결손 우려 해소됨, 2019)</li>
+        <li><strong>2차:</strong> 1차 실패 시 → AZT + 3TC + ATV/r or DRV/r</li>
+        <li><strong>3차 (구제):</strong> DTG + 2개 활성 약제; DRV/r 기반</li>
+        <li>모니터링: VL 6개월 → 12개월 → 이후 연간</li>
+        <li>치료 실패 정의: VL &gt;1000 copies/mL (반복 측정)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>예방 전략</th><th>대상</th><th>약제 / 방법</th><th>핵심 사항</th></tr></thead>
+      <tbody>
+        <tr><td><strong>PrEP (구강)</strong></td><td>HIV(-) 고위험군</td><td>TDF/FTC 매일</td><td>시작 전 HIV 확인 필수; 신기능 모니터링</td></tr>
+        <tr><td><strong>PrEP (장기주사)</strong></td><td>구강 복약 어려운 경우</td><td>CAB-LA 2개월마다</td><td>2021 WHO 권고; 복약순응도 문제 해결</td></tr>
+        <tr><td><strong>PEP</strong></td><td>노출 후 72시간 이내</td><td>TDF+3TC+DTG 28일</td><td>지연될수록 효과↓; 72hr 후 시작 불가</td></tr>
+        <tr><td><strong>PMTCT (Option B+)</strong></td><td>모든 HIV+ 임산부</td><td>TDF+3TC+DTG 평생</td><td>모유수유 중에도 ART 지속; MTCT &lt;1%</td></tr>
+        <tr><td><strong>VMMC</strong></td><td>HIV(-) 성인 남성</td><td>수술적 포피절제</td><td>이성 전파 60%↓; MSM 보호 효과 없음</td></tr>
+        <tr><td><strong>TasP</strong></td><td>HIV+ 전원</td><td>ART → VL suppression</td><td>U=U: VL 억제 시 성 전파 없음</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="trap-h">⚠ EXAM TRAPS × 4</div>
+  <div class="trap-grid">
+    <div class="trap"><strong>DTG와 임신</strong>: 2018년 신경관 결손 우려 → 2019년 대규모 연구로 위험 미미 확인 → WHO 2021 전 임신 기간 권고. "임신 초기 DTG 금기"는 구시대 정보.</div>
+    <div class="trap"><strong>치료 실패 vs 내성</strong>: VL &gt;1000 먼저 adherence 평가. LMIC에서 VL 모니터링 없이 임상·CD4만으로 판단하다 불필요한 regimen 교체 → 실제 adherence 문제를 내성으로 오해하는 함정.</div>
+    <div class="trap"><strong>PEP 적응증</strong>: 직업적 노출(의료진 침자상 등) + 성적 노출(강간 등) 모두 해당. 단, HIV 감염 위험이 있는 노출에 한함 (저위험 노출에는 불필요). 72시간 마감 엄수.</div>
+    <div class="trap"><strong>HIV-2 치료</strong>: NNRTI (EFV, NVP, RPV) 자연내성. TDF+3TC+DTG 또는 PI 기반 regimen 사용. HIV-2인지 확인 안 하고 EFV 투여하면 치료 실패.</div>
+  </div>
+
+  <div class="pills">
+    <span class="pill">TDF+3TC+DTG = WHO 표준</span>
+    <span class="pill">DTG 임신 전기간 OK (2019~)</span>
+    <span class="pill light">PEP: 72시간 절대 마감</span>
+    <span class="pill light">HIV-2: NNRTI 무효</span>
+    <span class="pill">CAB-LA: 2개월 주사 PrEP</span>
+    <span class="pill">VL 1000이상 = 치료실패</span>
+  </div>
+
+  <div class="footer">
+    <span>📚 WHO HIV Treatment Guidelines 2021 · WHO PrEP Implementation Tool 2022</span>
+    <div class="footer-nav">
+      <span class="btn">← 14 Clinical Mgmt</span>
+      <span class="btn">16 Advanced HIV →</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

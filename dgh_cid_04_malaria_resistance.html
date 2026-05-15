@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGH CID 04 · Malaria: Resistance</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap');
+  :root { --hdr:#791F1F; --hdr2:#9B2C2C; --bg:#fdf4f4; --border:#e8c4c4; --accent:#f5dcdc; --accent2:#fce8e8; --text:#2d1515; --muted:#7a4040; --white:#ffffff; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Noto Sans KR',sans-serif; background:var(--bg); color:var(--text); font-size:11.5px; line-height:1.55; padding:18px; max-width:900px; margin:0 auto; }
+  .header { background:linear-gradient(135deg,var(--hdr) 0%,var(--hdr2) 60%,#7B2020 100%); color:var(--white); border-radius:10px 10px 0 0; padding:14px 20px 12px; display:flex; justify-content:space-between; align-items:flex-start; }
+  .header-left .tag { font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:2px; opacity:0.75; text-transform:uppercase; margin-bottom:4px; }
+  .header-left h1 { font-family:'Crimson Pro',serif; font-size:22px; font-weight:700; }
+  .header-left .subtitle { font-size:10.5px; opacity:0.8; margin-top:2px; }
+  .header-right { text-align:right; font-family:'JetBrains Mono',monospace; font-size:9px; opacity:0.7; line-height:1.6; }
+  .stats-bar { background:var(--hdr); display:grid; grid-template-columns:repeat(4,1fr); border-left:3px solid var(--hdr2); border-right:3px solid var(--hdr2); }
+  .stat { padding:8px 12px; color:var(--white); border-right:1px solid rgba(255,255,255,0.15); text-align:center; }
+  .stat:last-child { border-right:none; }
+  .stat-val { font-family:'Crimson Pro',serif; font-size:19px; font-weight:700; display:block; line-height:1.1; }
+  .stat-lbl { font-size:9px; opacity:0.78; letter-spacing:0.5px; }
+  .body-wrap { border:1.5px solid var(--border); border-top:none; border-radius:0 0 10px 10px; padding:14px 16px 12px; background:var(--white); }
+  .sec-title { font-family:'Crimson Pro',serif; font-size:13px; font-weight:700; color:var(--hdr); border-bottom:1.5px solid var(--border); padding-bottom:3px; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.8px; }
+  .g2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px; }
+  .g3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:10px; }
+  .card { background:var(--bg); border:1px solid var(--border); border-radius:7px; padding:9px 11px; }
+  .card-title { font-size:10px; font-weight:700; color:var(--hdr); text-transform:uppercase; letter-spacing:0.6px; margin-bottom:5px; padding-bottom:3px; border-bottom:1px solid var(--border); }
+  .card ul { padding-left:13px; }
+  .card li { margin-bottom:2px; font-size:11px; }
+  .card li strong { color:var(--hdr); }
+  table { width:100%; border-collapse:collapse; margin-bottom:10px; font-size:10.5px; }
+  th { background:var(--hdr); color:var(--white); padding:5px 8px; text-align:left; font-size:10px; font-weight:600; }
+  td { padding:4px 8px; border-bottom:1px solid var(--border); vertical-align:top; }
+  tr:nth-child(even) td { background:var(--accent2); }
+  .badge { display:inline-block; padding:1px 6px; border-radius:10px; font-size:9px; font-weight:700; font-family:'JetBrains Mono',monospace; }
+  .badge-red { background:#fee2e2; color:#991b1b; }
+  .badge-green { background:#d1fae5; color:#065f46; }
+  .badge-yellow { background:#fef3c7; color:#92400e; }
+  .badge-blue { background:#dbeafe; color:#1e40af; }
+  .trap-h { background:linear-gradient(90deg,var(--hdr) 0%,var(--hdr2) 100%); color:var(--white); padding:5px 12px; border-radius:5px 5px 0 0; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-top:10px; }
+  .trap-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; border:1.5px solid var(--border); border-top:none; border-radius:0 0 7px 7px; overflow:hidden; margin-bottom:10px; }
+  .trap { padding:8px 11px; border-right:1px solid var(--border); border-bottom:1px solid var(--border); background:var(--white); position:relative; }
+  .trap:nth-child(even) { border-right:none; }
+  .trap:nth-child(3),.trap:nth-child(4) { border-bottom:none; }
+  .trap-num { font-family:'Crimson Pro',serif; font-size:22px; font-weight:700; color:var(--accent); position:absolute; top:4px; right:8px; }
+  .trap-q { font-size:10px; font-weight:700; color:var(--hdr); margin-bottom:3px; padding-right:20px; }
+  .trap-a { font-size:10.5px; }
+  .trap-a strong { color:var(--hdr); }
+  .pills { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:10px; }
+  .pill { background:var(--accent); border:1px solid var(--border); color:var(--hdr); border-radius:20px; padding:3px 10px; font-size:10px; font-weight:600; }
+  .pill-dark { background:var(--hdr); color:var(--white); border-color:var(--hdr); }
+  .highlight { background:#fff3cd; padding:1px 4px; border-radius:3px; font-weight:700; }
+  .red { color:#991b1b; font-weight:700; }
+  .footer { background:var(--accent); border:1px solid var(--border); border-radius:6px; padding:7px 12px; display:flex; justify-content:space-between; align-items:center; margin-top:8px; flex-wrap:wrap; gap:5px; }
+  .footer-note { font-size:10px; color:var(--muted); }
+  .footer-btns { display:flex; gap:6px; }
+  .footer-btn { background:var(--hdr); color:var(--white); border:none; border-radius:4px; padding:4px 10px; font-size:9.5px; font-weight:700; cursor:pointer; font-family:'JetBrains Mono',monospace; }
+
+  /* Resistance map */
+  .resistance-map { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:10px; }
+  .region-box { border:1.5px solid var(--border); border-radius:8px; overflow:hidden; }
+  .region-header { padding:5px 10px; font-size:10px; font-weight:700; color:var(--white); }
+  .region-body { padding:7px 10px; font-size:10.5px; background:var(--white); }
+  .region-body li { margin-bottom:2px; list-style:none; padding-left:0; }
+
+  /* Mechanism box */
+  .mech-flow { display:flex; align-items:stretch; gap:0; margin-bottom:10px; border-radius:7px; overflow:hidden; border:1.5px solid var(--border); }
+  .mech-step { flex:1; padding:8px 10px; background:var(--bg); border-right:1px solid var(--border); text-align:center; }
+  .mech-step:last-child { border-right:none; }
+  .mech-step .ms-title { font-size:9px; font-weight:700; color:var(--hdr); text-transform:uppercase; margin-bottom:3px; }
+  .mech-step .ms-content { font-size:10px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <div class="tag">DGH KBA · CID-04 · Clinical Infectious Diseases · Malaria</div>
+    <h1>Malaria Resistance</h1>
+    <div class="subtitle">Chloroquine · Artemisinin · ACT 내성 기전 · 지역별 분포 · 대응 전략</div>
+  </div>
+  <div class="header-right">RCP Diploma in Global Health<br>Blueprint 40% — CID<br>Oxford HTM 5e · WHO 2023</div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat"><span class="stat-val">GMS</span><span class="stat-lbl">Artemisinin 부분내성 발원지 (메콩)</span></div>
+  <div class="stat"><span class="stat-val">kelch13</span><span class="stat-lbl">내성 표지 유전자 (K13)</span></div>
+  <div class="stat"><span class="stat-val">pfhrp2</span><span class="stat-lbl">RDT 위음성 유발 유전자 결실</span></div>
+  <div class="stat"><span class="stat-val">TES</span><span class="stat-lbl">Therapeutic Efficacy Studies — 모니터링</span></div>
+</div>
+
+<div class="body-wrap">
+
+  <!-- CHLOROQUINE RESISTANCE -->
+  <div class="sec-title">🗺️ 약제 내성 지역 분포</div>
+  <div class="resistance-map">
+    <div class="region-box">
+      <div class="region-header" style="background:#991b1b;">Chloroquine 내성 (CQR)</div>
+      <div class="region-body">
+        <li>🌍 <strong>아프리카:</strong> 거의 전역 내성</li>
+        <li>🌏 <strong>동남아:</strong> 광범위 내성</li>
+        <li>🌎 <strong>남미:</strong> 아마존 지역</li>
+        <li>✅ <strong>감수성 유지:</strong> 중미 일부 (멕시코 북부, 카리브), 중동 일부</li>
+        <li>📌 pfcrt 유전자 (K76T 돌연변이)</li>
+      </div>
+    </div>
+    <div class="region-box">
+      <div class="region-header" style="background:#b45309;">Artemisinin 부분내성 (ART-R)</div>
+      <div class="region-body">
+        <li>🌏 <strong>GMS (메콩강 지역):</strong> 캄보디아, 태국, 라오스, 미얀마, 베트남</li>
+        <li>⚠️ <strong>최근:</strong> 동아프리카 (우간다, 르완다, 에리트레아)에서 독립 출현</li>
+        <li>📌 <strong>kelch13 (K13)</strong> 유전자 돌연변이</li>
+        <li>완전 내성 아님 — '지연 사멸' (Slow parasite clearance)</li>
+      </div>
+    </div>
+    <div class="region-box">
+      <div class="region-header" style="background:#1e40af;">ACT 파트너 약제 내성</div>
+      <div class="region-body">
+        <li>🌏 GMS: Lumefantrine, Mefloquine, Piperaquine 저항 보고</li>
+        <li><strong>Triple ACT:</strong> AL+아토바쿠온 조합 연구 중</li>
+        <li>파트너 약 단독 사용 → 내성 선택압 증가</li>
+        <li>⚠️ GMS에서 ACT failure율 일부 지역 50%+</li>
+        <li>아프리카 파트너 약 내성 아직 제한적</li>
+      </div>
+    </div>
+  </div>
+
+  <!-- MECHANISM -->
+  <div class="sec-title">⚙️ 내성 기전 핵심</div>
+  <div class="mech-flow">
+    <div class="mech-step">
+      <div class="ms-title">Chloroquine 기전</div>
+      <div class="ms-content">pfcrt 돌연변이 (K76T)<br>헤민 축적 방해 실패<br>→ 약제 배출 펌프 활성화</div>
+    </div>
+    <div class="mech-step">
+      <div class="ms-title">Artemisinin 기전</div>
+      <div class="ms-content">kelch13 (K13) 돌연변이<br>PI3K 경로 활성화<br>→ ring stage 생존 연장</div>
+    </div>
+    <div class="mech-step">
+      <div class="ms-title">SP 내성</div>
+      <div class="ms-content">dhfr/dhps 돌연변이<br>엽산 경로 방해 회피<br>→ quintuple mutant</div>
+    </div>
+    <div class="mech-step">
+      <div class="ms-title">pfhrp2 결실</div>
+      <div class="ms-content">HRP-2 항원 생산 없음<br>→ RDT 위음성<br>(아프리카·남미 확산)</div>
+    </div>
+  </div>
+
+  <!-- TREATMENT RESPONSE -->
+  <div class="sec-title">💊 내성 시 치료 대응 전략</div>
+  <table>
+    <tr>
+      <th>내성 유형</th>
+      <th>임상 영향</th>
+      <th>대응</th>
+    </tr>
+    <tr>
+      <td><strong>CQR (Falciparum)</strong></td>
+      <td>치료 실패, 재발</td>
+      <td>ACT로 전환 (거의 전 세계)</td>
+    </tr>
+    <tr>
+      <td><strong>CQR (Vivax)</strong></td>
+      <td>재발 시 Chloroquine 실패</td>
+      <td>ACT or DHA-PPQ; 동남아·파푸아뉴기니</td>
+    </tr>
+    <tr>
+      <td><strong>Artemisinin 부분내성</strong></td>
+      <td>Slow clearance (Day 3 기생충 잔류)</td>
+      <td>ACT 유지 (파트너 약 효과 의존)<br>→ Triple ACT 임상 시험 중</td>
+    </tr>
+    <tr>
+      <td><strong>ACT 완전 실패 (GMS)</strong></td>
+      <td>Day 3+ 기생충 잔류, 임상 악화</td>
+      <td>DHAP → DHA-PPQ 파트너 교체<br>또는 3제 병용 연구 중</td>
+    </tr>
+    <tr>
+      <td><strong>SP 내성</strong></td>
+      <td>IPTp 효과 감소 우려</td>
+      <td>비항말라리아 효과로 현재 유지<br>→ DP IPTp 시범 연구</td>
+    </tr>
+    <tr>
+      <td><strong>pfhrp2 결실</strong></td>
+      <td>RDT 위음성 → 치료 누락</td>
+      <td>Microscopy 병용 또는 pLDH RDT<br>WHO 권고: 임상 의심 시 치료</td>
+    </tr>
+  </table>
+
+  <!-- MONITORING -->
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">내성 모니터링 — TES</div>
+      <ul>
+        <li><strong>TES (Therapeutic Efficacy Study):</strong> WHO 표준</li>
+        <li>28일 추적 — Adequate Clinical and Parasitological Response (ACPR)</li>
+        <li>Day 3 기생충혈증 잔류 → Artemisinin 부분내성 지표</li>
+        <li>WHO: 치료 실패율 &gt;10% → 지침 변경 기준</li>
+        <li>PCR 교정: 재감염 vs 재발 구별 필수</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">내성 확산 방지 전략</div>
+      <ul>
+        <li><strong>ACT 단독 사용 금지</strong> — 파트너 약 병용 의무</li>
+        <li>Artemisinin monotherapy 퇴출 (WHO)</li>
+        <li>LLIN + IRS → 전파 차단으로 선택압 감소</li>
+        <li>신속 진단 → 과도한 항말라리아 처방 방지</li>
+        <li>국경 지역 감시 강화 (GMS 확산 차단)</li>
+        <li>신약 개발: KAF156, Cipargamin 등</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="trap-h">⚠️ 시험 함정 TRAP × 4</div>
+  <div class="trap-grid">
+    <div class="trap">
+      <div class="trap-num">01</div>
+      <div class="trap-q">Artemisinin 내성 = 완전 내성?</div>
+      <div class="trap-a"><strong>NO.</strong> "부분 내성 (partial resistance)" = 지연 사멸. Ring stage 생존, 하지만 파트너 약이 효과 있으면 ACT는 아직 작동. 완전 내성으로 가는 중간 단계.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-num">02</div>
+      <div class="trap-q">Artemisinin 내성은 아프리카에는 없다?</div>
+      <div class="trap-a"><strong>구식 지식.</strong> 2023년 기준 <strong>동아프리카 (우간다, 르완다, 에리트레아)</strong>에서 K13 돌연변이 독립 발생 확인. GMS만의 문제가 아님.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-num">03</div>
+      <div class="trap-q">RDT 음성 = 말라리아 없음 (내성과 무관)?</div>
+      <div class="trap-a"><strong>아님.</strong> <strong>pfhrp2/3 유전자 결실</strong>로 HRP-2 항원 없음 → RDT 위음성. 아프리카·남미 확산 중. 임상 의심 시 microscopy 확인 or 경험적 치료.</div>
+    </div>
+    <div class="trap">
+      <div class="trap-num">04</div>
+      <div class="trap-q">SP 내성 지역 → IPTp 중단?</div>
+      <div class="trap-a"><strong>NO.</strong> SP는 항말라리아 효과 외 <strong>비항말라리아 효과</strong> (항염증, 임신 결과 개선)가 있어 내성 지역에서도 WHO는 IPTp-SP <strong>계속 유지</strong> 권고 중.</div>
+    </div>
+  </div>
+
+  <div class="sec-title">🌍 Global Health 관점</div>
+  <div class="pills">
+    <span class="pill pill-dark">내성 = 글로벌 안보 위협</span>
+    <span class="pill">GMS → 아프리카 확산 차단이 핵심</span>
+    <span class="pill">WHO WWARN 글로벌 저항 감시망</span>
+    <span class="pill">Artemisinin 단독 사용 퇴출 캠페인</span>
+    <span class="pill">pfhrp2 결실 → WHO 긴급 경보 2020</span>
+    <span class="pill">AMR과 말라리아 내성 연계 정책</span>
+    <span class="pill">신약 파이프라인 — MMV 펀딩</span>
+  </div>
+
+  <div class="footer">
+    <div class="footer-note">📚 Oxford HTM 5e Ch.3 · WHO Malaria Resistance Reports 2023 · WWARN · RCP DGH KBA Blueprint</div>
+    <div class="footer-btns">
+      <button class="footer-btn" onclick="window.print()">🖨 PRINT</button>
+      <button class="footer-btn" style="background:var(--hdr2)">→ CID-05: Malaria Vaccination</button>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
